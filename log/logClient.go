@@ -18,7 +18,10 @@ func main() {
 	// 	fmt.Fprintf(os.Stderr, "Usage: %s host:port processID", os.Args[0])
 	// 	os.Exit(1)
 	// }
-	host := "10.250.5.56"
+	hostList, err := config.Port()
+	checkError(err)
+
+	host := hostList[0]
 
 	PortList, err := config.Port()
 	checkError(err)
