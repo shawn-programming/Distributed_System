@@ -66,15 +66,43 @@ func CreateMembership(IdNum string, IPAddress string, count int, locatime int) M
 }
 
 /*
+Mebership equalTo
+	RETURN: True if member's IdNum is less than toCompare's IdNum
+
+*/
+func (member Membership) equalTo(toCompare Membership) bool {
+	return member.ID.IdNum == toCompare.ID.IdNum
+}
+
+/*
+Mebership lessThan
+	RETURN: True if member's IdNum is less than toCompare's IdNum
+
+*/
+func (member Membership) lessThan(toCompare Membership) bool {
+	return member.ID.IdNum < toCompare.ID.IdNum
+}
+
+/*
+Mebership greaterThan
+	RETURN: True if member's IdNum is less than toCompare's IdNum
+
+*/
+func (member Membership) greaterThan(toCompare Membership) bool {
+	return member.ID.IdNum > toCompare.ID.IdNum
+}
+
+/*
 MsList.add(member)
 	RETURN: NONE
 
 add member to the MsList, and sort tthe MsList.List by its IdNum
 */
-func (members MsList) Add(member Membership) MsList {
+func (members MsList) Add(member Membership, local int) MsList {
+	member.localTime = local
 	members.list = append(members.list, member)
 	sort.SliceStable(members.list, func(i, j int) bool {
-		return members.list[i].ID.IdNum < members.list[j].ID.IdNum
+		return members.list[i].lessThan(members.list[j])
 	})
 	return members
 }
@@ -105,20 +133,63 @@ MsList.update(toCompare, currLocalTime, timeOut)
 	otherwise, check whether if failed by checking if currTime - localTime > timeOut
 	if failed, add that member's Id to the failList
 */
-
-func (members MsList) UpdateMsList(toCompare MsList, currTime int, timeOut int) []Id {
-	var failList []Id
-
+func (members MsList) UpdateMsList(toCompare MsList, currTime int) MsList {
 	inputList := toCompare.list
 	for i, member := range members.list {
+		if !(member.equalTo(inputList[i])) {
+			continue
+		}
 		if member.count < inputList[i].count {
-			member.count = inputList[i].count
-			member.localTime = currTime
-		} else if currTime-member.localTime > timeOut {
+			// member.count = inputList[i].count
+			// member.localTime = currTime
+			members.list[i].count = inputList[i].count
+			members.list[i].localTime = currTime
+		}
+	}
+	return members
+}
+
+func (members MsList) CheckFails(currTime int, timeOut int) []Id {
+	var failList []Id
+
+	for _, member := range members.list {
+		if currTime-member.localTime > timeOut {
 			failList = append(failList, member.ID)
-			fmt.Println("Failure dected: ")
+			fmt.Println("Failure decteced: ")
 			member.Print()
 		}
 	}
+
 	return failList
+}
+
+/*
+	func (msList MsList) CheckMember(toCompare MsList) MsList
+	RETURN: msList
+
+	compare msList with the input.
+	If the input misses any of member the msList has, remove it from the msList
+*/
+func (msList MsList) CheckMember(toCompare MsList) MsList {
+	toRemove := []Id{}
+	j := 0
+
+	for _, membership := range msList.list {
+		if j > len(toCompare.list) {
+			break
+		}
+		if membership.equalTo(toCompare.list[j]) {
+			j++
+		} else if membership.lessThan(toCompare.list[j]) {
+			toRemove = append(toRemove, membership.ID)
+		}
+	}
+
+	for _, ID := range toRemove {
+		msList.Remove(ID)
+		fmt.Print("Removed: ")
+		ID.Print()
+	}
+
+	return msList
 }
