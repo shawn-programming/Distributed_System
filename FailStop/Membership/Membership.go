@@ -11,8 +11,9 @@ type Id struct {
 }
 type Membership struct {
 	ID        Id
-	count     int
+	Count     int
 	localTime int
+	Failed    bool
 }
 
 type MsList struct {
@@ -37,8 +38,9 @@ member.print()
 */
 func (member Membership) Print() {
 	member.ID.Print()
-	fmt.Println("Count: ", member.count)
+	fmt.Println("Count: ", member.Count)
 	fmt.Println("localTime: ", member.localTime)
+	fmt.Println("Failed: ", member.Failed)
 }
 
 /*
@@ -60,7 +62,7 @@ Membership constructor
 */
 func CreateMembership(IdNum string, IPAddress string, count int, locatime int) Membership {
 	thisID := Id{IdNum, IPAddress}
-	thisMembership := Membership{thisID, count, locatime}
+	thisMembership := Membership{thisID, count, locatime, false}
 
 	return thisMembership
 }
@@ -116,7 +118,10 @@ MsList.remove(Id)
 func (members MsList) Remove(targetID Id) MsList {
 	for i, member := range members.list {
 		if member.ID == targetID {
+			fmt.Println("Removing Member: ")
+			member.ID.Print()
 			members.list = append(members.list[:i], members.list[i+1:]...)
+			return members
 		}
 	}
 	fmt.Println("Could not find the ID: ", targetID)
@@ -135,32 +140,46 @@ MsList.update(toCompare, currLocalTime, timeOut)
 */
 func (members MsList) UpdateMsList(toCompare MsList, currTime int) MsList {
 	inputList := toCompare.list
-	for i, member := range members.list {
-		if !(member.equalTo(inputList[i])) {
-			continue
-		}
-		if member.count < inputList[i].count {
-			// member.count = inputList[i].count
-			// member.localTime = currTime
-			members.list[i].count = inputList[i].count
-			members.list[i].localTime = currTime
+
+	for _, input := range inputList {
+		Found, idx := members.Find(input)
+		// if input member is not in current MsList, and it is not failed
+		// meaning this is a new member
+		if !Found {
+			if !input.Failed {
+				fmt.Println("In UpdateMsList Phase, Member is not found. This should never happen")
+			} else {
+				continue
+			}
+
+		} else if members.list[idx].Count < input.Count {
+			// if this member has a fresher counter, update it
+			members.list[idx].Count = input.Count
+			members.list[idx].localTime = currTime
 		}
 	}
 	return members
 }
 
-func (members MsList) CheckFails(currTime int, timeOut int) []Id {
-	var failList []Id
+func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id) {
+	var removeList []Id
 
-	for _, member := range members.list {
-		if currTime-member.localTime > timeOut {
-			failList = append(failList, member.ID)
-			fmt.Println("Failure decteced: ")
-			member.Print()
+	for i, member := range members.list {
+		if currTime-member.localTime > timeOut { // local time exceeds timeout_fail
+			if members.list[i].Failed == false {
+				fmt.Println("Failure detected: ")
+				members.list[i].Print()
+				members.list[i].Failed = true
+			}
+		}
+
+		if currTime-member.localTime > (timeOut * 2) { //local time exceeds time_cleanup
+			members.list[i].Failed = true
+			removeList = append(removeList, member.ID)
 		}
 	}
 
-	return failList
+	return members, removeList
 }
 
 /*
@@ -170,6 +189,7 @@ func (members MsList) CheckFails(currTime int, timeOut int) []Id {
 	compare msList with the input.
 	If the input misses any of member the msList has, remove it from the msList
 */
+/*
 func (msList MsList) CheckMember(toCompare MsList) MsList {
 	toRemove := []Id{}
 	j := 0
@@ -192,4 +212,29 @@ func (msList MsList) CheckMember(toCompare MsList) MsList {
 	}
 
 	return msList
+}
+*/
+
+func (msList MsList) CheckMembers(toCompare MsList, currTime int, timeout int) MsList {
+	for _, inputMember := range toCompare.list {
+		exist, _ := msList.Find(inputMember)
+		if !exist { // member 가 input 에 없으면
+			if !inputMember.Failed { // fail 이 아닐경우
+				msList = msList.Add(inputMember, currTime)
+			}
+		}
+	}
+
+	return msList
+}
+
+func (msList MsList) Find(member Membership) (bool, int) {
+
+	for i, m := range msList.list {
+		if member.equalTo(m) {
+			return true, i
+		}
+	}
+	return false, -1
+
 }

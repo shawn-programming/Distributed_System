@@ -4,20 +4,26 @@ import (
 	"fmt"
 	"time"
 
-	"../membership"
+	membership "../Membership"
+	nodeTest "../UnitTest/nodeTest"
 )
 
 var start = time.Now().Second()
 
 func main() {
 
-	var membershipList membership.MsList
+	// var membershipList membership.MsList
 
 	//membershipList = addTest(membershipList)
 
 	//membershipList = removeTest(membershipList)
 
-	membershipList = updateTest(membershipList)
+	//UpdateMsListTest()
+
+	//checkfailsTest()
+	// checkmembersTest()
+
+	nodeTest.IncrementLocalTimeTest()
 
 }
 
@@ -68,55 +74,133 @@ func removeTest(inputList membership.MsList) membership.MsList {
 	return inputList
 }
 
-func updateTest(inputList membership.MsList) membership.MsList {
+func UpdateMsListTest() {
 	fmt.Println("------------------------update test---------------------------------------")
 
 	var compareList membership.MsList
 
 	member1 := makeMember(start, "1", "127.0.0.1:1234", 0)
-	member2 := makeMember(start, "2", "127.0.0.1:1235", 0)
+	member2 := makeMember(start, "2", "127.0.0.1:1235", 1)
 	member3 := makeMember(start, "3", "127.0.0.1:1236", 0)
 	member4 := makeMember(start, "4", "127.0.0.1:1237", 1)
 
-	elapsed := time.Now().Second() - start
-	time.Sleep(time.Second * 2)
-	compareList = compareList.Add(member1, elapsed)
-
-	elapsed = time.Now().Second() - start
-	time.Sleep(time.Second * 2)
-	compareList = compareList.Add(member2, elapsed)
-
-	elapsed = time.Now().Second() - start
-	time.Sleep(time.Second * 2)
-	compareList = compareList.Add(member3, elapsed)
-
-	elapsed = time.Now().Second() - start
-	time.Sleep(time.Second * 2)
-	compareList = compareList.Add(member4, elapsed)
+	compareList = compareList.Add(member1, 1)
+	compareList = compareList.Add(member2, 2)
+	compareList = compareList.Add(member3, 3)
+	compareList = compareList.Add(member4, 4)
 
 	fmt.Println("------compareList------")
 	compareList.Print()
 
+	var inputList membership.MsList
+
+	input2 := makeMember(start, "2", "127.0.0.1:1235", 1)
+	input3 := makeMember(start, "3", "127.0.0.1:1236", 1)
+	input4 := makeMember(start, "4", "127.0.0.1:1237", 5)
+	input5 := makeMember(start, "5", "127.0.0.1:1238", 1)
+	input6 := makeMember(start, "6", "127.0.0.1:1239", 1)
+	input6.Failed = true
+
+	inputList = inputList.Add(input2, 6)
+	inputList = inputList.Add(input3, 7)
+	inputList = inputList.Add(input4, 14)
+	inputList = inputList.Add(input5, 4)
+	inputList = inputList.Add(input6, 4)
+
 	fmt.Println("------inputList------")
-	inputList = addTest(inputList)
-
-	timeout := 10
-
-	elapsed = time.Now().Second() - start
-	fmt.Println("Current Time:", elapsed)
-
-	var fail []membership.Id
-	inputList = inputList.UpdateMsList(compareList, elapsed)
-
-	fail = inputList.CheckFails(elapsed, timeout)
+	inputList.Print()
 
 	fmt.Println("----------------------update output---------------------------------")
-	inputList.Print()
-	fmt.Println("----------------------failed processes---------------------------------")
-	for _, f := range fail {
-		f.Print()
+	compareList = compareList.UpdateMsList(inputList, 10)
+	compareList.Print()
+
+}
+
+func checkfailsTest() {
+	fmt.Println("----------running checkfails Test----------")
+	var testList membership.MsList
+
+	member1 := makeMember(start, "1", "127.0.0.1:1234", 0)
+	member2 := makeMember(start, "2", "127.0.0.1:1235", 0)
+	member3 := makeMember(start, "3", "127.0.0.1:1236", 0)
+	member4 := makeMember(start, "4", "127.0.0.1:1237", 0)
+
+	//time.Sleep(time.Second * 2) // 2
+	elapsed := 2
+	testList = testList.Add(member1, elapsed)
+
+	//time.Sleep(time.Second * 2) //4
+	elapsed = 4
+	testList = testList.Add(member2, elapsed)
+
+	//time.Sleep(time.Second * 2) // 6
+	elapsed = 6
+	testList = testList.Add(member3, elapsed)
+
+	//time.Sleep(time.Second * 2) //8
+	elapsed = 8
+	testList = testList.Add(member4, elapsed)
+
+	fmt.Println("----------TestList----------")
+	testList.Print()
+
+	currTime := 10
+	timeout := 3 // 1 remove 3 fail
+
+	testList, removeList := testList.CheckFails(currTime, timeout)
+
+	fmt.Println("----------leftList----------")
+	testList.Print()
+
+	fmt.Println("----------removed members----------")
+
+	for _, r := range removeList {
+		r.Print()
 	}
 
-	return inputList
+}
 
+func checkmembersTest() {
+
+	var testList membership.MsList
+	var compareList membership.MsList
+
+	member1 := makeMember(start, "1", "127.0.0.1:1234", 0)
+	member2 := makeMember(start, "2", "127.0.0.1:1235", 0)
+	member3 := makeMember(start, "3", "127.0.0.1:1236", 0)
+	member4 := makeMember(start, "4", "127.0.0.1:1237", 0)
+
+	//time.Sleep(time.Second * 2) // 2
+	elapsed := 2
+	testList = testList.Add(member1, elapsed)
+	compareList = compareList.Add(member1, elapsed)
+
+	//time.Sleep(time.Second * 2) //4
+	elapsed = 4
+	testList = testList.Add(member2, elapsed)
+	compareList = compareList.Add(member2, elapsed)
+
+	//time.Sleep(time.Second * 2) // 6
+	elapsed = 6
+	//testList = testList.Add(member3, elapsed)
+	compareList = compareList.Add(member3, elapsed)
+
+	//time.Sleep(time.Second * 2) //8
+	elapsed = 8
+	//testList = testList.Add(member4, elapsed)
+	member4.Failed = true
+	compareList = compareList.Add(member4, elapsed)
+
+	fmt.Println("----------testList----------")
+	testList.Print()
+
+	fmt.Println("----------compareList----------")
+	compareList.Print()
+
+	currTime := 10
+	timeout := 3
+	testList = testList.CheckMembers(compareList, currTime, timeout)
+
+	fmt.Println("----------result----------")
+	testList.Print()
 }

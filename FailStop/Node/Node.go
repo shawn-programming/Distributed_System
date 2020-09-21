@@ -31,7 +31,7 @@ Node Constructor
 	return a Node for a processor
 */
 func CreateNode(idNum, IPAddress string, localTime, timeOut int) Node {
-	membership := ms.CreateMembership(idNum, IPAddress, localTime, timeOut)
+	membership := ms.CreateMembership(idNum, IPAddress, 0, localTime)
 	var membershipList ms.MsList
 	membershipList = membershipList.Add(membership, localTime)
 
@@ -53,7 +53,7 @@ func (node Node) AddMember(member ms.Membership) Node {
 	return node
 }
 
-// /*
+/*
 // (node Node) AtaCheckMember(toCompare ms.MsList)
 // 	* ALL-TO-ALL Function
 // 	RETURN: Node
@@ -81,21 +81,19 @@ func (node Node) AddMember(member ms.Membership) Node {
 
 		c) remove failed nodes
 */
-func (node Node) IncrementLocalTime(inputList []ms.MsList) ([]ms.Id, Node) {
+func (node Node) IncrementLocalTime(inputList []ms.MsList) Node {
 	node.LocalTime = node.LocalTime + 1
 
-	var failList []ms.Id
-
 	for _, input := range inputList {
-		// node.msList = node.msList.CheckMember(input)
-
+		node.MsList = node.MsList.CheckMembers(input, node.LocalTime, node.TimeOut)
 		node.MsList = node.MsList.UpdateMsList(input, node.LocalTime)
 	}
-	failList = node.MsList.CheckFails(node.LocalTime, node.TimeOut)
+	var removeList []ms.Id
+	node.MsList, removeList = node.MsList.CheckFails(node.LocalTime, node.TimeOut)
 
-	for _, failed := range failList {
-		node.MsList = node.MsList.Remove(failed)
+	for _, removeit := range removeList {
+		node.MsList = node.MsList.Remove(removeit)
 	}
 
-	return failList, node
+	return node
 }
