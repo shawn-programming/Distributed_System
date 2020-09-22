@@ -15,7 +15,8 @@ import (
 
 type configParam struct {
 	IPAddress []string
-	Port      []string
+	Port      []int
+	TimeOut   int
 }
 
 // Opens the filename and attempts to deserialize it into a struct
@@ -45,7 +46,7 @@ func parseJSON(fileName string) (configParam, error) {
 
 // IPAddress gets list of all ip addresses from config.json
 func IPAddress() ([]string, error) {
-	configParams, err := parseJSON("config.json")
+	configParams, err := parseJSON("/Users/user/Go/Distributed_System/log/config.json")
 
 	if err != nil {
 		return make([]string, 0), err
@@ -56,17 +57,31 @@ func IPAddress() ([]string, error) {
 }
 
 // Port gets the port number list from config.json
-func Port() ([]string, error) {
-	configParams, err := parseJSON("config.json")
+func Port() ([]int, error) {
+	configParams, err := parseJSON("/Users/user/Go/Distributed_System/log/config.json")
 
 	if err != nil {
-		return make([]string, 0), err
+		return make([]int, 0), err
 	}
 
 	// var configParams configParam
 	// loadJSON("./config/config.json", &configParams)
 
 	return configParams.Port, nil
+}
+
+// TimeOut gets the timeout number from config.json
+func TimeOut() (int, error) {
+	configParams, err := parseJSON("config.json")
+
+	if err != nil {
+		return -1, err
+	}
+
+	// var configParams configParam
+	// loadJSON("./config/config.json", &configParams)
+
+	return configParams.TimeOut, nil
 }
 func loadJSON(fileName string, key interface{}) {
 	inFile, err := os.Open(fileName)

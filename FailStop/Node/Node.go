@@ -2,6 +2,7 @@ package node
 
 import (
 	"fmt"
+	"time"
 
 	ms "../Membership"
 )
@@ -84,6 +85,8 @@ func (node Node) AddMember(member ms.Membership) Node {
 func (node Node) IncrementLocalTime(inputList []ms.MsList) Node {
 	node.LocalTime = node.LocalTime + 1
 
+	time.Sleep(time.Second)
+
 	for _, input := range inputList {
 		node.MsList = node.MsList.CheckMembers(input, node.LocalTime, node.TimeOut)
 		node.MsList = node.MsList.UpdateMsList(input, node.LocalTime)
@@ -94,6 +97,8 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) Node {
 	for _, removeit := range removeList {
 		node.MsList = node.MsList.Remove(removeit)
 	}
+
+	node.Print()
 
 	return node
 }

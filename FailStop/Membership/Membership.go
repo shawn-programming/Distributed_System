@@ -17,7 +17,7 @@ type Membership struct {
 }
 
 type MsList struct {
-	list []Membership
+	List []Membership
 }
 
 /*
@@ -50,7 +50,7 @@ MsList.print()
 	print information in MsList
 */
 func (members MsList) Print() {
-	for _, member := range members.list {
+	for _, member := range members.List {
 		member.Print()
 		fmt.Println("")
 	}
@@ -68,11 +68,11 @@ func CreateMembership(IdNum string, IPAddress string, count int, locatime int) M
 }
 
 /*
-Mebership equalTo
+Mebership EqualTo
 	RETURN: True if member's IdNum is less than toCompare's IdNum
 
 */
-func (member Membership) equalTo(toCompare Membership) bool {
+func (member Membership) EqualTo(toCompare Membership) bool {
 	return member.ID.IdNum == toCompare.ID.IdNum
 }
 
@@ -102,9 +102,9 @@ add member to the MsList, and sort tthe MsList.List by its IdNum
 */
 func (members MsList) Add(member Membership, local int) MsList {
 	member.localTime = local
-	members.list = append(members.list, member)
-	sort.SliceStable(members.list, func(i, j int) bool {
-		return members.list[i].lessThan(members.list[j])
+	members.List = append(members.List, member)
+	sort.SliceStable(members.List, func(i, j int) bool {
+		return members.List[i].lessThan(members.List[j])
 	})
 	return members
 }
@@ -116,11 +116,11 @@ MsList.remove(Id)
 	find the meber with corresponding Id and remove it
 */
 func (members MsList) Remove(targetID Id) MsList {
-	for i, member := range members.list {
+	for i, member := range members.List {
 		if member.ID == targetID {
 			fmt.Println("Removing Member: ")
 			member.ID.Print()
-			members.list = append(members.list[:i], members.list[i+1:]...)
+			members.List = append(members.List[:i], members.List[i+1:]...)
 			return members
 		}
 	}
@@ -131,7 +131,7 @@ func (members MsList) Remove(targetID Id) MsList {
 
 /*
 MsList.update(toCompare, currLocalTime, timeOut)
-	RETURN: LIST OF FAILED MEMBER'S ID
+	RETURN: List OF FAILED MEMBER'S ID
 
 	compare MsList with toCompare,
 	for each member, if counter incrememnted, update it
@@ -139,7 +139,7 @@ MsList.update(toCompare, currLocalTime, timeOut)
 	if failed, add that member's Id to the failList
 */
 func (members MsList) UpdateMsList(toCompare MsList, currTime int) MsList {
-	inputList := toCompare.list
+	inputList := toCompare.List
 
 	for _, input := range inputList {
 		Found, idx := members.Find(input)
@@ -152,10 +152,10 @@ func (members MsList) UpdateMsList(toCompare MsList, currTime int) MsList {
 				continue
 			}
 
-		} else if members.list[idx].Count < input.Count {
+		} else if members.List[idx].Count < input.Count {
 			// if this member has a fresher counter, update it
-			members.list[idx].Count = input.Count
-			members.list[idx].localTime = currTime
+			members.List[idx].Count = input.Count
+			members.List[idx].localTime = currTime
 		}
 	}
 	return members
@@ -164,17 +164,17 @@ func (members MsList) UpdateMsList(toCompare MsList, currTime int) MsList {
 func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id) {
 	var removeList []Id
 
-	for i, member := range members.list {
+	for i, member := range members.List {
 		if currTime-member.localTime > timeOut { // local time exceeds timeout_fail
-			if members.list[i].Failed == false {
+			if members.List[i].Failed == false {
 				fmt.Println("Failure detected: ")
-				members.list[i].Print()
-				members.list[i].Failed = true
+				members.List[i].Print()
+				members.List[i].Failed = true
 			}
 		}
 
 		if currTime-member.localTime > (timeOut * 2) { //local time exceeds time_cleanup
-			members.list[i].Failed = true
+			members.List[i].Failed = true
 			removeList = append(removeList, member.ID)
 		}
 	}
@@ -194,13 +194,13 @@ func (msList MsList) CheckMember(toCompare MsList) MsList {
 	toRemove := []Id{}
 	j := 0
 
-	for _, membership := range msList.list {
-		if j > len(toCompare.list) {
+	for _, membership := range msList.List {
+		if j > len(toCompare.List) {
 			break
 		}
-		if membership.equalTo(toCompare.list[j]) {
+		if membership.EqualTo(toCompare.List[j]) {
 			j++
-		} else if membership.lessThan(toCompare.list[j]) {
+		} else if membership.lessThan(toCompare.List[j]) {
 			toRemove = append(toRemove, membership.ID)
 		}
 	}
@@ -216,7 +216,7 @@ func (msList MsList) CheckMember(toCompare MsList) MsList {
 */
 
 func (msList MsList) CheckMembers(toCompare MsList, currTime int, timeout int) MsList {
-	for _, inputMember := range toCompare.list {
+	for _, inputMember := range toCompare.List {
 		exist, _ := msList.Find(inputMember)
 		if !exist { // member 가 input 에 없으면
 			if !inputMember.Failed { // fail 이 아닐경우
@@ -230,8 +230,8 @@ func (msList MsList) CheckMembers(toCompare MsList, currTime int, timeout int) M
 
 func (msList MsList) Find(member Membership) (bool, int) {
 
-	for i, m := range msList.list {
-		if member.equalTo(m) {
+	for i, m := range msList.List {
+		if member.EqualTo(m) {
 			return true, i
 		}
 	}
