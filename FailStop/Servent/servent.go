@@ -121,7 +121,7 @@ func ping(conn *net.UDPConn, memberships ms.MsList, IsInitialization bool) ms.Ms
 // send membershipList to one processor
 func sendMessageToOne(node nd.Node, targetIP string, portNum int, IsInitialization bool) ms.MsList {
 	fmt.Println("------sendMessageToOne-----")
-	targetServicee := targetIP + ":" + string(targetIP)
+	targetServicee := targetIP + ":" + string(portNum)
 	udpAddr, err := net.ResolveUDPAddr("udp4", targetServicee)
 	checkError(err)
 
