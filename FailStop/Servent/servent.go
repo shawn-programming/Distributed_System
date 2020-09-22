@@ -11,7 +11,7 @@ import (
 
 	"../../log/config"
 	ms "../Membership"
-	nd "../node"
+	nd "../Node"
 )
 
 func main() {
