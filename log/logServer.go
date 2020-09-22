@@ -58,10 +58,6 @@ func main() {
 	}
 }
 
-func openServerAndLog() {
-
-}
-
 func handleClient(conn *net.UDPConn, msg string, logger *log.Logger) {
 
 	var buf [512]byte

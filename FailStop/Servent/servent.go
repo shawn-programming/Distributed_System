@@ -104,17 +104,23 @@ func ping(conn *net.UDPConn, memberships ms.MsList, IsInitialization bool) ms.Ms
 	fmt.Println("-----Ping-----")
 	encodedMessage := encodeJSON(message)
 
+	fmt.Println("encoding...")
 	n, err := conn.Write(encodedMessage)
+	fmt.Println("bytesread:", n)
 	checkError(err)
 
 	if !IsInitialization {
 		return ms.MsList{}
 	}
 
+	fmt.Println("reading response...")
 	var response []byte
 	var decodedResponse Packet
 	n, err = conn.Read(response)
+	fmt.Println("bytesread:", n)
+	fmt.Println("decoding...")
 	decodedResponse = decodeJSON(response[:n])
+	fmt.Println("decoding done")
 	return decodedResponse.Input
 }
 
