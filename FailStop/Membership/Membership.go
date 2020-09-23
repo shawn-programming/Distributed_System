@@ -138,8 +138,21 @@ MsList.update(toCompare, currLocalTime, timeOut)
 	otherwise, check whether if failed by checking if currTime - localTime > timeOut
 	if failed, add that member's Id to the failList
 */
-func (members MsList) UpdateMsList(toCompare MsList, currTime int) MsList {
+func (members MsList) UpdateMsList(toCompare MsList, currTime int, selfID Id) MsList {
+	// fmt.Println("------UpdateMsList-------")
 	inputList := toCompare.List
+
+	for i, member := range members.List {
+		// fmt.Println("---------------ID-----------------------")
+		// selfID.Print()
+		// member.ID.Print()
+		// fmt.Print("-----------------------------------------")
+		if member.ID.IdNum == selfID.IdNum {
+			// fmt.Println("Found")
+			members.List[i].Count++
+			members.List[i].localTime = currTime
+		}
+	}
 
 	for _, input := range inputList {
 		Found, idx := members.Find(input)

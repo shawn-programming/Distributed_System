@@ -86,10 +86,11 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) Node {
 	node.LocalTime = node.LocalTime + 1
 
 	time.Sleep(time.Second)
+	node.MsList = node.MsList.UpdateMsList(ms.MsList{}, node.LocalTime, node.Id)
 
 	for _, input := range inputList {
 		node.MsList = node.MsList.CheckMembers(input, node.LocalTime, node.TimeOut)
-		node.MsList = node.MsList.UpdateMsList(input, node.LocalTime)
+		node.MsList = node.MsList.UpdateMsList(input, node.LocalTime, node.Id)
 	}
 	var removeList []ms.Id
 	node.MsList, removeList = node.MsList.CheckFails(node.LocalTime, node.TimeOut)
@@ -98,7 +99,7 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) Node {
 		node.MsList = node.MsList.Remove(removeit)
 	}
 
-	node.Print()
+	// node.Print()
 
 	return node
 }
