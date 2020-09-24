@@ -41,7 +41,7 @@ func pingMsg(node nd.Node, msg string, portNum int) {
 		var buf [512]byte
 		n, err := conn.Read(buf[0:])
 		checkError(err)
-
+		fmt.Println(buf[:n])
 		receivedMsg := string(buf[0:n])
 		fmt.Println(receivedMsg)
 	}
@@ -260,10 +260,12 @@ func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer
 	if n == len(gossip) {
 		fmt.Println("changing to gossip")
 		*ATApointer = false
+		conn.WriteToUDP([]byte(node.Id.IPAddress+" turned into gossip"), addr)
 		return ms.MsList{}
 	} else if n == len(ata) {
 		fmt.Println("changing to ATA")
 		*ATApointer = true
+		conn.WriteToUDP([]byte(node.Id.IPAddress+" turned into ata"), addr)
 		return ms.MsList{}
 	}
 
