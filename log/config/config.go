@@ -47,11 +47,14 @@ func parseJSON(fileName string) (configParam, error) {
 
 // IPAddress gets list of all ip addresses from config.json
 func IPAddress() ([]string, error) {
-	configParams, err := parseJSON("/Users/user/Go/Distributed_System/log/config.json")
+	configParams, err := parseJSON("./config.json")
+
+	fmt.Println(len(configParams.IPAddress))
 
 	if err != nil {
 		return make([]string, 0), err
 	}
+
 	// var configParams configParam
 	// loadJSON("./config/config.json", &configParams)
 	return configParams.IPAddress, nil
@@ -59,7 +62,7 @@ func IPAddress() ([]string, error) {
 
 // Port gets the port number list from config.json
 func Port() ([]int, error) {
-	configParams, err := parseJSON("/Users/user/Go/Distributed_System/log/config.json")
+	configParams, err := parseJSON("./config.json")
 
 	if err != nil {
 		return make([]int, 0), err
@@ -73,7 +76,7 @@ func Port() ([]int, error) {
 
 // TimeOut gets the timeout number from config.json
 func TimeOut() (int, error) {
-	configParams, err := parseJSON("/Users/user/Go/Distributed_System/log/config.json")
+	configParams, err := parseJSON("./config.json")
 
 	if err != nil {
 		return -1, err
@@ -87,7 +90,7 @@ func TimeOut() (int, error) {
 
 // K gets the k number from config.json
 func K() (int, error) {
-	configParams, err := parseJSON("/Users/user/Go/Distributed_System/log/config.json")
+	configParams, err := parseJSON("$HOME/go/Distributed_System/log/config.json")
 
 	if err != nil {
 		return -1, err

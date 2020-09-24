@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	ms "../Membership"
+	ms "../../FailStop/Membership"
 )
 
 /*
