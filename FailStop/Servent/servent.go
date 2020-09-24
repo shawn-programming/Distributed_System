@@ -48,11 +48,11 @@ func main() {
 	vmNum, err := strconv.Atoi(os.Args[1])
 	vmNumStr := os.Args[1]
 	IntroducerIPList, _ := config.IPAddress() // get Introducer's IP from config.json
-	IntroducerIP := IntroducerIPList[0]
+	IntroducerIP := IntroducerIPList[1]
 	portList, _ := config.Port() // get port number from config.json
 	// portNum := portList[vmNum]
 	timeOut, _ := config.TimeOut() // get time out info from config.json
-	isIntroducer := vmNum == 0
+	isIntroducer := vmNum == 1
 	selfIP := IntroducerIPList[vmNum]
 
 	myPortNum := portList[0]
