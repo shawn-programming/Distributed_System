@@ -19,30 +19,39 @@ import (
 	nd "../Node"
 )
 
+func pingMsg(node nd.Node, msg string, portNum int) {
+	memList := node.MsList
+
+	for _, member := range memList.List {
+		if member.ID.IdNum == node.Id.IdNum {
+			continue
+		}
+		service := member.ID.IPAddress + ":" + strconv.Itoa(portNum)
+
+		udpAddr, err := net.ResolveUDPAddr("udp4", service)
+		checkError(err)
+
+		conn, err := net.DialUDP("udp", nil, udpAddr)
+		checkError(err)
+
+		_, err = conn.Write([]byte([]byte(msg)))
+		checkError(err)
+
+		var buf [512]byte
+		n, err := conn.Read(buf[0:])
+		checkError(err)
+
+		receivedMsg := string(buf[0:n])
+		fmt.Println(receivedMsg)
+	}
+}
+
 func main() {
 
 	if len(os.Args) != 2 {
 		fmt.Fprintf(os.Stderr, "Usage: %s need a VM number", os.Args[0])
 		os.Exit(1)
 	}
-	scanner := bufio.NewScanner(os.Stdin)
-	ATA := true
-	go func() {
-		for {
-			scanner.Scan()
-			command := scanner.Text()
-
-			if command == "gossip" {
-				fmt.Println("Changing to Gossip")
-				ATA = false
-			} else if command == "ata" {
-				fmt.Println("Changing to ATA")
-				ATA = true
-			} else {
-				fmt.Println("Invalid Command")
-			}
-		}
-	}()
 
 	K, _ := config.K()
 	vmNum, err := strconv.Atoi(os.Args[1])
@@ -58,6 +67,9 @@ func main() {
 	myPortNum := portList[0]
 	destPortNum := portList[0]
 
+	// myPortNum := portList[(vmNum+1)%2]
+	// destPortNum := portList[vmNum%2]
+
 	myService := selfIP + ":" + strconv.Itoa(myPortNum)
 	serverID := generateID() // default value for the introducer
 	processNode := nd.CreateNode(serverID, selfIP, 0, timeOut)
@@ -65,6 +77,28 @@ func main() {
 	fmt.Println("ServerID:", serverID)
 	fmt.Println("selfIP:", myService)
 	fmt.Println("TimoOut:", timeOut)
+
+	scanner := bufio.NewScanner(os.Stdin)
+	ATA := true
+	go func() {
+		for {
+			scanner.Scan()
+			command := scanner.Text()
+
+			if command == "gossip" {
+				fmt.Println("Changing to Gossip")
+				ATA = false
+				pingMsg(processNode, "gossip", destPortNum)
+			} else if command == "ata" {
+				fmt.Println("Changing to ATA")
+				ATA = true
+				pingMsg(processNode, "ata", destPortNum)
+			} else {
+				fmt.Println("Invalid Command")
+			}
+		}
+	}()
+
 	fmt.Println(" ================== open server and logging system ==================")
 
 	udpAddr, err := net.ResolveUDPAddr("udp4", myService)
@@ -97,7 +131,7 @@ func main() {
 	fmt.Println("-------starting listening----------")
 	go func(conn *net.UDPConn, isIntroducer bool, processNode nd.Node) {
 		for {
-			InputList = append(InputList, ListenOnPort(conn, isIntroducer, processNode))
+			InputList = append(InputList, ListenOnPort(conn, isIntroducer, processNode, &ATA))
 
 		}
 	}(conn, isIntroducer, processNode)
@@ -209,7 +243,7 @@ func sendMessageToOne(node nd.Node, targetIP string, portNum int, IsInitializati
 }
 
 // Listen to incoming messages (membershipList)
-func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node) ms.MsList {
+func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer *bool) ms.MsList {
 	fmt.Println("ListenOnPort")
 	var buf [5120]byte
 	fmt.Println("start reading")
@@ -219,6 +253,19 @@ func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node) ms.MsList 
 		fmt.Println("err != nil")
 		return ms.MsList{}
 	}
+
+	gossip := []byte("gossip")
+	ata := []byte("ata")
+	if n == len(gossip) {
+		fmt.Println("changing to gossip")
+		*ATApointer = false
+		return ms.MsList{}
+	} else if n == len(ata) {
+		fmt.Println("changing to ATA")
+		*ATApointer = true
+		return ms.MsList{}
+	}
+
 	fmt.Println("UDPmessage received")
 	var message Packet
 	fmt.Println("decoding....")
@@ -239,33 +286,9 @@ func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node) ms.MsList 
 		// fmt.Println("not ")
 		return message.Input
 	}
+
+	return ms.MsList{}
 }
-
-// // Listen to incoming messages (membershipList)
-// func temp(conn *net.UDPConn, isIntroducer bool, node nd.Node) ms.MsList {
-
-// 	var buf [1024]byte
-// 	n, _, err := conn.ReadFromUDP(buf)
-// 	if err != nil || n == 0 {
-// 		return ms.MsList{}
-// 	}
-// 	fmt.Println("UDPmessage received")
-// 	var message Packet
-// 	fmt.Println("decoding....")
-// 	message = decodeJSON(buf[:n])
-// 	fmt.Println("received message: ")
-// 	message.Input.Print()
-
-// 	if isIntroducer && message.IsInitialization { // server is introducer and message is an initialization message
-// 		currMsList := node.MsList
-// 		currMsList.Add(message.Input.List[0], node.LocalTime)
-// 		currMsList.Print()
-// 		return currMsList
-// 	} else { // server is introducer but message is not an initialization message
-// 		message.Input.Print()
-// 		return message.Input
-// 	}
-// }
 
 // ######################################
 // ### encode/decodeJSON ####
