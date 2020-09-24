@@ -204,33 +204,33 @@ func selectRandomProcess(k int, node nd.Node) []int {
 func ping(conn *net.UDPConn, memberships ms.MsList, IsInitialization bool) ms.MsList {
 	message := Packet{memberships, IsInitialization}
 	//var encodedMessage []byte
-	fmt.Println("-----Ping-----")
+	// fmt.Println("-----Ping-----")
 	encodedMessage := encodeJSON(message)
 
-	fmt.Println("encoding...")
+	// fmt.Println("encoding...")
 	n, err := conn.Write(encodedMessage)
-	fmt.Println("bytessent:", n)
+	// fmt.Println("bytessent:", n)
 	checkError(err)
 
 	if !IsInitialization {
 		return ms.MsList{}
 	}
 
-	fmt.Println("reading response...")
+	// fmt.Println("reading response...")
 	var response [5120]byte
 	var decodedResponse Packet
 	n, err = conn.Read(response[0:])
-	fmt.Println("bytesread:", n)
-	fmt.Println("decoding...")
+	// fmt.Println("bytesread:", n)
+	// fmt.Println("decoding...")
 	decodedResponse = decodeJSON(response[:n])
-	fmt.Println("decoding done")
-	decodedResponse.Input.Print()
+	// fmt.Println("decoding done")
+	//decodedResponse.Input.Print()
 	return decodedResponse.Input
 }
 
 // send membershipList to one processor
 func sendMessageToOne(node nd.Node, targetIP string, portNum int, IsInitialization bool) ms.MsList {
-	fmt.Println("------sendMessageToOne-----")
+	// fmt.Println("------sendMessageToOne-----")
 	targetServicee := targetIP + ":" + strconv.Itoa(portNum)
 	udpAddr, err := net.ResolveUDPAddr("udp4", targetServicee)
 	checkError(err)
@@ -244,11 +244,11 @@ func sendMessageToOne(node nd.Node, targetIP string, portNum int, IsInitializati
 
 // Listen to incoming messages (membershipList)
 func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer *bool) ms.MsList {
-	fmt.Println("ListenOnPort")
+	// fmt.Println("ListenOnPort")
 	var buf [5120]byte
-	fmt.Println("start reading")
+	// fmt.Println("start reading")
 	n, addr, err := conn.ReadFromUDP(buf[0:])
-	fmt.Println("done reading")
+	// fmt.Println("done reading")
 	if err != nil {
 		fmt.Println("err != nil")
 		return ms.MsList{}
@@ -266,18 +266,18 @@ func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer
 		return ms.MsList{}
 	}
 
-	fmt.Println("UDPmessage received")
+	// fmt.Println("UDPmessage received")
 	var message Packet
-	fmt.Println("decoding....")
+	// fmt.Println("decoding....")
 	message = decodeJSON(buf[:n])
-	fmt.Println("received message: ")
-	message.Input.Print()
+	// fmt.Println("received message: ")
+	// message.Input.Print()
 
 	if isIntroducer && message.IsInitialization { // server is introducer and message is an initialization message
 		currMsList := node.MsList
 		currMsList = currMsList.Add(message.Input.List[0], node.LocalTime)
-		fmt.Println("CurrMsList: ")
-		currMsList.Print()
+		// fmt.Println("CurrMsList: ")
+		// currMsList.Print()
 		encodedMsg := encodeJSON(Packet{currMsList, false})
 		conn.WriteToUDP([]byte(encodedMsg), addr)
 		return currMsList
@@ -286,8 +286,6 @@ func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer
 		// fmt.Println("not ")
 		return message.Input
 	}
-
-	return ms.MsList{}
 }
 
 // ######################################
