@@ -27,6 +27,7 @@ func pingMsg(node nd.Node, msg string, portNum int) {
 			continue
 		}
 		service := member.ID.IPAddress + ":" + strconv.Itoa(portNum)
+		fmt.Println(member.ID.IPAddress)
 
 		udpAddr, err := net.ResolveUDPAddr("udp4", service)
 		checkError(err)
