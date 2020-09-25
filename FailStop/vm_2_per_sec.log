@@ -1,0 +1,2205 @@
+Processor_22020/09/25 23:20:57 ServerID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Processor_22020/09/25 23:20:57 selfIP: localhost:1235
+Processor_22020/09/25 23:20:57 TimeOut: 5
+Processor_22020/09/25 23:20:57  ================== open server and logging system ==================
+Processor_22020/09/25 23:20:57 Connecting to Introducer...
+Processor_22020/09/25 23:20:57 Connected!
+Processor_22020/09/25 23:20:57 -------starting listening----------
+Processor_22020/09/25 23:20:57 ----------Start Sending----------
+Processor_22020/09/25 23:20:58 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 9
+localTime: 0
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:20:59 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 9
+localTime: 0
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:00 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 12
+localTime: 3
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 4
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:01 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 14
+localTime: 4
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 6
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:02 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 16
+localTime: 5
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 8
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:03 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 18
+localTime: 6
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 10
+localTime: 6
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:04 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 20
+localTime: 7
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 12
+localTime: 7
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:05 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 22
+localTime: 8
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 14
+localTime: 8
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:06 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 24
+localTime: 9
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 16
+localTime: 9
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:07 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 26
+localTime: 10
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 18
+localTime: 10
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:08 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 28
+localTime: 11
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 20
+localTime: 11
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:09 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 30
+localTime: 12
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 22
+localTime: 12
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:10 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 32
+localTime: 13
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 24
+localTime: 13
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:11 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 34
+localTime: 14
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 26
+localTime: 14
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:12 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 36
+localTime: 15
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 28
+localTime: 15
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:13 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 38
+localTime: 16
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 30
+localTime: 16
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:14 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 40
+localTime: 17
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 32
+localTime: 17
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:15 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 42
+localTime: 18
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 34
+localTime: 18
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:16 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 44
+localTime: 19
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 36
+localTime: 19
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:17 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 46
+localTime: 20
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 38
+localTime: 20
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:18 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 48
+localTime: 21
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 40
+localTime: 21
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:19 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 50
+localTime: 22
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 42
+localTime: 22
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:20 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 52
+localTime: 23
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 44
+localTime: 23
+Failed: False
+current status : gossip
+
+Processor_22020/09/25 23:21:21 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 54
+localTime: 24
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 47
+localTime: 24
+Failed: False
+current status : gossip
+
+Processor_22020/09/25 23:21:22 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 56
+localTime: 25
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 49
+localTime: 25
+Failed: False
+current status : gossip
+
+Processor_22020/09/25 23:21:23 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 58
+localTime: 26
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 51
+localTime: 26
+Failed: False
+current status : gossip
+
+Processor_22020/09/25 23:21:24 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 60
+localTime: 27
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 53
+localTime: 27
+Failed: False
+current status : gossip
+
+Processor_22020/09/25 23:21:25 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 62
+localTime: 28
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 55
+localTime: 28
+Failed: False
+current status : gossip
+
+Processor_22020/09/25 23:21:26 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 64
+localTime: 29
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 57
+localTime: 29
+Failed: False
+current status : gossip
+
+Processor_22020/09/25 23:21:27 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 66
+localTime: 30
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 59
+localTime: 30
+Failed: False
+current status : gossip
+
+Processor_22020/09/25 23:21:28 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 68
+localTime: 31
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 61
+localTime: 31
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:29 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 70
+localTime: 32
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 64
+localTime: 32
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:30 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 72
+localTime: 33
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 66
+localTime: 33
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:31 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 74
+localTime: 34
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 68
+localTime: 34
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:32 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 76
+localTime: 35
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 70
+localTime: 35
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:33 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 78
+localTime: 36
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 72
+localTime: 36
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:34 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 80
+localTime: 37
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 74
+localTime: 37
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:35 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 82
+localTime: 38
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 76
+localTime: 38
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:36 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 84
+localTime: 39
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 78
+localTime: 39
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:37 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 86
+localTime: 40
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 80
+localTime: 40
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:38 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 88
+localTime: 41
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 82
+localTime: 41
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:39 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 90
+localTime: 42
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 84
+localTime: 42
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:40 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 92
+localTime: 43
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 86
+localTime: 43
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:41 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 94
+localTime: 44
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 88
+localTime: 44
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:42 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 96
+localTime: 45
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 90
+localTime: 45
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:43 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 98
+localTime: 46
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 92
+localTime: 46
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:44 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 100
+localTime: 47
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 94
+localTime: 47
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:45 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 102
+localTime: 48
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 96
+localTime: 48
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:46 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 104
+localTime: 49
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 98
+localTime: 49
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:47 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 106
+localTime: 50
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 100
+localTime: 50
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:48 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 108
+localTime: 51
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 102
+localTime: 51
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:49 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 110
+localTime: 52
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 104
+localTime: 52
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:50 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 112
+localTime: 53
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 106
+localTime: 53
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:51 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 114
+localTime: 54
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 108
+localTime: 54
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:52 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 116
+localTime: 55
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 110
+localTime: 55
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:53 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 118
+localTime: 56
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 112
+localTime: 56
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:54 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 120
+localTime: 57
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 114
+localTime: 57
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:55 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 122
+localTime: 58
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 116
+localTime: 58
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:56 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 124
+localTime: 59
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 118
+localTime: 59
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:57 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 126
+localTime: 60
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 120
+localTime: 60
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:58 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 128
+localTime: 61
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 122
+localTime: 61
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:21:59 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 130
+localTime: 62
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 124
+localTime: 62
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:00 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 132
+localTime: 63
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 126
+localTime: 63
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:01 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 134
+localTime: 64
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 128
+localTime: 64
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:02 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 136
+localTime: 65
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 130
+localTime: 65
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:03 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 138
+localTime: 66
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 132
+localTime: 66
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:04 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 140
+localTime: 67
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 134
+localTime: 67
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:05 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 142
+localTime: 68
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 136
+localTime: 68
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:06 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 144
+localTime: 69
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 138
+localTime: 69
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:07 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 146
+localTime: 70
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 140
+localTime: 70
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:08 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 148
+localTime: 71
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 142
+localTime: 71
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:09 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 150
+localTime: 72
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 144
+localTime: 72
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:10 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 152
+localTime: 73
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 146
+localTime: 73
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:11 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 154
+localTime: 74
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 148
+localTime: 74
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:12 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 156
+localTime: 75
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 150
+localTime: 75
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:13 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 158
+localTime: 76
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 152
+localTime: 76
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:14 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 160
+localTime: 77
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 154
+localTime: 77
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:15 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 162
+localTime: 78
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 156
+localTime: 78
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:16 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 164
+localTime: 79
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 158
+localTime: 79
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:17 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 166
+localTime: 80
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 160
+localTime: 80
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:18 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 168
+localTime: 81
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 162
+localTime: 81
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:19 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 170
+localTime: 82
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 164
+localTime: 82
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:20 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 172
+localTime: 83
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 166
+localTime: 83
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:21 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 174
+localTime: 84
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 168
+localTime: 84
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:22 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 176
+localTime: 85
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 170
+localTime: 85
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:23 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 178
+localTime: 86
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 172
+localTime: 86
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:24 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 180
+localTime: 87
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 174
+localTime: 87
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:25 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 182
+localTime: 88
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 176
+localTime: 88
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:26 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 184
+localTime: 89
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 178
+localTime: 89
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:27 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 186
+localTime: 90
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 180
+localTime: 90
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:28 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 188
+localTime: 91
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 182
+localTime: 91
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:29 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 190
+localTime: 92
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 184
+localTime: 92
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:30 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 192
+localTime: 93
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 186
+localTime: 93
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:31 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 194
+localTime: 94
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 188
+localTime: 94
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:32 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 196
+localTime: 95
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 190
+localTime: 95
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:33 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 198
+localTime: 96
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 192
+localTime: 96
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:34 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 200
+localTime: 97
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 194
+localTime: 97
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:35 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 202
+localTime: 98
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 196
+localTime: 98
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:36 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 204
+localTime: 99
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 198
+localTime: 99
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:37 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 206
+localTime: 100
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 200
+localTime: 100
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:38 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 208
+localTime: 101
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 202
+localTime: 101
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:39 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 210
+localTime: 102
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 204
+localTime: 102
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:40 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 212
+localTime: 103
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 206
+localTime: 103
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:41 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 214
+localTime: 104
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 208
+localTime: 104
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:42 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 216
+localTime: 105
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 210
+localTime: 105
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:43 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 218
+localTime: 106
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 212
+localTime: 106
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:44 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 220
+localTime: 107
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 214
+localTime: 107
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:45 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 222
+localTime: 108
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 216
+localTime: 108
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:46 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 224
+localTime: 109
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 218
+localTime: 109
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:48 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 226
+localTime: 110
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 220
+localTime: 110
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:49 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 228
+localTime: 111
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 222
+localTime: 111
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:50 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 230
+localTime: 112
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 224
+localTime: 112
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:51 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 232
+localTime: 113
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 226
+localTime: 113
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:52 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 234
+localTime: 114
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 228
+localTime: 114
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:53 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 236
+localTime: 115
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 230
+localTime: 115
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:54 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 238
+localTime: 116
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 232
+localTime: 116
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:55 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 240
+localTime: 117
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 234
+localTime: 117
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:56 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 242
+localTime: 118
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 236
+localTime: 118
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:57 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 244
+localTime: 119
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 238
+localTime: 119
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:58 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 246
+localTime: 120
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 240
+localTime: 120
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:22:59 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 248
+localTime: 121
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 242
+localTime: 121
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:00 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 250
+localTime: 122
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 244
+localTime: 122
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:01 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 252
+localTime: 123
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 246
+localTime: 123
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:02 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 254
+localTime: 124
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 248
+localTime: 124
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:03 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 256
+localTime: 125
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 250
+localTime: 125
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:04 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 258
+localTime: 126
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 252
+localTime: 126
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:05 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 260
+localTime: 127
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 254
+localTime: 127
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:06 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 262
+localTime: 128
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 256
+localTime: 128
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:07 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 264
+localTime: 129
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 258
+localTime: 129
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:08 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 266
+localTime: 130
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 260
+localTime: 130
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:09 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 268
+localTime: 131
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 262
+localTime: 131
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:10 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 270
+localTime: 132
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 264
+localTime: 132
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:11 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 272
+localTime: 133
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 266
+localTime: 133
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:12 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 274
+localTime: 134
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 268
+localTime: 134
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:13 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 276
+localTime: 135
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 270
+localTime: 135
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:14 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 278
+localTime: 136
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 272
+localTime: 136
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:15 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 280
+localTime: 137
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 274
+localTime: 137
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:16 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 282
+localTime: 138
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 276
+localTime: 138
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:17 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 284
+localTime: 139
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 278
+localTime: 139
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:18 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 286
+localTime: 140
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 280
+localTime: 140
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:19 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 288
+localTime: 141
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 282
+localTime: 141
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:20 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 290
+localTime: 142
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 284
+localTime: 142
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:21 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 292
+localTime: 143
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 286
+localTime: 143
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:22 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 294
+localTime: 144
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 288
+localTime: 144
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:23 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 296
+localTime: 145
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 290
+localTime: 145
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:24 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 298
+localTime: 146
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 292
+localTime: 146
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:25 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 300
+localTime: 147
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 294
+localTime: 147
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:26 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 302
+localTime: 148
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 296
+localTime: 148
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:27 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 304
+localTime: 149
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 298
+localTime: 149
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:28 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 306
+localTime: 150
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 300
+localTime: 150
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:29 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 308
+localTime: 151
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 302
+localTime: 151
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:30 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 310
+localTime: 152
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 304
+localTime: 152
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:31 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 312
+localTime: 153
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 306
+localTime: 153
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:32 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 314
+localTime: 154
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 308
+localTime: 154
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:33 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 316
+localTime: 155
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 310
+localTime: 155
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:34 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 318
+localTime: 156
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 312
+localTime: 156
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:35 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 320
+localTime: 157
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 314
+localTime: 157
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:36 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 322
+localTime: 158
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 316
+localTime: 158
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:37 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 324
+localTime: 159
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 318
+localTime: 159
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:38 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 326
+localTime: 160
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 320
+localTime: 160
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:39 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 328
+localTime: 161
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 322
+localTime: 161
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:40 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 330
+localTime: 162
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 324
+localTime: 162
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:41 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 332
+localTime: 163
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 326
+localTime: 163
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:42 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 334
+localTime: 164
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 328
+localTime: 164
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:43 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 336
+localTime: 165
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 330
+localTime: 165
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:44 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 338
+localTime: 166
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 332
+localTime: 166
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:45 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 340
+localTime: 167
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 334
+localTime: 167
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:46 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 342
+localTime: 168
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 336
+localTime: 168
+Failed: False
+current status : ata
+
+Processor_22020/09/25 23:23:47 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localhost_Fri, 25 Sep 2020 23:20:48 KST
+Count: 344
+localTime: 169
+Failed: False
+ID: localhost_Fri, 25 Sep 2020 23:20:57 KST
+Count: 338
+localTime: 169
+Failed: False
+current status : ata
+

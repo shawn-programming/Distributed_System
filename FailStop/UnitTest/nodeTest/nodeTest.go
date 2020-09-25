@@ -44,7 +44,7 @@ Testing IncrementLocalTime()
 */
 
 func IncrementLocalTimeTest() {
-
+	var log string
 	fmt.Println("====================Init======================== starting phase")
 	// # initialize a node with 3 members
 	baseNode := nd.CreateNode("1", "11:22:33:44", 0, 3)
@@ -57,7 +57,7 @@ func IncrementLocalTimeTest() {
 
 	fmt.Println("===========After 1 local time passed============ do nothing")
 	// first round, do nothing
-	baseNode = baseNode.IncrementLocalTime([]ms.MsList{})
+	baseNode, log = baseNode.IncrementLocalTime([]ms.MsList{})
 	baseNode.MsList.Print()
 
 	fmt.Println("===========After 2 local time passed============ update member1")
@@ -67,7 +67,7 @@ func IncrementLocalTimeTest() {
 	secondRound = secondRound.Add(temp1, 2)
 	secondRound = secondRound.Add(temp2, 2)
 	secondRound = secondRound.Add(temp3, 2)
-	baseNode = baseNode.IncrementLocalTime([]ms.MsList{secondRound})
+	baseNode, log = baseNode.IncrementLocalTime([]ms.MsList{secondRound})
 	baseNode.MsList.Print()
 
 	fmt.Println("===========After 3 local time passed============ update member2")
@@ -77,12 +77,12 @@ func IncrementLocalTimeTest() {
 	thirdRound = thirdRound.Add(temp1, 2)
 	thirdRound = thirdRound.Add(temp2, 2)
 	thirdRound = thirdRound.Add(temp3, 2)
-	baseNode = baseNode.IncrementLocalTime([]ms.MsList{thirdRound})
+	baseNode, log = baseNode.IncrementLocalTime([]ms.MsList{thirdRound})
 	baseNode.MsList.Print()
 
 	fmt.Println("===========After 4 local time passed============ should make member 3 fail")
 	// fourth round, member 3 failed"
-	baseNode = baseNode.IncrementLocalTime([]ms.MsList{})
+	baseNode, log = baseNode.IncrementLocalTime([]ms.MsList{})
 	baseNode.MsList.Print()
 
 	fmt.Println("===========After 5 local time passed============ new member 4")
@@ -93,7 +93,7 @@ func IncrementLocalTimeTest() {
 	fifthRound = fifthRound.Add(temp2, 2)
 	fifthRound = fifthRound.Add(temp3, 2)
 	fifthRound = fifthRound.Add(temp4, 2)
-	baseNode = baseNode.IncrementLocalTime([]ms.MsList{fifthRound})
+	baseNode, log = baseNode.IncrementLocalTime([]ms.MsList{fifthRound})
 	baseNode.MsList.Print()
 
 	temp5 := ms.CreateMembership("5", "88.55.66.11", 0, 3)
@@ -107,12 +107,13 @@ func IncrementLocalTimeTest() {
 	sixthRound = sixthRound.Add(temp5, 2)
 
 	fmt.Println("===========After 6 local time passed============ should do nothing")
-	baseNode = baseNode.IncrementLocalTime([]ms.MsList{sixthRound})
+	baseNode, log = baseNode.IncrementLocalTime([]ms.MsList{sixthRound})
 	baseNode.MsList.Print()
 
 	fmt.Println("===========After 7 local time passed============ member 3 should be removed")
 	// last round, member 3 should be removed"
-	baseNode = baseNode.IncrementLocalTime([]ms.MsList{})
+	baseNode, log = baseNode.IncrementLocalTime([]ms.MsList{})
 	baseNode.MsList.Print()
 
+	fmt.Println(log)
 }

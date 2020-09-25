@@ -2,6 +2,7 @@ package node
 
 import (
 	"fmt"
+	"strconv"
 	"time"
 
 	ms "../../FailStop/Membership"
@@ -21,9 +22,17 @@ type Node struct {
 node.Print()
 */
 func (node Node) Print() {
-	// node.id.Print()
 	fmt.Println("TimeOut: ", node.TimeOut)
 	node.MsList.Print()
+}
+
+/*
+node.PrintLog()
+*/
+func (node Node) PrintLog() string {
+	log := "TimeOut: " + strconv.Itoa(node.TimeOut) + "/n"
+	log += node.MsList.PrintLog()
+	return log
 }
 
 /*
@@ -82,24 +91,27 @@ func (node Node) AddMember(member ms.Membership) Node {
 
 		c) remove failed nodes
 */
-func (node Node) IncrementLocalTime(inputList []ms.MsList) Node {
+func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 	node.LocalTime = node.LocalTime + 1
+	var joinLog string
+	var failLog string
+	var removeLog string
 
 	time.Sleep(time.Second)
 	node.MsList = node.MsList.UpdateMsList(ms.MsList{}, node.LocalTime, node.Id)
 
 	for _, input := range inputList {
-		node.MsList = node.MsList.CheckMembers(input, node.LocalTime, node.TimeOut)
+		node.MsList, joinLog = node.MsList.CheckMembers(input, node.LocalTime, node.TimeOut)
 		node.MsList = node.MsList.UpdateMsList(input, node.LocalTime, node.Id)
 	}
 	var removeList []ms.Id
-	node.MsList, removeList = node.MsList.CheckFails(node.LocalTime, node.TimeOut)
+	node.MsList, removeList, failLog = node.MsList.CheckFails(node.LocalTime, node.TimeOut)
 
 	for _, removeit := range removeList {
-		node.MsList = node.MsList.Remove(removeit)
+		node.MsList, removeLog = node.MsList.Remove(removeit)
 	}
 
 	// node.Print()
 
-	return node
+	return node, joinLog + failLog + removeLog
 }

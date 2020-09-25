@@ -3,6 +3,7 @@ package membership
 import (
 	"fmt"
 	"sort"
+	"strconv"
 )
 
 type Id struct {
@@ -31,8 +32,18 @@ func (ID Id) Print() {
 }
 
 /*
-member.print()
+Id.printLog()
 	RETURN: None
+
+	print information in Id
+*/
+func (ID Id) PrintLog() string {
+	return ID.IdNum + " : " + ID.IPAddress
+}
+
+/*
+member.print()
+	RETURN: log string
 
 	print information in member
 */
@@ -41,6 +52,27 @@ func (member Membership) Print() {
 	fmt.Println("Count: ", member.Count)
 	fmt.Println("localTime: ", member.localTime)
 	fmt.Println("Failed: ", member.Failed)
+}
+
+/*
+member.printLog()
+	RETURN: log string
+
+	print information in member
+*/
+func (member Membership) PrintLog() string {
+	var failed string
+	if member.Failed {
+		failed = "True\n"
+	} else {
+		failed = "False\n"
+	}
+	log := "ID: " + member.ID.IdNum + "\n"
+	log += "Count: " + strconv.Itoa(member.Count) + "\n"
+	log += "localTime: " + strconv.Itoa(member.localTime) + "\n"
+	log += "Failed: " + failed
+	return log
+
 }
 
 /*
@@ -54,6 +86,20 @@ func (members MsList) Print() {
 		member.Print()
 		fmt.Println("")
 	}
+}
+
+/*
+MsList.printLog()
+	RETURN: log
+
+	print information in MsList
+*/
+func (members MsList) PrintLog() string {
+	var log string
+	for _, member := range members.List {
+		log += member.PrintLog()
+	}
+	return log
 }
 
 /*
@@ -115,17 +161,20 @@ MsList.remove(Id)
 
 	find the meber with corresponding Id and remove it
 */
-func (members MsList) Remove(targetID Id) MsList {
+func (members MsList) Remove(targetID Id) (MsList, string) {
+	var log string
 	for i, member := range members.List {
 		if member.ID == targetID {
+			log += "\nRemoving Member: \n"
+			log += member.PrintLog()
 			fmt.Println("Removing Member: ")
 			member.ID.Print()
 			members.List = append(members.List[:i], members.List[i+1:]...)
-			return members
+			return members, log
 		}
 	}
 	fmt.Println("Could not find the ID: ", targetID)
-	return members
+	return members, log
 
 }
 
@@ -174,15 +223,18 @@ func (members MsList) UpdateMsList(toCompare MsList, currTime int, selfID Id) Ms
 	return members
 }
 
-func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id) {
+func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id, string) {
 	var removeList []Id
-
+	var log string
 	for i, member := range members.List {
 		if currTime-member.localTime > timeOut { // local time exceeds timeout_fail
 			if members.List[i].Failed == false {
 				fmt.Println("Failure detected: ")
-				members.List[i].Print()
 				members.List[i].Failed = true
+				members.List[i].Print()
+				log = "\nFailure detected: \n"
+				log += members.List[i].PrintLog()
+
 			}
 		}
 
@@ -192,53 +244,23 @@ func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id) {
 		}
 	}
 
-	return members, removeList
+	return members, removeList, log
 }
 
-/*
-	func (msList MsList) CheckMember(toCompare MsList) MsList
-	RETURN: msList
-
-	compare msList with the input.
-	If the input misses any of member the msList has, remove it from the msList
-*/
-/*
-func (msList MsList) CheckMember(toCompare MsList) MsList {
-	toRemove := []Id{}
-	j := 0
-
-	for _, membership := range msList.List {
-		if j > len(toCompare.List) {
-			break
-		}
-		if membership.EqualTo(toCompare.List[j]) {
-			j++
-		} else if membership.lessThan(toCompare.List[j]) {
-			toRemove = append(toRemove, membership.ID)
-		}
-	}
-
-	for _, ID := range toRemove {
-		msList.Remove(ID)
-		fmt.Print("Removed: ")
-		ID.Print()
-	}
-
-	return msList
-}
-*/
-
-func (msList MsList) CheckMembers(toCompare MsList, currTime int, timeout int) MsList {
+func (msList MsList) CheckMembers(toCompare MsList, currTime int, timeout int) (MsList, string) {
+	var log string
 	for _, inputMember := range toCompare.List {
 		exist, _ := msList.Find(inputMember)
 		if !exist { // member 가 input 에 없으면
 			if !inputMember.Failed { // fail 이 아닐경우
 				msList = msList.Add(inputMember, currTime)
+				log = "\nNew Member Added: \n"
+				log += inputMember.PrintLog()
 			}
 		}
 	}
 
-	return msList
+	return msList, log
 }
 
 func (msList MsList) Find(member Membership) (bool, int) {
