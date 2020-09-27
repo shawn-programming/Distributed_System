@@ -90,7 +90,7 @@ func TimeOut() (int, error) {
 
 // K gets the k number from config.json
 func K() (int, error) {
-	configParams, err := parseJSON("$HOME/go/Distributed_System/log/config.json")
+	configParams, err := parseJSON("./config.json")
 
 	if err != nil {
 		return -1, err

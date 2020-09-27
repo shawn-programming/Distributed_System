@@ -85,6 +85,7 @@ func PingToOtherProcessors(portNum int, node nd.Node, ATA bool, K int) (string, 
 	} else { // Gossip style heartbeating
 		logMSG += "current status : gossip\n"
 		receiverList := SelectRandomProcess(K, node)
+		fmt.Println(len(receiverList), K)
 		for _, receiver := range receiverList {
 			membership := currList.List[receiver]
 			_, byteSent := SendMessageToOne(node, membership.ID.IPAddress, portNum, false)
