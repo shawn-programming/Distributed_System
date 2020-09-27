@@ -84,9 +84,13 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 	// This is necessary for the case when there is no input
 	node.MsList = node.MsList.UpdateMsList(ms.MsList{}, node.LocalTime, node.Id)
 
+	var joinLogTotal string
+	var removeLogTotal string
+
 	for _, input := range inputList {
 		// update newly join members and members' info
 		node.MsList, joinLog = node.MsList.CheckMembers(input, node.LocalTime, node.TimeOut)
+		joinLogTotal += joinLog
 		node.MsList = node.MsList.UpdateMsList(input, node.LocalTime, node.Id)
 	}
 
@@ -97,7 +101,7 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 	// remove timeout-ed members
 	for _, removeit := range removeList {
 		node.MsList, removeLog = node.MsList.Remove(removeit)
+		removeLogTotal += removeLog
 	}
-
-	return node, joinLog + failLog + removeLog
+	return node, joinLogTotal + failLog + removeLogTotal
 }
