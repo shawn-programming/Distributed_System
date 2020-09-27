@@ -212,7 +212,7 @@ func (members MsList) UpdateMsList(toCompare MsList, currTime int, selfID Id) Ms
 			} else {
 				continue
 			}
-		} else if members.List[idx].Count < input.Count {
+		} else if members.List[idx].Count < input.Count && input.Failed == false {
 			members.List[idx].Count = input.Count
 			members.List[idx].localTime = currTime
 		}
@@ -261,8 +261,8 @@ func (msList MsList) CheckMembers(toCompare MsList, currTime int, timeout int) (
 	var log string
 	for _, inputMember := range toCompare.List {
 		exist, _ := msList.Find(inputMember)
-		if !exist { 
-			if !inputMember.Failed { 
+		if !exist {
+			if !inputMember.Failed {
 				msList = msList.Add(inputMember, currTime)
 				log = "\nNew Member Added: \n"
 				log += inputMember.PrintLog()
