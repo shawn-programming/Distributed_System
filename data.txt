@@ -90,4 +90,19 @@ Gossip
 
 
 
+================ FailRate ================
+
+Message Lost = 20%
+processors   = 4
+K            = 1
+TimeOut      = 5
+
+Result = 10 fails in 1 min
+
+10/4/60 = 0.0412 FalsePositives per processor per second
+
+
+
+
+
 
