@@ -18,5 +18,5 @@
     ],
     "TimeOut" : 5,
     "K" : 1,
-    "FailRate" : 10
+    "FailRate" : 5
 }
