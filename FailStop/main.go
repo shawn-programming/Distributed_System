@@ -11,7 +11,7 @@ import (
 	"../logSystem/config"
 	ms "./Membership"
 	nd "./Node"
-	sv "./servent"
+	sv "./Servent"
 )
 
 /*
