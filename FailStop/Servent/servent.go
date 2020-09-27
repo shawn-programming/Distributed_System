@@ -228,6 +228,7 @@ func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer
 		s1 := rand.NewSource(time.Now().UnixNano())
 		r1 := rand.New(s1)
 		if r1.Intn(100) < failRate {
+			fmt.Println("Message lost")
 			return ms.MsList{}, ""
 		}
 		// temp = random() % (100/fail_rate)
