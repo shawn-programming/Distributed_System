@@ -27,9 +27,7 @@ PingMsg(node nd.Node, msg string, portNum int)
 
 	Sends pings containing command data to all members present within current memebrship List
 */
-func PingMsg(node nd.Node, msg string, portNum int) int {
-	memList := node.MsList
-
+func PingMsg(node nd.Node, memList ms.MsList, msg string, portNum int) int {
 	totalBytesSent := 0
 	var byteSent int
 	// To all the other members, send msg
@@ -45,7 +43,7 @@ func PingMsg(node nd.Node, msg string, portNum int) int {
 		conn, err := net.DialUDP("udp", nil, udpAddr)
 		CheckError(err)
 
-		byteSent, err = conn.Write([]byte([]byte(msg)))
+		byteSent, err = conn.Write([]byte(msg))
 		CheckError(err)
 
 		var buf [512]byte
@@ -181,7 +179,7 @@ ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer *boo
 	RETURN: msList, log
 
 */
-func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer *bool) (ms.MsList, string) {
+func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer *bool, destPortNum int) (ms.MsList, string) {
 	var portLog string
 	var buf [5120]byte
 	n, addr, err := conn.ReadFromUDP(buf[0:])
@@ -216,6 +214,13 @@ func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer
 		currMsList = currMsList.Add(message.Input.List[0], node.LocalTime)
 		encodedMsg := EncodeJSON(Packet{currMsList, false})
 		conn.WriteToUDP([]byte(encodedMsg), addr)
+		if *ATApointer == true {
+
+			_ = PingMsg(node, currMsList, "ata", destPortNum)
+		} else {
+			_ = PingMsg(node, currMsList, "gossip", destPortNum)
+		}
+
 		return currMsList, portLog
 	} else { // message is not an initialization message
 
@@ -273,7 +278,7 @@ GetCommand(ATA *bool, logger, loggerPerSec *log.Logger, processNode nd.Node, des
 			id:			print current IP address and assigned Port number
 			-h: 	 	print list of commands
 */
-func GetCommand(ATA *bool, loggerByte, logger, loggerPerSec *log.Logger, processNode nd.Node, destPortNum int, vmNumStr, myService string) {
+func GetCommand(ATA *bool, loggerByte, logger, loggerPerSec *log.Logger, processNodePtr *nd.Node, destPortNum int, vmNumStr, myService string) {
 	scanner := bufio.NewScanner(os.Stdin)
 	byteSent := 0
 	for {
@@ -285,13 +290,13 @@ func GetCommand(ATA *bool, loggerByte, logger, loggerPerSec *log.Logger, process
 			loggerPerSec.Println("Changing to Gossip")
 			logger.Println("Changing to Gossip")
 			*ATA = false
-			byteSent = PingMsg(processNode, "gossip", destPortNum)
+			byteSent = PingMsg(*processNodePtr, (*processNodePtr).MsList, "gossip", destPortNum)
 			loggerByte.Println("Command(Gossip) Ping ByteSent:" + strconv.Itoa(byteSent) + "bytes")
 
 		} else if command == "ata" {
 			fmt.Println("Changing to ATA")
 			*ATA = true
-			byteSent = PingMsg(processNode, "ata", destPortNum)
+			byteSent = PingMsg(*processNodePtr, (*processNodePtr).MsList, "ata", destPortNum)
 			loggerPerSec.Println("Changing to ATA")
 			logger.Println("Changing to ATA")
 
@@ -303,9 +308,9 @@ func GetCommand(ATA *bool, loggerByte, logger, loggerPerSec *log.Logger, process
 			logger.Println("(Leave)Terminating vm_" + vmNumStr)
 			os.Exit(1)
 		} else if command == "memberlist" {
-			fmt.Println("\nMembership List: \n" + processNode.MsList.PrintLog())
-			loggerPerSec.Println("\nMembership List: \n" + processNode.MsList.PrintLog())
-			logger.Println("\nMembership List: \n" + processNode.MsList.PrintLog())
+			fmt.Println("\nMembership List: \n" + (*processNodePtr).MsList.PrintLog())
+			loggerPerSec.Println("\nMembership List: \n" + (*processNodePtr).MsList.PrintLog())
+			logger.Println("\nMembership List: \n" + (*processNodePtr).PrintLog())
 		} else if command == "id" {
 			fmt.Println("Current IP and port:", myService)
 			loggerPerSec.Println("\nCurrent IP and port: " + myService + "\n")
@@ -316,6 +321,12 @@ func GetCommand(ATA *bool, loggerByte, logger, loggerPerSec *log.Logger, process
 			fmt.Println("leave		: 	voluntarily leave the system. (halt)")
 			fmt.Println("memberlist	: 	print VM's memberlist to the terminal")
 			fmt.Println("id		:	print current IP address and assigned Port number")
+		} else if command == "heartbeat" {
+			if *ATA == true {
+				fmt.Println("Current Heartbeating for this processor: ATA")
+			} else {
+				fmt.Println("Current Heartbeating for this processor: Gossip")
+			}
 		} else {
 			fmt.Println("Invalid Command")
 		}

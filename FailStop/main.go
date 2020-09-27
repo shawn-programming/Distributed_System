@@ -93,17 +93,6 @@ func main() {
 
 	ATA := true
 
-	/*
-		special command
-			gossip:		change the system into a gossip heartbeating
-			ata:		change the system into a All-to-All heartbeating
-			leave: 		voluntarily leave the system. (halt)
-			memberlist: print VM's memberlist to the terminal
-			id:			print current IP address and assigned Port number
-			-h: 		print list of commands
-	*/
-	go sv.GetCommand(&ATA, loggerByte, logger, loggerPerSec, processNode, destPortNum, vmNumStr, myService)
-
 	fmt.Println(" ================== open server and logging system ==================")
 	loggerPerSec.Println(" ================== open server and logging system ==================")
 
@@ -112,6 +101,23 @@ func main() {
 
 	conn, err := net.ListenUDP("udp", udpAddr)
 	sv.CheckError(err)
+
+	// a placeholder for input membership List from other processors
+	var logStr string
+	InputList := []ms.MsList{}
+	newList := InputList
+	// open the server and collect msgs from other processors
+	loggerPerSec.Println("-------starting listening----------")
+	go func(conn *net.UDPConn, isIntroducer bool, processNode nd.Node) {
+		for {
+			tempList, portLog := sv.ListenOnPort(conn, isIntroducer, processNode, &ATA, destPortNum)
+			// update InputList to be used for IncrementLocalTime()
+			InputList = append(InputList, tempList)
+			if len(portLog) > 0 {
+				logger.Println(portLog)
+			}
+		}
+	}(conn, isIntroducer, processNode)
 
 	// if newly joined introducer, notify the introducer and update its membership List
 	if !isIntroducer {
@@ -133,22 +139,16 @@ func main() {
 		logger.Println("Connected!")
 	}
 
-	// a placeholder for input membership List from other processors
-	var logStr string
-	InputList := []ms.MsList{}
-	newList := InputList
-	// open the server and collect msgs from other processors
-	loggerPerSec.Println("-------starting listening----------")
-	go func(conn *net.UDPConn, isIntroducer bool, processNode nd.Node) {
-		for {
-			tempList, portLog := sv.ListenOnPort(conn, isIntroducer, processNode, &ATA)
-			// update InputList to be used for IncrementLocalTime()
-			InputList = append(InputList, tempList)
-			if len(portLog) > 0 {
-				logger.Println(portLog)
-			}
-		}
-	}(conn, isIntroducer, processNode)
+	/*
+		special command
+			gossip:		change the system into a gossip heartbeating
+			ata:		change the system into a All-to-All heartbeating
+			leave: 		voluntarily leave the system. (halt)
+			memberlist: print VM's memberlist to the terminal
+			id:			print current IP address and assigned Port number
+			-h: 		print list of commands
+	*/
+	go sv.GetCommand(&ATA, loggerByte, logger, loggerPerSec, &processNode, destPortNum, vmNumStr, myService)
 
 	// Update current membership List and sends its information to other members
 	loggerPerSec.Println("----------Start Sending----------")
