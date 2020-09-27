@@ -1,43 +1,14 @@
-Processor_12020/09/27 01:58:54 ServerID: 172.22.156.172_Sun, 27 Sep 2020 01:58:54 CDT
-Processor_12020/09/27 01:58:54 selfIP: 172.22.156.172:1234
-Processor_12020/09/27 01:58:54 TimeOut: 5
-Processor_12020/09/27 01:58:56 
+Processor_12020/09/27 03:20:49 ServerID: 172.22.156.172_Sun, 27 Sep 2020 03:20:49 CDT
+Processor_12020/09/27 03:20:49 selfIP: 172.22.156.172:1234
+Processor_12020/09/27 03:20:49 TimeOut: 5
+Processor_12020/09/27 03:20:51 
 New Member Added: 
-ID: 172.22.158.172_Sun, 27 Sep 2020 01:58:55 CDT
+ID: 172.22.158.172_Sun, 27 Sep 2020 03:20:50 CDT
 Count: 0
 localTime: 0
 Failed: False
 
-Processor_12020/09/27 01:58:57 Changing to Gossip
-Processor_12020/09/27 02:20:52 ServerID: 172.22.156.172_Sun, 27 Sep 2020 02:20:52 CDT
-Processor_12020/09/27 02:20:52 selfIP: 172.22.156.172:1234
-Processor_12020/09/27 02:20:52 TimeOut: 5
-Processor_12020/09/27 02:20:56 
-New Member Added: 
-ID: 172.22.158.172_Sun, 27 Sep 2020 02:20:54 CDT
-Count: 0
-localTime: 0
-Failed: False
-
-Processor_12020/09/27 02:20:56 Changing to Gossip
-Processor_12020/09/27 02:21:04 
+Processor_12020/09/27 03:21:13 Changing to Gossip
+Processor_12020/09/27 03:23:23 
 Current IP and port:: 172.22.156.172:1234
-
-Processor_12020/09/27 02:50:56 ServerID: 172.22.156.172_Sun, 27 Sep 2020 02:50:56 CDT
-Processor_12020/09/27 02:50:56 selfIP: 172.22.156.172:1234
-Processor_12020/09/27 02:50:56 TimeOut: 5
-Processor_12020/09/27 02:50:57 Changing to Gossip
-Processor_12020/09/27 02:51:01 
-New Member Added: 
-ID: 172.22.158.172_Sun, 27 Sep 2020 02:51:00 CDT
-Count: 0
-localTime: 0
-Failed: False
-
-Processor_12020/09/27 02:53:58 
-New Member Added: 
-ID: 172.22.94.172_Sun, 27 Sep 2020 02:53:57 CDT
-Count: 0
-localTime: 0
-Failed: False
 
