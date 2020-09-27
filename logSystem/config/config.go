@@ -18,6 +18,7 @@ type configParam struct {
 	Port      []int
 	TimeOut   int
 	K         int
+	FailRate  int
 }
 
 // Opens the filename and attempts to deserialize it into a struct
@@ -100,6 +101,20 @@ func K() (int, error) {
 	// loadJSON("./config/config.json", &configParams)
 
 	return configParams.K, nil
+}
+
+// FailRate gets the FailRate from config.json
+func FailRate() (int, error) {
+	configParams, err := parseJSON("./config.json")
+
+	if err != nil {
+		return -1, err
+	}
+
+	// var configParams configParam
+	// loadJSON("./config/config.json", &configParams)
+
+	return configParams.FailRate, nil
 }
 func loadJSON(fileName string, key interface{}) {
 	inFile, err := os.Open(fileName)

@@ -27,7 +27,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Usage: %s need a VM number", os.Args[0])
 		os.Exit(1)
 	}
-
+	failRate := config.FailRate()
 	K, _ := config.K()                     // K value for gossip
 	vmNum, err := strconv.Atoi(os.Args[1]) // VM number
 	vmNumStr := os.Args[1]
@@ -110,7 +110,7 @@ func main() {
 	loggerPerSec.Println("-------starting listening----------")
 	go func(conn *net.UDPConn, isIntroducer bool, processNode nd.Node) {
 		for {
-			tempList, portLog := sv.ListenOnPort(conn, isIntroducer, processNode, &ATA, destPortNum)
+			tempList, portLog := sv.ListenOnPort(conn, isIntroducer, processNode, &ATA, destPortNum, failRate)
 			// update InputList to be used for IncrementLocalTime()
 			InputList = append(InputList, tempList)
 			if len(portLog) > 0 {

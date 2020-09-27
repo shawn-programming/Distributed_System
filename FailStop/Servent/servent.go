@@ -9,6 +9,7 @@ import (
 	"net"
 	"os"
 	"strconv"
+	"time"
 
 	ms "../Membership"
 	nd "../Node"
@@ -180,7 +181,7 @@ ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer *boo
 	RETURN: msList, log
 
 */
-func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer *bool, destPortNum int) (ms.MsList, string) {
+func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer *bool, destPortNum int, failRate int) (ms.MsList, string) {
 	var portLog string
 	var buf [5120]byte
 	n, addr, err := conn.ReadFromUDP(buf[0:])
@@ -224,8 +225,12 @@ func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer
 
 		return currMsList, portLog
 	} else { // message is not an initialization message
-
-		// temp = random() % (100/false_rate)
+		s1 := rand.NewSource(time.Now().UnixNano())
+		r1 := rand.New(s1)
+		if r1.Intn(100) < failRate {
+			return ms.MsList{}, ""
+		}
+		// temp = random() % (100/fail_rate)
 		// temp == 0:
 		// 	return ms.MsList{}, ""
 		return message.Input, portLog
