@@ -42,7 +42,6 @@ func AddMemberTest() {
 /*
 Testing IncrementLocalTime()
 */
-
 func IncrementLocalTimeTest() {
 	var log string
 	fmt.Println("====================Init======================== starting phase")

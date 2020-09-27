@@ -6,10 +6,17 @@ import (
 	"strconv"
 )
 
+/*
+ Struct for ID + IPAddress
+*/
 type Id struct {
 	IdNum     string
 	IPAddress string
 }
+
+/*
+Struct for a Membership
+*/
 type Membership struct {
 	ID        Id
 	Count     int
@@ -17,6 +24,9 @@ type Membership struct {
 	Failed    bool
 }
 
+/*
+Struct for a List of Memberships
+*/
 type MsList struct {
 	List []Membership
 }
@@ -141,8 +151,8 @@ func (member Membership) greaterThan(toCompare Membership) bool {
 }
 
 /*
-MsList.add(member)
-	RETURN: NONE
+MsList.Add(member)
+	RETURN: updated membership List
 
 add member to the MsList, and sort tthe MsList.List by its IdNum
 */
@@ -156,8 +166,8 @@ func (members MsList) Add(member Membership, local int) MsList {
 }
 
 /*
-MsList.remove(Id)
-	RETURN: NONE
+MsList.Remove(Id)
+	RETURN: updated membership List, log data
 
 	find the meber with corresponding Id and remove it
 */
@@ -167,20 +177,18 @@ func (members MsList) Remove(targetID Id) (MsList, string) {
 		if member.ID == targetID {
 			log += "\nRemoving Member: \n"
 			log += member.PrintLog()
-			fmt.Println("Removing Member: ")
 			member.ID.Print()
 			members.List = append(members.List[:i], members.List[i+1:]...)
 			return members, log
 		}
 	}
-	fmt.Println("Could not find the ID: ", targetID)
 	return members, log
 
 }
 
 /*
-MsList.update(toCompare, currLocalTime, timeOut)
-	RETURN: List OF FAILED MEMBER'S ID
+MsList.UpdateMsList(toCompare MsList, currTime int, selfID Id) MsList	RETURN: List OF FAILED MEMBER'S ID
+	Return: updated membership List
 
 	compare MsList with toCompare,
 	for each member, if counter incrememnted, update it
@@ -188,16 +196,10 @@ MsList.update(toCompare, currLocalTime, timeOut)
 	if failed, add that member's Id to the failList
 */
 func (members MsList) UpdateMsList(toCompare MsList, currTime int, selfID Id) MsList {
-	// fmt.Println("------UpdateMsList-------")
 	inputList := toCompare.List
 
 	for i, member := range members.List {
-		// fmt.Println("---------------ID-----------------------")
-		// selfID.Print()
-		// member.ID.Print()
-		// fmt.Print("-----------------------------------------")
 		if member.ID.IdNum == selfID.IdNum {
-			// fmt.Println("Found")
 			members.List[i].Count++
 			members.List[i].localTime = currTime
 		}
@@ -205,17 +207,12 @@ func (members MsList) UpdateMsList(toCompare MsList, currTime int, selfID Id) Ms
 
 	for _, input := range inputList {
 		Found, idx := members.Find(input)
-		// if input member is not in current MsList, and it is not failed
-		// meaning this is a new member
 		if !Found {
 			if !input.Failed {
-				fmt.Println("In UpdateMsList Phase, Member is not found. This should never happen")
 			} else {
 				continue
 			}
-
 		} else if members.List[idx].Count < input.Count {
-			// if this member has a fresher counter, update it
 			members.List[idx].Count = input.Count
 			members.List[idx].localTime = currTime
 		}
@@ -223,6 +220,12 @@ func (members MsList) UpdateMsList(toCompare MsList, currTime int, selfID Id) Ms
 	return members
 }
 
+/*
+MsList.CheckFails(currTime int, timeOut int)
+	RETURN: updated MsList, list of removed IDs, log data
+
+	checks each member's localTime and updates its Failed Status
+*/
 func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id, string) {
 	var removeList []Id
 	var log string
@@ -247,12 +250,19 @@ func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id, strin
 	return members, removeList, log
 }
 
+/*
+ MsList.CheckMembers(toCompare MsList, currTime int, timeout int) (MsList, string)	RETURN: updated MsList, log data
+	Return: updated  membership List, log data
+
+	compares the current membership List against input membership List
+	and updates the memership List by adding unseen members.
+*/
 func (msList MsList) CheckMembers(toCompare MsList, currTime int, timeout int) (MsList, string) {
 	var log string
 	for _, inputMember := range toCompare.List {
 		exist, _ := msList.Find(inputMember)
-		if !exist { // member 가 input 에 없으면
-			if !inputMember.Failed { // fail 이 아닐경우
+		if !exist { 
+			if !inputMember.Failed { 
 				msList = msList.Add(inputMember, currTime)
 				log = "\nNew Member Added: \n"
 				log += inputMember.PrintLog()
@@ -263,6 +273,12 @@ func (msList MsList) CheckMembers(toCompare MsList, currTime int, timeout int) (
 	return msList, log
 }
 
+/*
+MsList.Find(member Membership)
+	RETURN: false in not found, true if found
+
+	check whether input member is present in the current membership List.
+*/
 func (msList MsList) Find(member Membership) (bool, int) {
 
 	for i, m := range msList.List {

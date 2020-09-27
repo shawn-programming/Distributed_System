@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"log"
 	"net"
@@ -15,32 +14,43 @@ import (
 	sv "./servent"
 )
 
+/*
+	main()
+
+	1) Fetch necessary data(IP address, PortNum, K value, etc...) from json file
+	2) Create logs and initialize server
+	3) Listens to the assigned Port and updates the membership List
+	   Sends Data Packets containing its membership List information
+*/
 func main() {
 	if len(os.Args) != 2 {
 		fmt.Fprintf(os.Stderr, "Usage: %s need a VM number", os.Args[0])
 		os.Exit(1)
 	}
-	K, _ := config.K()
-	vmNum, err := strconv.Atoi(os.Args[1])
+
+	K, _ := config.K()                     // K value for gossip
+	vmNum, err := strconv.Atoi(os.Args[1]) // VM number
 	vmNumStr := os.Args[1]
-	IntroducerIPList, _ := config.IPAddress() // get Introducer's IP from config.json
+	IntroducerIPList, _ := config.IPAddress() // Introducer's IP
 	IntroducerIP := IntroducerIPList[1]
-	portList, _ := config.Port() // get port number from config.json
+	portList, _ := config.Port() // Port number's list
 	// portNum := portList[vmNum]
-	timeOut, _ := config.TimeOut() // get time out info from config.json
-	isIntroducer := vmNum == 1
+	timeOut, _ := config.TimeOut() // Time Out info
+	isIntroducer := vmNum == 1     // True if the proceesor is an introducer, else False
 	selfIP := IntroducerIPList[vmNum]
+	// for VM test
+	myPortNum := portList[0]   // Processor's port number
+	destPortNum := portList[0] // Receiver's port number
+	// for local test
+	// myPortNum := portList[(vmNum+1)%2] // Processor's port number
+	// destPortNum := portList[vmNum%2]   // Receiver's port number
 
-	// myPortNum := portList[0]
-	// destPortNum := portList[0]
+	myService := selfIP + ":" + strconv.Itoa(myPortNum)                // processor's service for UDP
+	serverID := selfIP + "_" + string(time.Now().Format(time.RFC1123)) // Processor's ID
+	processNode := nd.CreateNode(serverID, selfIP, 0, timeOut)         // Processor's Node
 
-	myPortNum := portList[(vmNum+1)%2]
-	destPortNum := portList[vmNum%2]
-
-	myService := selfIP + ":" + strconv.Itoa(myPortNum)
-	serverID := selfIP + "_" + string(time.Now().Format(time.RFC1123)) // default value for the introducer
-	processNode := nd.CreateNode(serverID, selfIP, 0, timeOut)
-
+	var TotalByteSent int // Keeps track of total number of bytes sent and received
+	// log keeps track of every second
 	f, err := os.OpenFile("./vm_"+vmNumStr+"_per_sec.log",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
@@ -48,6 +58,7 @@ func main() {
 	}
 	defer f.Close()
 
+	// log keeps track of special info
 	f2, err := os.OpenFile("./vm_"+vmNumStr+".log",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
@@ -55,8 +66,18 @@ func main() {
 	}
 	defer f2.Close()
 
+	// log keeps track of special info
+	f3, err := os.OpenFile("./vm_"+vmNumStr+"_byte.log",
+		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer f3.Close()
+
+	// write vm's info to the log
 	loggerPerSec := log.New(f, "Processor_"+vmNumStr, log.LstdFlags)
 	logger := log.New(f2, "Processor_"+vmNumStr, log.LstdFlags)
+	loggerByte := log.New(f3, "Processor_"+vmNumStr, log.LstdFlags)
 
 	fmt.Println("ServerID:", serverID)
 	loggerPerSec.Println("ServerID:", serverID)
@@ -70,44 +91,18 @@ func main() {
 	loggerPerSec.Println("TimeOut:", timeOut)
 	logger.Println("TimeOut:", timeOut)
 
-	scanner := bufio.NewScanner(os.Stdin)
 	ATA := true
 
-	go func() {
-		for {
-			scanner.Scan()
-			command := scanner.Text()
-
-			if command == "gossip" {
-				fmt.Println("Changing to Gossip")
-				loggerPerSec.Println("Changing to Gossip")
-				logger.Println("Changing to Gossip")
-				ATA = false
-				sv.PingMsg(processNode, "gossip", destPortNum)
-			} else if command == "ata" {
-				fmt.Println("Changing to ATA")
-				ATA = true
-				sv.PingMsg(processNode, "ata", destPortNum)
-				loggerPerSec.Println("Changing to ATA")
-				logger.Println("Changing to ATA")
-			} else if command == "leave" {
-				fmt.Println("(Leave)Terminating vm_", vmNumStr)
-				loggerPerSec.Println("(Leave)Terminating vm_" + vmNumStr)
-				logger.Println("(Leave)Terminating vm_" + vmNumStr)
-				os.Exit(1)
-			} else if command == "memberlist" {
-				fmt.Println("\nMembership List: \n" + processNode.MsList.PrintLog())
-				loggerPerSec.Println("\nMembership List: \n" + processNode.MsList.PrintLog())
-				logger.Println("\nMembership List: \n" + processNode.MsList.PrintLog())
-			} else if command == "id" {
-				fmt.Println("Current IP and port:", myService)
-				loggerPerSec.Println("\nCurrent IP and port: " + myService + "\n")
-				logger.Println("\nCurrent IP and port:: " + myService + "\n")
-			} else {
-				fmt.Println("Invalid Command")
-			}
-		}
-	}()
+	/*
+		special command
+			gossip:		change the system into a gossip heartbeating
+			ata:		change the system into a All-to-All heartbeating
+			leave: 		voluntarily leave the system. (halt)
+			memberlist: print VM's memberlist to the terminal
+			id:			print current IP address and assigned Port number
+			-h: 		print list of commands
+	*/
+	go sv.GetCommand(&ATA, loggerByte, logger, loggerPerSec, processNode, destPortNum, vmNumStr, myService)
 
 	fmt.Println(" ================== open server and logging system ==================")
 	loggerPerSec.Println(" ================== open server and logging system ==================")
@@ -124,7 +119,14 @@ func main() {
 		loggerPerSec.Println("Connecting to Introducer...")
 		logger.Println("Connecting to Introducer...")
 
-		received := sv.SendMessageToOne(processNode, IntroducerIP, destPortNum, true)
+		received, byteSent := sv.SendMessageToOne(processNode, IntroducerIP, destPortNum, true)
+
+		TotalByteSent += byteSent
+
+		loggerByte.Println(string(time.Now().Format(time.RFC1123)))
+		loggerByte.Println("Byte sent 		: " + strconv.Itoa(byteSent) + " Bytes.")
+		loggerByte.Println("Total byte sent	: " + strconv.Itoa(TotalByteSent) + " Bytes.\n")
+
 		processNode.MsList = received
 		fmt.Println("Connected!")
 		loggerPerSec.Println("Connected!")
@@ -135,12 +137,12 @@ func main() {
 	var logStr string
 	InputList := []ms.MsList{}
 	newList := InputList
-
-	// fmt.Println("-------starting listening----------")
+	// open the server and collect msgs from other processors
 	loggerPerSec.Println("-------starting listening----------")
 	go func(conn *net.UDPConn, isIntroducer bool, processNode nd.Node) {
 		for {
 			tempList, portLog := sv.ListenOnPort(conn, isIntroducer, processNode, &ATA)
+			// update InputList to be used for IncrementLocalTime()
 			InputList = append(InputList, tempList)
 			if len(portLog) > 0 {
 				logger.Println(portLog)
@@ -148,20 +150,30 @@ func main() {
 		}
 	}(conn, isIntroducer, processNode)
 
-	// fmt.Println("----------Start Sending----------")
+	// Update current membership List and sends its information to other members
 	loggerPerSec.Println("----------Start Sending----------")
-
 	for {
 		newList = InputList
 		InputList = []ms.MsList{}
+
+		// update the processor's membership list
 		processNode, logStr = processNode.IncrementLocalTime(newList)
 		if logStr != "" {
 			loggerPerSec.Println(logStr)
 			logger.Println(logStr)
 		}
-		logPerSec := sv.PingToOtherProcessors(destPortNum, processNode, ATA, K)
+
+		// sned the processor's member to other processors
+		logPerSec, byteSent := sv.PingToOtherProcessors(destPortNum, processNode, ATA, K)
 		loggerPerSec.Println(logPerSec)
 
-	}
+		TotalByteSent += byteSent
 
+		if byteSent != 0 {
+			loggerByte.Println(string(time.Now().Format(time.RFC1123)))
+			loggerByte.Println("Byte sent 		: " + strconv.Itoa(byteSent) + " Bytes.")
+			loggerByte.Println("Total byte sent	: " + strconv.Itoa(TotalByteSent) + " Bytes.\n")
+		}
+
+	}
 }

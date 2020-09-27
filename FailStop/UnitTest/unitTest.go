@@ -27,12 +27,19 @@ func main() {
 
 }
 
+/*
+	Member constructor for unit testing
+*/
+
 func makeMember(start int, id string, ip string, count int) membership.Membership {
 	elapsed := time.Now().Second() - start
 	m := membership.CreateMembership(id, ip, count, elapsed)
 	return m
 }
 
+/*
+	Testing Add
+*/
 func addTest(inputList membership.MsList) membership.MsList {
 	fmt.Println("----------------------------addtest-------------------------------------")
 	member1 := makeMember(start, "1", "127.0.0.1:1234", 0)
@@ -53,6 +60,9 @@ func addTest(inputList membership.MsList) membership.MsList {
 	return inputList
 }
 
+/*
+	Testing Remove
+*/
 func removeTest(inputList membership.MsList) membership.MsList {
 	fmt.Println("----------------------------removetest---------------------------------")
 
@@ -74,6 +84,9 @@ func removeTest(inputList membership.MsList) membership.MsList {
 	return inputList
 }
 
+/*
+	Testing UpdateList()
+*/
 func UpdateMsListTest() {
 	fmt.Println("------------------------update test---------------------------------------")
 
@@ -115,6 +128,10 @@ func UpdateMsListTest() {
 	compareList.Print()
 
 }
+
+/*
+	Testing CheckFails
+*/
 
 func checkfailsTest() {
 	fmt.Println("----------running checkfails Test----------")
@@ -159,6 +176,10 @@ func checkfailsTest() {
 	}
 
 }
+
+/*
+	testing checkmembers()
+*/
 
 func checkmembersTest() {
 
