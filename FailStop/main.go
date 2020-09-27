@@ -27,6 +27,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Usage: %s need a VM number", os.Args[0])
 		os.Exit(1)
 	}
+
 	failRate, _ := config.FailRate()
 	K, _ := config.K()                     // K value for gossip
 	vmNum, err := strconv.Atoi(os.Args[1]) // VM number

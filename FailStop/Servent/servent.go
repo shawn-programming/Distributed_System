@@ -86,7 +86,6 @@ func PingToOtherProcessors(portNum int, node nd.Node, ATA bool, K int) (string, 
 	} else { // Gossip style heartbeating
 		logMSG += "current status : gossip\n"
 		receiverList := SelectRandomProcess(K, node)
-		fmt.Println(len(receiverList), K)
 		for _, receiver := range receiverList {
 			membership := currList.List[receiver]
 			_, byteSent := SendMessageToOne(node, membership.ID.IPAddress, portNum, false)
@@ -225,10 +224,11 @@ func ListenOnPort(conn *net.UDPConn, isIntroducer bool, node nd.Node, ATApointer
 
 		return currMsList, portLog
 	} else { // message is not an initialization message
+
+		// message is dropped for failrate
 		s1 := rand.NewSource(time.Now().UnixNano())
 		r1 := rand.New(s1)
 		if r1.Intn(100) < failRate {
-			fmt.Println("Message lost")
 			return ms.MsList{}, ""
 		}
 		// temp = random() % (100/fail_rate)
