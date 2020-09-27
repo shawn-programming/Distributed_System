@@ -212,7 +212,7 @@ func (members MsList) UpdateMsList(toCompare MsList, currTime int, selfID Id) Ms
 			} else {
 				continue
 			}
-		} else if members.List[idx].Count < input.Count && input.Failed == false {
+		} else if members.List[idx].Count < input.Count && members.List[idx].Failed == false {
 			members.List[idx].Count = input.Count
 			members.List[idx].localTime = currTime
 		}
