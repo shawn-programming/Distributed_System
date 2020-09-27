@@ -120,7 +120,7 @@ func SelectRandomProcess(k int, node nd.Node) []int {
 
 	// randomly remove until there are <= k members left
 	for {
-		if len(list) >= k || len(list) == 0 {
+		if len(list) <= k || len(list) == 0 {
 			return list
 		}
 		randomNumber := rand.Int() % len(list)
