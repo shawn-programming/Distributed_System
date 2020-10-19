@@ -13,7 +13,7 @@ export PATH=$GOPATH:~/go
 2. cd ~/go
 3. git clone https://gitlab.engr.illinois.edu/hl8/cs425.git
 4. cd distributed_system
-5. cd FailStop
+5. cd Process
 6. go build main.go
 
 

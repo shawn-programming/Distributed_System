@@ -50,8 +50,6 @@ func parseJSON(fileName string) (configParam, error) {
 func IPAddress() ([]string, error) {
 	configParams, err := parseJSON("./config.json")
 
-	fmt.Println(len(configParams.IPAddress))
-
 	if err != nil {
 		return make([]string, 0), err
 	}

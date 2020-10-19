@@ -1,0 +1,1281 @@
+Processor_12020/10/16 15:35:48 ServerID: localhost_Fri, 16 Oct 2020 15:35:48 KST
+Processor_12020/10/16 15:35:48 selfIP: localhost:1234
+Processor_12020/10/16 15:35:48 TimeOut: 5
+Processor_12020/10/16 15:35:54 
+New Member Added: 
+ID: localhost_Fri, 16 Oct 2020 15:35:52 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/16 15:36:07 
+Failure detected: 
+ID: localhost_Fri, 16 Oct 2020 15:35:52 KST
+Count: 13
+localTime: 13
+Failed: True
+
+Processor_12020/10/16 15:36:12 
+Removing Member: 
+ID: localhost_Fri, 16 Oct 2020 15:35:52 KST
+Count: 13
+localTime: 13
+Failed: True
+
+Processor_12020/10/16 15:36:16 
+Membership List: 
+TimeOut: 5/nID: localhost_Fri, 16 Oct 2020 15:35:48 KST
+Count: 36
+localTime: 28
+Failed: False
+
+Processor_12020/10/16 15:36:18 (Leave)Terminating vm_1
+Processor_12020/10/16 17:04:41 ServerID: localhost_Fri, 16 Oct 2020 17:04:41 KST
+Processor_12020/10/16 17:04:41 selfIP: localhost:1234
+Processor_12020/10/16 17:04:41 TimeOut: 5
+Processor_12020/10/16 17:05:29 ServerID: localhost_Fri, 16 Oct 2020 17:05:29 KST
+Processor_12020/10/16 17:05:29 selfIP: localhost:1234
+Processor_12020/10/16 17:05:29 TimeOut: 5
+Processor_12020/10/16 17:05:36 Changing to Gossip
+Processor_12020/10/16 17:05:38 Changing to ATA
+Processor_12020/10/16 17:05:40 (Leave)Terminating vm_1
+Processor_12020/10/16 17:05:56 ServerID: localhost_Fri, 16 Oct 2020 17:05:56 KST
+Processor_12020/10/16 17:05:56 selfIP: localhost:1234
+Processor_12020/10/16 17:05:56 TimeOut: 5
+Processor_12020/10/16 17:07:26 ServerID: localhost_Fri, 16 Oct 2020 17:07:26 KST
+Processor_12020/10/16 17:07:26 selfIP: localhost:1234
+Processor_12020/10/16 17:07:26 TimeOut: 5
+Processor_12020/10/16 17:10:55 ServerID: localhost_Fri, 16 Oct 2020 17:10:55 KST
+Processor_12020/10/16 17:10:55 selfIP: localhost:1234
+Processor_12020/10/16 17:10:55 TimeOut: 5
+Processor_12020/10/16 17:12:06 ServerID: localhost_Fri, 16 Oct 2020 17:12:06 KST
+Processor_12020/10/16 17:12:06 selfIP: localhost:1234
+Processor_12020/10/16 17:12:06 TimeOut: 5
+Processor_12020/10/16 17:12:43 ServerID: localhost_Fri, 16 Oct 2020 17:12:43 KST
+Processor_12020/10/16 17:12:43 selfIP: localhost:1234
+Processor_12020/10/16 17:12:43 TimeOut: 5
+Processor_12020/10/16 17:13:24 ServerID: localhost_Fri, 16 Oct 2020 17:13:24 KST
+Processor_12020/10/16 17:13:24 selfIP: localhost:1234
+Processor_12020/10/16 17:13:24 TimeOut: 5
+Processor_12020/10/16 17:14:20 ServerID: localhost_Fri, 16 Oct 2020 17:14:20 KST
+Processor_12020/10/16 17:14:20 selfIP: localhost:1234
+Processor_12020/10/16 17:14:20 TimeOut: 5
+Processor_12020/10/16 17:15:58 ServerID: localhost_Fri, 16 Oct 2020 17:15:58 KST
+Processor_12020/10/16 17:15:58 selfIP: localhost:1234
+Processor_12020/10/16 17:15:58 TimeOut: 5
+Processor_12020/10/16 17:20:15 ServerID: localhost_Fri, 16 Oct 2020 17:20:15 KST
+Processor_12020/10/16 17:20:15 selfIP: localhost:1234
+Processor_12020/10/16 17:20:15 TimeOut: 5
+Processor_12020/10/16 17:20:21 ServerID: localhost_Fri, 16 Oct 2020 17:20:21 KST
+Processor_12020/10/16 17:20:21 selfIP: localhost:1234
+Processor_12020/10/16 17:20:21 TimeOut: 5
+Processor_12020/10/16 17:20:27 
+New Member Added: 
+ID: localhost_Fri, 16 Oct 2020 17:20:26 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/16 17:20:35 Changing to Gossip
+Processor_12020/10/16 17:20:54 
+Failure detected: 
+ID: localhost_Fri, 16 Oct 2020 17:20:26 KST
+Count: 42
+localTime: 27
+Failed: True
+
+Processor_12020/10/16 17:20:59 
+Removing Member: 
+ID: localhost_Fri, 16 Oct 2020 17:20:26 KST
+Count: 42
+localTime: 27
+Failed: True
+
+Processor_12020/10/16 17:21:28 
+Membership List: 
+TimeOut: 5/nID: localhost_Fri, 16 Oct 2020 17:20:21 KST
+Count: 88
+localTime: 66
+Failed: False
+
+Processor_12020/10/16 17:21:31 (Leave)Terminating vm_1
+Processor_12020/10/17 18:01:45 ServerID: localhost_Sat, 17 Oct 2020 18:01:45 KST
+Processor_12020/10/17 18:01:45 selfIP: localhost:1234
+Processor_12020/10/17 18:01:45 TimeOut: 5
+Processor_12020/10/17 18:01:53 Sending Replicas
+Processor_12020/10/17 18:01:55 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:01:53 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:03:25 (Leave)Terminating vm_1
+Processor_12020/10/17 18:04:35 ServerID: localhost_Sat, 17 Oct 2020 18:04:35 KST
+Processor_12020/10/17 18:04:35 selfIP: localhost:1234
+Processor_12020/10/17 18:04:35 TimeOut: 5
+Processor_12020/10/17 18:04:41 Sending Replicas
+Processor_12020/10/17 18:04:42 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:04:41 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:05:38 (Leave)Terminating vm_1
+Processor_12020/10/17 18:05:47 ServerID: localhost_Sat, 17 Oct 2020 18:05:47 KST
+Processor_12020/10/17 18:05:47 selfIP: localhost:1234
+Processor_12020/10/17 18:05:47 TimeOut: 5
+Processor_12020/10/17 18:05:51 Sending Replicas
+Processor_12020/10/17 18:05:53 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:05:51 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:06:33 (Leave)Terminating vm_1
+Processor_12020/10/17 18:07:36 ServerID: localhost_Sat, 17 Oct 2020 18:07:36 KST
+Processor_12020/10/17 18:07:36 selfIP: localhost:1234
+Processor_12020/10/17 18:07:36 TimeOut: 5
+Processor_12020/10/17 18:07:42 Sending Replicas
+Processor_12020/10/17 18:07:44 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:07:42 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:21:55 ServerID: localhost_Sat, 17 Oct 2020 18:21:55 KST
+Processor_12020/10/17 18:21:55 selfIP: localhost:1234
+Processor_12020/10/17 18:21:55 TimeOut: 5
+Processor_12020/10/17 18:22:00 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:21:58 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:25:44 (Leave)Terminating vm_1
+Processor_12020/10/17 18:25:54 ServerID: localhost_Sat, 17 Oct 2020 18:25:54 KST
+Processor_12020/10/17 18:25:54 selfIP: localhost:1234
+Processor_12020/10/17 18:25:54 TimeOut: 5
+Processor_12020/10/17 18:25:58 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:25:57 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:26:24 (Leave)Terminating vm_1
+Processor_12020/10/17 18:26:52 ServerID: localhost_Sat, 17 Oct 2020 18:26:52 KST
+Processor_12020/10/17 18:26:52 selfIP: localhost:1234
+Processor_12020/10/17 18:26:52 TimeOut: 5
+Processor_12020/10/17 18:26:57 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:26:55 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:27:11 (Leave)Terminating vm_1
+Processor_12020/10/17 18:28:22 ServerID: localhost_Sat, 17 Oct 2020 18:28:22 KST
+Processor_12020/10/17 18:28:22 selfIP: localhost:1234
+Processor_12020/10/17 18:28:22 TimeOut: 5
+Processor_12020/10/17 18:28:30 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:28:29 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:28:44 (Leave)Terminating vm_1
+Processor_12020/10/17 18:30:05 ServerID: localhost_Sat, 17 Oct 2020 18:30:05 KST
+Processor_12020/10/17 18:30:05 selfIP: localhost:1234
+Processor_12020/10/17 18:30:05 TimeOut: 5
+Processor_12020/10/17 18:30:13 Sending Replicas
+Processor_12020/10/17 18:30:15 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:30:13 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:30:25 (Leave)Terminating vm_1
+Processor_12020/10/17 18:31:08 ServerID: localhost_Sat, 17 Oct 2020 18:31:08 KST
+Processor_12020/10/17 18:31:08 selfIP: localhost:1234
+Processor_12020/10/17 18:31:08 TimeOut: 5
+Processor_12020/10/17 18:31:11 Sending Replicas
+Processor_12020/10/17 18:31:12 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:31:11 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:31:41 (Leave)Terminating vm_1
+Processor_12020/10/17 18:31:55 ServerID: localhost_Sat, 17 Oct 2020 18:31:55 KST
+Processor_12020/10/17 18:31:55 selfIP: localhost:1234
+Processor_12020/10/17 18:31:55 TimeOut: 5
+Processor_12020/10/17 18:32:02 Sending Replicas
+Processor_12020/10/17 18:32:03 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:32:02 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:33:25 (Leave)Terminating vm_1
+Processor_12020/10/17 18:34:19 ServerID: localhost_Sat, 17 Oct 2020 18:34:19 KST
+Processor_12020/10/17 18:34:19 selfIP: localhost:1234
+Processor_12020/10/17 18:34:19 TimeOut: 5
+Processor_12020/10/17 18:34:48 ServerID: localhost_Sat, 17 Oct 2020 18:34:48 KST
+Processor_12020/10/17 18:34:48 selfIP: localhost:1234
+Processor_12020/10/17 18:34:48 TimeOut: 5
+Processor_12020/10/17 18:34:58 ServerID: localhost_Sat, 17 Oct 2020 18:34:58 KST
+Processor_12020/10/17 18:34:58 selfIP: localhost:1234
+Processor_12020/10/17 18:34:58 TimeOut: 5
+Processor_12020/10/17 18:35:01 ServerID: localhost_Sat, 17 Oct 2020 18:35:01 KST
+Processor_12020/10/17 18:35:01 selfIP: localhost:1234
+Processor_12020/10/17 18:35:01 TimeOut: 5
+Processor_12020/10/17 18:35:16 ServerID: localhost_Sat, 17 Oct 2020 18:35:16 KST
+Processor_12020/10/17 18:35:16 selfIP: localhost:1234
+Processor_12020/10/17 18:35:16 TimeOut: 5
+Processor_12020/10/17 18:35:28 ServerID: localhost_Sat, 17 Oct 2020 18:35:28 KST
+Processor_12020/10/17 18:35:28 selfIP: localhost:1234
+Processor_12020/10/17 18:35:28 TimeOut: 5
+Processor_12020/10/17 18:35:45 ServerID: localhost_Sat, 17 Oct 2020 18:35:45 KST
+Processor_12020/10/17 18:35:45 selfIP: localhost:1234
+Processor_12020/10/17 18:35:45 TimeOut: 5
+Processor_12020/10/17 18:36:35 ServerID: localhost_Sat, 17 Oct 2020 18:36:35 KST
+Processor_12020/10/17 18:36:35 selfIP: localhost:1234
+Processor_12020/10/17 18:36:35 TimeOut: 5
+Processor_12020/10/17 18:36:44 Sending Replicas
+Processor_12020/10/17 18:36:46 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:36:44 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:36:54 (Leave)Terminating vm_1
+Processor_12020/10/17 18:37:54 ServerID: localhost_Sat, 17 Oct 2020 18:37:54 KST
+Processor_12020/10/17 18:37:54 selfIP: localhost:1234
+Processor_12020/10/17 18:37:54 TimeOut: 5
+Processor_12020/10/17 18:37:57 Sending Replicas
+Processor_12020/10/17 18:37:58 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:37:57 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:39:11 (Leave)Terminating vm_1
+Processor_12020/10/17 18:39:14 ServerID: localhost_Sat, 17 Oct 2020 18:39:14 KST
+Processor_12020/10/17 18:39:14 selfIP: localhost:1234
+Processor_12020/10/17 18:39:14 TimeOut: 5
+Processor_12020/10/17 18:39:18 Sending Replicas
+Processor_12020/10/17 18:39:19 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:39:18 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:39:41 (Leave)Terminating vm_1
+Processor_12020/10/17 18:40:18 ServerID: localhost_Sat, 17 Oct 2020 18:40:18 KST
+Processor_12020/10/17 18:40:18 selfIP: localhost:1234
+Processor_12020/10/17 18:40:18 TimeOut: 5
+Processor_12020/10/17 18:40:40 ServerID: localhost_Sat, 17 Oct 2020 18:40:40 KST
+Processor_12020/10/17 18:40:40 selfIP: localhost:1234
+Processor_12020/10/17 18:40:40 TimeOut: 5
+Processor_12020/10/17 18:40:44 ServerID: localhost_Sat, 17 Oct 2020 18:40:44 KST
+Processor_12020/10/17 18:40:44 selfIP: localhost:1234
+Processor_12020/10/17 18:40:44 TimeOut: 5
+Processor_12020/10/17 18:40:46 Sending Replicas
+Processor_12020/10/17 18:40:48 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:40:46 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:41:09 ServerID: localhost_Sat, 17 Oct 2020 18:41:09 KST
+Processor_12020/10/17 18:41:09 selfIP: localhost:1234
+Processor_12020/10/17 18:41:09 TimeOut: 5
+Processor_12020/10/17 18:41:13 Sending Replicas
+Processor_12020/10/17 18:41:15 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:41:13 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:41:52 ServerID: localhost_Sat, 17 Oct 2020 18:41:52 KST
+Processor_12020/10/17 18:41:52 selfIP: localhost:1234
+Processor_12020/10/17 18:41:52 TimeOut: 5
+Processor_12020/10/17 18:44:23 ServerID: localhost_Sat, 17 Oct 2020 18:44:23 KST
+Processor_12020/10/17 18:44:23 selfIP: localhost:1234
+Processor_12020/10/17 18:44:23 TimeOut: 5
+Processor_12020/10/17 18:44:28 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:44:26 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:44:29 Sending Replicas
+Processor_12020/10/17 18:46:14 (Leave)Terminating vm_1
+Processor_12020/10/17 18:47:14 ServerID: localhost_Sat, 17 Oct 2020 18:47:14 KST
+Processor_12020/10/17 18:47:14 selfIP: localhost:1234
+Processor_12020/10/17 18:47:14 TimeOut: 5
+Processor_12020/10/17 18:47:19 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:47:18 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:47:21 Sending Replicas
+Processor_12020/10/17 18:48:13 (Leave)Terminating vm_1
+Processor_12020/10/17 18:48:17 ServerID: localhost_Sat, 17 Oct 2020 18:48:17 KST
+Processor_12020/10/17 18:48:17 selfIP: localhost:1234
+Processor_12020/10/17 18:48:17 TimeOut: 5
+Processor_12020/10/17 18:48:19 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:47:18 KST
+Count: 115
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:48:25 
+Failure detected: 
+ID: localhost_Sat, 17 Oct 2020 18:47:14 KST
+Count: 113
+localTime: 2
+Failed: True
+
+Processor_12020/10/17 18:48:26 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:48:25 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:48:28 Sending Replicas
+Processor_12020/10/17 18:48:30 
+Failure detected: 
+ID: localhost_Sat, 17 Oct 2020 18:47:18 KST
+Count: 126
+localTime: 7
+Failed: True
+
+Removing Member: 
+ID: localhost_Sat, 17 Oct 2020 18:47:14 KST
+Count: 113
+localTime: 2
+Failed: True
+
+Processor_12020/10/17 18:48:35 
+Removing Member: 
+ID: localhost_Sat, 17 Oct 2020 18:47:18 KST
+Count: 126
+localTime: 7
+Failed: True
+
+Processor_12020/10/17 18:48:44 (Leave)Terminating vm_1
+Processor_12020/10/17 18:53:24 ServerID: localhost_Sat, 17 Oct 2020 18:53:24 KST
+Processor_12020/10/17 18:53:24 selfIP: localhost:1234
+Processor_12020/10/17 18:53:24 TimeOut: 5
+Processor_12020/10/17 18:53:29 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:53:28 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:53:31 Sending Replicas
+Processor_12020/10/17 18:53:57 
+Membership List: 
+TimeOut: 5/nID: localhost_Sat, 17 Oct 2020 18:53:24 KST
+Count: 61
+localTime: 32
+Failed: False
+ID: localhost_Sat, 17 Oct 2020 18:53:28 KST
+Count: 53
+localTime: 32
+Failed: False
+
+Processor_12020/10/17 18:55:18 (Leave)Terminating vm_1
+Processor_12020/10/17 18:55:26 ServerID: localhost_Sat, 17 Oct 2020 18:55:26 KST
+Processor_12020/10/17 18:55:26 selfIP: localhost:1234
+Processor_12020/10/17 18:55:26 TimeOut: 5
+Processor_12020/10/17 18:55:31 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:55:30 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:55:37 
+Membership List: 
+TimeOut: 5/nID: localhost_Sat, 17 Oct 2020 18:55:26 KST
+Count: 18
+localTime: 11
+Failed: False
+ID: localhost_Sat, 17 Oct 2020 18:55:30 KST
+Count: 11
+localTime: 11
+Failed: False
+
+Processor_12020/10/17 18:55:40 Sending Replicas
+Processor_12020/10/17 18:56:57 (Leave)Terminating vm_1
+Processor_12020/10/17 18:57:28 ServerID: localhost_Sat, 17 Oct 2020 18:57:28 KST
+Processor_12020/10/17 18:57:28 selfIP: localhost:1234
+Processor_12020/10/17 18:57:28 TimeOut: 5
+Processor_12020/10/17 18:57:32 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 18:57:31 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 18:57:36 
+Membership List: 
+TimeOut: 5/nID: localhost_Sat, 17 Oct 2020 18:57:28 KST
+Count: 11
+localTime: 7
+Failed: False
+ID: localhost_Sat, 17 Oct 2020 18:57:31 KST
+Count: 5
+localTime: 7
+Failed: False
+
+Processor_12020/10/17 18:57:41 Sending Replicas
+Processor_12020/10/17 18:58:55 (Leave)Terminating vm_1
+Processor_12020/10/17 19:01:15 ServerID: localhost_Sat, 17 Oct 2020 19:01:15 KST
+Processor_12020/10/17 19:01:15 selfIP: localhost:1234
+Processor_12020/10/17 19:01:15 TimeOut: 5
+Processor_12020/10/17 19:01:19 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 19:01:18 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 19:01:28 Sending Replicas
+Processor_12020/10/17 19:02:44 (Leave)Terminating vm_1
+Processor_12020/10/17 19:03:19 ServerID: localhost_Sat, 17 Oct 2020 19:03:19 KST
+Processor_12020/10/17 19:03:19 selfIP: localhost:1234
+Processor_12020/10/17 19:03:19 TimeOut: 5
+Processor_12020/10/17 19:03:27 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 19:03:26 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 19:03:36 Sending Replicas
+Processor_12020/10/17 19:04:12 ServerID: localhost_Sat, 17 Oct 2020 19:04:12 KST
+Processor_12020/10/17 19:04:12 selfIP: localhost:1234
+Processor_12020/10/17 19:04:12 TimeOut: 5
+Processor_12020/10/17 19:04:24 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 19:04:22 KST
+Count: 0
+localTime: 0
+Failed: False
+
+Processor_12020/10/17 19:04:32 Sending Replicas
+Processor_12020/10/17 19:49:08 ServerID: localhost_Sat, 17 Oct 2020 19:49:08 KST
+Processor_12020/10/17 19:49:08 selfIP: localhost:1234
+Processor_12020/10/17 19:49:08 TimeOut: 5
+Processor_12020/10/17 19:49:25 Sending Replicas
+Processor_12020/10/17 19:50:52 (Leave)Terminating vm_1
+Processor_12020/10/17 19:51:44 ServerID: localhost_Sat, 17 Oct 2020 19:51:44 KST
+Processor_12020/10/17 19:51:44 selfIP: localhost:1234
+Processor_12020/10/17 19:51:44 TimeOut: 5
+Processor_12020/10/17 19:54:09 (Leave)Terminating vm_1
+Processor_12020/10/17 19:54:39 ServerID: localhost_Sat, 17 Oct 2020 19:54:39 KST
+Processor_12020/10/17 19:54:39 selfIP: localhost:1234
+Processor_12020/10/17 19:54:39 TimeOut: 5
+Processor_12020/10/17 19:54:44 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 19:54:42 KST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/10/17 19:54:50 (Leave)Terminating vm_1
+Processor_12020/10/17 19:55:25 ServerID: localhost_Sat, 17 Oct 2020 19:55:25 KST
+Processor_12020/10/17 19:55:25 selfIP: localhost:1234
+Processor_12020/10/17 19:55:25 TimeOut: 5
+Processor_12020/10/17 19:55:29 (Leave)Terminating vm_1
+Processor_12020/10/17 19:56:08 ServerID: localhost_Sat, 17 Oct 2020 19:56:08 KST
+Processor_12020/10/17 19:56:08 selfIP: localhost:1234
+Processor_12020/10/17 19:56:08 TimeOut: 5
+Processor_12020/10/17 19:56:13 
+New Member Added: 
+ID: localhost_Sat, 17 Oct 2020 19:56:11 KST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/10/17 19:56:21 Sending Replicas
+Processor_12020/10/17 19:56:40 (Leave)Terminating vm_1
+Processor_12020/10/18 12:34:54 ServerID: localhost_Sun, 18 Oct 2020 12:34:54 KST
+Processor_12020/10/18 12:34:54 selfIP: localhost:1234
+Processor_12020/10/18 12:34:54 TimeOut: 5
+Processor_12020/10/18 12:34:54 Connecting to Introducer...
+Processor_12020/10/18 12:35:21 ServerID: localhost_Sun, 18 Oct 2020 12:35:21 KST
+Processor_12020/10/18 12:35:21 selfIP: localhost:1234
+Processor_12020/10/18 12:35:21 TimeOut: 5
+Processor_12020/10/18 12:35:21 Connecting to Introducer...
+Processor_12020/10/18 12:35:25 ServerID: localhost_Sun, 18 Oct 2020 12:35:25 KST
+Processor_12020/10/18 12:35:25 selfIP: localhost:1234
+Processor_12020/10/18 12:35:25 TimeOut: 5
+Processor_12020/10/18 12:35:35 Changing to Gossip
+Processor_12020/10/18 12:35:40 
+Membership List: 
+TimeOut: 5/nID: localhost_Sun, 18 Oct 2020 12:35:25 KST
+Count: 15
+localTime: 15
+Failed: False
+
+Processor_12020/10/18 12:35:40 Sending Replicas
+Processor_12020/10/18 12:35:57 (Leave)Terminating vm_1
+Processor_12020/10/18 12:36:04 ServerID: localhost_Sun, 18 Oct 2020 12:36:04 KST
+Processor_12020/10/18 12:36:04 selfIP: localhost:1234
+Processor_12020/10/18 12:36:04 TimeOut: 5
+Processor_12020/10/18 12:36:17 
+Membership List: 
+TimeOut: 5/nID: localhost_Sun, 18 Oct 2020 12:36:04 KST
+Count: 13
+localTime: 13
+Failed: False
+
+Processor_12020/10/18 12:36:22 Sending Replicas
+Processor_12020/10/18 12:37:27 (Leave)Terminating vm_1
+Processor_12020/10/18 12:38:52 ServerID: localhost_Sun, 18 Oct 2020 12:38:52 KST
+Processor_12020/10/18 12:38:52 selfIP: localhost:1234
+Processor_12020/10/18 12:38:52 TimeOut: 5
+Processor_12020/10/18 12:39:05 Sending Replicas
+Processor_12020/10/18 12:39:21 (Leave)Terminating vm_1
+Processor_12020/10/18 12:40:09 ServerID: localhost_Sun, 18 Oct 2020 12:40:09 KST
+Processor_12020/10/18 12:40:09 selfIP: localhost:1234
+Processor_12020/10/18 12:40:09 TimeOut: 5
+Processor_12020/10/18 12:40:23 Sending Replicas
+Processor_12020/10/18 12:41:29 (Leave)Terminating vm_1
+Processor_12020/10/18 12:42:13 ServerID: localhost_Sun, 18 Oct 2020 12:42:13 KST
+Processor_12020/10/18 12:42:13 selfIP: localhost:1234
+Processor_12020/10/18 12:42:13 TimeOut: 5
+Processor_12020/10/18 12:42:26 Sending Replicas
+Processor_12020/10/18 12:42:28 (Leave)Terminating vm_1
+Processor_12020/10/18 12:43:17 ServerID: localhost_Sun, 18 Oct 2020 12:43:17 KST
+Processor_12020/10/18 12:43:17 selfIP: localhost:1234
+Processor_12020/10/18 12:43:17 TimeOut: 5
+Processor_12020/10/18 12:43:30 Sending Replicas
+Processor_12020/10/18 12:43:40 
+Membership List: 
+TimeOut: 5/nID: localhost_Sun, 18 Oct 2020 12:43:17 KST
+Count: 23
+localTime: 23
+Failed: False
+
+Processor_12020/10/18 12:44:06 
+Membership List: 
+TimeOut: 5/nID: localhost_Sun, 18 Oct 2020 12:43:17 KST
+Count: 48
+localTime: 48
+Failed: False
+
+Processor_12020/10/18 12:44:10 (Leave)Terminating vm_1
+Processor_12020/10/18 12:44:45 ServerID: localhost_Sun, 18 Oct 2020 12:44:45 KST
+Processor_12020/10/18 12:44:45 selfIP: localhost:1234
+Processor_12020/10/18 12:44:45 TimeOut: 5
+Processor_12020/10/18 12:44:59 Sending Replicas
+Processor_12020/10/18 12:45:25 (Leave)Terminating vm_1
+Processor_12020/10/18 12:47:03 ServerID: localhost_Sun, 18 Oct 2020 12:47:03 KST
+Processor_12020/10/18 12:47:03 selfIP: localhost:1234
+Processor_12020/10/18 12:47:03 TimeOut: 5
+Processor_12020/10/18 12:47:16 Sending Replicas
+Processor_12020/10/18 12:47:19 (Leave)Terminating vm_1
+Processor_12020/10/18 12:48:33 ServerID: localhost_Sun, 18 Oct 2020 12:48:33 KST
+Processor_12020/10/18 12:48:33 selfIP: localhost:1234
+Processor_12020/10/18 12:48:33 TimeOut: 5
+Processor_12020/10/18 12:49:06 (Leave)Terminating vm_1
+Processor_12020/10/18 12:51:34 ServerID: localhost_Sun, 18 Oct 2020 12:51:34 KST
+Processor_12020/10/18 12:51:34 selfIP: localhost:1234
+Processor_12020/10/18 12:51:34 TimeOut: 5
+Processor_12020/10/18 12:52:01 (Leave)Terminating vm_1
+Processor_12020/10/18 12:56:03 ServerID: localhost_Sun, 18 Oct 2020 12:56:03 KST
+Processor_12020/10/18 12:56:03 selfIP: localhost:1234
+Processor_12020/10/18 12:56:03 TimeOut: 5
+Processor_12020/10/18 12:57:32 (Leave)Terminating vm_1
+Processor_12020/10/18 13:30:35 ServerID: localhost_Sun, 18 Oct 2020 13:30:35 KST
+Processor_12020/10/18 13:30:35 selfIP: localhost:1234
+Processor_12020/10/18 13:30:35 TimeOut: 5
+Processor_12020/10/18 13:30:40 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 13:30:39 KST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/10/18 13:35:21 ServerID: localhost_Sun, 18 Oct 2020 13:35:21 KST
+Processor_12020/10/18 13:35:21 selfIP: localhost:1234
+Processor_12020/10/18 13:35:21 TimeOut: 5
+Processor_12020/10/18 13:35:25 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 13:35:23 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/18 13:35:35 (Leave)Terminating vm_1
+Processor_12020/10/18 13:36:43 ServerID: localhost_Sun, 18 Oct 2020 13:36:43 KST
+Processor_12020/10/18 13:36:43 selfIP: localhost:1234
+Processor_12020/10/18 13:36:43 TimeOut: 5
+Processor_12020/10/18 13:36:47 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 13:36:46 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/18 13:36:56 (Leave)Terminating vm_1
+Processor_12020/10/18 13:37:15 ServerID: localhost_Sun, 18 Oct 2020 13:37:15 KST
+Processor_12020/10/18 13:37:15 selfIP: localhost:1234
+Processor_12020/10/18 13:37:15 TimeOut: 5
+Processor_12020/10/18 13:37:28 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 13:37:26 KST
+Count: 0
+localTime: 11
+Failed: False
+
+Processor_12020/10/18 13:37:35 (Leave)Terminating vm_1
+Processor_12020/10/18 13:38:44 ServerID: localhost_Sun, 18 Oct 2020 13:38:44 KST
+Processor_12020/10/18 13:38:44 selfIP: localhost:1234
+Processor_12020/10/18 13:38:44 TimeOut: 5
+Processor_12020/10/18 13:39:07 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 13:39:05 KST
+Count: 0
+localTime: 21
+Failed: False
+
+Processor_12020/10/18 13:39:26 (Leave)Terminating vm_1
+Processor_12020/10/18 13:40:01 ServerID: localhost_Sun, 18 Oct 2020 13:40:01 KST
+Processor_12020/10/18 13:40:01 selfIP: localhost:1234
+Processor_12020/10/18 13:40:01 TimeOut: 5
+Processor_12020/10/18 13:40:05 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 13:40:04 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/18 13:40:15 (Leave)Terminating vm_1
+Processor_12020/10/18 13:40:39 ServerID: localhost_Sun, 18 Oct 2020 13:40:39 KST
+Processor_12020/10/18 13:40:39 selfIP: localhost:1234
+Processor_12020/10/18 13:40:39 TimeOut: 5
+Processor_12020/10/18 13:41:01 ServerID: localhost_Sun, 18 Oct 2020 13:41:01 KST
+Processor_12020/10/18 13:41:01 selfIP: localhost:1234
+Processor_12020/10/18 13:41:01 TimeOut: 5
+Processor_12020/10/18 13:41:24 ServerID: localhost_Sun, 18 Oct 2020 13:41:24 KST
+Processor_12020/10/18 13:41:24 selfIP: localhost:1234
+Processor_12020/10/18 13:41:24 TimeOut: 5
+Processor_12020/10/18 13:41:31 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 13:41:29 KST
+Count: 0
+localTime: 5
+Failed: False
+
+Processor_12020/10/18 13:41:39 Sending Replicas
+Processor_12020/10/18 13:42:04 (Leave)Terminating vm_1
+Processor_12020/10/18 13:59:46 ServerID: localhost_Sun, 18 Oct 2020 13:59:46 KST
+Processor_12020/10/18 13:59:46 selfIP: localhost:1234
+Processor_12020/10/18 13:59:46 TimeOut: 5
+Processor_12020/10/18 13:59:55 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 13:59:54 KST
+Count: 0
+localTime: 7
+Failed: False
+
+Processor_12020/10/18 14:00:10 
+Failure detected: 
+ID: localhost_Sun, 18 Oct 2020 13:59:54 KST
+Count: 18
+localTime: 18
+Failed: True
+
+Processor_12020/10/18 14:00:15 
+Removing Member: 
+ID: localhost_Sun, 18 Oct 2020 13:59:54 KST
+Count: 18
+localTime: 18
+Failed: True
+
+Processor_12020/10/18 14:00:31 (Leave)Terminating vm_1
+Processor_12020/10/18 14:00:34 ServerID: localhost_Sun, 18 Oct 2020 14:00:34 KST
+Processor_12020/10/18 14:00:34 selfIP: localhost:1234
+Processor_12020/10/18 14:00:34 TimeOut: 5
+Processor_12020/10/18 14:00:38 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 14:00:37 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/18 14:00:53 
+Failure detected: 
+ID: localhost_Sun, 18 Oct 2020 14:00:37 KST
+Count: 17
+localTime: 13
+Failed: True
+
+Processor_12020/10/18 14:00:58 
+Removing Member: 
+ID: localhost_Sun, 18 Oct 2020 14:00:37 KST
+Count: 17
+localTime: 13
+Failed: True
+
+Processor_12020/10/18 14:00:59 (Leave)Terminating vm_1
+Processor_12020/10/18 14:01:26 ServerID: localhost_Sun, 18 Oct 2020 14:01:26 KST
+Processor_12020/10/18 14:01:26 selfIP: localhost:1234
+Processor_12020/10/18 14:01:26 TimeOut: 5
+Processor_12020/10/18 14:01:30 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 14:01:29 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/18 14:01:46 
+Failure detected: 
+ID: localhost_Sun, 18 Oct 2020 14:01:29 KST
+Count: 17
+localTime: 13
+Failed: True
+
+Processor_12020/10/18 14:01:51 
+Removing Member: 
+ID: localhost_Sun, 18 Oct 2020 14:01:29 KST
+Count: 17
+localTime: 13
+Failed: True
+
+Processor_12020/10/18 14:02:02 (Leave)Terminating vm_1
+Processor_12020/10/18 14:03:16 ServerID: localhost_Sun, 18 Oct 2020 14:03:16 KST
+Processor_12020/10/18 14:03:16 selfIP: localhost:1234
+Processor_12020/10/18 14:03:16 TimeOut: 5
+Processor_12020/10/18 14:03:20 
+New Member Added: 
+ID: localhost_Sun, 18 Oct 2020 14:03:19 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/18 14:03:29 Sending Replicas
+Processor_12020/10/18 14:03:35 
+Failure detected: 
+ID: localhost_Sun, 18 Oct 2020 14:03:19 KST
+Count: 17
+localTime: 13
+Failed: True
+
+Processor_12020/10/18 14:03:40 
+Removing Member: 
+ID: localhost_Sun, 18 Oct 2020 14:03:19 KST
+Count: 17
+localTime: 13
+Failed: True
+
+Processor_12020/10/18 14:06:36 (Leave)Terminating vm_1
+Processor_12020/10/19 21:06:38 ServerID: localhost_Mon, 19 Oct 2020 21:06:38 KST
+Processor_12020/10/19 21:06:38 selfIP: localhost:1234
+Processor_12020/10/19 21:06:38 TimeOut: 5
+Processor_12020/10/19 21:06:49 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 21:06:48 KST
+Count: 0
+localTime: 9
+Failed: False
+
+Processor_12020/10/19 21:06:53 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 21:06:38 KST
+Count: 18
+localTime: 14
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 21:06:48 KST
+Count: 5
+localTime: 14
+Failed: False
+
+Processor_12020/10/19 21:08:32 ServerID: localhost_Mon, 19 Oct 2020 21:08:32 KST
+Processor_12020/10/19 21:08:32 selfIP: localhost:1234
+Processor_12020/10/19 21:08:32 TimeOut: 5
+Processor_12020/10/19 21:08:39 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 21:08:37 KST
+Count: 0
+localTime: 5
+Failed: False
+
+Processor_12020/10/19 21:09:28 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 21:08:37 KST
+Count: 85
+localTime: 50
+Failed: True
+
+Processor_12020/10/19 21:09:33 
+Removing Member: 
+ID: localhost_Mon, 19 Oct 2020 21:08:37 KST
+Count: 85
+localTime: 50
+Failed: True
+
+Processor_12020/10/19 21:11:00 ServerID: localhost_Mon, 19 Oct 2020 21:11:00 KST
+Processor_12020/10/19 21:11:00 selfIP: localhost:1234
+Processor_12020/10/19 21:11:00 TimeOut: 5
+Processor_12020/10/19 21:11:12 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 21:11:11 KST
+Count: 0
+localTime: 10
+Failed: False
+
+Processor_12020/10/19 21:11:28 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 21:11:11 KST
+Count: 19
+localTime: 22
+Failed: True
+
+Processor_12020/10/19 21:27:29 ServerID: localhost_Mon, 19 Oct 2020 21:27:29 KST
+Processor_12020/10/19 21:27:29 selfIP: localhost:1234
+Processor_12020/10/19 21:27:29 TimeOut: 5
+Processor_12020/10/19 21:27:35 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 21:27:34 KST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/10/19 21:28:04 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 21:27:34 KST
+Count: 45
+localTime: 29
+Failed: True
+
+Processor_12020/10/19 21:28:09 
+Removing Member: 
+ID: localhost_Mon, 19 Oct 2020 21:27:34 KST
+Count: 45
+localTime: 29
+Failed: True
+
+Processor_12020/10/19 21:32:04 ServerID: localhost_Mon, 19 Oct 2020 21:32:04 KST
+Processor_12020/10/19 21:32:04 selfIP: localhost:1234
+Processor_12020/10/19 21:32:04 TimeOut: 5
+Processor_12020/10/19 21:32:10 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 21:32:08 KST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/10/19 21:36:30 ServerID: localhost_Mon, 19 Oct 2020 21:36:30 KST
+Processor_12020/10/19 21:36:30 selfIP: localhost:1234
+Processor_12020/10/19 21:36:30 TimeOut: 5
+Processor_12020/10/19 21:36:36 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 21:36:34 KST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/10/19 21:56:45 ServerID: localhost_Mon, 19 Oct 2020 21:56:45 KST
+Processor_12020/10/19 21:56:45 selfIP: localhost:1234
+Processor_12020/10/19 21:56:45 TimeOut: 5
+Processor_12020/10/19 21:56:49 (Leave)Terminating vm_1
+Processor_12020/10/19 21:56:57 ServerID: localhost_Mon, 19 Oct 2020 21:56:57 KST
+Processor_12020/10/19 21:56:57 selfIP: localhost:1234
+Processor_12020/10/19 21:56:57 TimeOut: 5
+Processor_12020/10/19 21:57:02 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 21:57:00 KST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/10/19 22:02:33 ServerID: localhost_Mon, 19 Oct 2020 22:02:33 KST
+Processor_12020/10/19 22:02:33 selfIP: localhost:1234
+Processor_12020/10/19 22:02:33 TimeOut: 5
+Processor_12020/10/19 22:02:37 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:02:36 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/19 22:03:45 ServerID: localhost_Mon, 19 Oct 2020 22:03:45 KST
+Processor_12020/10/19 22:03:45 selfIP: localhost:1234
+Processor_12020/10/19 22:03:45 TimeOut: 5
+Processor_12020/10/19 22:03:50 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:03:49 KST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/10/19 22:06:42 ServerID: localhost_Mon, 19 Oct 2020 22:06:42 KST
+Processor_12020/10/19 22:06:42 selfIP: localhost:1234
+Processor_12020/10/19 22:06:42 TimeOut: 5
+Processor_12020/10/19 22:06:46 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:06:45 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/19 22:06:59 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 22:06:45 KST
+Count: 13
+localTime: 11
+Failed: True
+
+Processor_12020/10/19 22:07:04 
+Removing Member: 
+ID: localhost_Mon, 19 Oct 2020 22:06:45 KST
+Count: 13
+localTime: 11
+Failed: True
+
+Processor_12020/10/19 22:09:15 ServerID: localhost_Mon, 19 Oct 2020 22:09:15 KST
+Processor_12020/10/19 22:09:15 selfIP: localhost:1234
+Processor_12020/10/19 22:09:15 TimeOut: 5
+Processor_12020/10/19 22:09:19 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:09:18 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/19 22:20:44 ServerID: localhost_Mon, 19 Oct 2020 22:20:44 KST
+Processor_12020/10/19 22:20:44 selfIP: localhost:1234
+Processor_12020/10/19 22:20:44 TimeOut: 5
+Processor_12020/10/19 22:20:49 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:20:47 KST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/10/19 22:20:56 Sending Replicas
+Processor_12020/10/19 22:20:56 string
+Processor_12020/10/19 22:21:15 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 22:20:47 KST
+Count: 29
+localTime: 25
+Failed: True
+
+Processor_12020/10/19 22:21:20 
+Removing Member: 
+ID: localhost_Mon, 19 Oct 2020 22:20:47 KST
+Count: 29
+localTime: 25
+Failed: True
+
+Processor_12020/10/19 22:23:12 ServerID: localhost_Mon, 19 Oct 2020 22:23:12 KST
+Processor_12020/10/19 22:23:12 selfIP: localhost:1234
+Processor_12020/10/19 22:23:12 TimeOut: 5
+Processor_12020/10/19 22:23:21 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:23:20 KST
+Count: 0
+localTime: 7
+Failed: False
+
+Processor_12020/10/19 22:23:30 Sending Replicas
+Processor_12020/10/19 22:23:48 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 22:23:20 KST
+Count: 31
+localTime: 30
+Failed: True
+
+Processor_12020/10/19 22:23:53 
+Removing Member: 
+ID: localhost_Mon, 19 Oct 2020 22:23:20 KST
+Count: 31
+localTime: 30
+Failed: True
+
+Processor_12020/10/19 22:29:21 ServerID: localhost_Mon, 19 Oct 2020 22:29:21 KST
+Processor_12020/10/19 22:29:21 selfIP: localhost:1234
+Processor_12020/10/19 22:29:21 TimeOut: 5
+Processor_12020/10/19 22:29:25 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:29:23 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/19 22:29:37 Sending Replicas
+Processor_12020/10/19 22:29:56 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 22:29:23 KST
+Count: 39
+localTime: 29
+Failed: True
+
+Processor_12020/10/19 22:37:19 ServerID: localhost_Mon, 19 Oct 2020 22:37:19 KST
+Processor_12020/10/19 22:37:19 selfIP: localhost:1234
+Processor_12020/10/19 22:37:19 TimeOut: 5
+Processor_12020/10/19 22:37:25 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:37:24 KST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/10/19 22:37:38 Sending Replicas
+Processor_12020/10/19 22:37:56 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 22:37:24 KST
+Count: 39
+localTime: 31
+Failed: True
+
+Processor_12020/10/19 22:38:01 
+Removing Member: 
+ID: localhost_Mon, 19 Oct 2020 22:37:24 KST
+Count: 39
+localTime: 31
+Failed: True
+
+Processor_12020/10/19 22:39:41 (Leave)Terminating vm_1
+Processor_12020/10/19 22:40:12 ServerID: localhost_Mon, 19 Oct 2020 22:40:12 KST
+Processor_12020/10/19 22:40:12 selfIP: localhost:1234
+Processor_12020/10/19 22:40:12 TimeOut: 5
+Processor_12020/10/19 22:40:15 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:40:13 KST
+Count: 0
+localTime: 1
+Failed: False
+
+Processor_12020/10/19 22:40:21 Sending Replicas
+Processor_12020/10/19 22:40:24 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:40:12 KST
+Count: 25
+localTime: 12
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:40:13 KST
+Count: 16
+localTime: 12
+Failed: False
+
+Processor_12020/10/19 22:40:28 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:40:12 KST
+Count: 31
+localTime: 15
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:40:13 KST
+Count: 19
+localTime: 15
+Failed: False
+
+Processor_12020/10/19 22:40:39 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 22:40:13 KST
+Count: 25
+localTime: 21
+Failed: True
+
+Processor_12020/10/19 22:40:44 
+Removing Member: 
+ID: localhost_Mon, 19 Oct 2020 22:40:13 KST
+Count: 25
+localTime: 21
+Failed: True
+
+Processor_12020/10/19 22:44:42 (Leave)Terminating vm_1
+Processor_12020/10/19 22:44:46 ServerID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Processor_12020/10/19 22:44:46 selfIP: localhost:1234
+Processor_12020/10/19 22:44:46 TimeOut: 5
+Processor_12020/10/19 22:44:52 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/10/19 22:44:57 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 17
+localTime: 11
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 9
+localTime: 11
+Failed: False
+
+Processor_12020/10/19 22:45:05 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 31
+localTime: 18
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 23
+localTime: 18
+Failed: False
+
+Processor_12020/10/19 22:45:12 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 45
+localTime: 25
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 37
+localTime: 25
+Failed: False
+
+Processor_12020/10/19 22:45:14 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 49
+localTime: 27
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 41
+localTime: 27
+Failed: False
+
+Processor_12020/10/19 22:45:16 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 53
+localTime: 29
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 45
+localTime: 29
+Failed: False
+
+Processor_12020/10/19 22:45:32 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 87
+localTime: 46
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 79
+localTime: 46
+Failed: False
+
+Processor_12020/10/19 22:45:35 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 93
+localTime: 49
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 85
+localTime: 49
+Failed: False
+
+Processor_12020/10/19 22:45:54 Sending Replicas
+Processor_12020/10/19 22:46:05 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 154
+localTime: 78
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 136
+localTime: 78
+Failed: False
+
+Processor_12020/10/19 22:46:07 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 158
+localTime: 80
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 138
+localTime: 80
+Failed: False
+
+Processor_12020/10/19 22:46:09 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 161
+localTime: 82
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 139
+localTime: 81
+Failed: False
+
+Processor_12020/10/19 22:46:11 
+Membership List: 
+TimeOut: 5/nID: localhost_Mon, 19 Oct 2020 22:44:46 KST
+Count: 163
+localTime: 84
+Failed: False
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 139
+localTime: 81
+Failed: False
+
+Processor_12020/10/19 22:46:13 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 22:44:51 KST
+Count: 139
+localTime: 81
+Failed: True
+
+Processor_12020/10/19 22:46:17 (Leave)Terminating vm_1
+Processor_12020/10/19 22:58:29 ServerID: localhost_Mon, 19 Oct 2020 22:58:29 KST
+Processor_12020/10/19 22:58:29 selfIP: localhost:1234
+Processor_12020/10/19 22:58:29 TimeOut: 5
+Processor_12020/10/19 22:58:35 
+New Member Added: 
+ID: localhost_Mon, 19 Oct 2020 22:58:34 KST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/10/19 22:58:42 Sending Replicas
+Processor_12020/10/19 22:59:00 
+Failure detected: 
+ID: localhost_Mon, 19 Oct 2020 22:58:34 KST
+Count: 27
+localTime: 25
+Failed: True
+
+Processor_12020/10/19 22:59:05 
+Removing Member: 
+ID: localhost_Mon, 19 Oct 2020 22:58:34 KST
+Count: 27
+localTime: 25
+Failed: True
+
+Processor_12020/10/19 22:59:50 (Leave)Terminating vm_1
