@@ -317,8 +317,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		cmd := msg.Cmd
 		fileName := msg.Filename
 
-		encodedMsg := pk.EncodePacket("TCP Opened", nil)
-		conn.WriteToUDP(encodedMsg, addr)
 		Log := "TCP Opened"
 
 		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr)
