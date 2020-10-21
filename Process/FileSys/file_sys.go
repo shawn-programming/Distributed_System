@@ -234,14 +234,14 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 	}
 
 	defer server.Close()
-	fmt.Println("Server started! Waiting for connections...")
+	//fmt.Println("Server started! Waiting for connections...")
 	for {
 		connection, err := server.Accept()
 		if err != nil {
 			fmt.Println("Error: ", err)
 			os.Exit(1)
 		}
-		fmt.Println("Client connected")
+		//fmt.Println("Client connected")
 
 		if request == "put" {
 			ReceiveFile(connection, "distributed_files", processNodePtr)
@@ -256,7 +256,7 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 // CLIENT
 func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *nd.Node, id ms.Id) bool {
 	// connect to server
-	fmt.Println("RequestTCP----------------")
+	//fmt.Println("RequestTCP----------------")
 
 	var service string
 
@@ -276,7 +276,7 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 		panic(err)
 	}
 	defer connection.Close()
-	fmt.Println("Connected, start processing request")
+	//fmt.Println("Connected, start processing request")
 
 	check := false
 	if command == "put" {
@@ -288,7 +288,7 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 		check = ReceiveFile(connection, "local_files", nil)
 
 	}
-	fmt.Println("Request TCP Done")
+	//fmt.Println("Request TCP Done")
 	if check {
 		return true
 	}
@@ -297,7 +297,7 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 
 // send / receive file
 func SendFile(connection net.Conn, requestedFileName string, path string) {
-	fmt.Println("A server has connected!")
+	//fmt.Println("A server has connected!")
 	defer connection.Close()
 
 	file, err := os.Open(path + "/" + requestedFileName)
@@ -313,11 +313,11 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 
 	fileSize := fillString(strconv.FormatInt(fileInfo.Size(), 10), 10)
 	fileName := fillString(fileInfo.Name(), 64)
-	fmt.Println("Sending filename and filesize!")
+	//fmt.Println("Sending filename and filesize!")
 	connection.Write([]byte(fileSize))
 	connection.Write([]byte(fileName))
 	sendBuffer := make([]byte, BUFFERSIZE)
-	fmt.Println("Start sending file!")
+	//fmt.Println("Start sending file!")
 	for {
 		_, err = file.Read(sendBuffer)
 		if err == io.EOF {
@@ -332,8 +332,8 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool {
 	defer connection.Close()
 
-	fmt.Println("----------------------------")
-	fmt.Println("receiving file...")
+	//fmt.Println("----------------------------")
+	//fmt.Println("receiving file...")
 
 	bufferFileName := make([]byte, 64)
 	bufferFileSize := make([]byte, 10)
@@ -344,7 +344,7 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool
 	connection.Read(bufferFileName)
 	fileName := strings.Trim(string(bufferFileName), ":")
 
-	fmt.Println("create new file")
+	//fmt.Println("create new file")
 	newFile, err := os.Create(path + "/" + fileName)
 
 	if err != nil {
@@ -386,7 +386,7 @@ func fillString(retunString string, toLength int) string {
 }
 
 func UpdateLeader(fileName string, processNodePtr *nd.Node) {
-	fmt.Println("UpdateLeader-------")
+	//fmt.Println("UpdateLeader-------")
 	myID := processNodePtr.Id
 	//fromPath := (*processNodePtr).LocalPath
 	//toPath := (*processNodePtr).DistributedPath
