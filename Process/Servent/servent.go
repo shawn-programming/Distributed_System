@@ -379,9 +379,6 @@ func Heartbeat(nodePtr *nd.Node) {
 	for {
 		newList := (*(*nodePtr).InputListPtr)
 
-		// for _, list := range newList {
-		// 	list.Print()
-		// }
 		(*(*nodePtr).InputListPtr) = []ms.MsList{}
 		var logStr string
 		// update the processor's membership list

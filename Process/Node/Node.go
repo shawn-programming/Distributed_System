@@ -312,7 +312,7 @@ func (node Node) PickReplicas(n int, Except []ms.Id) []ms.Id {
 	}
 
 	if len(aliveList) < n {
-		fmt.Println("Not enough alive nodes. There are", len(aliveList), "alive nodes, but we need", n+1, "alive nodes.")
+		fmt.Println("Not enough alive nodes. There are", len(aliveList), "alive nodes, but we need", n, "alive nodes.")
 		return nil
 	}
 

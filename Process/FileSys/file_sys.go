@@ -370,6 +370,7 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool
 		UpdateLeader(fileName, processNodePtr)
 	}
 
+	fmt.Println("updateLeader sent")
 	return true
 }
 
@@ -386,26 +387,31 @@ func fillString(retunString string, toLength int) string {
 }
 
 func UpdateLeader(fileName string, processNodePtr *nd.Node) {
-	//fmt.Println("UpdateLeader-------")
-	myID := processNodePtr.Id
-	//fromPath := (*processNodePtr).LocalPath
-	//toPath := (*processNodePtr).DistributedPath
 
-	leaderService := *processNodePtr.LeaderServicePtr
-	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
-	checkError(err)
+	if *processNodePtr.IsLeaderPtr {
+		processNodePtr.LeaderPtr.FileList[fileName] = append(processNodePtr.LeaderPtr.FileList[fileName], processNodePtr.Id)
+		processNodePtr.LeaderPtr.IdList[processNodePtr.Id] = append(processNodePtr.LeaderPtr.IdList[processNodePtr.Id], fileName)
+	} else {
+		//fmt.Println("UpdateLeader-------")
+		myID := processNodePtr.Id
+		//fromPath := (*processNodePtr).LocalPath
+		//toPath := (*processNodePtr).DistributedPath
 
-	conn, err := net.DialUDP("udp", nil, udpAddr)
-	checkError(err)
+		leaderService := *processNodePtr.LeaderServicePtr
+		udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
+		checkError(err)
 
-	putPacket := pk.EncodePut(pk.Putpacket{myID, fileName})
-	_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
-	checkError(err)
+		conn, err := net.DialUDP("udp", nil, udpAddr)
+		checkError(err)
 
-	var response [128]byte
-	_, err = conn.Read(response[0:])
-	checkError(err)
+		putPacket := pk.EncodePut(pk.Putpacket{myID, fileName})
+		_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
+		checkError(err)
 
+		var response [128]byte
+		_, err = conn.Read(response[0:])
+		checkError(err)
+	}
 }
 
 func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id) {
