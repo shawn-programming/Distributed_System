@@ -221,7 +221,7 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 	var failList []ms.Id
 	node.MsList, failList, removeList, failLog = node.MsList.CheckFails(node.LocalTime, node.TimeOut)
 
-	if *node.IsLeaderPtr && node.LocalTime%5 == 0 {
+	if *node.IsLeaderPtr {
 		// replicate distributed files of members inside the failList
 
 		for _, failed := range failList {
