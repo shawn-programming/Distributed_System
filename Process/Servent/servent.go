@@ -246,13 +246,15 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		filename := msg.Filename
 		originalID := msg.OriginalID
 		replicas := (*nodePtr).PickReplicas(N, []ms.Id{originalID})
+
+		for _, r := range replicas {
+			fmt.Println("Picked: ", replicas.IPAddress)
+		}
 		replicaPackage := pk.IdListpacket{0, ms.Id{"", ""}, replicas, filename}
 		replicaEncoded := pk.EncodeIdList(replicaPackage)
 		encodedMsg := pk.EncodePacket("ReplicaList", replicaEncoded)
 		conn.WriteToUDP(encodedMsg, addr)
 		Log := "Sending Replicas"
-		// files, err := ioutil.ReadDir(".")
-		// CheckError(err)
 
 		return ms.MsList{}, Log
 
