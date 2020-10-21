@@ -326,11 +326,11 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		fileName := msg.Filename
 		toList := msg.ToList
 
-		fs.Send(nodePtr, fileName, toList)
-
 		encodedMsg := pk.EncodePacket("send command received", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 		Log := "sending files to anothe processor"
+
+		fs.Send(nodePtr, fileName, toList)
 
 		return ms.MsList{}, Log
 
