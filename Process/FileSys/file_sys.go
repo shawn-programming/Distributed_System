@@ -171,6 +171,15 @@ func Send(processNodePtr *nd.Node, filename string, idList []ms.Id) {
 	}
 }
 
+func SendDtoD(processNodePtr *nd.Node, filename string, idList []ms.Id) {
+	for i, id := range idList {
+		fmt.Println("picked desination:", i)
+		id.Print()
+
+		RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
+	}
+}
+
 func Pull(processNodePtr *nd.Node, filename string, N int) {
 	fmt.Println("PULL---------------")
 	myID := processNodePtr.Id
@@ -244,10 +253,10 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 		//fmt.Println("Client connected")
 
 		if request == "put" {
-			ReceiveFile(connection, "distributed_files", processNodePtr)
+			ReceiveFile(connection, processNodePtr.DistributedPath, processNodePtr)
 			break
 		} else if request == "fetch" {
-			SendFile(connection, fileName, "distributed_files")
+			SendFile(connection, fileName, processNodePtr.DistributedPath)
 			break
 		}
 	}
@@ -281,12 +290,11 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 	check := false
 	if command == "put" {
 		fmt.Println("put")
-		SendFile(connection, fileName, "local_files")
+		SendFile(connection, fileName, "distributed_files")
 	} else if command == "fetch" {
 
 		fmt.Println("fetch")
 		check = ReceiveFile(connection, "local_files", nil)
-
 	}
 	//fmt.Println("Request TCP Done")
 	if check {
@@ -300,7 +308,7 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 	//fmt.Println("A server has connected!")
 	defer connection.Close()
 
-	file, err := os.Open(path + "/" + requestedFileName)
+	file, err := os.Open(path + requestedFileName)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -345,7 +353,7 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool
 	fileName := strings.Trim(string(bufferFileName), ":")
 
 	//fmt.Println("create new file")
-	newFile, err := os.Create(path + "/" + fileName)
+	newFile, err := os.Create(path + fileName)
 
 	if err != nil {
 		panic(err)
