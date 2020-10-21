@@ -195,11 +195,18 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 
 	var server net.Listener
 	var err error
+	ipaddr := processNodePtr.SelfIP
+	service := ipaddr + ":" + "1288"
+	//LOCAL
 	if processNodePtr.VmNum == 1 {
 		server, err = net.Listen("tcp", "localhost:1236")
 	} else {
 		server, err = net.Listen("tcp", "localhost:1237")
 	}
+
+	//VM
+
+	server, err = net.Listen("tcp", service)
 
 	encodedMsg := pk.EncodePacket("Server opened", nil)
 	connection.WriteToUDP(encodedMsg, addr)
@@ -233,12 +240,16 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 	fmt.Println("RequestTCP----------------")
 
 	var service string
-	if processNodePtr.VmNum == 1 {
-		service = ipaddr + ":" + "1237" //portnum
-	} else {
-		service = ipaddr + ":" + "1236" //portnum
-	}
 
+	//Local
+	// if processNodePtr.VmNum == 1 {
+	// 	service = ipaddr + ":" + "1237" //portnum
+	// } else {
+	// 	service = ipaddr + ":" + "1236" //portnum
+	// }
+
+	//VM
+	service = ipaddr + ":" + "1288"
 	OpenTCP(processNodePtr, command, fileName, id)
 
 	connection, err := net.Dial("tcp", service)
@@ -280,6 +291,7 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 		fmt.Println(err)
 		return
 	}
+
 	fileSize := fillString(strconv.FormatInt(fileInfo.Size(), 10), 10)
 	fileName := fillString(fileInfo.Name(), 64)
 	fmt.Println("Sending filename and filesize!")
@@ -380,11 +392,16 @@ func UpdateLeader(fileName string, processNodePtr *nd.Node) {
 func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id) {
 
 	service := id.IPAddress
-	if processNodePtr.VmNum == 1 {
-		service += ":1235"
-	} else {
-		service += ":1234"
-	}
+
+	//Local
+	// if processNodePtr.VmNum == 1 {
+	// 	service += ":1235"
+	// } else {
+	// 	service += ":1234"
+	// }
+
+	//VM
+	service += "1234"
 
 	udpAddr, err := net.ResolveUDPAddr("udp4", service)
 	checkError(err)

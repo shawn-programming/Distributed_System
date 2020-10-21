@@ -110,11 +110,11 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	selfIP := IntroducerIPList[vmNum]
 
 	// for VM test
-	// myPortNum := portList[0]   // Processor's port number
-	// destPortNum := portList[0] // Receiver's port number
+	myPortNum := portList[0]   // Processor's port number
+	destPortNum := portList[0] // Receiver's port number
 	// for local test
-	myPortNum := portList[(vmNum+1)%2] // Processor's port number
-	destPortNum := portList[vmNum%2]   // Receiver's port number
+	// myPortNum := portList[(vmNum+1)%2] // Processor's port number
+	// destPortNum := portList[vmNum%2]   // Receiver's port number
 
 	myService := selfIP + ":" + strconv.Itoa(myPortNum)                // processor's service for UDP
 	serverID := selfIP + "_" + string(time.Now().Format(time.RFC1123)) // Processor's ID
