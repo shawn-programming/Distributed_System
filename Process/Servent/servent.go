@@ -328,6 +328,12 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		fs.Send(nodePtr, fileName, toList)
 
+		encodedMsg := pk.EncodePacket("send command received", nil)
+		conn.WriteToUDP(encodedMsg, addr)
+		Log := "sending files to anothe processor"
+
+		return ms.MsList{}, Log
+
 	}
 
 	fmt.Println("not a valid packet, packet name:", messageType)

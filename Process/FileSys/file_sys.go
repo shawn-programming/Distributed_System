@@ -144,13 +144,13 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	// target processes to store replicas
 	idList = pk.DecodeIdList(receivedPacket).List
 
-	// Send(processNodePtr, filename, idList)
-	for i, id := range idList {
-		fmt.Println("picked desination:", i)
-		id.Print()
+	Send(processNodePtr, filename, idList)
+	// for i, id := range idList {
+	// 	fmt.Println("picked desination:", i)
+	// 	id.Print()
 
-		RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
-	}
+	// 	RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
+	// }
 
 	putPacket := pk.EncodePut(pk.Putpacket{myID, filename})
 	_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
