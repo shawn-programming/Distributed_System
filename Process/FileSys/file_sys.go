@@ -290,7 +290,7 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 	check := false
 	if command == "put" {
 		fmt.Println("put")
-		SendFile(connection, fileName, "distributed_files")
+		SendFile(connection, fileName, processNodePtr.DistributedPath)
 	} else if command == "fetch" {
 
 		fmt.Println("fetch")
@@ -374,7 +374,7 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool
 
 	// if received file is stored into distributed file system
 	// alert leader of this udpate
-	if path == "distributed_files" {
+	if path == processNodePtr.DistributedPath {
 		UpdateLeader(fileName, processNodePtr)
 	}
 
