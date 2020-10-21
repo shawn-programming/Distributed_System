@@ -8,10 +8,10 @@ import (
 	"time"
 
 	config "../logSystem/config"
+	logger "./Logger"
 	ms "./Membership"
 	nd "./Node"
 	sv "./Servent"
-	"./logger"
 )
 
 /*
