@@ -198,8 +198,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 	message := pk.DecodePacket(buf[:n])
 	messageType := message.Ptype
 
-	fmt.Println(messageType)
-
 	// special command received
 	if messageType == "gossip" {
 		fmt.Println("changing to gossip")
@@ -372,9 +370,6 @@ func Heartbeat(nodePtr *nd.Node) {
 			logger.Println(logStr)
 		}
 
-		if len(*(*nodePtr).InputListPtr) > 1 {
-			fmt.Println(len(*(*nodePtr).InputListPtr))
-		}
 		// sned the processor's member to other processors
 		logPerSec, byteSent := PingToOtherProcessors((*nodePtr).DestPortNum, (*nodePtr), (*(*nodePtr).ATAPtr), (*nodePtr).K)
 		loggerPerSec.Println(logPerSec)
