@@ -319,12 +319,15 @@ func (node Node) PickReplicas(n int, Except []ms.Id) []ms.Id {
 
 	curr := r1.Intn(len(aliveList))
 	for count := 0; count < n; count++ {
-		fmt.Println("count:", count, "alive List: ", len(aliveList))
+		fmt.Println("count:", count, "alive List: ", len(aliveList), "curr:", curr)
 		member := aliveList[curr]
 		curr += (curr + 1) % len(aliveList)
 
 		flag := false
+
 		for _, exception := range Except {
+			exception.Print()
+			member.ID.Print()
 			if member.ID == exception {
 				count--
 				flag = true
