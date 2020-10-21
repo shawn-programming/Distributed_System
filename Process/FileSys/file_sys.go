@@ -112,10 +112,10 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	myID := (*processNodePtr).Id
 
 	// local_files -> distributed_files
-	// from := fromPath + filename
-	// to := toPath + filename
-	// _, err := copy(from, to)
-	// checkError(err)
+	from := processNodePtr.LocalPath + filename
+	to := processNodePtr.DistributedPath + filename
+	_, err := copy(from, to)
+	checkError(err)
 
 	*processNodePtr.DistributedFilesPtr = append(*processNodePtr.DistributedFilesPtr, filename)
 
@@ -198,15 +198,16 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 	ipaddr := processNodePtr.SelfIP
 	service := ipaddr + ":" + "1288"
 	//LOCAL
-	if processNodePtr.VmNum == 1 {
-		server, err = net.Listen("tcp", "localhost:1236")
-	} else {
-		server, err = net.Listen("tcp", "localhost:1237")
-	}
+	// if processNodePtr.VmNum == 1 {
+	// 	server, err = net.Listen("tcp", "localhost:1236")
+	// } else {
+	// 	server, err = net.Listen("tcp", "localhost:1237")
+	// }
 
 	//VM
 
 	server, err = net.Listen("tcp", service)
+	checkError(err)
 
 	encodedMsg := pk.EncodePacket("Server opened", nil)
 	connection.WriteToUDP(encodedMsg, addr)
@@ -228,8 +229,10 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 
 		if request == "put" {
 			ReceiveFile(connection, "distributed_files", processNodePtr)
+			break
 		} else if request == "fetch" {
 			SendFile(connection, fileName, "distributed_files")
+			break
 		}
 	}
 }
