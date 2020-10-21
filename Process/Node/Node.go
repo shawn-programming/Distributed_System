@@ -321,7 +321,7 @@ func (node Node) PickReplicas(n int, Except []ms.Id) []ms.Id {
 	for count := 0; count < n; count++ {
 		fmt.Println("count:", count, "alive List: ", len(aliveList), "curr:", curr)
 		member := aliveList[curr]
-		curr += (curr + 1) % len(aliveList)
+		curr = (curr + 1) % len(aliveList)
 
 		flag := false
 
