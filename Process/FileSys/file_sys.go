@@ -401,7 +401,7 @@ func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id)
 	// }
 
 	//VM
-	service += "1234"
+	service += ":1234"
 
 	udpAddr, err := net.ResolveUDPAddr("udp4", service)
 	checkError(err)
