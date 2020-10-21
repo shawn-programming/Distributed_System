@@ -248,7 +248,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		replicas := (*nodePtr).PickReplicas(N, []ms.Id{originalID})
 
 		for _, r := range replicas {
-			fmt.Println("Picked: ", replicas.IPAddress)
+			fmt.Println("Picked: ", r.IPAddress)
 		}
 		replicaPackage := pk.IdListpacket{0, ms.Id{"", ""}, replicas, filename}
 		replicaEncoded := pk.EncodeIdList(replicaPackage)
