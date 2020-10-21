@@ -276,15 +276,15 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		return ms.MsList{}, Log
 
 	} else if messageType == "updateFileList" { // a process has sent PutListpacket for the leader to update
-		fmt.Println("updateFileList -----------------------")
+		//fmt.Println("updateFileList -----------------------")
 		msg := pk.DecodePut(message)
 		idInfo := msg.Id
 		filename := msg.Filename
 		encodedMsg := pk.EncodePacket("empty", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 
-		fmt.Println("received filename:", filename)
-		fmt.Println("received ID :", idInfo)
+		//fmt.Println("received filename:", filename)
+		//fmt.Println("received ID :", idInfo)
 
 		fmt.Println("before------------------")
 		fmt.Println(nodePtr.LeaderPtr.FileList[filename])

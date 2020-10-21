@@ -225,6 +225,7 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 		// replicate distributed files of members inside the failList
 
 		for _, failed := range failList {
+			failed.Print()
 			//remove(failed from fileList)
 			fileList := node.LeaderPtr.IdList[failed]
 
