@@ -316,9 +316,15 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		msg := pk.DecodeTCPcmd(message)
 		cmd := msg.Cmd
 		fileName := msg.Filename
+
+		encodedMsg := pk.EncodePacket("TCP Opened", nil)
+		conn.WriteToUDP(encodedMsg, addr)
+		Log := "TCP Opened"
+
 		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr)
 
-		return ms.MsList{}, ""
+		return ms.MsList{}, Log
+
 	} else if messageType == "send" {
 		fmt.Println("list of nodes to send failed file received")
 

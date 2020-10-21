@@ -262,6 +262,8 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 				_, err = conn.Read(buf[0:])
 				checkError(err)
 
+				fmt.Println("send command done from the leader")
+
 			}
 		}
 	}
