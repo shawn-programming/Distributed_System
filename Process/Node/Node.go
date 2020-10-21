@@ -5,17 +5,20 @@ import (
 	"io/ioutil"
 	"log"
 	"math/rand"
+	"net"
 	"os"
 	"strconv"
 	"time"
 
 	ms "../../Process/Membership"
 	config "../../logSystem/config"
+	pk "../Packet"
 )
 
 type Leader struct {
 	MsListPtr *ms.MsList
 	FileList  map[string][]ms.Id
+	IdList    map[ms.Id][]string
 }
 
 // func LeaderInitialization(MsListPtr *ms.MsList) {
@@ -50,6 +53,7 @@ type Node struct {
 	K               int    // gossip's k value
 	LocalPath       string // directory that stores local files
 	DistributedPath string // directory that stores distributed files
+	MaxFail         int    // max number of Fail
 
 	// variable attributes
 	LocalTime int // local time of the node
@@ -145,6 +149,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.K = K
 	tempNode.LocalPath = "./local_files/"
 	tempNode.DistributedPath = "./distributed_files/"
+	tempNode.MaxFail = 1
 
 	// variable attributes
 	tempNode.LocalTime = 0
@@ -213,7 +218,52 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 
 	// mark fails
 	var removeList []ms.Id
-	node.MsList, removeList, failLog = node.MsList.CheckFails(node.LocalTime, node.TimeOut)
+	var failList []ms.Id
+	node.MsList, failList, removeList, failLog = node.MsList.CheckFails(node.LocalTime, node.TimeOut)
+
+	if *node.IsLeaderPtr {
+		// replicate distributed files of members inside the failList
+
+		for _, failed := range failList {
+			//remove(failed from fileList)
+			fileList := node.LeaderPtr.IdList[failed]
+
+			// remove all of its distributed file history from the leader
+			for _, file := range fileList {
+				IdList := node.LeaderPtr.FileList[file]
+				for i, ID := range IdList {
+					if ID == failed {
+						node.LeaderPtr.FileList[file] = append(IdList[:i], IdList[i+1:]...)
+					}
+				}
+			}
+
+			// make the first alive owner of that file to send a replication to another process
+			for _, file := range fileList {
+				fileOwners := node.LeaderPtr.FileList[file]
+				N := node.MaxFail - len(fileOwners) + 1
+
+				destinations := node.PickReplicas(N, fileOwners)
+
+				from := fileOwners[0]
+
+				Service := from.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
+				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
+				checkError(err)
+				conn, err := net.DialUDP("udp", nil, udpAddr)
+				checkError(err)
+
+				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file})
+				_, err = conn.Write(pk.EncodePacket("send", packet))
+				checkError(err)
+
+				var buf [512]byte
+				_, err = conn.Read(buf[0:])
+				checkError(err)
+
+			}
+		}
+	}
 
 	// remove timeout-ed members
 	for _, removeit := range removeList {
@@ -249,7 +299,7 @@ PickReplicas(n int, originalID ms.Id)
 
 	RETURN n nodes that can store the replica
 */
-func (node Node) PickReplicas(n int, originalID ms.Id) []ms.Id {
+func (node Node) PickReplicas(n int, Except []ms.Id) []ms.Id {
 	aliveList := node.AliveMembers()
 	replicas := []ms.Id{}
 
@@ -271,8 +321,15 @@ func (node Node) PickReplicas(n int, originalID ms.Id) []ms.Id {
 		member := aliveList[curr]
 		curr += (curr + 1) % len(aliveList)
 
-		if member.ID == originalID {
-			count--
+		flag := false
+		for _, exception := range Except {
+			if member.ID == exception {
+				count--
+				flag = true
+			}
+		}
+
+		if flag {
 			continue
 		}
 

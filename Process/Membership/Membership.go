@@ -226,7 +226,8 @@ MsList.CheckFails(currTime int, timeOut int)
 
 	checks each member's localTime and updates its Failed Status
 */
-func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id, string) {
+func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id, []Id, string) {
+	var failList []Id
 	var removeList []Id
 	var log string
 	for i, member := range members.List {
@@ -234,6 +235,7 @@ func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id, strin
 			if members.List[i].Failed == false {
 				fmt.Println("Failure detected: ")
 				members.List[i].Failed = true
+				failList = append(failList, members.List[i].ID)
 				members.List[i].Print()
 				log = "\nFailure detected: \n"
 				log += members.List[i].PrintLog()
@@ -247,7 +249,7 @@ func (members MsList) CheckFails(currTime int, timeOut int) (MsList, []Id, strin
 		}
 	}
 
-	return members, removeList, log
+	return members, failList, removeList, log
 }
 
 /*

@@ -170,6 +170,24 @@ func DecodeTCPcmd(encodedMessage PacketType) TCPcmd {
 	return decodedMessage
 }
 
+type TCPsend struct {
+	ToList   []ms.Id
+	Filename string
+}
+
+func EncodeTCPsend(message TCPsend) []byte {
+	encodedMessage, err := json.Marshal(message)
+	checkError(err)
+	return encodedMessage
+}
+
+func DecodeTCPsend(encodedMessage PacketType) TCPsend {
+	var decodedMessage TCPsend
+	err := json.Unmarshal(encodedMessage.EncodePacket, &decodedMessage)
+	checkError(err)
+	return decodedMessage
+}
+
 /*
 CheckError(err error)
 	Terminate system with message, if Error occurs

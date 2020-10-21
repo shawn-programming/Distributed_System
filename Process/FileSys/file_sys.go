@@ -100,6 +100,10 @@ func SendFilelist(processNodePtr *nd.Node) {
 	}
 }
 
+func FailPut() {
+
+}
+
 // Put(processNodePtr *nd.Node, filename string, N int)
 /*
 	put a file to a distributed file system.
@@ -108,6 +112,8 @@ func SendFilelist(processNodePtr *nd.Node) {
 */
 
 func Put(processNodePtr *nd.Node, filename string, N int) {
+	var idList []ms.Id
+
 	fmt.Println("PUT--------------------------")
 	myID := (*processNodePtr).Id
 
@@ -136,14 +142,15 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	receivedPacket := pk.DecodePacket(buf[0:n])
 
 	// target processes to store replicas
-	idList := pk.DecodeIdList(receivedPacket).List
+	idList = pk.DecodeIdList(receivedPacket).List
 
-	for i, id := range idList {
-		fmt.Println("picked desination:", i)
-		id.Print()
+	Send(processNodePtr, filename, idList)
+	// for i, id := range idList {
+	// 	fmt.Println("picked desination:", i)
+	// 	id.Print()
 
-		RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
-	}
+	// 	RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
+	// }
 
 	putPacket := pk.EncodePut(pk.Putpacket{myID, filename})
 	_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
@@ -153,6 +160,15 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	checkError(err)
 
 	fmt.Println("Put Done")
+}
+
+func Send(processNodePtr *nd.Node, filename string, idList []ms.Id) {
+	for i, id := range idList {
+		fmt.Println("picked desination:", i)
+		id.Print()
+
+		RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
+	}
 }
 
 func Pull(processNodePtr *nd.Node, filename string, N int) {

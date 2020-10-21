@@ -242,10 +242,10 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		fmt.Println("ReplicaList -------------------------")
 		msg := pk.DecodeIdList(message)
 
-		N := msg.N
+		N := nodePtr.MaxFail
 		filename := msg.Filename
 		originalID := msg.OriginalID
-		replicas := (*nodePtr).PickReplicas(N, originalID)
+		replicas := (*nodePtr).PickReplicas(N, []ms.Id{originalID})
 		replicaPackage := pk.IdListpacket{0, ms.Id{"", ""}, replicas, filename}
 		replicaEncoded := pk.EncodeIdList(replicaPackage)
 		encodedMsg := pk.EncodePacket("ReplicaList", replicaEncoded)
@@ -288,7 +288,12 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		fmt.Println("before------------------")
 		fmt.Println(nodePtr.LeaderPtr.FileList[filename])
+
+		// update FileList
 		nodePtr.LeaderPtr.FileList[filename] = append(nodePtr.LeaderPtr.FileList[filename], idInfo)
+
+		// update IdList
+		nodePtr.LeaderPtr.IdList[idInfo] = append(nodePtr.LeaderPtr.IdList[idInfo], filename)
 
 		fmt.Println("after-------------------")
 		fmt.Println(nodePtr.LeaderPtr.FileList[filename])
@@ -312,6 +317,15 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr)
 
 		return ms.MsList{}, ""
+	} else if messageType == "send" {
+		fmt.Println("list of nodes to send failed file received")
+
+		msg := pk.DecodeTCPsend(message)
+		fileName := msg.Filename
+		toList := msg.ToList
+
+		fs.Send(nodePtr, fileName, toList)
+
 	}
 
 	fmt.Println("not a valid packet, packet name:", messageType)
