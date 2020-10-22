@@ -316,32 +316,31 @@ func (node Node) LeaderInit(failedLeader string) {
 		checkError(err)
 
 		fmt.Println("file list received from", Service)
+	}
+	for file, list := range node.LeaderPtr.FileList {
+		if len(list) < node.MaxFail+1 {
+			fileOwners := node.LeaderPtr.FileList[file]
+			N := node.MaxFail - len(fileOwners) + 1
 
-		for file, list := range node.LeaderPtr.FileList {
-			if len(list) < node.MaxFail+1 {
-				fileOwners := node.LeaderPtr.FileList[file]
-				N := node.MaxFail - len(fileOwners) + 1
+			destinations := node.PickReplicas(N, fileOwners)
 
-				destinations := node.PickReplicas(N, fileOwners)
+			from := fileOwners[0]
 
-				from := fileOwners[0]
+			Service := from.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
+			udpAddr, err := net.ResolveUDPAddr("udp4", Service)
+			checkError(err)
+			conn, err := net.DialUDP("udp", nil, udpAddr)
+			checkError(err)
 
-				Service := from.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
-				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
-				checkError(err)
-				conn, err := net.DialUDP("udp", nil, udpAddr)
-				checkError(err)
+			packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file})
+			_, err = conn.Write(pk.EncodePacket("send", packet))
+			checkError(err)
 
-				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file})
-				_, err = conn.Write(pk.EncodePacket("send", packet))
-				checkError(err)
+			var buf [512]byte
+			_, err = conn.Read(buf[0:])
+			checkError(err)
 
-				var buf [512]byte
-				_, err = conn.Read(buf[0:])
-				checkError(err)
-
-				fmt.Println("number of", file, "replica is balanced now")
-			}
+			fmt.Println("number of", file, "replica is balanced now")
 		}
 
 		fmt.Println("Leader Init Done")
