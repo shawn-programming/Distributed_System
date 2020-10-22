@@ -366,6 +366,7 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool
 	// if received file is stored into distributed file system
 	// alert leader of this udpate
 	if path == processNodePtr.DistributedPath {
+		*processNodePtr.DistributedFilesPtr = append(*processNodePtr.DistributedFilesPtr, fileName)
 		UpdateLeader(fileName, processNodePtr)
 	}
 

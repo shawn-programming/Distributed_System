@@ -318,6 +318,13 @@ func (node Node) LeaderInit(failedLeader string) {
 
 		fmt.Println("file list received from", Service)
 	}
+
+	// store the info about its distributed files
+	for _, file := range *node.DistributedFilesPtr {
+		node.LeaderPtr.FileList[file] = append(node.LeaderPtr.FileList[file], node.Id)
+		node.LeaderPtr.IdList[node.Id] = append(node.LeaderPtr.IdList[node.Id], file)
+	}
+
 	for file, list := range node.LeaderPtr.FileList {
 		if len(list) < node.MaxFail+1 {
 			fileOwners := node.LeaderPtr.FileList[file]
