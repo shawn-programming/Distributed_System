@@ -301,7 +301,7 @@ func (node Node) LeaderInit(failedLeader string) {
 	for _, member := range members {
 		fmt.Println("file list receive start")
 		Service := member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
-		if Service == failedLeader {
+		if Service == failedLeader || Service == node.MyService {
 			continue
 		}
 		udpAddr, err := net.ResolveUDPAddr("udp4", Service)
