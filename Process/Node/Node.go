@@ -295,11 +295,14 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 	return node, joinLogTotal + failLog + removeLogTotal
 }
 
-func (node Node) LeaderInit() {
+func (node Node) LeaderInit(failedLeader string) {
 	members := node.AliveMembers()
 	*node.IsLeaderPtr = true
 	for _, member := range members {
 		Service := member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
+		if Service == failedLeader {
+			continue
+		}
 		udpAddr, err := net.ResolveUDPAddr("udp4", Service)
 		checkError(err)
 		conn, err := net.DialUDP("udp", nil, udpAddr)
