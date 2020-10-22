@@ -299,6 +299,7 @@ func (node Node) LeaderInit(failedLeader string) {
 	members := node.AliveMembers()
 	*node.IsLeaderPtr = true
 	for _, member := range members {
+		fmt.Println("file list receive start")
 		Service := member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
 		if Service == failedLeader {
 			continue
@@ -345,6 +346,8 @@ func (node Node) LeaderInit(failedLeader string) {
 
 		fmt.Println("Leader Init Done")
 	}
+
+	fmt.Println("Leader Init Done")
 }
 
 /*
