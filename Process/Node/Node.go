@@ -299,11 +299,11 @@ func (node Node) LeaderInit(failedLeader string) {
 	members := node.AliveMembers()
 	*node.IsLeaderPtr = true
 	for _, member := range members {
-		fmt.Println("file list receive start")
 		Service := member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
 		if Service == failedLeader || Service == node.MyService {
 			continue
 		}
+		fmt.Println("file list receive start")
 		udpAddr, err := net.ResolveUDPAddr("udp4", Service)
 		checkError(err)
 		conn, err := net.DialUDP("udp", nil, udpAddr)

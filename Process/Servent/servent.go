@@ -213,7 +213,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		return ms.MsList{}, portLog
 	} else if messageType == "heartbeat" {
 		// heartbeat received
-
+		fmt.Println("heartbeat")
 		msg := pk.DecodeHB(message)
 
 		if (*nodePtr).IsIntroducer && msg.IsInitialization { // if this processor is a introducer and there is newly joined processor to the system
