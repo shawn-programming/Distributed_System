@@ -114,7 +114,7 @@ func FailPut() {
 func Put(processNodePtr *nd.Node, filename string, N int) {
 	var idList []ms.Id
 
-	fmt.Println("PUT--------------------------")
+	//fmt.Println("PUT--------------------------")
 	myID := (*processNodePtr).Id
 
 	// local_files -> distributed_files
@@ -163,8 +163,8 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 }
 
 func Send(processNodePtr *nd.Node, filename string, idList []ms.Id) {
-	for i, id := range idList {
-		fmt.Println("picked desination:", i)
+	for _, id := range idList {
+		//fmt.Println("picked desination:", i)
 		id.Print()
 
 		RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
@@ -172,8 +172,8 @@ func Send(processNodePtr *nd.Node, filename string, idList []ms.Id) {
 }
 
 func SendDtoD(processNodePtr *nd.Node, filename string, idList []ms.Id) {
-	for i, id := range idList {
-		fmt.Println("picked desination:", i)
+	for _, id := range idList {
+		//fmt.Println("picked desination:", i)
 		id.Print()
 
 		RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
@@ -203,10 +203,7 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 	// target processes to store replicas
 	idList := pk.DecodeIdList(receivedPacket).List
 
-	for i, id := range idList {
-		fmt.Println("picked desination:", i)
-		id.Print()
-
+	for _, id := range idList {
 		if RequestTCP("fetch", id.IPAddress, filename, processNodePtr, id) {
 			break
 		}
@@ -216,7 +213,7 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 
 //SERVER
 func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connection *net.UDPConn, addr *net.UDPAddr) {
-	fmt.Println("ListenTCP----------------")
+	//fmt.Println("ListenTCP----------------")
 
 	var server net.Listener
 	var err error
@@ -378,7 +375,7 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool
 		UpdateLeader(fileName, processNodePtr)
 	}
 
-	fmt.Println("updateLeader sent")
+	//fmt.Println("updateLeader sent")
 	return true
 }
 

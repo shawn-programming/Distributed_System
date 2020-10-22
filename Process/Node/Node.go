@@ -55,6 +55,9 @@ type Node struct {
 	DistributedPath string // directory that stores distributed files
 	MaxFail         int    // max number of Fail
 
+	//election
+	ElectionInitiatorPtr *string
+
 	// variable attributes
 	LocalTime int // local time of the node
 
@@ -96,7 +99,7 @@ CreateNode(vmNumStr string)
 Node Constructor
 RETURN: a Node for a processor
 */
-func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *int, InputListPtr *[]ms.MsList, LeaderServicePtr *string, DistributedFilesPtr *[]string) Node {
+func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *int, InputListPtr *[]ms.MsList, LeaderServicePtr *string, DistributedFilesPtr *[]string, Initiator *string) Node {
 	tempNode := Node{}
 
 	failRate, _ := config.FailRate()
@@ -160,6 +163,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.ATAPtr = ATAPtr
 	tempNode.TotalByteSentPtr = TotalByteSentPtr
 	tempNode.InputListPtr = InputListPtr
+	tempNode.ElectionInitiatorPtr = Initiator
 
 	// distributred files list
 	tempNode.DistributedFilesPtr = DistributedFilesPtr
@@ -225,7 +229,13 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 		// replicate distributed files of members inside the failList
 
 		for _, failed := range failList {
-			failed.Print()
+			failedService := failed.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
+
+			if failedService == *node.LeaderServicePtr {
+				fmt.Println(failedService, "was the leader, starting an election")
+				node.initiateElection()
+				fmt.Println("NewLeader:", *node.LeaderServicePtr)
+			}
 			//remove(failed from fileList)
 			fileList := node.LeaderPtr.IdList[failed]
 
@@ -342,6 +352,75 @@ func (node Node) PickReplicas(n int, Except []ms.Id) []ms.Id {
 	}
 
 	return replicas
+}
+
+func (node Node) makeRing(AliveMembers []ms.Membership) (int, []string) {
+	var ring []string
+	var tempService string
+	myIndex := 1
+
+	for i, member := range AliveMembers {
+		tempService = member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
+		if tempService == node.MyService {
+			myIndex = i
+		}
+		ring = append(ring, tempService)
+	}
+
+	return myIndex, ring
+}
+
+/*
+initiateElection()
+
+Initiate an election by setting itself as a leader and an initiator
+*/
+func (node Node) initiateElection() {
+	AliveMembers := node.AliveMembers()
+
+	Myindex, ring := node.makeRing(AliveMembers)
+
+	Initator := ring[Myindex]
+	NewLeader := ring[Myindex]
+	*node.ElectionInitiatorPtr = Initator
+
+	nextIndex := (Myindex + 1) % len(ring)
+	nextService := ring[nextIndex]
+	udpAddr, err := net.ResolveUDPAddr("udp4", nextService)
+	checkError(err)
+
+	conn, err := net.DialUDP("udp", nil, udpAddr)
+	checkError(err)
+
+	packet := pk.RingData{false, nextIndex, ring, Initator, NewLeader}
+	_, err = conn.Write(pk.EncodePacket("election", pk.EncodeRingData(packet)))
+
+	var buf [4096]byte
+	n, err := conn.Read(buf[0:])
+	checkError(err)
+	receivedPacket := pk.DecodePacket(buf[0:n])
+
+	fmt.Println("Received Message at the end of initiateElection():", receivedPacket.Ptype)
+}
+
+func SendElection(packet pk.RingData) {
+
+	ring := packet.Ring
+	destIndex := packet.YourIndex
+
+	nextService := ring[destIndex]
+	udpAddr, err := net.ResolveUDPAddr("udp4", nextService)
+	checkError(err)
+
+	conn, err := net.DialUDP("udp", nil, udpAddr)
+	checkError(err)
+
+	_, err = conn.Write(pk.EncodePacket("election", pk.EncodeRingData(packet)))
+
+	var buf []byte
+	_, err = conn.Read(buf[0:])
+	checkError(err)
+
 }
 
 // check for errors

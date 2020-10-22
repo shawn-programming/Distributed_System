@@ -36,8 +36,9 @@ func main() {
 	IDAdresses, _ := config.IPAddress()
 	Ports, _ := config.Port()
 	LeaderService := IDAdresses[1] + ":" + strconv.Itoa(Ports[0])
+	Initiator := ""
 
-	processNode := nd.CreateNode(os.Args[1], &IsLeader, &ATA, &TotalByteSent, &InputList, &LeaderService, &DistributedFiles) // Processor's Node
+	processNode := nd.CreateNode(os.Args[1], &IsLeader, &ATA, &TotalByteSent, &InputList, &LeaderService, &DistributedFiles, &Initiator) // Processor's Node
 
 	if IsLeader {
 		tempLeader := nd.Leader{&processNode.MsList, map[string][]ms.Id{}, map[ms.Id][]string{}}

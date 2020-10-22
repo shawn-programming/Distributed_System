@@ -330,6 +330,8 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		fileName := msg.Filename
 		toList := msg.ToList
 
+		fmt.Println("filename:", fileName)
+
 		encodedMsg := pk.EncodePacket("send command received", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 		Log := "sending files to anothe processor"
@@ -338,6 +340,47 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		return ms.MsList{}, Log
 
+	} else if messageType == "election" {
+		fmt.Println("election message received")
+
+		electionPacket := pk.DecodeRingData(message)
+		myIndex := electionPacket.YourIndex
+		ring := electionPacket.Ring
+		electionPacket.YourIndex = (myIndex + 1) % len(ring)
+		newLeader := electionPacket.NewLeader
+		initiator := electionPacket.Initiator
+
+		encodedMsg := pk.EncodePacket("election msg received", nil)
+		conn.WriteToUDP(encodedMsg, addr)
+
+		if electionPacket.Elected {
+			// election is done.
+			if newLeader == *nodePtr.LeaderServicePtr {
+				// electiton intiator ptr is on dormant
+				*nodePtr.ElectionInitiatorPtr = ""
+			} else {
+				//update current leader to new leader
+				*(nodePtr.LeaderServicePtr) = newLeader
+				//send the result to the next processor
+				nd.SendElection(electionPacket)
+			}
+			// a leader hasn't selected yet
+		} else {
+			if initiator < *nodePtr.ElectionInitiatorPtr {
+				// do nothing
+			} else {
+				*(nodePtr.ElectionInitiatorPtr) = initiator
+				if newLeader == nodePtr.MyService { // Leader is the current processor, now let others know the new leader
+					electionPacket.Elected = true
+				} else if newLeader < nodePtr.MyService {
+					//update the packet by making myself as the leader
+					electionPacket.NewLeader = nodePtr.MyService
+				}
+				nd.SendElection(electionPacket)
+			}
+		}
+
+		return ms.MsList{}, ""
 	}
 
 	fmt.Println("not a valid packet, packet name:", messageType)

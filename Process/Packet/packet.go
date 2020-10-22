@@ -188,6 +188,27 @@ func DecodeTCPsend(encodedMessage PacketType) TCPsend {
 	return decodedMessage
 }
 
+type RingData struct {
+	Elected   bool
+	YourIndex int
+	Ring      []string
+	Initiator string
+	NewLeader string
+}
+
+func EncodeRingData(message RingData) []byte {
+	encodedMessage, err := json.Marshal(message)
+	checkError(err)
+	return encodedMessage
+}
+
+func DecodeRingData(encodedMessage PacketType) RingData {
+	var decodedMessage RingData
+	err := json.Unmarshal(encodedMessage.EncodePacket, &decodedMessage)
+	checkError(err)
+	return decodedMessage
+}
+
 /*
 CheckError(err error)
 	Terminate system with message, if Error occurs
