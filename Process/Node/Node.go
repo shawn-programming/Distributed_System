@@ -297,7 +297,7 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 
 func (node Node) LeaderInit() {
 	members := node.AliveMembers()
-
+	*node.IsLeaderPtr = true
 	for _, member := range members {
 		Service := member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
 		udpAddr, err := net.ResolveUDPAddr("udp4", Service)
