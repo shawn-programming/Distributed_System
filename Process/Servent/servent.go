@@ -355,7 +355,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		if electionPacket.Elected {
 			// election is done.
-			if newLeader == *nodePtr.LeaderServicePtr {
+			if newLeader == nodePtr.MyService {
 				// electiton intiator ptr is on dormant
 				*nodePtr.ElectionInitiatorPtr = ""
 				fmt.Println("Elected Leader: ", newLeader)
