@@ -100,10 +100,6 @@ func SendFilelist(processNodePtr *nd.Node) {
 	}
 }
 
-func FailPut() {
-
-}
-
 // Put(processNodePtr *nd.Node, filename string, N int)
 /*
 	put a file to a distributed file system.

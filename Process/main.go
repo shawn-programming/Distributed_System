@@ -40,10 +40,8 @@ func main() {
 
 	processNode := nd.CreateNode(os.Args[1], &IsLeader, &ATA, &TotalByteSent, &InputList, &LeaderService, &DistributedFiles, &Initiator) // Processor's Node
 
-	if IsLeader {
-		tempLeader := nd.Leader{&processNode.MsList, map[string][]ms.Id{}, map[ms.Id][]string{}}
-		processNode.LeaderPtr = &tempLeader
-	}
+	tempLeader := nd.Leader{&processNode.MsList, map[string][]ms.Id{}, map[ms.Id][]string{}}
+	processNode.LeaderPtr = &tempLeader
 
 	f, f2, f3 := logger.LoggerPointerInit(os.Args[1])
 	defer f.Close()

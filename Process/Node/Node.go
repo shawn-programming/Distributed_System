@@ -273,7 +273,6 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 				checkError(err)
 
 				fmt.Println("send command done from the leader")
-
 			}
 		}
 	} else { // if that was not the leader, check if a failed processor was a leader
@@ -294,6 +293,56 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 		removeLogTotal += removeLog
 	}
 	return node, joinLogTotal + failLog + removeLogTotal
+}
+
+func (node Node) LeaderInit() {
+	members := node.AliveMembers()
+
+	for _, member := range members {
+		Service := member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
+		udpAddr, err := net.ResolveUDPAddr("udp4", Service)
+		checkError(err)
+		conn, err := net.DialUDP("udp", nil, udpAddr)
+		checkError(err)
+
+		_, err = conn.Write(pk.EncodePacket("send a filelist", nil))
+		checkError(err)
+
+		var buf [512]byte
+		_, err = conn.Read(buf[0:])
+		checkError(err)
+
+		fmt.Println("file list received from", Service)
+
+		for file, list := range node.LeaderPtr.FileList {
+			if len(list) < node.MaxFail+1 {
+				fileOwners := node.LeaderPtr.FileList[file]
+				N := node.MaxFail - len(fileOwners) + 1
+
+				destinations := node.PickReplicas(N, fileOwners)
+
+				from := fileOwners[0]
+
+				Service := from.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
+				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
+				checkError(err)
+				conn, err := net.DialUDP("udp", nil, udpAddr)
+				checkError(err)
+
+				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file})
+				_, err = conn.Write(pk.EncodePacket("send", packet))
+				checkError(err)
+
+				var buf [512]byte
+				_, err = conn.Read(buf[0:])
+				checkError(err)
+
+				fmt.Println("number of", file, "replica is balanced now")
+			}
+		}
+
+		fmt.Println("Leader Init Done")
+	}
 }
 
 /*
