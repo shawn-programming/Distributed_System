@@ -335,19 +335,21 @@ func (node Node) LeaderInit(failedLeader string) {
 			N := node.MaxFail - len(fileOwners) + 1
 
 			destinations := node.PickReplicas(N, fileOwners)
-
+			fmt.Println("1")
 			from := fileOwners[0]
 
 			Service := from.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
 			udpAddr, err := net.ResolveUDPAddr("udp4", Service)
 			checkError(err)
+			fmt.Println("2")
 			conn, err := net.DialUDP("udp", nil, udpAddr)
 			checkError(err)
-
+			fmt.Println("3")
 			packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file})
+			fmt.Println("4")
 			_, err = conn.Write(pk.EncodePacket("send", packet))
 			checkError(err)
-
+			fmt.Println("5")
 			var buf [512]byte
 			_, err = conn.Read(buf[0:])
 			checkError(err)
