@@ -276,6 +276,16 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 
 			}
 		}
+	} else { // if that was not the leader, check if a failed processor was a leader
+		for _, failed := range failList {
+			failedService := failed.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
+			fmt.Println(failedService, *node.LeaderServicePtr)
+			if failedService == *node.LeaderServicePtr {
+				fmt.Println(failedService, "was the leader, starting an election")
+				node.initiateElection()
+				fmt.Println("NewLeader:", *node.LeaderServicePtr)
+			}
+		}
 	}
 
 	// remove timeout-ed members
