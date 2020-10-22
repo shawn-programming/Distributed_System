@@ -230,7 +230,7 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 
 		for _, failed := range failList {
 			failedService := failed.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
-
+			fmt.Println(failedService, *node.LeaderServicePtr)
 			if failedService == *node.LeaderServicePtr {
 				fmt.Println(failedService, "was the leader, starting an election")
 				node.initiateElection()
