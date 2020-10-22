@@ -319,13 +319,17 @@ func (node Node) LeaderInit(failedLeader string) {
 		fmt.Println("file list received from", Service)
 	}
 
+	fmt.Println("store info about df")
 	// store the info about its distributed files
 	for _, file := range *node.DistributedFilesPtr {
 		node.LeaderPtr.FileList[file] = append(node.LeaderPtr.FileList[file], node.Id)
 		node.LeaderPtr.IdList[node.Id] = append(node.LeaderPtr.IdList[node.Id], file)
 	}
 
+	fmt.Println("store info about df done")
+
 	for file, list := range node.LeaderPtr.FileList {
+		fmt.Println("Checking file", file)
 		if len(list) < node.MaxFail+1 {
 			fileOwners := node.LeaderPtr.FileList[file]
 			N := node.MaxFail - len(fileOwners) + 1
@@ -351,10 +355,10 @@ func (node Node) LeaderInit(failedLeader string) {
 			fmt.Println("number of", file, "replica is balanced now")
 		}
 
-		fmt.Println("Leader Init Done")
+		fmt.Println("Leader Init Done (inner)")
 	}
 
-	fmt.Println("Leader Init Done")
+	fmt.Println("Leader Init All Done")
 }
 
 /*
