@@ -213,7 +213,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		return ms.MsList{}, portLog
 	} else if messageType == "heartbeat" {
 		// heartbeat received
-		fmt.Println("heartbeat")
+		// fmt.Println("heartbeat")
 		msg := pk.DecodeHB(message)
 
 		if (*nodePtr).IsIntroducer && msg.IsInitialization { // if this processor is a introducer and there is newly joined processor to the system
@@ -389,10 +389,12 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		return ms.MsList{}, ""
 	} else if messageType == "send a filelist" {
+		fmt.Println("sending file lists")
 		encodedMsg := pk.EncodePacket("sending file lists", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 
 		fs.SendFilelist(nodePtr)
+		fmt.Println("send file list done")
 		return ms.MsList{}, ""
 	}
 
