@@ -363,7 +363,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 				//update current leader to new leader
 				*nodePtr.LeaderServicePtr = newLeader
 				fmt.Println("Elected Leader: ", newLeader)
-				nodePtr.LeaderInit(failedLeader)
+				fs.LeaderInit(nodePtr, failedLeader)
 			} else {
 
 				//update current leader to new leader
@@ -441,10 +441,6 @@ func Heartbeat(nodePtr *nd.Node) {
 		var logStr string
 		// update the processor's membership list
 		(*nodePtr), logStr = (*nodePtr).IncrementLocalTime(newList)
-
-		// temp := ((*nodePtr).MsList)
-
-		// temp.Print()
 
 		if logStr != "" {
 			loggerPerSec.Println(logStr)

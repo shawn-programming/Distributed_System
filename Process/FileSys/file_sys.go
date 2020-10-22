@@ -443,6 +443,74 @@ func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id)
 	checkError(err)
 }
 
+func LeaderInit(node *nd.Node, failedLeader string) {
+	members := node.AliveMembers()
+	*node.IsLeaderPtr = true
+	for _, member := range members {
+		Service := member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
+		if Service == failedLeader || Service == node.MyService {
+			continue
+		}
+		fmt.Println("file list receive start")
+		udpAddr, err := net.ResolveUDPAddr("udp4", Service)
+		checkError(err)
+		conn, err := net.DialUDP("udp", nil, udpAddr)
+		checkError(err)
+
+		_, err = conn.Write(pk.EncodePacket("send a filelist", nil))
+		checkError(err)
+
+		var buf [512]byte
+		_, err = conn.Read(buf[0:])
+		checkError(err)
+
+		fmt.Println("file list received from", Service)
+	}
+
+	fmt.Println("store info about df")
+	// store the info about its distributed files
+	for _, file := range *node.DistributedFilesPtr {
+		node.LeaderPtr.FileList[file] = append(node.LeaderPtr.FileList[file], node.Id)
+		node.LeaderPtr.IdList[node.Id] = append(node.LeaderPtr.IdList[node.Id], file)
+	}
+
+	fmt.Println("store info about df done")
+
+	for file, list := range node.LeaderPtr.FileList {
+		fmt.Println("Checking file", file)
+		if len(list) < node.MaxFail+1 {
+			fileOwners := node.LeaderPtr.FileList[file]
+
+			N := node.MaxFail - len(fileOwners) + 1
+
+			destinations := node.PickReplicas(N, fileOwners)
+			from := fileOwners[0]
+
+			Service := from.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
+
+			if Service == node.MyService { // if the sender is the current node (Leader)
+				Send(node, file, destinations)
+			} else {
+				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
+				checkError(err)
+				conn, err := net.DialUDP("udp", nil, udpAddr)
+				checkError(err)
+				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file})
+				_, err = conn.Write(pk.EncodePacket("send", packet))
+				checkError(err)
+				var buf [512]byte
+				_, err = conn.Read(buf[0:])
+				checkError(err)
+			}
+			fmt.Println("number of", file, "replica is balanced now")
+		}
+
+		fmt.Println("Leader Init Done (inner)")
+	}
+
+	fmt.Println("Leader Init All Done")
+}
+
 func checkError(err error) {
 	if err != nil {
 		fmt.Println("Fatal error ", err.Error())
