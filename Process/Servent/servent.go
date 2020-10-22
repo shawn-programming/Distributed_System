@@ -355,11 +355,14 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		if electionPacket.Elected {
 			// election is done.
+			fmt.Println("Elected is True")
 			if newLeader == *nodePtr.LeaderServicePtr {
 				// electiton intiator ptr is on dormant
 				*nodePtr.ElectionInitiatorPtr = ""
 			} else {
 				//update current leader to new leader
+				fmt.Println("Elected Leader: ", newLeader)
+
 				*(nodePtr.LeaderServicePtr) = newLeader
 				//send the result to the next processor
 				nd.SendElection(electionPacket)
@@ -373,6 +376,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 				if newLeader == nodePtr.MyService { // Leader is the current processor, now let others know the new leader
 					electionPacket.Elected = true
 				} else if newLeader < nodePtr.MyService {
+					fmt.Println("nl:", newLeader, "     myservice:", nodePtr.MyService)
 					//update the packet by making myself as the leader
 					electionPacket.NewLeader = nodePtr.MyService
 				}
