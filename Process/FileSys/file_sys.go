@@ -87,8 +87,6 @@ func SendFilelist(processNodePtr *nd.Node) {
 	checkError(err)
 
 	var buf [512]byte
-	_, err = conn.Read(buf[0:])
-	checkError(err)
 
 	for _, filename := range *(*processNodePtr).DistributedFilesPtr {
 		putPacket := pk.EncodePut(pk.Putpacket{processNodePtr.Id, filename})
