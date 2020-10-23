@@ -338,6 +338,8 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 	encodedMsg := pk.EncodePacket("Server opened", nil)
 	connection.WriteToUDP(encodedMsg, addr)
 
+	fmt.Println("Sever Opened")
+
 	if err != nil {
 		fmt.Println("Error listetning: ", err)
 		os.Exit(1)
@@ -354,9 +356,11 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 		//fmt.Println("Client connected")
 
 		if request == "put" {
+			fmt.Println("receive file")
 			ReceiveFile(connection, processNodePtr.DistributedPath, processNodePtr)
 			break
 		} else if request == "fetch" {
+			fmt.Println("sendfile")
 			SendFile(connection, fileName, processNodePtr.DistributedPath)
 			break
 		}

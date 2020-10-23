@@ -319,6 +319,8 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		Log := "TCP Opened"
 
+		fmt.Println(message.Ptype)
+
 		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr)
 
 		return ms.MsList{}, Log
