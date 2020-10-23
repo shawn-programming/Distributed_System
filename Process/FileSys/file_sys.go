@@ -374,14 +374,16 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 
 	//VM
 	service = ipaddr + ":" + "1288"
+	fmt.Println("OpenTCP")
 	OpenTCP(processNodePtr, command, fileName, id)
+	fmt.Println("OpenTCP Done")
 
 	connection, err := net.Dial("tcp", service)
 	if err != nil {
 		panic(err)
 	}
 	defer connection.Close()
-	//fmt.Println("Connected, start processing request")
+	fmt.Println("Connected, start processing request")
 
 	check := false
 	if command == "put" {
@@ -391,6 +393,7 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 
 		fmt.Println("fetch")
 		check = ReceiveFile(connection, "local_files", nil)
+
 	}
 	//fmt.Println("Request TCP Done")
 	if check {
