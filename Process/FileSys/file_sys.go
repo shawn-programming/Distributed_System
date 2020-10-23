@@ -3,6 +3,7 @@ package FileSys
 import (
 	"fmt"
 	"io"
+	"io/ioutil"
 	"net"
 	"os"
 	"strings"
@@ -163,6 +164,21 @@ func Send(processNodePtr *nd.Node, filename string, idList []ms.Id) {
 
 func Pull(processNodePtr *nd.Node, filename string, N int) {
 	fmt.Println("PULL---------------")
+
+	files, err := ioutil.ReadDir(processNodePtr.DistributedPath)
+	checkError(err)
+
+	// if the file is inside the distributed folder of the process, just move it
+	for _, file := range files {
+		if file.Name() == filename {
+			src := processNodePtr.DistributedPath + filename
+			dest := processNodePtr.LocalPath + filename
+			copy(src, dest)
+			fmt.Println("Received a file:", filename)
+			return
+		}
+	}
+
 	myID := processNodePtr.Id
 
 	leaderService := *processNodePtr.LeaderServicePtr
