@@ -655,6 +655,10 @@ func GetCommand(processNodePtr *nd.Node) {
 					fmt.Println("	1.", ID.IPAddress)
 				}
 			}
+		} else if len(command) > 6 && command[:6] == "remove" {
+			filename := command[7:]
+			fs.RemoveFile(processNodePtr, filename)
+
 		} else {
 			fmt.Println("Invalid Command")
 		}
