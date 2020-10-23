@@ -7,6 +7,7 @@ import (
 	"net"
 	"os"
 	"strings"
+	"time"
 
 	// "sort"
 	"strconv"
@@ -174,12 +175,14 @@ func SendFilelist(processNodePtr *nd.Node) {
 	var buf [512]byte
 
 	for _, filename := range *(*processNodePtr).DistributedFilesPtr {
+		fmt.Println("sending:", filename)
 		putPacket := pk.EncodePut(pk.Putpacket{processNodePtr.Id, filename})
 		_, err := conn.Write(pk.EncodePacket("updateFileList", putPacket))
 		checkError(err)
 
 		_, err = conn.Read(buf[0:])
 		checkError(err)
+		fmt.Println("seding done")
 	}
 }
 
@@ -556,6 +559,7 @@ func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id)
 }
 
 func LeaderInit(node *nd.Node, failedLeader string) {
+	time.Sleep(time.Second * 5) // 5 == timeOut
 	members := node.AliveMembers()
 	*node.IsLeaderPtr = true
 	for _, member := range members {
