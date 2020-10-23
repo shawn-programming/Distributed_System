@@ -240,8 +240,8 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 func Send(processNodePtr *nd.Node, filename string, idList []ms.Id) {
 	for _, id := range idList {
 		//fmt.Println("picked desination:", i)
+		fmt.Println("Sending to")
 		id.Print()
-
 		RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
 	}
 }
@@ -417,11 +417,10 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 
 	fileSize := fillString(strconv.FormatInt(fileInfo.Size(), 10), 10)
 	fileName := fillString(fileInfo.Name(), 64)
-	//fmt.Println("Sending filename and filesize!")
 	connection.Write([]byte(fileSize))
 	connection.Write([]byte(fileName))
 	sendBuffer := make([]byte, BUFFERSIZE)
-	//fmt.Println("Start sending file!")
+	fmt.Println("Start sending file!")
 	for {
 		_, err = file.Read(sendBuffer)
 		if err == io.EOF {
@@ -593,9 +592,11 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 
 			Service := from.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
 			fmt.Println("Service: ", Service)
+
 			if Service == node.MyService { // if the sender is the current node (Leader)
 				fmt.Println("sender is current node")
 				Send(node, file, destinations)
+				fmt.Println("sender is current node done")
 
 			} else {
 				fmt.Println("sender is NOT current node")
