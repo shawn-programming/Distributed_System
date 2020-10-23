@@ -239,7 +239,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 			return msg.Input, portLog
 		}
 	} else if messageType == "ReplicaList" { // a processor has sent a request about the list of destinations to store its replica (only a leader should receive this)
-		fmt.Println("ReplicaList -------------------------")
+		//fmt.Println("ReplicaList -------------------------")
 		msg := pk.DecodeIdList(message)
 
 		N := nodePtr.MaxFail
@@ -260,7 +260,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		//pull
 	} else if messageType == "FileNodeList" { // a processor has send request for the list of nodes that has the file
-		fmt.Println("FileNodeList----------------------")
+		//fmt.Println("FileNodeList----------------------")
 		msg := pk.DecodeIdList(message)
 
 		filename := msg.Filename
@@ -278,18 +278,18 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		return ms.MsList{}, Log
 
 	} else if messageType == "updateFileList" { // a process has sent PutListpacket for the leader to update
-		fmt.Println("updateFileList -----------------------")
+		//fmt.Println("updateFileList -----------------------")
 		msg := pk.DecodePut(message)
 		idInfo := msg.Id
 		filename := msg.Filename
 		encodedMsg := pk.EncodePacket("empty", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 
-		fmt.Println("received filename:", filename)
-		fmt.Println("received ID :", idInfo)
+		//fmt.Println("received filename:", filename)
+		//fmt.Println("received ID :", idInfo)
 
-		fmt.Println("before------------------")
-		fmt.Println(nodePtr.LeaderPtr.FileList[filename])
+		//fmt.Println("before------------------")
+		//fmt.Println(nodePtr.LeaderPtr.FileList[filename])
 
 		// update FileList
 		nodePtr.LeaderPtr.FileList[filename] = append(nodePtr.LeaderPtr.FileList[filename], idInfo)
@@ -297,8 +297,8 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		// update IdList
 		nodePtr.LeaderPtr.IdList[idInfo] = append(nodePtr.LeaderPtr.IdList[idInfo], filename)
 
-		fmt.Println("after-------------------")
-		fmt.Println(nodePtr.LeaderPtr.FileList[filename])
+		//fmt.Println("after-------------------")
+		//fmt.Println(nodePtr.LeaderPtr.FileList[filename])
 
 		return ms.MsList{}, ""
 
@@ -312,27 +312,27 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 	} else if messageType == "openTCP" {
 
-		fmt.Println("openTCP received")
+		//fmt.Println("openTCP received")
 		msg := pk.DecodeTCPcmd(message)
 		cmd := msg.Cmd
 		fileName := msg.Filename
 
 		Log := "TCP Opened"
 
-		fmt.Println(message.Ptype)
+		//fmt.Println(message.Ptype)
 
 		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr)
 
 		return ms.MsList{}, Log
 
 	} else if messageType == "send" {
-		fmt.Println("list of nodes to send failed file received")
+		//fmt.Println("list of nodes to send failed file received")
 
 		msg := pk.DecodeTCPsend(message)
 		fileName := msg.Filename
 		toList := msg.ToList
 
-		fmt.Println("filename:", fileName)
+		//fmt.Println("filename:", fileName)
 
 		encodedMsg := pk.EncodePacket("send command received", nil)
 		conn.WriteToUDP(encodedMsg, addr)
@@ -343,7 +343,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		return ms.MsList{}, Log
 
 	} else if messageType == "election" {
-		fmt.Println("election message received")
+		//fmt.Println("election message received")
 
 		electionPacket := pk.DecodeRingData(message)
 		myIndex := electionPacket.YourIndex
@@ -365,7 +365,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 				//update current leader to new leader
 				*nodePtr.LeaderServicePtr = newLeader
 				fmt.Println("Elected Leader: ", newLeader)
-				fs.LeaderInit(nodePtr, failedLeader)
+				go fs.LeaderInit(nodePtr, failedLeader)
 			} else {
 
 				//update current leader to new leader
@@ -391,19 +391,19 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		return ms.MsList{}, ""
 	} else if messageType == "send a filelist" {
-		fmt.Println("sending file lists")
+		//fmt.Println("sending file lists")
 		encodedMsg := pk.EncodePacket("sending file lists", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 
 		fs.SendFilelist(nodePtr)
-		fmt.Println("send file list done")
+		//fmt.Println("send file list done")
 		return ms.MsList{}, ""
 	} else if messageType == "request" {
 		msg := pk.DecodeTCPsend(message)
 		var message string
 		destinations := msg.ToList
 		filename := msg.Filename
-		fmt.Println("pull request received")
+		//fmt.Println("pull request received")
 
 		// file information inside the leader
 		fileOwners, exists := nodePtr.LeaderPtr.FileList[filename]
