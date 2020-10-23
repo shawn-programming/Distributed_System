@@ -651,8 +651,8 @@ func GetCommand(processNodePtr *nd.Node) {
 
 			for file, IPAddressList := range Filenames {
 				fmt.Println("File ", file, "is stored in the following Addresses:")
-				for _, ID := range IPAddressList {
-					fmt.Println("	1.", ID.IPAddress)
+				for i, ID := range IPAddressList {
+					fmt.Println("	", i, ":", ID.IPAddress)
 				}
 			}
 		} else if len(command) > 6 && command[:6] == "remove" {
