@@ -186,13 +186,24 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 		fmt.Println(receivedPacket.Ptype)
 	} else { // process is the leader, DIY
 		destinations := []ms.Id{myID}
-		_, exists := processNodePtr.LeaderPtr.FileList[filename]
+		fileOwners, exists := processNodePtr.LeaderPtr.FileList[filename]
+		from := fileOwners[0]
+		Service := from.IPAddress + ":" + strconv.Itoa(processNodePtr.DestPortNum)
 
 		if !exists {
 			fmt.Println(filename + " is not found in the system")
 		} else {
 			fmt.Println("telling DFs to send a file to you...", nil)
-			Send(processNodePtr, filename, destinations)
+			udpAddr, err := net.ResolveUDPAddr("udp4", Service)
+			checkError(err)
+			conn, err := net.DialUDP("udp", nil, udpAddr)
+			checkError(err)
+			packet := pk.EncodeTCPsend(pk.TCPsend{destinations, filename})
+			_, err = conn.Write(pk.EncodePacket("send", packet))
+			checkError(err)
+			var buf [512]byte
+			_, err = conn.Read(buf[0:])
+			checkError(err)
 		}
 	}
 

@@ -398,20 +398,42 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		return ms.MsList{}, ""
 	} else if messageType == "request" {
 		msg := pk.DecodeTCPsend(message)
-		var encodedMsg []byte
+		var message string
 		destinations := msg.ToList
 		filename := msg.Filename
 		_, exists := nodePtr.LeaderPtr.FileList[filename]
 		fmt.Println("pull request received")
 
+		// file information inside the leader
+		fileOwners, exists := nodePtr.LeaderPtr.FileList[filename]
+		from := fileOwners[0]
+		Service := from.IPAddress + ":" + strconv.Itoa(nodePtr.DestPortNum)
+
 		if !exists {
-			encodedMsg = pk.EncodePacket(filename+" is not found in the system", nil)
+			message = filename + " is not found in the system"
 		} else {
-			encodedMsg = pk.EncodePacket("telling DFs to send a file to you...", nil)
+			message = ("telling DFs to send a file to you...")
 		}
+
+		// reply to the requestor
+		encodedMsg := pk.EncodePacket(message, nil)
 		conn.WriteToUDP(encodedMsg, addr)
+
 		if exists {
-			fs.Send(nodePtr, filename, destinations)
+			if Service == nodePtr.MyService { // if the sender is the current node (Leader)
+				fs.Send(nodePtr, filename, destinations)
+			} else { // else tell the service to send the file to the requestor
+				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
+				CheckError(err)
+				conn, err := net.DialUDP("udp", nil, udpAddr)
+				CheckError(err)
+				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, filename})
+				_, err = conn.Write(pk.EncodePacket("send", packet))
+				CheckError(err)
+				var buf [512]byte
+				_, err = conn.Read(buf[0:])
+				CheckError(err)
+			}
 		}
 
 		return ms.MsList{}, ""
