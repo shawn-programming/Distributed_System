@@ -176,7 +176,7 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 		checkError(err)
 
 		packet := pk.EncodeTCPsend(pk.TCPsend{[]ms.Id{myID}, filename})
-		_, _ = conn.Write(pk.EncodePacket("request a file", packet))
+		_, _ = conn.Write(pk.EncodePacket("request", packet))
 		checkError(err)
 
 		var buf [512]byte
