@@ -396,6 +396,25 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		fs.SendFilelist(nodePtr)
 		fmt.Println("send file list done")
 		return ms.MsList{}, ""
+	} else if messageType == "request" {
+		msg := pk.DecodeTCPsend(message)
+		var encodedMsg []byte
+		destinations := msg.ToList
+		filename := msg.Filename
+		_, exists := nodePtr.LeaderPtr.FileList[filename]
+		fmt.Println("pull request received")
+
+		if !exists {
+			encodedMsg = pk.EncodePacket(filename+" is not found in the system", nil)
+		} else {
+			encodedMsg = pk.EncodePacket("telling DFs to send a file to you...", nil)
+		}
+		conn.WriteToUDP(encodedMsg, addr)
+		if exists {
+			fs.Send(nodePtr, filename, destinations)
+		}
+
+		return ms.MsList{}, ""
 	}
 
 	fmt.Println("not a valid packet, packet name:", messageType)

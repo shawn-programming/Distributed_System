@@ -126,6 +126,7 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	conn, err := net.DialUDP("udp", nil, udpAddr)
 	checkError(err)
 
+	// request leader about the destinations to send the replica
 	packet := pk.EncodeIdList(pk.IdListpacket{N, myID, []ms.Id{}, filename})
 	_, err = conn.Write(pk.EncodePacket("ReplicaList", packet))
 	checkError(err)
@@ -138,13 +139,8 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	// target processes to store replicas
 	idList = pk.DecodeIdList(receivedPacket).List
 
+	// send file replica to the idLists
 	Send(processNodePtr, filename, idList)
-	// for i, id := range idList {
-	// 	fmt.Println("picked desination:", i)
-	// 	id.Print()
-
-	// 	RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
-	// }
 
 	putPacket := pk.EncodePut(pk.Putpacket{myID, filename})
 	_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
@@ -165,43 +161,41 @@ func Send(processNodePtr *nd.Node, filename string, idList []ms.Id) {
 	}
 }
 
-func SendDtoD(processNodePtr *nd.Node, filename string, idList []ms.Id) {
-	for _, id := range idList {
-		//fmt.Println("picked desination:", i)
-		id.Print()
-
-		RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
-	}
-}
-
 func Pull(processNodePtr *nd.Node, filename string, N int) {
 	fmt.Println("PULL---------------")
 	myID := processNodePtr.Id
 
 	leaderService := *processNodePtr.LeaderServicePtr
-	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
-	checkError(err)
 
-	conn, err := net.DialUDP("udp", nil, udpAddr)
-	checkError(err)
+	// process is not the leader, send a request to the leader
+	if *processNodePtr.IsLeaderPtr == false {
+		udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
+		checkError(err)
 
-	packet := pk.EncodeIdList(pk.IdListpacket{N, myID, []ms.Id{}, filename})
-	_, _ = conn.Write(pk.EncodePacket("FileNodeList", packet))
-	checkError(err)
+		conn, err := net.DialUDP("udp", nil, udpAddr)
+		checkError(err)
 
-	var buf [512]byte
-	n, err := conn.Read(buf[0:])
-	checkError(err)
-	receivedPacket := pk.DecodePacket(buf[0:n])
+		packet := pk.EncodeTCPsend(pk.TCPsend{[]ms.Id{myID}, filename})
+		_, _ = conn.Write(pk.EncodePacket("request a file", packet))
+		checkError(err)
 
-	// target processes to store replicas
-	idList := pk.DecodeIdList(receivedPacket).List
+		var buf [512]byte
+		n, err := conn.Read(buf[0:])
+		checkError(err)
+		receivedPacket := pk.DecodePacket(buf[0:n])
+		fmt.Println(receivedPacket.Ptype)
+	} else { // process is the leader, DIY
+		destinations := []ms.Id{myID}
+		_, exists := processNodePtr.LeaderPtr.FileList[filename]
 
-	for _, id := range idList {
-		if RequestTCP("fetch", id.IPAddress, filename, processNodePtr, id) {
-			break
+		if !exists {
+			fmt.Println(filename + " is not found in the system")
+		} else {
+			fmt.Println("telling DFs to send a file to you...", nil)
+			Send(processNodePtr, filename, destinations)
 		}
 	}
+
 	fmt.Println("pull Done")
 }
 
