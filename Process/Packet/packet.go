@@ -209,6 +209,24 @@ func DecodeRingData(encodedMessage PacketType) RingData {
 	return decodedMessage
 }
 
+type FilesPacket struct {
+	Id       ms.Id
+	FileName []string
+}
+
+func EncodeFilesPacket(message FilesPacket) []byte {
+	encodedMessage, err := json.Marshal(message)
+	checkError(err)
+	return encodedMessage
+}
+
+func DecodeFilesPacket(encodedMessage PacketType) FilesPacket {
+	var decodedMessage FilesPacket
+	err := json.Unmarshal(encodedMessage.EncodePacket, &decodedMessage)
+	checkError(err)
+	return decodedMessage
+}
+
 /*
 CheckError(err error)
 	Terminate system with message, if Error occurs

@@ -368,7 +368,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 				//update current leader to new leader
 				*nodePtr.LeaderServicePtr = newLeader
 				fmt.Println("Elected Leader: ", newLeader)
-				go fs.LeaderInit(nodePtr, failedLeader)
+				fs.LeaderInit(nodePtr, failedLeader)
 			} else {
 
 				//update current leader to new leader
@@ -395,12 +395,18 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		return ms.MsList{}, ""
 	} else if messageType == "send a filelist" {
 		//fmt.Println("sending file lists")
-		encodedMsg := pk.EncodePacket("sending file lists", nil)
-		conn.WriteToUDP(encodedMsg, addr)
 
-		fs.SendFilelist(nodePtr)
-		//fmt.Println("send file list done")
+		Id := nodePtr.Id
+		filenames := *(*nodePtr).DistributedFilesPtr //[]string =  filenames
+
+		packet := pk.EncodeFilesPacket(pk.FilesPacket{Id, filenames})
+		_, err := conn.Write(pk.EncodePacket("list of files", packet))
+		CheckError(err)
+
+		//fs.SendFilelist(nodePtr)
+		fmt.Println("send file list done")
 		return ms.MsList{}, ""
+
 	} else if messageType == "request" {
 		msg := pk.DecodeTCPsend(message)
 		var message string

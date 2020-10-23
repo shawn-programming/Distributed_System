@@ -177,7 +177,7 @@ func SendFilelist(processNodePtr *nd.Node) {
 	// fmt.Println("Send File List's Service:", leaderService)
 
 	for _, filename := range *(*processNodePtr).DistributedFilesPtr {
-		fmt.Println("sending:", filename)
+		// fmt.Println("sending:", filename)
 		putPacket := pk.EncodePut(pk.Putpacket{processNodePtr.Id, filename})
 		_, err := conn.Write(pk.EncodePacket("updateFileList", putPacket))
 		checkError(err)
@@ -583,8 +583,19 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 		checkError(err)
 
 		var buf [512]byte
-		_, err = conn.Read(buf[0:])
+		n, err := conn.Read(buf[0:])
+		packet := pk.DecodePacket(buf[:n])
+		decodedPacket := pk.DecodeFilesPacket(packet)
 		checkError(err)
+
+		idInfo := decodedPacket.Id
+		filenames := decodedPacket.FileName
+		for _, filename := range filenames {
+			node.LeaderPtr.FileList[filename] = append(node.LeaderPtr.FileList[filename], idInfo)
+
+			// update IdList
+			node.LeaderPtr.IdList[idInfo] = append(node.LeaderPtr.IdList[idInfo], filename)
+		}
 
 		// fmt.Println("file list received from", Service)
 	}
@@ -600,13 +611,13 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 
 	for file, list := range node.LeaderPtr.FileList {
 		// fmt.Println("Checking file", file)
-		fmt.Println("File ", file, "is stored in the following Addresses:")
-		for i, ID := range list {
-			fmt.Println("	", i, ":", ID.IPAddress)
-		}
+		// fmt.Println("File ", file, "is stored in the following Addresses:")
+		// for i, ID := range list {
+		// 	fmt.Println("	", i, ":", ID.IPAddress)
+		// }
 		if len(list) < node.MaxFail+1 {
 			fileOwners := node.LeaderPtr.FileList[file]
-			fmt.Println(file)
+			// fmt.Println(file)
 
 			N := node.MaxFail - len(fileOwners) + 1
 
