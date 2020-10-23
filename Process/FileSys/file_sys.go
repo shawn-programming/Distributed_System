@@ -600,13 +600,13 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 
 	for file, list := range node.LeaderPtr.FileList {
 		// fmt.Println("Checking file", file)
-
 		fmt.Println("File ", file, "is stored in the following Addresses:")
 		for i, ID := range list {
-			fmt.Println("	", i, ID, ":", list)
+			fmt.Println("	", i, ":", ID.IPAddress)
 		}
 		if len(list) < node.MaxFail+1 {
 			fileOwners := node.LeaderPtr.FileList[file]
+			fmt.Println(file)
 
 			N := node.MaxFail - len(fileOwners) + 1
 
@@ -614,7 +614,7 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 			from := fileOwners[0]
 
 			Service := from.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
-			fmt.Println("Service: ", Service)
+			// fmt.Println("Service: ", Service)
 
 			if Service == node.MyService { // if the sender is the current node (Leader)
 				// fmt.Println("sender is current node")
