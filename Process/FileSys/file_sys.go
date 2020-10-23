@@ -177,7 +177,7 @@ func SendFilelist(processNodePtr *nd.Node) {
 	// fmt.Println("Send File List's Service:", leaderService)
 
 	for _, filename := range *(*processNodePtr).DistributedFilesPtr {
-		// fmt.Println("sending:", filename)
+		fmt.Println("sending:", filename)
 		putPacket := pk.EncodePut(pk.Putpacket{processNodePtr.Id, filename})
 		_, err := conn.Write(pk.EncodePacket("updateFileList", putPacket))
 		checkError(err)
