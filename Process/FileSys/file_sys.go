@@ -177,7 +177,7 @@ func SendFilelist(processNodePtr *nd.Node) {
 	// fmt.Println("Send File List's Service:", leaderService)
 
 	for _, filename := range *(*processNodePtr).DistributedFilesPtr {
-		fmt.Println("sending:", filename)
+		// fmt.Println("sending:", filename)
 		putPacket := pk.EncodePut(pk.Putpacket{processNodePtr.Id, filename})
 		_, err := conn.Write(pk.EncodePacket("updateFileList", putPacket))
 		checkError(err)
@@ -600,12 +600,14 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 
 	for file, list := range node.LeaderPtr.FileList {
 		// fmt.Println("Checking file", file)
+
+		fmt.Println("File ", file, "is stored in the following Addresses:")
+		for i, ID := range list {
+			fmt.Println("	", i, ID, ":", list)
+		}
 		if len(list) < node.MaxFail+1 {
 			fileOwners := node.LeaderPtr.FileList[file]
-			fmt.Println(file)
-			for _, o := range fileOwners {
-				fmt.Println(o.IPAddress)
-			}
+
 			N := node.MaxFail - len(fileOwners) + 1
 
 			destinations := node.PickReplicas(N, fileOwners)
