@@ -401,7 +401,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		var message string
 		destinations := msg.ToList
 		filename := msg.Filename
-		_, exists := nodePtr.LeaderPtr.FileList[filename]
 		fmt.Println("pull request received")
 
 		// file information inside the leader
@@ -434,8 +433,62 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 				_, err = conn.Read(buf[0:])
 				CheckError(err)
 			}
+
+		}
+		return ms.MsList{}, ""
+
+	} else if messageType == "Remove" { //leader only
+		// msg = filename
+		filename := string(message.EncodePacket)
+		fileOwners, exists := nodePtr.LeaderPtr.FileList[filename]
+
+		//udate filelist
+		delete(nodePtr.LeaderPtr.FileList, filename)
+
+		//update idlist
+		for id, filelist := range nodePtr.LeaderPtr.IdList {
+			for i, file := range filelist {
+				if file == filename {
+					(*nodePtr.LeaderPtr).IdList[id] = append((*nodePtr.LeaderPtr).IdList[id][:i], (*nodePtr.LeaderPtr).IdList[id][i+1:]...)
+				}
+			}
 		}
 
+		if exists {
+			encodedMsg := pk.EncodePacket("File Found and removed it", nil)
+			conn.WriteToUDP(encodedMsg, addr)
+		} else {
+			encodedMsg := pk.EncodePacket("File not Found", nil)
+			conn.WriteToUDP(encodedMsg, addr)
+		}
+
+		// make each owner to remove the file
+		for _, fileOwner := range fileOwners {
+			Service := fileOwner.IPAddress + ":" + strconv.Itoa(nodePtr.DestPortNum)
+			if Service == nodePtr.MyService {
+				fs.Remove(nodePtr, filename)
+
+			} else {
+				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
+				CheckError(err)
+				conn, err := net.DialUDP("udp", nil, udpAddr)
+				CheckError(err)
+
+				_, err = conn.Write(pk.EncodePacket("RemoveFile", []byte(filename)))
+				CheckError(err)
+				var buf [512]byte
+				_, err = conn.Read(buf[0:])
+				CheckError(err)
+			}
+		}
+		return ms.MsList{}, ""
+	} else if messageType == "RemoveFile" { // remove the file
+		filename := string(message.EncodePacket)
+
+		encodedMsg := pk.EncodePacket("Remove request received", nil)
+		conn.WriteToUDP(encodedMsg, addr)
+
+		fs.Remove(nodePtr, filename)
 		return ms.MsList{}, ""
 	}
 

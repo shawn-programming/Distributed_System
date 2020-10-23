@@ -20,7 +20,91 @@ import (
 
 const BUFFERSIZE = 65400
 
-// copied from https://opensource.com/article/18/6/copying-files-go
+/*
+Remove(nodePtr *nd.Node, filename string)
+
+remove a file <filename> from the distributed folder
+and also remove it from the DistributedFilesPtr
+*/
+func Remove(nodePtr *nd.Node, filename string) {
+	error := os.Remove(nodePtr.DistributedPath + filename)
+	checkError(error)
+	for i, file := range *nodePtr.DistributedFilesPtr {
+		if filename == file {
+			*nodePtr.DistributedFilesPtr = append((*nodePtr.DistributedFilesPtr)[:i], (*nodePtr.DistributedFilesPtr)[i+1:]...)
+			fmt.Println("Removed", filename)
+			return
+		}
+	}
+	fmt.Println("Error! file not found")
+}
+
+func RemoveFile(nodePtr *nd.Node, filename string) {
+	leaderService := *nodePtr.LeaderServicePtr
+
+	// if the processor is not the leader, request the leader to distribute the messages
+	if leaderService != nodePtr.MyService {
+		udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
+		checkError(err)
+
+		conn, err := net.DialUDP("udp", nil, udpAddr)
+		checkError(err)
+
+		// send the leader about the remove request
+		_, err = conn.Write(pk.EncodePacket("Remove", []byte(filename)))
+
+		var buf [4096]byte
+		n, err := conn.Read(buf[0:])
+		checkError(err)
+		receivedPacket := pk.DecodePacket(buf[0:n])
+		fmt.Println(receivedPacket.Ptype)
+	} else { // if the processor is the leader, DIY
+		fileOwners, exists := nodePtr.LeaderPtr.FileList[filename]
+		//udate filelist
+		delete(nodePtr.LeaderPtr.FileList, filename)
+
+		//update idlist
+		for id, filelist := range nodePtr.LeaderPtr.IdList {
+			for i, file := range filelist {
+				if file == filename {
+					(*nodePtr.LeaderPtr).IdList[id] = append((*nodePtr.LeaderPtr).IdList[id][:i], (*nodePtr.LeaderPtr).IdList[id][i+1:]...)
+				}
+			}
+		}
+
+		if exists {
+			fmt.Println("File Found and removed it")
+		} else {
+			fmt.Println("File not found")
+		}
+
+		// make each file owner to remove the file
+		for _, fileOwner := range fileOwners {
+			Service := fileOwner.IPAddress + ":" + strconv.Itoa(nodePtr.DestPortNum)
+			if Service == nodePtr.MyService { // if leader have the file, remove it
+				Remove(nodePtr, filename)
+			} else {
+				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
+				checkError(err)
+				conn, err := net.DialUDP("udp", nil, udpAddr)
+				checkError(err)
+
+				_, err = conn.Write(pk.EncodePacket("RemoveFile", []byte(filename)))
+				checkError(err)
+				var buf [512]byte
+				_, err = conn.Read(buf[0:])
+				checkError(err)
+			}
+		}
+	}
+}
+
+/*
+copy(src, dst string)
+
+copy a file from the source to the destination
+// code copied from https://opensource.com/article/18/6/copying-files-go
+*/
 func copy(src, dst string) (int64, error) {
 	sourceFileStat, err := os.Stat(src)
 	if err != nil {
