@@ -602,7 +602,10 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 		// fmt.Println("Checking file", file)
 		if len(list) < node.MaxFail+1 {
 			fileOwners := node.LeaderPtr.FileList[file]
-
+			fmt.Println(file)
+			for _, o := range fileOwners {
+				fmt.Println(o.IPAddress)
+			}
 			N := node.MaxFail - len(fileOwners) + 1
 
 			destinations := node.PickReplicas(N, fileOwners)
