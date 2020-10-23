@@ -292,6 +292,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		//fmt.Println(nodePtr.LeaderPtr.FileList[filename])
 
 		// update FileList
+		fmt.Println("--------")
 		fmt.Println("filename:", filename)
 		fmt.Println("idinfo:", idInfo.IPAddress)
 		nodePtr.LeaderPtr.FileList[filename] = append(nodePtr.LeaderPtr.FileList[filename], idInfo)
