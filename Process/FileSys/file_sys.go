@@ -540,13 +540,18 @@ func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id)
 
 	conn, err := net.DialUDP("udp", nil, udpAddr)
 	checkError(err)
+	fmt.Println("OpenTCP net dialed")
 
 	packet := pk.EncodeTCPcmd(pk.TCPcmd{command, filename})
 	_, err = conn.Write(pk.EncodePacket("openTCP", packet))
 	checkError(err)
 
+	fmt.Println("openTCP write done")
 	var response [128]byte
 	_, err = conn.Read(response[0:])
+
+	fmt.Println("openTCP read done")
+
 	checkError(err)
 }
 
