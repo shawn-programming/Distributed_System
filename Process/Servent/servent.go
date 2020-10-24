@@ -166,11 +166,24 @@ open the server and collect msgs from other processors
 */
 func OpenServer(conn *net.UDPConn, processNodePtr *nd.Node) {
 	for {
-		tempList, portLog := ListenOnPort(conn, processNodePtr)
-		// update InputList to be used for IncrementLocalTime()
-		(*(*processNodePtr).InputListPtr) = append((*(*processNodePtr).InputListPtr), tempList)
+		_, portLog := ListenOnPort(conn, processNodePtr)
+
 		if len(portLog) > 0 {
 			(*processNodePtr).Logger.Println(portLog)
+		}
+	}
+}
+
+/* OpenHeartbeat
+ */
+
+func OpenHeartbeat(NodePtr *nd.Node) {
+	for {
+		tempList, portLog := listenHeartbeat(NodePtr)
+		// update InputList to be used for IncrementLocalTime()
+		(*(*NodePtr).InputListPtr) = append((*(*NodePtr).InputListPtr), tempList)
+		if len(portLog) > 0 {
+			(*NodePtr).Logger.Println(portLog)
 		}
 	}
 }
@@ -211,33 +224,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		(*(*nodePtr).ATAPtr) = true
 		conn.WriteToUDP(pk.EncodePacket((*nodePtr).Id.IPAddress+" turned into ata", nil), addr)
 		return ms.MsList{}, portLog
-	} else if messageType == "heartbeat" {
-		// heartbeat received
-		// fmt.Println("heartbeat")
-		msg := pk.DecodeHB(message)
-
-		if (*nodePtr).IsIntroducer && msg.IsInitialization { // if this processor is a introducer and there is newly joined processor to the system
-			currMsList := (*nodePtr).MsList
-			currMsList = currMsList.Add(msg.Input.List[0], (*nodePtr).LocalTime)
-			encodedMsg := pk.EncodePacket("heartbeat", pk.EncodeHB(pk.HBpacket{currMsList, false}))
-			conn.WriteToUDP(encodedMsg, addr)
-			if (*(*nodePtr).ATAPtr) == true {
-				_ = PingMsg((*nodePtr), currMsList, "ata", (*nodePtr).DestPortNum)
-			} else {
-				_ = PingMsg((*nodePtr), currMsList, "gossip", (*nodePtr).DestPortNum)
-			}
-
-			return currMsList, portLog
-		} else { // message is not an initialization message
-			// message is dropped for failrate
-			s1 := rand.NewSource(time.Now().UnixNano())
-			r1 := rand.New(s1)
-			if r1.Intn(100) < (*nodePtr).FailRate {
-				return ms.MsList{}, ""
-			}
-
-			return msg.Input, portLog
-		}
 	} else if messageType == "ReplicaList" { // a processor has sent a request about the list of destinations to store its replica (only a leader should receive this)
 		//fmt.Println("ReplicaList -------------------------")
 		msg := pk.DecodeIdList(message)
@@ -324,7 +310,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		//fmt.Println(message.Ptype)
 
-		go fs.ListenTCP(cmd, fileName, nodePtr, conn, addr)
+		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr)
 
 		return ms.MsList{}, Log
 
@@ -368,7 +354,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 				//update current leader to new leader
 				*nodePtr.LeaderServicePtr = newLeader
 				fmt.Println("Elected Leader: ", newLeader)
-				go fs.LeaderInit(nodePtr, failedLeader)
+				fs.LeaderInit(nodePtr, failedLeader)
 			} else {
 
 				//update current leader to new leader
@@ -539,6 +525,57 @@ func NewMemberInitialization(nodePtr *nd.Node) {
 	(*nodePtr).Logger.Println("Connected!")
 }
 
+func listenHeartbeat(nodePtr *nd.Node) (ms.MsList, string) {
+	udpAddr, err := net.ResolveUDPAddr("udp4", nodePtr.SelfIP+":"+strconv.Itoa(nodePtr.MyPortNumHB))
+	CheckError(err)
+
+	conn, err := net.ListenUDP("udp", udpAddr)
+
+	var portLog string
+	var buf [5120]byte
+
+	n, addr, err := conn.ReadFromUDP(buf[0:])
+	if err != nil {
+		fmt.Println("err != nil")
+		return ms.MsList{}, ""
+	}
+
+	message := pk.DecodePacket(buf[:n])
+	messageType := message.Ptype
+
+	if messageType == "heartbeat" {
+		// heartbeat received
+		// fmt.Println("heartbeat")
+		msg := pk.DecodeHB(message)
+
+		if (*nodePtr).IsIntroducer && msg.IsInitialization { // if this processor is a introducer and there is newly joined processor to the system
+			currMsList := (*nodePtr).MsList
+			currMsList = currMsList.Add(msg.Input.List[0], (*nodePtr).LocalTime)
+			encodedMsg := pk.EncodePacket("heartbeat", pk.EncodeHB(pk.HBpacket{currMsList, false}))
+			conn.WriteToUDP(encodedMsg, addr)
+			if (*(*nodePtr).ATAPtr) == true {
+				_ = PingMsg((*nodePtr), currMsList, "ata", (*nodePtr).DestPortNum)
+			} else {
+				_ = PingMsg((*nodePtr), currMsList, "gossip", (*nodePtr).DestPortNum)
+			}
+
+			return currMsList, portLog
+		} else { // message is not an initialization message
+			// message is dropped for failrate
+			s1 := rand.NewSource(time.Now().UnixNano())
+			r1 := rand.New(s1)
+			if r1.Intn(100) < (*nodePtr).FailRate {
+				return ms.MsList{}, ""
+			}
+
+			return msg.Input, portLog
+		}
+	} else {
+		fmt.Println("Invalid HeartBeat:", messageType)
+		return ms.MsList{}, portLog
+	}
+}
+
 func Heartbeat(nodePtr *nd.Node) {
 	loggerPerSec := (*nodePtr).LoggerPerSec
 	logger := (*nodePtr).Logger
@@ -558,7 +595,7 @@ func Heartbeat(nodePtr *nd.Node) {
 		}
 
 		// sned the processor's member to other processors
-		logPerSec, byteSent := PingToOtherProcessors((*nodePtr).DestPortNum, (*nodePtr), (*(*nodePtr).ATAPtr), (*nodePtr).K)
+		logPerSec, byteSent := PingToOtherProcessors((*nodePtr).DestPortNumHB, (*nodePtr), (*(*nodePtr).ATAPtr), (*nodePtr).K)
 		loggerPerSec.Println(logPerSec)
 
 		(*(*nodePtr).TotalByteSentPtr) += byteSent

@@ -5,7 +5,6 @@ import (
 	"net"
 	"os"
 	"strconv"
-	"time"
 
 	config "../logSystem/config"
 	logger "./Logger"
@@ -69,6 +68,8 @@ func main() {
 	processNode.LoggerPerSec.Println("-------starting listening----------")
 	go sv.OpenServer(conn, &processNode)
 
+	go sv.OpenHeartbeat(&processNode)
+
 	if !processNode.IsIntroducer {
 		sv.NewMemberInitialization(&processNode)
 	}
@@ -79,8 +80,6 @@ func main() {
 	// Update current membership List and sends its information to other members
 	processNode.LoggerPerSec.Println("----------Start Sending----------")
 	go sv.Heartbeat(&processNode)
-
-	time.Sleep(time.Second * 10)
 
 	for {
 		// hand the system

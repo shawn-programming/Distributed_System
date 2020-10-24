@@ -233,16 +233,16 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	idList = pk.DecodeIdList(receivedPacket).List
 
 	// send file replica to the idLists
-	go func() {
-		Send(processNodePtr, filename, idList)
+	// go func() {
+	Send(processNodePtr, filename, idList)
 
-		putPacket := pk.EncodePut(pk.Putpacket{myID, filename})
-		_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
-		checkError(err)
+	putPacket := pk.EncodePut(pk.Putpacket{myID, filename})
+	_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
+	checkError(err)
 
-		_, err = conn.Read(buf[0:])
-		checkError(err)
-	}()
+	_, err = conn.Read(buf[0:])
+	checkError(err)
+	// }()
 
 	fmt.Println("Put Done")
 }

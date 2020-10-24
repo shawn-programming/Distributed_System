@@ -39,16 +39,21 @@ type Node struct {
 	MsList ms.MsList // node's membership list
 
 	// constant attributes
-	VmNum           int    // vm's number
-	VmNumStr        string // vm's number in string
-	MyService       string // myservice for networking
-	TimeOut         int    // time limit for failing
-	FailRate        int    // message drop ratio
-	IntroducerIP    string // Introducer's IP
-	IsIntroducer    bool   // True if the node is the introducer
-	SelfIP          string // node's IP
-	MyPortNum       int    // node's port number
-	DestPortNum     int    // introducer's port number
+	VmNum        int    // vm's number
+	VmNumStr     string // vm's number in string
+	MyService    string // myservice for networking
+	TimeOut      int    // time limit for failing
+	FailRate     int    // message drop ratio
+	IntroducerIP string // Introducer's IP
+	IsIntroducer bool   // True if the node is the introducer
+	SelfIP       string // node's IP
+	
+	MyPortNum    int    // node's port number
+	DestPortNum  int    // introducer's port number
+
+	MyPortNumHB   int // heartbeat port
+	DestPortNumHB int // heartbeat port
+
 	ServerID        string // node's id in string
 	K               int    // gossip's k value
 	LocalPath       string // directory that stores local files
@@ -119,6 +124,8 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	// for VM test
 	myPortNum := portList[0]   // Processor's port number
 	destPortNum := portList[0] // Receiver's port number
+	myPortNumHB := portList[2]
+	desPortNumHB := portList[2]
 	// for local test
 	// myPortNum := portList[(vmNum+1)%2] // Processor's port number
 	// destPortNum := portList[vmNum%2]   // Receiver's port number
@@ -147,7 +154,9 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.IsIntroducer = isIntroducer
 	tempNode.SelfIP = selfIP
 	tempNode.MyPortNum = myPortNum
+	tempNode.MyPortNumHB = myPortNumHB
 	tempNode.DestPortNum = destPortNum
+	tempNode.DestPortNumHB = desPortNumHB
 	tempNode.ServerID = serverID
 	tempNode.K = K
 	tempNode.LocalPath = "./local_files/"
