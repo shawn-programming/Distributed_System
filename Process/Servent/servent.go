@@ -394,16 +394,18 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		return ms.MsList{}, ""
 	} else if messageType == "send a filelist" {
-		//fmt.Println("sending file lists")
+		fmt.Println("sending file lists")
 
 		Id := nodePtr.Id
 		filenames := *(*nodePtr).DistributedFilesPtr //[]string =  filenames
 
 		packet := pk.EncodeFilesPacket(pk.FilesPacket{Id, filenames})
-		_, err := conn.Write(pk.EncodePacket("list of files", packet))
+		//_, err := conn.Write(pk.EncodePacket("list of files", packet))
+		conn.WriteToUDP(packet, addr)
+
 		CheckError(err)
 
-		//fs.SendFilelist(nodePtr)
+		fs.SendFilelist(nodePtr)
 		fmt.Println("send file list done")
 		return ms.MsList{}, ""
 

@@ -568,12 +568,13 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 	time.Sleep(time.Second * 5) // 5 == timeOut
 	members := node.AliveMembers()
 	*node.IsLeaderPtr = true
+	fmt.Println("leader init start")
 	for _, member := range members {
 		Service := member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
 		if Service == failedLeader || Service == node.MyService {
 			continue
 		}
-		// fmt.Println("file list receive start")
+		fmt.Println("file list receive start")
 		udpAddr, err := net.ResolveUDPAddr("udp4", Service)
 		checkError(err)
 		conn, err := net.DialUDP("udp", nil, udpAddr)
@@ -582,11 +583,16 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 		_, err = conn.Write(pk.EncodePacket("send a filelist", nil))
 		checkError(err)
 
+		fmt.Println("leader send a file lit write--------------")
 		var buf [512]byte
 		n, err := conn.Read(buf[0:])
+		fmt.Println("1")
 		packet := pk.DecodePacket(buf[:n])
+		fmt.Println("2")
 		decodedPacket := pk.DecodeFilesPacket(packet)
 		checkError(err)
+
+		fmt.Println("leader send a file list read --------------")
 
 		idInfo := decodedPacket.Id
 		filenames := decodedPacket.FileName
@@ -597,20 +603,20 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 			node.LeaderPtr.IdList[idInfo] = append(node.LeaderPtr.IdList[idInfo], filename)
 		}
 
-		// fmt.Println("file list received from", Service)
+		fmt.Println("file list received from", Service)
 	}
 
-	// fmt.Println("store info about df")
+	fmt.Println("store info about df")
 	// store the info about its distributed files
 	for _, file := range *node.DistributedFilesPtr {
 		node.LeaderPtr.FileList[file] = append(node.LeaderPtr.FileList[file], node.Id)
 		node.LeaderPtr.IdList[node.Id] = append(node.LeaderPtr.IdList[node.Id], file)
 	}
 
-	// fmt.Println("store info about df done")
+	fmt.Println("store info about df done")
 
 	for file, list := range node.LeaderPtr.FileList {
-		// fmt.Println("Checking file", file)
+		fmt.Println("Checking file", file)
 		// fmt.Println("File ", file, "is stored in the following Addresses:")
 		// for i, ID := range list {
 		// 	fmt.Println("	", i, ":", ID.IPAddress)
@@ -628,9 +634,9 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 			// fmt.Println("Service: ", Service)
 
 			if Service == node.MyService { // if the sender is the current node (Leader)
-				// fmt.Println("sender is current node")
+				fmt.Println("sender is current node")
 				Send(node, file, destinations)
-				// fmt.Println("sender is current node done")
+				fmt.Println("sender is current node done")
 
 			} else {
 				// fmt.Println("sender is NOT current node")
@@ -649,7 +655,7 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 			// fmt.Println("number of", file, "replica is balanced now")
 		}
 
-		// fmt.Println(file, "list updated")
+		fmt.Println(file, "list updated")
 	}
 
 	fmt.Println("Leader Init completed")
