@@ -360,18 +360,18 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 
 		if request == "put" {
 			// fmt.Println("receive file")
-			ReceiveFile(connection, processNodePtr.DistributedPath, processNodePtr)
+			go ReceiveFile(connection, processNodePtr.DistributedPath, processNodePtr)
 			break
 		} else if request == "fetch" {
 			// fmt.Println("sendfile")
-			SendFile(connection, fileName, processNodePtr.DistributedPath)
+			go SendFile(connection, fileName, processNodePtr.DistributedPath)
 			break
 		}
 	}
 }
 
 // CLIENT
-func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *nd.Node, id ms.Id) bool {
+func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *nd.Node, id ms.Id) {
 	// connect to server
 	//fmt.Println("RequestTCP----------------")
 
@@ -397,21 +397,11 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 	defer connection.Close()
 	// fmt.Println("Connected, start processing request")
 
-	check := false
 	if command == "put" {
 		// fmt.Println("put")
-		SendFile(connection, fileName, processNodePtr.DistributedPath)
-	} else if command == "fetch" {
-
-		// fmt.Println("fetch")
-		check = ReceiveFile(connection, "local_files", nil)
-
+		go SendFile(connection, fileName, processNodePtr.DistributedPath)
 	}
-	//fmt.Println("Request TCP Done")
-	if check {
-		return true
-	}
-	return false
+
 }
 
 // send / receive file
