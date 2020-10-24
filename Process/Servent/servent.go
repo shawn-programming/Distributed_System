@@ -406,7 +406,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		CheckError(err)
 
-		fs.SendFilelist(nodePtr)
+		// fs.SendFilelist(nodePtr)
 		fmt.Println("send file list done")
 		return ms.MsList{}, ""
 
