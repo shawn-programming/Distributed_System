@@ -569,6 +569,16 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 	members := node.AliveMembers()
 	*node.IsLeaderPtr = true
 	fmt.Println("leader init start")
+
+	fmt.Println("B-------------------------------------------------")
+	for file, list := range node.LeaderPtr.FileList {
+		fmt.Println("File ", file, "is stored in the following Addresses:")
+		for i, ID := range list {
+			fmt.Println("	", i, ":", ID.IPAddress)
+		}
+	}
+	fmt.Println("B-------------------------------------------------")
+
 	for _, member := range members {
 		Service := member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
 		if Service == failedLeader || Service == node.MyService {
