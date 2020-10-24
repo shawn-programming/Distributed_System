@@ -380,6 +380,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		} else {
 			if initiator < *nodePtr.ElectionInitiatorPtr {
 				// do nothing
+				fmt.Println("Ignoring", initiator)
 			} else {
 				*(nodePtr.ElectionInitiatorPtr) = initiator
 				if newLeader == nodePtr.MyService { // Leader is the current processor, now let others know the new leader
