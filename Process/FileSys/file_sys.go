@@ -583,16 +583,16 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 		_, err = conn.Write(pk.EncodePacket("send a filelist", nil))
 		checkError(err)
 
-		fmt.Println("leader send a file lit write--------------")
+		//fmt.Println("leader send a file lit write--------------")
 		var buf [512]byte
 		n, err := conn.Read(buf[0:])
-		fmt.Println("1")
+		//fmt.Println("1")
 		packet := pk.DecodePacket(buf[:n])
-		fmt.Println("2")
+		//fmt.Println("2")
 		decodedPacket := pk.DecodeFilesPacket(packet)
 		checkError(err)
 
-		fmt.Println("leader send a file list read --------------")
+		//fmt.Println("leader send a file list read --------------")
 
 		idInfo := decodedPacket.Id
 		filenames := decodedPacket.FileName
@@ -617,10 +617,10 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 
 	for file, list := range node.LeaderPtr.FileList {
 		fmt.Println("Checking file", file)
-		// fmt.Println("File ", file, "is stored in the following Addresses:")
-		// for i, ID := range list {
-		// 	fmt.Println("	", i, ":", ID.IPAddress)
-		// }
+		fmt.Println("File ", file, "is stored in the following Addresses:")
+		for i, ID := range list {
+			fmt.Println("	", i, ":", ID.IPAddress)
+		}
 		if len(list) < node.MaxFail+1 {
 			fileOwners := node.LeaderPtr.FileList[file]
 			fmt.Println(file)
