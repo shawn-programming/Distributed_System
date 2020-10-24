@@ -315,7 +315,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 	} else if messageType == "openTCP" {
 
-		//fmt.Println("openTCP received")
+		fmt.Println("openTCP received")
 		msg := pk.DecodeTCPcmd(message)
 		cmd := msg.Cmd
 		fileName := msg.Filename

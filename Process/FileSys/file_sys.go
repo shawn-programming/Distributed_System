@@ -382,16 +382,16 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 
 	//VM
 	service = ipaddr + ":" + "1288"
-	// fmt.Println("OpenTCP")
+	fmt.Println("OpenTCP")
 	OpenTCP(processNodePtr, command, fileName, id)
-	// fmt.Println("OpenTCP Done")
+	fmt.Println("OpenTCP Done")
 
 	connection, err := net.Dial("tcp", service)
 	if err != nil {
 		panic(err)
 	}
 	defer connection.Close()
-	// fmt.Println("Connected, start processing request")
+	fmt.Println("Connected, start processing request")
 
 	if command == "put" {
 		fmt.Println("put")
