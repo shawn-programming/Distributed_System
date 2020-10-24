@@ -446,13 +446,18 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		fileOwners, exists := nodePtr.LeaderPtr.FileList[filename]
 
 		//udate filelist
+		fmt.Println("filelist remove")
 		delete(nodePtr.LeaderPtr.FileList, filename)
 
+		fmt.Println("idlist remove")
 		//update idlist
+		file_deleted := 0
 		for id, filelist := range nodePtr.LeaderPtr.IdList {
 			for i, file := range filelist {
 				if file == filename {
-					(*nodePtr.LeaderPtr).IdList[id] = append((*nodePtr.LeaderPtr).IdList[id][:i], (*nodePtr.LeaderPtr).IdList[id][i+1:]...)
+					to_delete := i - file_deleted
+					(*nodePtr.LeaderPtr).IdList[id] = append((*nodePtr.LeaderPtr).IdList[id][:to_delete], (*nodePtr.LeaderPtr).IdList[id][to_delete+1:]...)
+					file_deleted += 1
 				}
 			}
 		}
