@@ -421,8 +421,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		// file information inside the leader
 		fileOwners, exists := nodePtr.LeaderPtr.FileList[filename]
-		from := fileOwners[0]
-		Service := from.IPAddress + ":" + strconv.Itoa(nodePtr.DestPortNum)
 
 		if !exists {
 			message = filename + " is not found in the system"
@@ -435,6 +433,8 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		conn.WriteToUDP(encodedMsg, addr)
 
 		if exists {
+			from := fileOwners[0]
+			Service := from.IPAddress + ":" + strconv.Itoa(nodePtr.DestPortNum)
 			if Service == nodePtr.MyService { // if the sender is the current node (Leader)
 				fs.Send(nodePtr, filename, destinations)
 			} else { // else tell the service to send the file to the requestor
