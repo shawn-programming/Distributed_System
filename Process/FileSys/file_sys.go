@@ -605,6 +605,14 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 
 		fmt.Println("file list received from", Service)
 	}
+	fmt.Println("A-------------------------------------------------")
+	for file, list := range node.LeaderPtr.FileList {
+		fmt.Println("File ", file, "is stored in the following Addresses:")
+		for i, ID := range list {
+			fmt.Println("	", i, ":", ID.IPAddress)
+		}
+	}
+	fmt.Println("A-------------------------------------------------")
 
 	fmt.Println("store info about df")
 	// store the info about its distributed files
@@ -617,10 +625,10 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 
 	for file, list := range node.LeaderPtr.FileList {
 		fmt.Println("Checking file", file)
-		fmt.Println("File ", file, "is stored in the following Addresses:")
-		for i, ID := range list {
-			fmt.Println("	", i, ":", ID.IPAddress)
-		}
+		// fmt.Println("File ", file, "is stored in the following Addresses:")
+		// for i, ID := range list {
+		// 	fmt.Println("	", i, ":", ID.IPAddress)
+		// }
 		if len(list) < node.MaxFail+1 {
 			fileOwners := node.LeaderPtr.FileList[file]
 			fmt.Println(file)
