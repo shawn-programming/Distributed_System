@@ -324,7 +324,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		//fmt.Println(message.Ptype)
 
-		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr)
+		go fs.ListenTCP(cmd, fileName, nodePtr, conn, addr)
 
 		return ms.MsList{}, Log
 
