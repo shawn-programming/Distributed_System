@@ -451,8 +451,8 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		fmt.Println("idlist remove")
 		//update idlist
-		file_deleted := 0
 		for id, filelist := range nodePtr.LeaderPtr.IdList {
+			file_deleted := 0
 			for i, file := range filelist {
 				if file == filename {
 					to_delete := i - file_deleted
