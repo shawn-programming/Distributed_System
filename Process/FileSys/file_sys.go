@@ -359,12 +359,8 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 		//fmt.Println("Client connected")
 
 		if request == "put" {
-			// fmt.Println("receive file")
+			fmt.Println("receive file")
 			go ReceiveFile(connection, processNodePtr.DistributedPath, processNodePtr)
-			break
-		} else if request == "fetch" {
-			// fmt.Println("sendfile")
-			go SendFile(connection, fileName, processNodePtr.DistributedPath)
 			break
 		}
 	}
@@ -398,7 +394,7 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 	// fmt.Println("Connected, start processing request")
 
 	if command == "put" {
-		// fmt.Println("put")
+		fmt.Println("put")
 		go SendFile(connection, fileName, processNodePtr.DistributedPath)
 	}
 
@@ -441,7 +437,7 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool
 	defer connection.Close()
 
 	//fmt.Println("----------------------------")
-	//fmt.Println("receiving file...")
+	fmt.Println("receiving file...")
 
 	bufferFileName := make([]byte, 64)
 	bufferFileSize := make([]byte, 10)
@@ -452,8 +448,9 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool
 	connection.Read(bufferFileName)
 	fileName := strings.Trim(string(bufferFileName), ":")
 
-	//fmt.Println("create new file")
+	fmt.Println("create new file, path:", path+fileName)
 	newFile, err := os.Create(path + fileName)
+	fmt.Println("create done")
 
 	if err != nil {
 		panic(err)
@@ -462,6 +459,8 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool
 	var receivedBytes int64
 
 	for {
+		fmt.Println("receviedbytes", receivedBytes)
+
 		if (fileSize - receivedBytes) < BUFFERSIZE {
 			io.CopyN(newFile, connection, (fileSize - receivedBytes))
 			connection.Read(make([]byte, (receivedBytes+BUFFERSIZE)-fileSize))
