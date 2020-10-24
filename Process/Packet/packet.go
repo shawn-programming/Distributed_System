@@ -155,6 +155,7 @@ func DecodeFileList(encodedMessage PacketType) FileListpacket {
 type TCPcmd struct {
 	Cmd      string
 	Filename string
+	IsPull   bool
 }
 
 func EncodeTCPcmd(message TCPcmd) []byte {
@@ -173,6 +174,7 @@ func DecodeTCPcmd(encodedMessage PacketType) TCPcmd {
 type TCPsend struct {
 	ToList   []ms.Id
 	Filename string
+	IsPull   bool
 }
 
 func EncodeTCPsend(message TCPsend) []byte {

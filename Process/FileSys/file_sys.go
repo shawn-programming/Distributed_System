@@ -234,7 +234,7 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 
 	// send file replica to the idLists
 	// go func() {
-	Send(processNodePtr, filename, idList)
+	Send(processNodePtr, filename, idList, false)
 
 	putPacket := pk.EncodePut(pk.Putpacket{myID, filename})
 	_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
@@ -247,12 +247,13 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	fmt.Println("Put Done")
 }
 
-func Send(processNodePtr *nd.Node, filename string, idList []ms.Id) {
+func Send(processNodePtr *nd.Node, filename string, idList []ms.Id, IsPull bool) {
 	for _, id := range idList {
 		//fmt.Println("picked desination:", i)
 		// fmt.Println("Sending to")
 		// id.Print()
-		RequestTCP("put", id.IPAddress, filename, processNodePtr, id)
+
+		RequestTCP("put", id.IPAddress, filename, processNodePtr, id, IsPull)
 	}
 }
 
@@ -285,7 +286,7 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 		conn, err := net.DialUDP("udp", nil, udpAddr)
 		checkError(err)
 
-		packet := pk.EncodeTCPsend(pk.TCPsend{[]ms.Id{myID}, filename})
+		packet := pk.EncodeTCPsend(pk.TCPsend{[]ms.Id{myID}, filename, true})
 		_, _ = conn.Write(pk.EncodePacket("request", packet))
 		checkError(err)
 
@@ -308,7 +309,7 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 			checkError(err)
 			conn, err := net.DialUDP("udp", nil, udpAddr)
 			checkError(err)
-			packet := pk.EncodeTCPsend(pk.TCPsend{destinations, filename})
+			packet := pk.EncodeTCPsend(pk.TCPsend{destinations, filename, true})
 			_, err = conn.Write(pk.EncodePacket("send", packet))
 			checkError(err)
 			var buf [512]byte
@@ -321,7 +322,7 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 }
 
 //SERVER
-func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connection *net.UDPConn, addr *net.UDPAddr) {
+func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connection *net.UDPConn, addr *net.UDPAddr, IsPull bool) {
 	//fmt.Println("ListenTCP----------------")
 
 	var server net.Listener
@@ -359,17 +360,19 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 			os.Exit(1)
 		}
 		//fmt.Println("Client connected")
-
-		if request == "put" {
-			fmt.Println("receive file")
+		if IsPull {
+			ReceiveFile(connection, processNodePtr.LocalPath, processNodePtr)
+			break
+		} else {
 			ReceiveFile(connection, processNodePtr.DistributedPath, processNodePtr)
 			break
 		}
+
 	}
 }
 
 // CLIENT
-func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *nd.Node, id ms.Id) {
+func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *nd.Node, id ms.Id, IsPull bool) {
 	// connect to server
 	//fmt.Println("RequestTCP----------------")
 
@@ -385,7 +388,7 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 	//VM
 	service = ipaddr + ":" + "1288"
 	fmt.Println("OpenTCP")
-	OpenTCP(processNodePtr, command, fileName, id)
+	OpenTCP(processNodePtr, command, fileName, id, IsPull)
 	fmt.Println("OpenTCP Done")
 
 	connection, err := net.Dial("tcp", service)
@@ -398,6 +401,7 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 	if command == "put" {
 		fmt.Println("put")
 		SendFile(connection, fileName, processNodePtr.DistributedPath)
+
 	}
 
 }
@@ -435,7 +439,7 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 	return
 }
 
-func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool {
+func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) {
 	defer connection.Close()
 
 	//fmt.Println("----------------------------")
@@ -481,7 +485,7 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) bool
 	}
 
 	//fmt.Println("updateLeader sent")
-	return true
+
 }
 
 func fillString(retunString string, toLength int) string {
@@ -524,7 +528,7 @@ func UpdateLeader(fileName string, processNodePtr *nd.Node) {
 	}
 }
 
-func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id) {
+func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id, IsPull bool) {
 
 	service := id.IPAddress
 
@@ -545,7 +549,7 @@ func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id)
 	checkError(err)
 	// fmt.Println("OpenTCP net dialed")
 
-	packet := pk.EncodeTCPcmd(pk.TCPcmd{command, filename})
+	packet := pk.EncodeTCPcmd(pk.TCPcmd{command, filename, IsPull})
 	_, err = conn.Write(pk.EncodePacket("openTCP", packet))
 	checkError(err)
 
@@ -647,7 +651,7 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 
 			if Service == node.MyService { // if the sender is the current node (Leader)
 				fmt.Println("sender is current node")
-				Send(node, file, destinations)
+				Send(node, file, destinations, false)
 				fmt.Println("sender is current node done")
 
 			} else {
@@ -656,7 +660,7 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 				checkError(err)
 				conn, err := net.DialUDP("udp", nil, udpAddr)
 				checkError(err)
-				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file})
+				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file, false})
 				_, err = conn.Write(pk.EncodePacket("send", packet))
 				checkError(err)
 				var buf [512]byte

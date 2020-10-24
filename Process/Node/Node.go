@@ -276,7 +276,7 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 				conn, err := net.DialUDP("udp", nil, udpAddr)
 				checkError(err)
 
-				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file})
+				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file, false})
 				_, err = conn.Write(pk.EncodePacket("send", packet))
 				checkError(err)
 

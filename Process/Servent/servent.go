@@ -306,12 +306,12 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		msg := pk.DecodeTCPcmd(message)
 		cmd := msg.Cmd
 		fileName := msg.Filename
-
+		isPull := msg.IsPull
 		Log := "TCP Opened"
 
 		//fmt.Println(message.Ptype)
 
-		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr)
+		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr, isPull)
 
 		return ms.MsList{}, Log
 
@@ -319,6 +319,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		//fmt.Println("list of nodes to send failed file received")
 
 		msg := pk.DecodeTCPsend(message)
+		IsPull := msg.IsPull
 		fileName := msg.Filename
 		toList := msg.ToList
 
@@ -328,7 +329,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		conn.WriteToUDP(encodedMsg, addr)
 		Log := "sending files to anothe processor"
 
-		fs.Send(nodePtr, fileName, toList)
+		fs.Send(nodePtr, fileName, toList, IsPull)
 
 		return ms.MsList{}, Log
 
@@ -423,13 +424,13 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 			from := fileOwners[0]
 			Service := from.IPAddress + ":" + strconv.Itoa(nodePtr.DestPortNum)
 			if Service == nodePtr.MyService { // if the sender is the current node (Leader)
-				fs.Send(nodePtr, filename, destinations)
+				fs.Send(nodePtr, filename, destinations, true)
 			} else { // else tell the service to send the file to the requestor
 				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
 				CheckError(err)
 				conn, err := net.DialUDP("udp", nil, udpAddr)
 				CheckError(err)
-				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, filename})
+				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, filename, true})
 				_, err = conn.Write(pk.EncodePacket("send", packet))
 				CheckError(err)
 				var buf [512]byte
