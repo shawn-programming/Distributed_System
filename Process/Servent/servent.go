@@ -401,7 +401,8 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		packet := pk.EncodeFilesPacket(pk.FilesPacket{Id, filenames})
 		//_, err := conn.Write(pk.EncodePacket("list of files", packet))
-		conn.WriteToUDP(packet, addr)
+
+		conn.WriteToUDP(pk.EncodePacket("List of files", packet), addr)
 
 		CheckError(err)
 
