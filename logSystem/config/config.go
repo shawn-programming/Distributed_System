@@ -16,6 +16,7 @@ import (
 type configParam struct {
 	IPAddress []string
 	Port      []int
+	PortHB    []int
 	TimeOut   int
 	K         int
 	FailRate  int
@@ -71,6 +72,20 @@ func Port() ([]int, error) {
 	// loadJSON("./config/config.json", &configParams)
 
 	return configParams.Port, nil
+}
+
+// Port gets the portHB number list from config.json
+func PortHB() ([]int, error) {
+	configParams, err := parseJSON("./config.json")
+
+	if err != nil {
+		return make([]int, 0), err
+	}
+
+	// var configParams configParam
+	// loadJSON("./config/config.json", &configParams)
+
+	return configParams.PortHB, nil
 }
 
 // TimeOut gets the timeout number from config.json

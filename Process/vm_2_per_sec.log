@@ -56750,3 +56750,1723 @@ localTime: 137
 Failed: False
 current status : ata
 
+Processor_22020/10/24 17:24:45 ServerID: localHost_Sat, 24 Oct 2020 17:24:45 KST
+Processor_22020/10/24 17:24:45 selfIP: localHost:1235
+Processor_22020/10/24 17:24:45 TimeOut: 5
+Processor_22020/10/24 17:24:45  ================== open server and logging system ==================
+Processor_22020/10/24 17:24:45 -------starting listening----------
+Processor_22020/10/24 17:24:45 Connecting to Introducer...
+Processor_22020/10/24 17:26:05 ServerID: localHost_Sat, 24 Oct 2020 17:26:05 KST
+Processor_22020/10/24 17:26:05 selfIP: localHost:1235
+Processor_22020/10/24 17:26:05 TimeOut: 5
+Processor_22020/10/24 17:26:05  ================== open server and logging system ==================
+Processor_22020/10/24 17:26:05 -------starting listening----------
+Processor_22020/10/24 17:26:05 Connecting to Introducer...
+Processor_22020/10/24 17:26:05 Connected!
+Processor_22020/10/24 17:26:05 ----------Start Sending----------
+Processor_22020/10/24 17:26:06 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:26:01 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:26:05 KST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:26:07 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:26:01 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:26:05 KST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:26:08 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:26:01 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:26:05 KST
+Count: 3
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:26:09 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:26:01 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:26:05 KST
+Count: 4
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:26:10 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:26:01 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:26:05 KST
+Count: 5
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:27:40 ServerID: localHost_Sat, 24 Oct 2020 17:27:40 KST
+Processor_22020/10/24 17:27:40 selfIP: localHost:1235
+Processor_22020/10/24 17:27:40 TimeOut: 5
+Processor_22020/10/24 17:27:40  ================== open server and logging system ==================
+Processor_22020/10/24 17:27:40 -------starting listening----------
+Processor_22020/10/24 17:27:40 Connecting to Introducer...
+Processor_22020/10/24 17:27:40 Connected!
+Processor_22020/10/24 17:27:40 ----------Start Sending----------
+Processor_22020/10/24 17:27:41 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:27:36 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:27:40 KST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:27:42 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:27:36 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:27:40 KST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:27:43 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:27:36 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:27:40 KST
+Count: 3
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:27:44 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:27:36 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:27:40 KST
+Count: 4
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:27:45 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:27:36 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:27:40 KST
+Count: 5
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:28:17 ServerID: localHost_Sat, 24 Oct 2020 17:28:17 KST
+Processor_22020/10/24 17:28:17 selfIP: localHost:1235
+Processor_22020/10/24 17:28:17 TimeOut: 5
+Processor_22020/10/24 17:28:17  ================== open server and logging system ==================
+Processor_22020/10/24 17:28:17 -------starting listening----------
+Processor_22020/10/24 17:28:17 Connecting to Introducer...
+Processor_22020/10/24 17:28:17 Connected!
+Processor_22020/10/24 17:28:17 ----------Start Sending----------
+Processor_22020/10/24 17:28:18 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:28:09 KST
+Count: 7
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:28:17 KST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:28:19 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:28:09 KST
+Count: 7
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:28:17 KST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:28:20 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:28:09 KST
+Count: 7
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:28:17 KST
+Count: 3
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:28:21 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:28:09 KST
+Count: 7
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:28:17 KST
+Count: 4
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:28:22 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:28:09 KST
+Count: 7
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:28:17 KST
+Count: 5
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:31:14 ServerID: localHost_Sat, 24 Oct 2020 17:31:14 KST
+Processor_22020/10/24 17:31:14 selfIP: localHost:1235
+Processor_22020/10/24 17:31:14 TimeOut: 5
+Processor_22020/10/24 17:31:14  ================== open server and logging system ==================
+Processor_22020/10/24 17:31:14 -------starting listening----------
+Processor_22020/10/24 17:31:14 Connecting to Introducer...
+Processor_22020/10/24 17:31:14 Connected!
+Processor_22020/10/24 17:31:14 ----------Start Sending----------
+Processor_22020/10/24 17:31:15 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:31:11 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:31:14 KST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:31:16 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:31:11 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:31:14 KST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:31:17 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:31:11 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:31:14 KST
+Count: 3
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:31:18 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:31:11 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:31:14 KST
+Count: 4
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:31:19 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:31:11 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:31:14 KST
+Count: 5
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:36:49 ServerID: localHost_Sat, 24 Oct 2020 17:36:49 KST
+Processor_22020/10/24 17:36:49 selfIP: localHost:1235
+Processor_22020/10/24 17:36:49 TimeOut: 5
+Processor_22020/10/24 17:36:49  ================== open server and logging system ==================
+Processor_22020/10/24 17:36:49 -------starting listening----------
+Processor_22020/10/24 17:36:49 Connecting to Introducer...
+Processor_22020/10/24 17:36:49 Connected!
+Processor_22020/10/24 17:36:49 ----------Start Sending----------
+Processor_22020/10/24 17:36:50 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:36:44 KST
+Count: 4
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:36:49 KST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:36:51 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:36:44 KST
+Count: 4
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:36:49 KST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:36:52 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:36:44 KST
+Count: 4
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:36:49 KST
+Count: 3
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:36:53 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:36:44 KST
+Count: 4
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:36:49 KST
+Count: 4
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:36:54 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:36:44 KST
+Count: 4
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:36:49 KST
+Count: 5
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:37:44 ServerID: localHost_Sat, 24 Oct 2020 17:37:44 KST
+Processor_22020/10/24 17:37:44 selfIP: localHost:1235
+Processor_22020/10/24 17:37:44 TimeOut: 5
+Processor_22020/10/24 17:37:44  ================== open server and logging system ==================
+Processor_22020/10/24 17:37:44 -------starting listening----------
+Processor_22020/10/24 17:37:44 Connecting to Introducer...
+Processor_22020/10/24 17:37:44 Connected!
+Processor_22020/10/24 17:37:44 ----------Start Sending----------
+Processor_22020/10/24 17:37:45 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:37:40 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:37:44 KST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:37:46 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:37:40 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:37:44 KST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:37:47 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:37:40 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:37:44 KST
+Count: 3
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:37:48 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:37:40 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:37:44 KST
+Count: 4
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:37:49 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:37:40 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:37:44 KST
+Count: 5
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:07 ServerID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Processor_22020/10/24 17:42:07 selfIP: localHost:1235
+Processor_22020/10/24 17:42:07 TimeOut: 5
+Processor_22020/10/24 17:42:07  ================== open server and logging system ==================
+Processor_22020/10/24 17:42:07 -------starting listening----------
+Processor_22020/10/24 17:42:07 Connecting to Introducer...
+Processor_22020/10/24 17:42:07 Connected!
+Processor_22020/10/24 17:42:07 ----------Start Sending----------
+Processor_22020/10/24 17:42:08 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:09 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:10 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 6
+localTime: 3
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 4
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:11 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 8
+localTime: 4
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 6
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:12 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 10
+localTime: 5
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 8
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:13 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 12
+localTime: 6
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 10
+localTime: 6
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:14 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 14
+localTime: 7
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 12
+localTime: 7
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:15 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 16
+localTime: 8
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 14
+localTime: 8
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:16 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 18
+localTime: 9
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 16
+localTime: 9
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:17 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 20
+localTime: 10
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 18
+localTime: 10
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:18 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 22
+localTime: 11
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 20
+localTime: 11
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:19 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 24
+localTime: 12
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 22
+localTime: 12
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:20 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 26
+localTime: 13
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 24
+localTime: 13
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:21 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 28
+localTime: 14
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 26
+localTime: 14
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:22 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 30
+localTime: 15
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 28
+localTime: 15
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:23 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 32
+localTime: 16
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 30
+localTime: 16
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:24 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 34
+localTime: 17
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 32
+localTime: 17
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:25 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Count: 34
+localTime: 17
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 33
+localTime: 18
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:42:25 (Leave)Terminating vm_2
+Processor_22020/10/24 17:43:03 ServerID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Processor_22020/10/24 17:43:03 selfIP: localHost:1235
+Processor_22020/10/24 17:43:03 TimeOut: 5
+Processor_22020/10/24 17:43:03  ================== open server and logging system ==================
+Processor_22020/10/24 17:43:03 -------starting listening----------
+Processor_22020/10/24 17:43:03 Connecting to Introducer...
+Processor_22020/10/24 17:43:03 Connected!
+Processor_22020/10/24 17:43:03 ----------Start Sending----------
+Processor_22020/10/24 17:43:04 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:05 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 3
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:06 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 6
+localTime: 3
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 4
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:07 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 8
+localTime: 4
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 6
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:08 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 10
+localTime: 5
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 8
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:09 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 12
+localTime: 6
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 10
+localTime: 6
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:10 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 14
+localTime: 7
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 12
+localTime: 7
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:11 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 16
+localTime: 8
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 14
+localTime: 8
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:12 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 18
+localTime: 9
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 16
+localTime: 9
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:13 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 20
+localTime: 10
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 18
+localTime: 10
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:14 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 22
+localTime: 11
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 20
+localTime: 11
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:15 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 24
+localTime: 12
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 22
+localTime: 12
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:16 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 26
+localTime: 13
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 24
+localTime: 13
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:17 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 28
+localTime: 14
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 26
+localTime: 14
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:18 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 30
+localTime: 15
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 28
+localTime: 15
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:19 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 32
+localTime: 16
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 30
+localTime: 16
+Failed: False
+current status : gossip
+
+Processor_22020/10/24 17:43:20 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 34
+localTime: 17
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 32
+localTime: 17
+Failed: False
+current status : gossip
+
+Processor_22020/10/24 17:43:21 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 36
+localTime: 18
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 34
+localTime: 18
+Failed: False
+current status : gossip
+
+Processor_22020/10/24 17:43:22 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 38
+localTime: 19
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 36
+localTime: 19
+Failed: False
+current status : gossip
+
+Processor_22020/10/24 17:43:23 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 40
+localTime: 20
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 38
+localTime: 20
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:24 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 42
+localTime: 21
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 40
+localTime: 21
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:25 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 44
+localTime: 22
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 42
+localTime: 22
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:26 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 46
+localTime: 23
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 44
+localTime: 23
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:27 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 48
+localTime: 24
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 46
+localTime: 24
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:28 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 50
+localTime: 25
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 48
+localTime: 25
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:29 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 52
+localTime: 26
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 50
+localTime: 26
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:30 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 54
+localTime: 27
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 52
+localTime: 27
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:31 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 56
+localTime: 28
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 54
+localTime: 28
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:32 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 58
+localTime: 29
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 56
+localTime: 29
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:33 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 60
+localTime: 30
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 58
+localTime: 30
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:34 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 62
+localTime: 31
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 60
+localTime: 31
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:35 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 64
+localTime: 32
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 62
+localTime: 32
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:36 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 66
+localTime: 33
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 64
+localTime: 33
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:37 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 68
+localTime: 34
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 66
+localTime: 34
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:38 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 70
+localTime: 35
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 68
+localTime: 35
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:39 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 72
+localTime: 36
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 70
+localTime: 36
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:40 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 74
+localTime: 37
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 72
+localTime: 37
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:41 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 76
+localTime: 38
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 74
+localTime: 38
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:42 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 78
+localTime: 39
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 76
+localTime: 39
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:43 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 80
+localTime: 40
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 78
+localTime: 40
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:44 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 82
+localTime: 41
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 80
+localTime: 41
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:45 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 84
+localTime: 42
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 82
+localTime: 42
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:46 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 86
+localTime: 43
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 84
+localTime: 43
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:47 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 88
+localTime: 44
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 86
+localTime: 44
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:48 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 90
+localTime: 45
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 88
+localTime: 45
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:49 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 92
+localTime: 46
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 90
+localTime: 46
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:50 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 94
+localTime: 47
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 92
+localTime: 47
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:51 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 96
+localTime: 48
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 94
+localTime: 48
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:52 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 98
+localTime: 49
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 96
+localTime: 49
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:53 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 100
+localTime: 50
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 98
+localTime: 50
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:54 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 102
+localTime: 51
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 100
+localTime: 51
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:55 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 104
+localTime: 52
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 102
+localTime: 52
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:56 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 106
+localTime: 53
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 104
+localTime: 53
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:57 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 108
+localTime: 54
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 106
+localTime: 54
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:58 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 110
+localTime: 55
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 108
+localTime: 55
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:43:59 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 112
+localTime: 56
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 110
+localTime: 56
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:00 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 114
+localTime: 57
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 112
+localTime: 57
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:01 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 116
+localTime: 58
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 114
+localTime: 58
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:02 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 118
+localTime: 59
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 116
+localTime: 59
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:04 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 120
+localTime: 60
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 118
+localTime: 60
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:05 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 122
+localTime: 61
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 120
+localTime: 61
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:06 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 124
+localTime: 62
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 122
+localTime: 62
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:07 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 126
+localTime: 63
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 124
+localTime: 63
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:08 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 128
+localTime: 64
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 126
+localTime: 64
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:09 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 130
+localTime: 65
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 128
+localTime: 65
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:10 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 132
+localTime: 66
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 130
+localTime: 66
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:11 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 134
+localTime: 67
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 132
+localTime: 67
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:12 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 134
+localTime: 67
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 133
+localTime: 68
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:13 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 134
+localTime: 67
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 134
+localTime: 69
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:44:13 (Leave)Terminating vm_2
+Processor_22020/10/24 17:45:24 ServerID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Processor_22020/10/24 17:45:24 selfIP: localHost:1235
+Processor_22020/10/24 17:45:24 TimeOut: 5
+Processor_22020/10/24 17:45:24  ================== open server and logging system ==================
+Processor_22020/10/24 17:45:24 -------starting listening----------
+Processor_22020/10/24 17:45:24 Connecting to Introducer...
+Processor_22020/10/24 17:45:24 Connected!
+Processor_22020/10/24 17:45:24 ----------Start Sending----------
+Processor_22020/10/24 17:45:25 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:45:22 KST
+Count: 2
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:45:26 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:45:22 KST
+Count: 2
+localTime: 0
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:45:27 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:45:22 KST
+Count: 5
+localTime: 3
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Count: 4
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_22020/10/24 17:45:28 Changing to Gossip
+Processor_22020/10/24 17:45:28 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:45:22 KST
+Count: 7
+localTime: 4
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Count: 6
+localTime: 4
+Failed: False
+current status : gossip
+
+Processor_22020/10/24 17:45:29 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:45:22 KST
+Count: 9
+localTime: 5
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Count: 8
+localTime: 5
+Failed: False
+current status : gossip
+
+Processor_22020/10/24 17:45:30 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:45:22 KST
+Count: 11
+localTime: 6
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Count: 10
+localTime: 6
+Failed: False
+current status : gossip
+
+Processor_22020/10/24 17:45:32 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:45:22 KST
+Count: 13
+localTime: 7
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Count: 12
+localTime: 7
+Failed: False
+current status : gossip
+
+Processor_22020/10/24 17:45:33 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:45:22 KST
+Count: 15
+localTime: 8
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Count: 14
+localTime: 8
+Failed: False
+current status : gossip
+
+Processor_22020/10/24 17:45:34 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: localHost_Sat, 24 Oct 2020 17:45:22 KST
+Count: 15
+localTime: 8
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Count: 15
+localTime: 9
+Failed: False
+current status : gossip
+
+Processor_22020/10/24 17:45:34 (Leave)Terminating vm_2

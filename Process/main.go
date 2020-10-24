@@ -58,17 +58,25 @@ func main() {
 	fmt.Println(" ================== open server and logging system ==================")
 	processNode.LoggerPerSec.Println(" ================== open server and logging system ==================")
 
+	// Myservice for communicating commands
 	udpAddr, err := net.ResolveUDPAddr("udp4", processNode.MyService)
 	sv.CheckError(err)
 
 	conn, err := net.ListenUDP("udp", udpAddr)
 	sv.CheckError(err)
 
+	// service for heartbeat communication
+	udpAddr, err = net.ResolveUDPAddr("udp4", processNode.SelfIP+":"+strconv.Itoa(processNode.MyPortNumHB))
+	sv.CheckError(err)
+
+	connHB, err := net.ListenUDP("udp", udpAddr)
+	sv.CheckError(err)
+
 	// open the server and collect msgs from other processors
 	processNode.LoggerPerSec.Println("-------starting listening----------")
 	go sv.OpenServer(conn, &processNode)
 
-	go sv.OpenHeartbeat(&processNode)
+	go sv.OpenHeartbeat(connHB, &processNode)
 
 	if !processNode.IsIntroducer {
 		sv.NewMemberInitialization(&processNode)

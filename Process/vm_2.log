@@ -1230,3 +1230,67 @@ Count: 19
 localTime: 9
 Failed: True
 
+Processor_22020/10/24 17:24:45 ServerID: localHost_Sat, 24 Oct 2020 17:24:45 KST
+Processor_22020/10/24 17:24:45 selfIP: localHost:1235
+Processor_22020/10/24 17:24:45 TimeOut: 5
+Processor_22020/10/24 17:24:45 Connecting to Introducer...
+Processor_22020/10/24 17:26:05 ServerID: localHost_Sat, 24 Oct 2020 17:26:05 KST
+Processor_22020/10/24 17:26:05 selfIP: localHost:1235
+Processor_22020/10/24 17:26:05 TimeOut: 5
+Processor_22020/10/24 17:26:05 Connecting to Introducer...
+Processor_22020/10/24 17:26:05 Connected!
+Processor_22020/10/24 17:26:05 changing to ATA
+Processor_22020/10/24 17:27:40 ServerID: localHost_Sat, 24 Oct 2020 17:27:40 KST
+Processor_22020/10/24 17:27:40 selfIP: localHost:1235
+Processor_22020/10/24 17:27:40 TimeOut: 5
+Processor_22020/10/24 17:27:40 Connecting to Introducer...
+Processor_22020/10/24 17:27:40 Connected!
+Processor_22020/10/24 17:27:40 changing to ATA
+Processor_22020/10/24 17:28:17 ServerID: localHost_Sat, 24 Oct 2020 17:28:17 KST
+Processor_22020/10/24 17:28:17 selfIP: localHost:1235
+Processor_22020/10/24 17:28:17 TimeOut: 5
+Processor_22020/10/24 17:28:17 Connecting to Introducer...
+Processor_22020/10/24 17:28:17 Connected!
+Processor_22020/10/24 17:28:17 changing to ATA
+Processor_22020/10/24 17:31:14 ServerID: localHost_Sat, 24 Oct 2020 17:31:14 KST
+Processor_22020/10/24 17:31:14 selfIP: localHost:1235
+Processor_22020/10/24 17:31:14 TimeOut: 5
+Processor_22020/10/24 17:31:14 Connecting to Introducer...
+Processor_22020/10/24 17:31:14 Connected!
+Processor_22020/10/24 17:31:14 changing to ATA
+Processor_22020/10/24 17:36:49 ServerID: localHost_Sat, 24 Oct 2020 17:36:49 KST
+Processor_22020/10/24 17:36:49 selfIP: localHost:1235
+Processor_22020/10/24 17:36:49 TimeOut: 5
+Processor_22020/10/24 17:36:49 Connecting to Introducer...
+Processor_22020/10/24 17:36:49 Connected!
+Processor_22020/10/24 17:36:49 changing to ATA
+Processor_22020/10/24 17:37:44 ServerID: localHost_Sat, 24 Oct 2020 17:37:44 KST
+Processor_22020/10/24 17:37:44 selfIP: localHost:1235
+Processor_22020/10/24 17:37:44 TimeOut: 5
+Processor_22020/10/24 17:37:44 Connecting to Introducer...
+Processor_22020/10/24 17:37:44 Connected!
+Processor_22020/10/24 17:37:44 changing to ATA
+Processor_22020/10/24 17:42:07 ServerID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Processor_22020/10/24 17:42:07 selfIP: localHost:1235
+Processor_22020/10/24 17:42:07 TimeOut: 5
+Processor_22020/10/24 17:42:07 Connecting to Introducer...
+Processor_22020/10/24 17:42:07 Connected!
+Processor_22020/10/24 17:42:07 changing to ATA
+Processor_22020/10/24 17:42:25 (Leave)Terminating vm_2
+Processor_22020/10/24 17:43:03 ServerID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Processor_22020/10/24 17:43:03 selfIP: localHost:1235
+Processor_22020/10/24 17:43:03 TimeOut: 5
+Processor_22020/10/24 17:43:03 Connecting to Introducer...
+Processor_22020/10/24 17:43:03 Connected!
+Processor_22020/10/24 17:43:03 changing to ATA
+Processor_22020/10/24 17:43:19 changing to gossip
+Processor_22020/10/24 17:43:23 changing to ATA
+Processor_22020/10/24 17:44:13 (Leave)Terminating vm_2
+Processor_22020/10/24 17:45:24 ServerID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Processor_22020/10/24 17:45:24 selfIP: localHost:1235
+Processor_22020/10/24 17:45:24 TimeOut: 5
+Processor_22020/10/24 17:45:24 Connecting to Introducer...
+Processor_22020/10/24 17:45:24 Connected!
+Processor_22020/10/24 17:45:24 changing to ATA
+Processor_22020/10/24 17:45:28 Changing to Gossip
+Processor_22020/10/24 17:45:34 (Leave)Terminating vm_2

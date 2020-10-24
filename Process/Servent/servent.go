@@ -177,9 +177,10 @@ func OpenServer(conn *net.UDPConn, processNodePtr *nd.Node) {
 /* OpenHeartbeat
  */
 
-func OpenHeartbeat(NodePtr *nd.Node) {
+func OpenHeartbeat(conn *net.UDPConn, NodePtr *nd.Node) {
 	for {
-		tempList, portLog := listenHeartbeat(NodePtr)
+		tempList, portLog := listenHeartbeat(conn, NodePtr)
+
 		// update InputList to be used for IncrementLocalTime()
 		(*(*NodePtr).InputListPtr) = append((*(*NodePtr).InputListPtr), tempList)
 		if len(portLog) > 0 {
@@ -505,7 +506,7 @@ Initialize a newly joined member by piniing the introducer
 */
 func NewMemberInitialization(nodePtr *nd.Node) {
 	IntroducerIP := (*nodePtr).IntroducerIP
-	destPortNum := (*nodePtr).DestPortNum
+	destPortNum := (*nodePtr).DestPortNumHB
 
 	fmt.Println("Connecting to Introducer...")
 	(*nodePtr).LoggerPerSec.Println("Connecting to Introducer...")
@@ -525,20 +526,17 @@ func NewMemberInitialization(nodePtr *nd.Node) {
 	(*nodePtr).Logger.Println("Connected!")
 }
 
-func listenHeartbeat(nodePtr *nd.Node) (ms.MsList, string) {
-	udpAddr, err := net.ResolveUDPAddr("udp4", nodePtr.SelfIP+":"+strconv.Itoa(nodePtr.MyPortNumHB))
-	CheckError(err)
-
-	conn, err := net.ListenUDP("udp", udpAddr)
-
+func listenHeartbeat(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 	var portLog string
 	var buf [5120]byte
 
 	n, addr, err := conn.ReadFromUDP(buf[0:])
+	//fmt.Print("n:", n)
 	if err != nil {
 		fmt.Println("err != nil")
 		return ms.MsList{}, ""
 	}
+	//fmt.Println("read done")
 
 	message := pk.DecodePacket(buf[:n])
 	messageType := message.Ptype
@@ -593,7 +591,6 @@ func Heartbeat(nodePtr *nd.Node) {
 			loggerPerSec.Println(logStr)
 			logger.Println(logStr)
 		}
-
 		// sned the processor's member to other processors
 		logPerSec, byteSent := PingToOtherProcessors((*nodePtr).DestPortNumHB, (*nodePtr), (*(*nodePtr).ATAPtr), (*nodePtr).K)
 		loggerPerSec.Println(logPerSec)

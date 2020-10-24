@@ -1279,3 +1279,86 @@ localTime: 25
 Failed: True
 
 Processor_12020/10/19 22:59:50 (Leave)Terminating vm_1
+Processor_12020/10/24 17:21:12 ServerID: 172.22.156.172_Sat, 24 Oct 2020 17:21:12 KST
+Processor_12020/10/24 17:21:12 selfIP: 172.22.156.172:1234
+Processor_12020/10/24 17:21:12 TimeOut: 5
+Processor_12020/10/24 17:24:07 ServerID: 172.22.156.172_Sat, 24 Oct 2020 17:24:07 KST
+Processor_12020/10/24 17:24:07 selfIP: 172.22.156.172:1234
+Processor_12020/10/24 17:24:07 TimeOut: 5
+Processor_12020/10/24 17:24:33 ServerID: localHost_Sat, 24 Oct 2020 17:24:33 KST
+Processor_12020/10/24 17:24:33 selfIP: localHost:1234
+Processor_12020/10/24 17:24:33 TimeOut: 5
+Processor_12020/10/24 17:24:45 string
+Processor_12020/10/24 17:25:15 
+Membership List: 
+TimeOut: 5/nID: localHost_Sat, 24 Oct 2020 17:24:33 KST
+Count: 41
+localTime: 41
+Failed: False
+
+Processor_12020/10/24 17:25:46 (Leave)Terminating vm_1
+Processor_12020/10/24 17:26:01 ServerID: localHost_Sat, 24 Oct 2020 17:26:01 KST
+Processor_12020/10/24 17:26:01 selfIP: localHost:1234
+Processor_12020/10/24 17:26:01 TimeOut: 5
+Processor_12020/10/24 17:27:36 ServerID: localHost_Sat, 24 Oct 2020 17:27:36 KST
+Processor_12020/10/24 17:27:36 selfIP: localHost:1234
+Processor_12020/10/24 17:27:36 TimeOut: 5
+Processor_12020/10/24 17:28:09 ServerID: localHost_Sat, 24 Oct 2020 17:28:09 KST
+Processor_12020/10/24 17:28:09 selfIP: localHost:1234
+Processor_12020/10/24 17:28:09 TimeOut: 5
+Processor_12020/10/24 17:31:11 ServerID: localHost_Sat, 24 Oct 2020 17:31:11 KST
+Processor_12020/10/24 17:31:11 selfIP: localHost:1234
+Processor_12020/10/24 17:31:11 TimeOut: 5
+Processor_12020/10/24 17:36:44 ServerID: localHost_Sat, 24 Oct 2020 17:36:44 KST
+Processor_12020/10/24 17:36:44 selfIP: localHost:1234
+Processor_12020/10/24 17:36:44 TimeOut: 5
+Processor_12020/10/24 17:37:40 ServerID: localHost_Sat, 24 Oct 2020 17:37:40 KST
+Processor_12020/10/24 17:37:40 selfIP: localHost:1234
+Processor_12020/10/24 17:37:40 TimeOut: 5
+Processor_12020/10/24 17:42:03 ServerID: localHost_Sat, 24 Oct 2020 17:42:03 KST
+Processor_12020/10/24 17:42:03 selfIP: localHost:1234
+Processor_12020/10/24 17:42:03 TimeOut: 5
+Processor_12020/10/24 17:42:08 
+New Member Added: 
+ID: localHost_Sat, 24 Oct 2020 17:42:07 KST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/10/24 17:42:22 (Leave)Terminating vm_1
+Processor_12020/10/24 17:43:00 ServerID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Processor_12020/10/24 17:43:00 selfIP: localHost:1234
+Processor_12020/10/24 17:43:00 TimeOut: 5
+Processor_12020/10/24 17:43:05 
+New Member Added: 
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/10/24 17:43:19 Changing to Gossip
+Processor_12020/10/24 17:43:23 Changing to ATA
+Processor_12020/10/24 17:43:25 
+Membership List: 
+TimeOut: 5/nID: localHost_Sat, 24 Oct 2020 17:43:00 KST
+Count: 46
+localTime: 25
+Failed: False
+ID: localHost_Sat, 24 Oct 2020 17:43:03 KST
+Count: 38
+localTime: 25
+Failed: False
+
+Processor_12020/10/24 17:44:10 (Leave)Terminating vm_1
+Processor_12020/10/24 17:45:22 ServerID: localHost_Sat, 24 Oct 2020 17:45:22 KST
+Processor_12020/10/24 17:45:22 selfIP: localHost:1234
+Processor_12020/10/24 17:45:22 TimeOut: 5
+Processor_12020/10/24 17:45:26 
+New Member Added: 
+ID: localHost_Sat, 24 Oct 2020 17:45:24 KST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/10/24 17:45:28 changing to gossip
+Processor_12020/10/24 17:45:31 (Leave)Terminating vm_1

@@ -47,9 +47,9 @@ type Node struct {
 	IntroducerIP string // Introducer's IP
 	IsIntroducer bool   // True if the node is the introducer
 	SelfIP       string // node's IP
-	
-	MyPortNum    int    // node's port number
-	DestPortNum  int    // introducer's port number
+
+	MyPortNum   int // node's port number
+	DestPortNum int // introducer's port number
 
 	MyPortNumHB   int // heartbeat port
 	DestPortNumHB int // heartbeat port
@@ -115,7 +115,8 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 
 	IntroducerIPList, _ := config.IPAddress() // Introducer's IP
 	IntroducerIP := IntroducerIPList[1]
-	portList, _ := config.Port() // Port number's list
+	portList, _ := config.Port()     // Port number's list
+	portHBList, _ := config.PortHB() // Port number's list
 
 	timeOut, _ := config.TimeOut() // Time Out info
 	isIntroducer := vmNum == 1     // True if the proceesor is an introducer, else False
@@ -124,11 +125,13 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	// for VM test
 	myPortNum := portList[0]   // Processor's port number
 	destPortNum := portList[0] // Receiver's port number
-	myPortNumHB := portList[2]
-	desPortNumHB := portList[2]
+	myPortNumHB := portHBList[0]
+	desPortNumHB := portHBList[0]
 	// for local test
-	// myPortNum := portList[(vmNum+1)%2] // Processor's port number
-	// destPortNum := portList[vmNum%2]   // Receiver's port number
+	// myPortNum := portList[(vmNum+1)%2]     // Processor's port number
+	// destPortNum := portList[vmNum%2]       // Receiver's port number
+	// myPortNumHB := portHBList[(vmNum+1)%2] // Processor's port number
+	// desPortNumHB := portHBList[vmNum%2]    // Receiver's port number
 
 	myService := selfIP + ":" + strconv.Itoa(myPortNum)                // processor's service for UDP
 	serverID := selfIP + "_" + string(time.Now().Format(time.RFC1123)) // Processor's ID
