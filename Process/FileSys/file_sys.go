@@ -233,16 +233,18 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	idList = pk.DecodeIdList(receivedPacket).List
 
 	// send file replica to the idLists
-	Send(processNodePtr, filename, idList)
+	go func() {
+		Send(processNodePtr, filename, idList)
 
-	putPacket := pk.EncodePut(pk.Putpacket{myID, filename})
-	_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
-	checkError(err)
+		putPacket := pk.EncodePut(pk.Putpacket{myID, filename})
+		_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
+		checkError(err)
 
-	_, err = conn.Read(buf[0:])
-	checkError(err)
+		_, err = conn.Read(buf[0:])
+		checkError(err)
+	}()
 
-	// fmt.Println("Put Done")
+	fmt.Println("Put Done")
 }
 
 func Send(processNodePtr *nd.Node, filename string, idList []ms.Id) {
@@ -360,7 +362,7 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 
 		if request == "put" {
 			fmt.Println("receive file")
-			go ReceiveFile(connection, processNodePtr.DistributedPath, processNodePtr)
+			ReceiveFile(connection, processNodePtr.DistributedPath, processNodePtr)
 			break
 		}
 	}
@@ -395,7 +397,7 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 
 	if command == "put" {
 		fmt.Println("put")
-		go SendFile(connection, fileName, processNodePtr.DistributedPath)
+		SendFile(connection, fileName, processNodePtr.DistributedPath)
 	}
 
 }
