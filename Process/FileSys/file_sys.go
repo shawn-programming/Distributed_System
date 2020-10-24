@@ -623,7 +623,7 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 		// }
 		if len(list) < node.MaxFail+1 {
 			fileOwners := node.LeaderPtr.FileList[file]
-			// fmt.Println(file)
+			fmt.Println(file)
 
 			N := node.MaxFail - len(fileOwners) + 1
 
@@ -631,7 +631,7 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 			from := fileOwners[0]
 
 			Service := from.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
-			// fmt.Println("Service: ", Service)
+			fmt.Println("Service: ", Service)
 
 			if Service == node.MyService { // if the sender is the current node (Leader)
 				fmt.Println("sender is current node")
@@ -639,7 +639,7 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 				fmt.Println("sender is current node done")
 
 			} else {
-				// fmt.Println("sender is NOT current node")
+				fmt.Println("sender is NOT current node")
 				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
 				checkError(err)
 				conn, err := net.DialUDP("udp", nil, udpAddr)
@@ -649,10 +649,10 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 				checkError(err)
 				var buf [512]byte
 				_, err = conn.Read(buf[0:])
-				// fmt.Println("Received Ack")
+				fmt.Println("Received Ack")
 				checkError(err)
 			}
-			// fmt.Println("number of", file, "replica is balanced now")
+			fmt.Println("number of", file, "replica is balanced now")
 		}
 
 		fmt.Println(file, "list updated")

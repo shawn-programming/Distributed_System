@@ -368,7 +368,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 				//update current leader to new leader
 				*nodePtr.LeaderServicePtr = newLeader
 				fmt.Println("Elected Leader: ", newLeader)
-				fs.LeaderInit(nodePtr, failedLeader)
+				go fs.LeaderInit(nodePtr, failedLeader)
 			} else {
 
 				//update current leader to new leader
