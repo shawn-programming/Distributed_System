@@ -391,6 +391,9 @@ func (node Node) initiateElection() {
 
 	Initator := ring[Myindex]
 	NewLeader := ring[Myindex]
+	if *node.ElectionInitiatorPtr != "" && Initator < *node.ElectionInitiatorPtr {
+		return
+	}
 	*node.ElectionInitiatorPtr = Initator
 
 	nextIndex := (Myindex + 1) % len(ring)
