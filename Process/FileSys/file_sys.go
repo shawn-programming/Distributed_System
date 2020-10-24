@@ -138,6 +138,7 @@ func copy(src, dst string) (int64, error) {
 	return  <FileList  map[string][]ms.Id > stored in the leader process
 */
 func GetFileList(processNodePtr *nd.Node) map[string][]ms.Id {
+	fmt.Println("get file list")
 
 	if (*processNodePtr.IsLeaderPtr) == true {
 		return processNodePtr.LeaderPtr.FileList
@@ -151,13 +152,15 @@ func GetFileList(processNodePtr *nd.Node) map[string][]ms.Id {
 
 	_, err = conn.Write(pk.EncodePacket("get filelist", nil))
 
-	var buf [4096]byte
+	var buf [4096 * 5]byte
 	n, err := conn.Read(buf[0:])
 	checkError(err)
 	receivedPacket := pk.DecodePacket(buf[0:n])
 
 	// target processes to store replicas
 	FileList := pk.DecodeFileList(receivedPacket).FileList
+
+	fmt.Println("get file done")
 
 	return FileList
 
