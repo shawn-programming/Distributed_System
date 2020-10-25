@@ -138,7 +138,7 @@ func copy(src, dst string) (int64, error) {
 	return  <FileList  map[string][]ms.Id > stored in the leader process
 */
 func GetFileList(processNodePtr *nd.Node) map[string][]ms.Id {
-	fmt.Println("get file list")
+	//fmt.Println("get file list")
 
 	if (*processNodePtr.IsLeaderPtr) == true {
 		return processNodePtr.LeaderPtr.FileList
@@ -242,9 +242,10 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 
 	_, err = conn.Read(buf[0:])
 	checkError(err)
+
 	// }()
 
-	fmt.Println("Put Done")
+	//fmt.Println("Put Done")
 }
 
 func Send(processNodePtr *nd.Node, filename string, idList []ms.Id, IsPull bool) {
@@ -344,22 +345,18 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 	encodedMsg := pk.EncodePacket("Server opened", nil)
 	connection.WriteToUDP(encodedMsg, addr)
 
-	// fmt.Println("Sever Opened")
-
 	if err != nil {
 		fmt.Println("Error listetning: ", err)
 		os.Exit(1)
 	}
 
 	defer server.Close()
-	//fmt.Println("Server started! Waiting for connections...")
 	for {
 		connection, err := server.Accept()
 		if err != nil {
 			fmt.Println("Error: ", err)
 			os.Exit(1)
 		}
-		//fmt.Println("Client connected")
 		if IsPull {
 			ReceiveFile(connection, processNodePtr.LocalPath, processNodePtr)
 			break
@@ -373,8 +370,6 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 
 // CLIENT
 func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *nd.Node, id ms.Id, IsPull bool) {
-	// connect to server
-	//fmt.Println("RequestTCP----------------")
 
 	var service string
 
@@ -387,19 +382,19 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 
 	//VM
 	service = ipaddr + ":" + "1288"
-	fmt.Println("OpenTCP")
+	//fmt.Println("OpenTCP")
 	OpenTCP(processNodePtr, command, fileName, id, IsPull)
-	fmt.Println("OpenTCP Done")
+	//fmt.Println("OpenTCP Done")
 
 	connection, err := net.Dial("tcp", service)
 	if err != nil {
 		panic(err)
 	}
 	defer connection.Close()
-	fmt.Println("Connected, start processing request")
+	//fmt.Println("Connected, start processing request")
 
 	if command == "put" {
-		fmt.Println("put")
+		//fmt.Println("put")
 		SendFile(connection, fileName, processNodePtr.DistributedPath)
 
 	}
@@ -408,7 +403,6 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 
 // send / receive file
 func SendFile(connection net.Conn, requestedFileName string, path string) {
-	//fmt.Println("A server has connected!")
 	defer connection.Close()
 
 	file, err := os.Open(path + requestedFileName)
@@ -427,7 +421,6 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 	connection.Write([]byte(fileSize))
 	connection.Write([]byte(fileName))
 	sendBuffer := make([]byte, BUFFERSIZE)
-	// fmt.Println("Start sending file!")
 	for {
 		_, err = file.Read(sendBuffer)
 		if err == io.EOF {
@@ -442,8 +435,7 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) {
 	defer connection.Close()
 
-	//fmt.Println("----------------------------")
-	fmt.Println("receiving file...")
+	//fmt.Println("receiving file...")
 
 	bufferFileName := make([]byte, 64)
 	bufferFileSize := make([]byte, 10)
@@ -456,7 +448,6 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) {
 
 	fmt.Println("create new file, path:", path+fileName)
 	newFile, err := os.Create(path + fileName)
-	fmt.Println("create done")
 
 	if err != nil {
 		panic(err)
@@ -465,8 +456,6 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) {
 	var receivedBytes int64
 
 	for {
-		fmt.Println("receviedbytes", receivedBytes)
-
 		if (fileSize - receivedBytes) < BUFFERSIZE {
 			io.CopyN(newFile, connection, (fileSize - receivedBytes))
 			connection.Read(make([]byte, (receivedBytes+BUFFERSIZE)-fileSize))
@@ -475,6 +464,7 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) {
 		io.CopyN(newFile, connection, BUFFERSIZE)
 		receivedBytes += BUFFERSIZE
 	}
+
 	fmt.Println("Received file:", fileName)
 
 	// if received file is stored into distributed file system
@@ -483,9 +473,6 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) {
 		*processNodePtr.DistributedFilesPtr = append(*processNodePtr.DistributedFilesPtr, fileName)
 		UpdateLeader(fileName, processNodePtr)
 	}
-
-	//fmt.Println("updateLeader sent")
-
 }
 
 func fillString(retunString string, toLength int) string {
@@ -547,17 +534,13 @@ func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id,
 
 	conn, err := net.DialUDP("udp", nil, udpAddr)
 	checkError(err)
-	// fmt.Println("OpenTCP net dialed")
 
 	packet := pk.EncodeTCPcmd(pk.TCPcmd{command, filename, IsPull})
 	_, err = conn.Write(pk.EncodePacket("openTCP", packet))
 	checkError(err)
 
-	// fmt.Println("openTCP write done")
 	var response [128]byte
 	_, err = conn.Read(response[0:])
-
-	// fmt.Println("openTCP read done")
 
 	checkError(err)
 }
@@ -566,23 +549,12 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 	time.Sleep(time.Second * 5) // 5 == timeOut
 	members := node.AliveMembers()
 	*node.IsLeaderPtr = true
-	fmt.Println("leader init start")
-
-	fmt.Println("B-------------------------------------------------")
-	for file, list := range node.LeaderPtr.FileList {
-		fmt.Println("File ", file, "is stored in the following Addresses:")
-		for i, ID := range list {
-			fmt.Println("	", i, ":", ID.IPAddress)
-		}
-	}
-	fmt.Println("B-------------------------------------------------")
 
 	for _, member := range members {
 		Service := member.ID.IPAddress + ":" + strconv.Itoa(node.DestPortNum)
 		if Service == failedLeader || Service == node.MyService {
 			continue
 		}
-		fmt.Println("file list receive start")
 		udpAddr, err := net.ResolveUDPAddr("udp4", Service)
 		checkError(err)
 		conn, err := net.DialUDP("udp", nil, udpAddr)
@@ -591,16 +563,11 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 		_, err = conn.Write(pk.EncodePacket("send a filelist", nil))
 		checkError(err)
 
-		//fmt.Println("leader send a file lit write--------------")
 		var buf [512]byte
 		n, err := conn.Read(buf[0:])
-		//fmt.Println("1")
 		packet := pk.DecodePacket(buf[:n])
-		//fmt.Println("2")
 		decodedPacket := pk.DecodeFilesPacket(packet)
 		checkError(err)
-
-		//fmt.Println("leader send a file list read --------------")
 
 		idInfo := decodedPacket.Id
 		filenames := decodedPacket.FileName
@@ -610,33 +577,22 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 			// update IdList
 			node.LeaderPtr.IdList[idInfo] = append(node.LeaderPtr.IdList[idInfo], filename)
 		}
-
-		fmt.Println("file list received from", Service)
 	}
-	fmt.Println("A-------------------------------------------------")
-	for file, list := range node.LeaderPtr.FileList {
-		fmt.Println("File ", file, "is stored in the following Addresses:")
-		for i, ID := range list {
-			fmt.Println("	", i, ":", ID.IPAddress)
-		}
-	}
-	fmt.Println("A-------------------------------------------------")
+	// for file, list := range node.LeaderPtr.FileList {
+	// 	fmt.Println("File ", file, "is stored in the following Addresses:")
+	// 	for i, ID := range list {
+	// 		fmt.Println("	", i, ":", ID.IPAddress)
+	// 	}
+	// }
 
-	fmt.Println("store info about df")
 	// store the info about its distributed files
 	for _, file := range *node.DistributedFilesPtr {
 		node.LeaderPtr.FileList[file] = append(node.LeaderPtr.FileList[file], node.Id)
 		node.LeaderPtr.IdList[node.Id] = append(node.LeaderPtr.IdList[node.Id], file)
 	}
 
-	fmt.Println("store info about df done")
-
 	for file, list := range node.LeaderPtr.FileList {
-		fmt.Println("Checking file", file)
-		// fmt.Println("File ", file, "is stored in the following Addresses:")
-		// for i, ID := range list {
-		// 	fmt.Println("	", i, ":", ID.IPAddress)
-		// }
+
 		if len(list) < node.MaxFail+1 {
 			fileOwners := node.LeaderPtr.FileList[file]
 			fmt.Println(file)
@@ -650,12 +606,9 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 			fmt.Println("Service: ", Service)
 
 			if Service == node.MyService { // if the sender is the current node (Leader)
-				fmt.Println("sender is current node")
 				Send(node, file, destinations, false)
-				fmt.Println("sender is current node done")
 
 			} else {
-				fmt.Println("sender is NOT current node")
 				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
 				checkError(err)
 				conn, err := net.DialUDP("udp", nil, udpAddr)
@@ -665,13 +618,12 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 				checkError(err)
 				var buf [512]byte
 				_, err = conn.Read(buf[0:])
-				fmt.Println("Received Ack")
 				checkError(err)
 			}
-			fmt.Println("number of", file, "replica is balanced now")
+			//fmt.Println("number of", file, "replica is balanced now")
 		}
 
-		fmt.Println(file, "list updated")
+		//fmt.Println(file, "list updated")
 	}
 
 	fmt.Println("Leader Init completed")

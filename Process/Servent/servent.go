@@ -3,6 +3,7 @@ package servent
 import (
 	"bufio"
 	"fmt"
+	"io/ioutil"
 	"math/rand"
 	"net"
 	"os"
@@ -234,9 +235,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		originalID := msg.OriginalID
 		replicas := (*nodePtr).PickReplicas(N, []ms.Id{originalID})
 
-		for _, r := range replicas {
-			fmt.Println("Picked: ", r.IPAddress)
-		}
 		replicaPackage := pk.IdListpacket{0, ms.Id{"", ""}, replicas, filename}
 		replicaEncoded := pk.EncodeIdList(replicaPackage)
 		encodedMsg := pk.EncodePacket("ReplicaList", replicaEncoded)
@@ -272,23 +270,11 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		encodedMsg := pk.EncodePacket("empty", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 
-		//fmt.Println("received filename:", filename)
-		// fmt.Println("received ID :", idInfo)
-
-		//fmt.Println("before------------------")
-		//fmt.Println(nodePtr.LeaderPtr.FileList[filename])
-
 		// update FileList
-		fmt.Println("--------")
-		fmt.Println("filename:", filename)
-		fmt.Println("idinfo:", idInfo.IPAddress)
 		nodePtr.LeaderPtr.FileList[filename] = append(nodePtr.LeaderPtr.FileList[filename], idInfo)
 
 		// update IdList
 		nodePtr.LeaderPtr.IdList[idInfo] = append(nodePtr.LeaderPtr.IdList[idInfo], filename)
-
-		//fmt.Println("after-------------------")
-		//fmt.Println(nodePtr.LeaderPtr.FileList[filename])
 
 		return ms.MsList{}, ""
 
@@ -301,29 +287,22 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		return ms.MsList{}, Log
 
 	} else if messageType == "openTCP" {
-
-		fmt.Println("openTCP received")
 		msg := pk.DecodeTCPcmd(message)
 		cmd := msg.Cmd
 		fileName := msg.Filename
 		isPull := msg.IsPull
 		Log := "TCP Opened"
 
-		//fmt.Println(message.Ptype)
-
 		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr, isPull)
 
 		return ms.MsList{}, Log
 
 	} else if messageType == "send" {
-		//fmt.Println("list of nodes to send failed file received")
 
 		msg := pk.DecodeTCPsend(message)
 		IsPull := msg.IsPull
 		fileName := msg.Filename
 		toList := msg.ToList
-
-		//fmt.Println("filename:", fileName)
 
 		encodedMsg := pk.EncodePacket("send command received", nil)
 		conn.WriteToUDP(encodedMsg, addr)
@@ -334,7 +313,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		return ms.MsList{}, Log
 
 	} else if messageType == "election" {
-		//fmt.Println("election message received")
 
 		electionPacket := pk.DecodeRingData(message)
 		myIndex := electionPacket.YourIndex
@@ -368,8 +346,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		} else {
 			if initiator < *nodePtr.ElectionInitiatorPtr {
 				// do nothing
-
-				fmt.Println("Ignoring", initiator)
 			} else {
 				*(nodePtr.ElectionInitiatorPtr) = initiator
 				if newLeader == nodePtr.MyService { // Leader is the current processor, now let others know the new leader
@@ -384,7 +360,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		return ms.MsList{}, ""
 	} else if messageType == "send a filelist" {
-		fmt.Println("sending file lists")
 
 		Id := nodePtr.Id
 		filenames := *(*nodePtr).DistributedFilesPtr //[]string =  filenames
@@ -396,8 +371,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		CheckError(err)
 
-		// fs.SendFilelist(nodePtr)
-		fmt.Println("send file list done")
 		return ms.MsList{}, ""
 
 	} else if messageType == "request" {
@@ -405,7 +378,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		var message string
 		destinations := msg.ToList
 		filename := msg.Filename
-		//fmt.Println("pull request received")
 
 		// file information inside the leader
 		fileOwners, exists := nodePtr.LeaderPtr.FileList[filename]
@@ -447,10 +419,8 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		fileOwners, exists := nodePtr.LeaderPtr.FileList[filename]
 
 		//udate filelist
-		fmt.Println("filelist remove")
 		delete(nodePtr.LeaderPtr.FileList, filename)
 
-		fmt.Println("idlist remove")
 		//update idlist
 		for id, filelist := range nodePtr.LeaderPtr.IdList {
 			file_deleted := 0
@@ -685,9 +655,13 @@ func GetCommand(processNodePtr *nd.Node) {
 			fmt.Println("memberlist			: 	print VM's memberlist to the terminal")
 			fmt.Println("id					:	print current IP address and assigned Port number")
 			fmt.Println("heartbeat			:	print the current heartbeat type")
-			fmt.Println("ls sdfsfilename	:	print the list of sdfsfile's in the system")
 			fmt.Println("put <filename>		:   put a <filename> to the distributed system")
 			fmt.Println("pull <filename>	:   pull a <filename> from the distributed system and store in the the local folder")
+			fmt.Println("ls -l				:	print the list of distributed files and its size in the current process")
+			fmt.Println("ls 				:	print the list of sdfsfile's in the system")
+			fmt.Println("ls <filename>		:	print the list of IDs having a file <filename>")
+			fmt.Println("store				:	print the list of distributed's in the process")
+			fmt.Println("remove <filename>	:	remove the <filename> from the system")
 		} else if command == "heartbeat" {
 			if *ATA == true {
 				fmt.Println("Current Heartbeating for this processor: ATA")
@@ -702,15 +676,42 @@ func GetCommand(processNodePtr *nd.Node) {
 			filename := command[5:]
 			fs.Pull(processNodePtr, filename, 1)
 
-		} else if command == "ls sdfsfilename" {
+		} else if command == "ls -l" { // list file names and its size of the files stored in the distributed folder
+			files, err := ioutil.ReadDir(processNodePtr.DistributedPath)
+			CheckError(err)
+
+			for i, file := range files {
+				fmt.Println(strconv.Itoa(i)+". "+file.Name()+":", file.Size(), "bytes")
+			}
+		} else if command[0:2] == "ls" {
 			Filenames := fs.GetFileList(processNodePtr)
 
-			for file, IPAddressList := range Filenames {
-				fmt.Println("File ", file, "is stored in the following Addresses:")
-				for i, ID := range IPAddressList {
-					fmt.Println("	", i, ":", ID.IPAddress)
+			if len(command) > 2 { // list all machine (VM) addresses where this file is currently being stored
+				filename := command[3:]
+				for file, IPAddressList := range Filenames {
+					if filename == file {
+						fmt.Println("File ", file, "is stored in the following Addresses:")
+						for i, ID := range IPAddressList {
+							fmt.Println("	", i, ":", ID.IPAddress)
+						}
+					}
+				}
+
+			} else { // list all file info
+				for file, IPAddressList := range Filenames {
+					fmt.Println("File ", file, "is stored in the following Addresses:")
+					for i, ID := range IPAddressList {
+						fmt.Println("	", i, ":", ID.IPAddress)
+					}
 				}
 			}
+
+		} else if command == "store" { //list all files currently being stored at this machine
+			fmt.Println("Files currently stored at this machine:")
+			for _, file := range *processNodePtr.DistributedFilesPtr {
+				fmt.Println(file)
+			}
+
 		} else if len(command) > 6 && command[:6] == "remove" {
 			filename := command[7:]
 			fs.RemoveFile(processNodePtr, filename)
