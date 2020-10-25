@@ -19,13 +19,14 @@ import (
 	pk "../Packet"
 )
 
+/*	Buffersize used for transfering file over tcp 	*/
 const BUFFERSIZE = 65400
 
 /*
-Remove(nodePtr *nd.Node, filename string)
+	Remove(nodePtr *nd.Node, filename string)
 
-remove a file <filename> from the distributed folder
-and also remove it from the DistributedFilesPtr
+	remove a file <filename> from the distributed folder
+	and also remove it from the DistributedFilesPtr
 */
 func Remove(nodePtr *nd.Node, filename string) {
 	error := os.Remove(nodePtr.DistributedPath + filename)
@@ -40,6 +41,12 @@ func Remove(nodePtr *nd.Node, filename string) {
 	fmt.Println("Error! file not found")
 }
 
+/*
+	RemoveFile(nodePtr *nd.Node, filename string)
+
+	Invoked upon remove request
+	request leader to command all nodes with the file to remove the file including leader itself.
+*/
 func RemoveFile(nodePtr *nd.Node, filename string) {
 	leaderService := *nodePtr.LeaderServicePtr
 
@@ -164,7 +171,12 @@ func GetFileList(processNodePtr *nd.Node) map[string][]ms.Id {
 
 }
 
-// send the list of distributed files to the leader
+
+/*
+	SendFilelist(processNodePtr *nd.Node)
+
+	send current node's filelist to the leader for update
+*/
 func SendFilelist(processNodePtr *nd.Node) {
 	leaderService := *processNodePtr.LeaderServicePtr
 	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
@@ -189,8 +201,9 @@ func SendFilelist(processNodePtr *nd.Node) {
 	}
 }
 
-// Put(processNodePtr *nd.Node, filename string, N int)
+
 /*
+	Put(processNodePtr *nd.Node, filename string, N int)
 	put a file to a distributed file system.
 
 	Pick N other processors to store its replica
@@ -246,6 +259,12 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	//fmt.Println("Put Done")
 }
 
+
+/*
+	Send(processNodePtr *nd.Node, filename string, idList []ms.Id, IsPull bool)
+
+	initiates file transfer protocol to all nodes with id in idList
+*/
 func Send(processNodePtr *nd.Node, filename string, idList []ms.Id, IsPull bool) {
 	for _, id := range idList {
 		//fmt.Println("picked desination:", i)
@@ -256,6 +275,13 @@ func Send(processNodePtr *nd.Node, filename string, idList []ms.Id, IsPull bool)
 	}
 }
 
+
+/*
+	Pull(processNodePtr *nd.Node, filename string, N int) 	
+
+	request the leader to find the node with the file and commands the node
+	to send the requested file to the client.
+*/
 func Pull(processNodePtr *nd.Node, filename string, N int) {
 	// fmt.Println("PULL---------------")
 
@@ -320,7 +346,12 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 	// fmt.Println("pull Done")
 }
 
-//SERVER
+
+/*
+	ListenTCP(request string, fileName string, processNodePtr *nd.Node, connection *net.UDPConn, addr *net.UDPAddr, IsPull bool) {
+
+	Upon receiving open TCP request, the server starts listening to its TCP port for incoming data
+*/
 func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connection *net.UDPConn, addr *net.UDPAddr, IsPull bool) {
 	//fmt.Println("ListenTCP----------------")
 
@@ -366,7 +397,12 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 	}
 }
 
-// CLIENT
+
+/*
+	RequestTCP(command string, ipaddr string, fileName string, processNodePtr *nd.Node, id ms.Id, IsPull bool)
+
+	initiates TCP procedure for sending file
+*/
 func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *nd.Node, id ms.Id, IsPull bool) {
 
 	var service string
@@ -399,7 +435,11 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 
 }
 
-// send / receive file
+/*
+	SendFile(connection net.Conn, requestedFileName string, path string) {
+
+	transfer file over established tcp connection
+*/
 func SendFile(connection net.Conn, requestedFileName string, path string) {
 	defer connection.Close()
 
@@ -430,6 +470,12 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 	return
 }
 
+
+/*
+	ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node)
+
+	receive file from established tcp connection
+*/
 func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) {
 	defer connection.Close()
 
@@ -473,6 +519,12 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) {
 	}
 }
 
+/*
+	fillString(retunString string, toLength int) 
+
+	used to fill string	
+	code copied from https://mrwaggel.be/post/golang-transfer-a-file-over-a-tcp-socket/
+*/
 func fillString(retunString string, toLength int) string {
 	for {
 		lengtString := len(retunString)
@@ -485,6 +537,12 @@ func fillString(retunString string, toLength int) string {
 	return retunString
 }
 
+
+/*
+	UpdateLeader(fileName string, processNodePtr *nd.Node)
+
+	request leader to update its file meta-data
+*/	
 func UpdateLeader(fileName string, processNodePtr *nd.Node) {
 
 	if *processNodePtr.IsLeaderPtr {
@@ -513,6 +571,12 @@ func UpdateLeader(fileName string, processNodePtr *nd.Node) {
 	}
 }
 
+
+/*
+	OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id, IsPull bool) {
+
+	request node with the input id to listen to its TCP connection so that it can establish connection
+*/
 func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id, IsPull bool) {
 
 	service := id.IPAddress
@@ -543,6 +607,14 @@ func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id,
 	checkError(err)
 }
 
+/*
+	LeaderInit(node *nd.Node, failedLeader string)
+
+	upon new election of a leader, 
+	it gathers necessary file meta-data to perform the role as a new leader, and
+	accounts for possible failure during leader election by 
+	checking number of files presetn in the DFS, and taking appropriate measure. 
+*/
 func LeaderInit(node *nd.Node, failedLeader string) {
 	time.Sleep(time.Second * 5) // 5 == timeOut
 	members := node.AliveMembers()
@@ -627,6 +699,10 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 	fmt.Println("Leader Init completed")
 }
 
+
+/*
+	Checks Error
+*/
 func checkError(err error) {
 	if err != nil {
 		fmt.Println("Fatal error ", err.Error())

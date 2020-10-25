@@ -1,7 +1,8 @@
-# Distributed System: FailStop
+# Distributed System: FileSysmte
 
 
-This Program uses an All-to-All and a Gossip style heart beating to detect a failure of a process in a distributed system.
+
+Our system has one leader node that stores all file meta-data within the system and processes all put/get requests made from clients. For leader failure, we used ring leader election protocol. 
 
 ## Install GO:
 wget https://dl.google.com/go/go1.13.src.tar.gz
@@ -14,6 +15,8 @@ export PATH=$GOPATH:~/go
 3. git clone https://gitlab.engr.illinois.edu/hl8/cs425.git
 4. cd distributed_system
 5. cd Process
+6. cd distributed_file
+7. rm -rf *
 6. go build main.go
 
 

@@ -375,6 +375,14 @@ func (node Node) PickReplicas(n int, Except []ms.Id) []ms.Id {
 	return replicas
 }
 
+/*
+	makeRing(AliveMembers []ms.Membership) (int, []string)
+
+	From alive members, it creates a []string(ring) that will be used
+	throughout the ring leader election protocol
+
+	returns index of current node within the ring, and the ring itself.
+*/
 func (node Node) makeRing(AliveMembers []ms.Membership) (int, []string) {
 	var ring []string
 	var tempService string
@@ -392,9 +400,9 @@ func (node Node) makeRing(AliveMembers []ms.Membership) (int, []string) {
 }
 
 /*
-initiateElection()
+	initiateElection()
 
-Initiate an election by setting itself as a leader and an initiator
+	Initiate an election by setting itself as a leader and an initiator
 */
 func (node Node) initiateElection() {
 	AliveMembers := node.AliveMembers()
@@ -427,6 +435,11 @@ func (node Node) initiateElection() {
 	fmt.Println("Received Message at the end of initiateElection():", receivedPacket.Ptype)
 }
 
+/*
+	SendElection(packet pk.RingData)
+
+	Pass the election message to its successor
+*/
 func SendElection(packet pk.RingData) {
 
 	ring := packet.Ring

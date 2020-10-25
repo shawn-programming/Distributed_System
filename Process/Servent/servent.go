@@ -230,12 +230,12 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		conn.WriteToUDP(pk.EncodePacket((*nodePtr).Id.IPAddress+" turned into ata", nil), addr)
 		return ms.MsList{}, portLog
 	} else if messageType == "ReplicaList" { // a processor has sent a request about the list of destinations to store its replica (only a leader should receive this)
-		//fmt.Println("ReplicaList -------------------------")
 		msg := pk.DecodeIdList(message)
 
 		N := nodePtr.MaxFail
 		filename := msg.Filename
 		originalID := msg.OriginalID
+		// replicas stores the List of IDs to send the replicas
 		replicas := (*nodePtr).PickReplicas(N, []ms.Id{originalID})
 
 		replicaPackage := pk.IdListpacket{0, ms.Id{"", ""}, replicas, filename}
@@ -245,10 +245,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		Log := "Sending Replicas"
 
 		return ms.MsList{}, Log
-
-		//pull
-	} else if messageType == "FileNodeList" { // a processor has send request for the list of nodes that has the file
-		//fmt.Println("FileNodeList----------------------")
+	} else if messageType == "FileNodeList" { // a processor has send a request for the list of nodes that has the file
 		msg := pk.DecodeIdList(message)
 
 		filename := msg.Filename
@@ -264,9 +261,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		Log := "Sending FileNodes List"
 
 		return ms.MsList{}, Log
-
 	} else if messageType == "updateFileList" { // a process has sent PutListpacket for the leader to update
-		//fmt.Println("---------------------------------------")
 		msg := pk.DecodePut(message)
 		idInfo := msg.Id
 		filename := msg.Filename
@@ -280,8 +275,8 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		nodePtr.LeaderPtr.IdList[idInfo] = append(nodePtr.LeaderPtr.IdList[idInfo], filename)
 
 		return ms.MsList{}, ""
-
 	} else if messageType == "get filelist" { // ls sdfsfilename (leader send the list of all distributed files)
+		// make a packet consists of list of files
 		FileListEncoded := pk.EncodeFileList(pk.FileListpacket{nodePtr.LeaderPtr.FileList})
 		encodedMsg := pk.EncodePacket("file list packet", FileListEncoded)
 		conn.WriteToUDP(encodedMsg, addr)
@@ -289,38 +284,39 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		return ms.MsList{}, Log
 
-	} else if messageType == "openTCP" {
+	} else if messageType == "openTCP" { // a processor has requested to open a TCP port for it
 		msg := pk.DecodeTCPcmd(message)
 		cmd := msg.Cmd
 		fileName := msg.Filename
 		isPull := msg.IsPull
 		Log := "TCP Opened"
 
+		// open the TCP port
 		fs.ListenTCP(cmd, fileName, nodePtr, conn, addr, isPull)
 
 		return ms.MsList{}, Log
 
-	} else if messageType == "send" {
-
+	} else if messageType == "send" { // leader has commanded to send the file to processors
 		msg := pk.DecodeTCPsend(message)
 		IsPull := msg.IsPull
 		fileName := msg.Filename
-		toList := msg.ToList
+		toList := msg.ToList // processors to send the file
 
 		encodedMsg := pk.EncodePacket("send command received", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 		Log := "sending files to anothe processor"
 
+		// send the file
 		fs.Send(nodePtr, fileName, toList, IsPull)
 
 		return ms.MsList{}, Log
 
-	} else if messageType == "election" {
+	} else if messageType == "election" { // election ping for electing a leader
 
 		electionPacket := pk.DecodeRingData(message)
-		myIndex := electionPacket.YourIndex
+		myIndex := electionPacket.YourIndex // my index in the ring
 		ring := electionPacket.Ring
-		electionPacket.YourIndex = (myIndex + 1) % len(ring)
+		electionPacket.YourIndex = (myIndex + 1) % len(ring) // update the receiver
 		newLeader := electionPacket.NewLeader
 		initiator := electionPacket.Initiator
 
@@ -329,7 +325,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		if electionPacket.Elected {
 			// election is done.
-
 			if newLeader == nodePtr.MyService {
 				failedLeader := *nodePtr.LeaderServicePtr
 				// electiton intiator ptr is on dormant
@@ -339,10 +334,9 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 				fmt.Println("Elected Leader: ", newLeader)
 				fs.LeaderInit(nodePtr, failedLeader)
 			} else {
-
 				//update current leader to new leader
 				*nodePtr.LeaderServicePtr = newLeader
-				//send the result to the next processor
+				//send the result to the next processor in the ring
 				nd.SendElection(electionPacket)
 			}
 			// a leader hasn't selected yet
@@ -357,26 +351,23 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 					//update the packet by making myself as the leader
 					electionPacket.NewLeader = nodePtr.MyService
 				}
+				// pass the result to the next processor in the ring
 				nd.SendElection(electionPacket)
 			}
 		}
-
 		return ms.MsList{}, ""
-	} else if messageType == "send a filelist" {
+	} else if messageType == "send a filelist" { // a leader has requested to send the list of files (used for leader initiation)
 
 		Id := nodePtr.Id
-		filenames := *(*nodePtr).DistributedFilesPtr //[]string =  filenames
+		filenames := *(*nodePtr).DistributedFilesPtr //list of files in a distributed folder
 
 		packet := pk.EncodeFilesPacket(pk.FilesPacket{Id, filenames})
-		//_, err := conn.Write(pk.EncodePacket("list of files", packet))
-
 		conn.WriteToUDP(pk.EncodePacket("List of files", packet), addr)
 
 		CheckError(err)
 
 		return ms.MsList{}, ""
-
-	} else if messageType == "request" {
+	} else if messageType == "request" { // a processor has requested a file (pull)
 		msg := pk.DecodeTCPsend(message)
 		var message string
 		destinations := msg.ToList
@@ -385,6 +376,7 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		// file information inside the leader
 		fileOwners, exists := nodePtr.LeaderPtr.FileList[filename]
 
+		// check if file exists
 		if !exists {
 			message = filename + " is not found in the system"
 		} else {
@@ -406,18 +398,16 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 				conn, err := net.DialUDP("udp", nil, udpAddr)
 				CheckError(err)
 				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, filename, true})
+				// command a fileowner to send the file to the requested process
 				_, err = conn.Write(pk.EncodePacket("send", packet))
 				CheckError(err)
 				var buf [512]byte
 				_, err = conn.Read(buf[0:])
 				CheckError(err)
 			}
-
 		}
 		return ms.MsList{}, ""
-
-	} else if messageType == "Remove" { //leader only
-		// msg = filename
+	} else if messageType == "Remove" { // a processor has requested to remove a file
 		filename := string(message.EncodePacket)
 		fileOwners, exists := nodePtr.LeaderPtr.FileList[filename]
 
@@ -740,7 +730,7 @@ func GetCommand(processNodePtr *nd.Node) {
 				fmt.Println(file)
 			}
 
-		} else if len(command) > 6 && command[:6] == "remove" {
+		} else if len(command) > 6 && command[:6] == "remove" { // remove the file
 			filename := command[7:]
 			fs.RemoveFile(processNodePtr, filename)
 
