@@ -160,8 +160,6 @@ func GetFileList(processNodePtr *nd.Node) map[string][]ms.Id {
 	// target processes to store replicas
 	FileList := pk.DecodeFileList(receivedPacket).FileList
 
-	fmt.Println("get file done")
-
 	return FileList
 
 }
