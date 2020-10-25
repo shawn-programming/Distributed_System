@@ -17,7 +17,7 @@ import (
 )
 
 /*
-PingMsg(node nd.Node, msg string, portNum int)
+	PingMsg(node nd.Node, msg string, portNum int)
 
 	Sends pings containing command data to all members present within current memebrship List
 */
@@ -53,7 +53,7 @@ func PingMsg(node nd.Node, memList ms.MsList, msg string, portNum int) int {
 }
 
 /*
-PingToOtherProcessors(portNum int, node nd.Node, ATA bool, K int)
+	PingToOtherProcessors(portNum int, node nd.Node, ATA bool, K int)
 	Return: log data
 
 	Switch between and execute Gossip and All To All system
@@ -92,7 +92,7 @@ func PingToOtherProcessors(portNum int, node nd.Node, ATA bool, K int) (string, 
 }
 
 /*
-SelectRandomProcess(k int, node nd.Node)
+	SelectRandomProcess(k int, node nd.Node)
 	For gossip style, choose at most k members from the membership list except itself.
 
 	RETURN: indices of selected members
@@ -122,7 +122,7 @@ func SelectRandomProcess(k int, node nd.Node) []int {
 }
 
 /*
-Ping(conn *net.UDPConn, memberships ms.MsList, IsInitialization bool) ms.MsList
+	Ping(conn *net.UDPConn, memberships ms.MsList, IsInitialization bool) ms.MsList
 	Return: response from Ping
 
 	Pings an input member with encoded data Packet and returns response.
@@ -148,7 +148,7 @@ func Ping(conn *net.UDPConn, memberships ms.MsList, IsInitialization bool) (ms.M
 }
 
 /*
-SendMessageToOne(node nd.Node, targetIP string, portNum int, IsInitialization bool) ms.MsList
+	SendMessageToOne(node nd.Node, targetIP string, portNum int, IsInitialization bool) ms.MsList
 	Return: response from Messaged 	SembershipList to one paessor
 */
 func SendMessageToOne(node nd.Node, targetIP string, portNum int, IsInitialization bool) (ms.MsList, int) {
@@ -162,8 +162,9 @@ func SendMessageToOne(node nd.Node, targetIP string, portNum int, IsInitializati
 	return received, byteSent
 }
 
-/* OpenServer
-open the server and collect msgs from other processors
+/*
+	OpenServer(conn *net.UDPConn, processNodePtr *nd.Node)
+	open the server and collect msgs from other processors
 */
 func OpenServer(conn *net.UDPConn, processNodePtr *nd.Node) {
 	for {
@@ -175,8 +176,10 @@ func OpenServer(conn *net.UDPConn, processNodePtr *nd.Node) {
 	}
 }
 
-/* OpenHeartbeat
- */
+/*
+	OpenHeartbeat(conn *net.UDPConn, NodePtr *nd.Node)
+	open the server for heartbeat and start listening to it
+*/
 
 func OpenHeartbeat(conn *net.UDPConn, NodePtr *nd.Node) {
 	for {
@@ -502,6 +505,11 @@ func NewMemberInitialization(nodePtr *nd.Node) {
 	(*nodePtr).Logger.Println("Connected!")
 }
 
+/*
+	listenHeartbeat(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string)
+
+	listen to incoming heartbeat and update its memberlist accordingly.
+*/
 func listenHeartbeat(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 	var portLog string
 	var buf [5120]byte
@@ -550,6 +558,11 @@ func listenHeartbeat(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 	}
 }
 
+/*
+	Heartbeat(nodePtr *nd.Node)
+
+	Send heartbeat to other processors to signal its aliveness
+*/
 func Heartbeat(nodePtr *nd.Node) {
 	loggerPerSec := (*nodePtr).LoggerPerSec
 	logger := (*nodePtr).Logger
@@ -602,6 +615,15 @@ GetCommand(ATA *bool, logger, loggerPerSec *log.Logger, processNode nd.Node, des
 			memberlist: print VM's memberlist to the terminal
 			id:			print current IP address and assigned Port number
 			-h: 	 	print list of commands
+
+			put <filename>:		put file into DFS
+			pull <filename>: 	get a file from DFS
+			remove <filename>:	remove a file from DFS
+
+			ls:			show all file and where it is stored in DFS
+			ls <filename> show where filename is currently stored in DFS
+			store: 		show all file stored in current node
+			ls -l:		show file names and its size of the files stored in the distributed folder
 */
 func GetCommand(processNodePtr *nd.Node) {
 	ATA := &(*(*processNodePtr).ATAPtr)
@@ -688,15 +710,21 @@ func GetCommand(processNodePtr *nd.Node) {
 
 			if len(command) > 2 { // list all machine (VM) addresses where this file is currently being stored
 				filename := command[3:]
-				for file, IPAddressList := range Filenames {
-					if filename == file {
-						fmt.Println("File ", file, "is stored in the following Addresses:")
-						for i, ID := range IPAddressList {
-							fmt.Println("	", i, ":", ID.IPAddress)
+
+				_, exist := Filenames[filename]
+
+				if !exist {
+					fmt.Println("no such file exist in DFS")
+				} else {
+					for file, IPAddressList := range Filenames {
+						if filename == file {
+							fmt.Println("File ", file, "is stored in the following Addresses:")
+							for i, ID := range IPAddressList {
+								fmt.Println("	", i, ":", ID.IPAddress)
+							}
 						}
 					}
 				}
-
 			} else { // list all file info
 				for file, IPAddressList := range Filenames {
 					fmt.Println("File ", file, "is stored in the following Addresses:")
