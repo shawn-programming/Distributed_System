@@ -24,7 +24,6 @@ func main() {
 	// checkmembersTest()
 
 	nodeTest.IncrementLocalTimeTest()
-
 }
 
 /*

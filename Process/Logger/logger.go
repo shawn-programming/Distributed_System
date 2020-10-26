@@ -14,6 +14,7 @@ LoggerPointerInit
 	RETURN: logger pointers
 */
 func LoggerPointerInit(vmNumStr string) (*os.File, *os.File, *os.File) {
+
 	f, err := os.OpenFile("./vm_"+vmNumStr+"_per_sec.log",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
