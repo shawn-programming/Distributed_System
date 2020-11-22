@@ -207,14 +207,17 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 		}
 	}
 
+	fmt.Println("Data divisino Done")
 	for key, location := range hashTable {
-		filename := sdfs_intermediate_filename_prefix + ":" + key + ":" + processNodePtr.SelfIP
+		filename := sdfs_intermediate_filename_prefix + ":" + key + ":" + processNodePtr.SelfIP + ".csv"
 
 		csvWriter(processNodePtr.LocalPath+filename, mapled_data[location])
 		fs.Put(processNodePtr, filename, 1)
 	}
 
+	fmt.Println("mapped file put done")
 	fs.IncreaseMapleJuiceCounter(processNodePtr)
+	fmt.Println("Increased MJ counter")
 }
 
 func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory string) {
@@ -250,7 +253,7 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 		if len(temp) > 0 {
 			if _, exists := hashTable[key]; !exists {
 				mapled_data = append(mapled_data, [][]string{})
-				hashTable[key] = len(mapled_data)
+				hashTable[key] = len(mapled_data) - 1
 			}
 			location := hashTable[key]
 			mapled_data[location] = append(mapled_data[location], temp...)
