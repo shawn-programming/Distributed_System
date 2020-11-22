@@ -187,7 +187,7 @@ func Wait(NodePtr *nd.Node, NumMaples int) {
 
 func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix string, fp func([]string) [][]string, input [][]string) {
 
-	var hashTable map[string]int
+	hashTable := make(map[string]int)
 	var mapled_data [][][]string
 
 	fmt.Println("start mapling")
@@ -208,6 +208,7 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 				fmt.Println("allocating it at the idx " + strconv.Itoa(hashTable[key]))
 			}
 
+			fmt.Println("key exist")
 			//fmt.Println("hash done")
 			location := hashTable[key]
 			mapled_data[location] = append(mapled_data[location], datum)
@@ -235,7 +236,7 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 		fs.Remove(processNodePtr, f)
 	}
 
-	var hashTable map[string]int
+	hashTable := make(map[string]int)
 	var mapled_data [][][]string
 
 	// open all sdfs csv files starts with "IntermediateFilename" and store it as one total file.
