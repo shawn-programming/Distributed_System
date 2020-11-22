@@ -191,19 +191,25 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 	var mapled_data [][][]string
 
 	fmt.Println("start mapling")
+	fmt.Println("Input size: " + strconv.Itoa(len(input)))
 	for _, data := range input {
 		//temp := fp(data)
 		temp := CondorcetMapper1(data)
 
+		fmt.Println("Condocet mapper applied to temp")
 		for _, datum := range temp {
+
 			key := datum[0]
+			fmt.Println(key)
 			if _, exists := hashTable[key]; !exists {
 				mapled_data = append(mapled_data, [][]string{})
 				hashTable[key] = len(mapled_data) - 1
 			}
 
+			//fmt.Println("hash done")
 			location := hashTable[key]
 			mapled_data[location] = append(mapled_data[location], datum)
+			//fmt.Println("append hashed data done")
 		}
 	}
 
