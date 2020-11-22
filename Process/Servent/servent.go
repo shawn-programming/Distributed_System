@@ -633,6 +633,7 @@ func Heartbeat(nodePtr *nd.Node) {
 	listen to incoming MapleJuices
 */
 func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
+
 	var portLog string
 	var buf [128]byte
 
@@ -646,6 +647,8 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 
 	message := pk.DecodePacket(buf[:n])
 	messageType := message.Ptype
+
+	fmt.Println("maple messageType: ", messageType)
 
 	if messageType == "Maple" {
 		msg := pk.DecodeMapWorkerPacket(message)
@@ -672,6 +675,7 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 			fmt.Println("Not a leader Node. Throwing Maple.")
 		} else {
 			msg := pk.DecodeMapLeaderPacket(message)
+			fmt.Println("msg decoded")
 			mj.Maple(nodePtr, msg.MapleExe, msg.NumMaples, msg.IntermediateFilename, msg.SrcDirectory)
 
 			mj.Wait(nodePtr, msg.NumMaples)

@@ -137,8 +137,10 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 }
 
 func SendUDPToLeader(nodePtr *nd.Node, data []byte) {
+	fmt.Println("SendUDPToLeader")
 
 	leaderService := (*nodePtr.LeaderServicePtr)[0:len(*nodePtr.LeaderServicePtr)-4] + strconv.Itoa(nodePtr.DestPortNumMJ)
+	fmt.Println("mjservice: ", leaderService)
 
 	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
 	checkError(err)
