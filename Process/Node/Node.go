@@ -189,7 +189,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.K = K
 	tempNode.LocalPath = "./local_files/"
 	tempNode.DistributedPath = "./distributed_files/"
-	tempNode.MaxFail = 3
+	tempNode.MaxFail = 2
 
 	// variable attributes
 	tempNode.LocalTime = 0

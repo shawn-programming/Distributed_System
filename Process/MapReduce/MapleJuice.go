@@ -121,7 +121,7 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 		}
 		data_per_node = append(data_per_node, input_data[start:end])
 
-		filename := sdfs_intermediate_filename_prefix + ":" + strconv.Itoa(i)
+		filename := sdfs_intermediate_filename_prefix + ":" + strconv.Itoa(i) + ".csv"
 
 		fmt.Println("Filename to write: " + filename)
 		csvWriter(processNodePtr.LocalPath+filename, data_per_node[i])
