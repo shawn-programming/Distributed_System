@@ -11,6 +11,7 @@ import (
 	"net"
 	"os"
 	"strconv"
+	"strings"
 
 	fs "../FileSys"
 	nd "../Node"
@@ -288,12 +289,15 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 }
 
 func startsWith(s1, s2 string) bool {
-	if len(s1) > len(s2) && s1[:len(s2)] == s2 {
-		return true
-	} else {
-		return false
-	}
+	// if len(s1) > len(s2) && s1[:len(s2)] == s2 {
+	// 	return true
+	// } else {
+	// 	return false
+	// }
+
+	return strings.HasPrefix(s1, s2)
 }
+
 func checkError(err error) {
 	if err != nil {
 		fmt.Println("Fatal error ", err.Error())
