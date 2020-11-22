@@ -253,7 +253,7 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 
 		if startsWith(sdfsFile, IntermediateFilename) {
 			fmt.Println("start pulling")
-			fs.Pull(processNodePtr, IntermediateFilename, 1)
+			fs.Pull(processNodePtr, sdfsFile, 1)
 			fmt.Println("Pulled:", sdfsFile)
 		}
 	}
