@@ -35,6 +35,7 @@ func csvWriter(filePath string, data [][]string) {
 // code copied from https://medium.com/@ankurraina/reading-a-simple-csv-in-go-36d7a269cecd
 func csvReader(filePath string) [][]string {
 	// Open the file
+	fmt.Print("csvReader: reading this file ", filePath)
 	csvfile, err := os.Open(filePath)
 	if err != nil {
 		log.Fatalln("Couldn't open the csv file", err)
@@ -99,6 +100,7 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 	var input_data [][]string
 
 	for _, file := range files {
+		fmt.Println("File: " + file)
 		input_data = append(input_data, csvReader(file)...)
 	}
 
