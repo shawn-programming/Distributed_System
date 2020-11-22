@@ -59,6 +59,7 @@ func csvReader(filePath string) [][]string {
 		data = append(data, record)
 	}
 
+	fmt.Println("csv Reader done")
 	return data
 }
 
@@ -104,8 +105,12 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 		input_data = append(input_data, csvReader(sdfs_src_directory+file)...)
 	}
 
+	fmt.Println("Finished opening files, number of files opented: " + strconv.Itoa(len(input_data)))
+
 	input_num := len(input_data)
 	input_per_node := (input_num - input_num%num_maples) / num_maples
+
+	fmt.Println("Input per node: " + strconv.Itoa(input_per_node))
 
 	var data_per_node [][][]string
 	for i := 0; i < num_maples; i++ {
@@ -118,9 +123,14 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 
 		filename := sdfs_intermediate_filename_prefix + ":" + strconv.Itoa(i)
 
+		fmt.Println("Filename to write: " + filename)
 		csvWriter(processNodePtr.LocalPath+filename, data_per_node[i])
+		fmt.Print("File " + filename + " is written, uploading it to a sfds filelist")
 		fs.Put(processNodePtr, filename, 1)
+		fmt.Print("Uploading Done")
 	}
+
+	fmt.Println("Data split done")
 
 	workerNodes := getNameNodes(processNodePtr, num_maples) // services of worker nodes
 	SendUDPToWorkers(workerNodes, sdfs_intermediate_filename_prefix, sdfs_src_directory)
@@ -144,6 +154,7 @@ func SendUDPToLeader(nodePtr *nd.Node, data []byte) {
 
 //send udp request to initiate maple sequence
 func SendUDPToWorkers(workerNodes []string, filename string, src_directory string) {
+	fmt.Println("SendUDPToWorkers start")
 
 	for i, worker := range workerNodes {
 		currFile := filename + ":" + strconv.Itoa(i)
@@ -159,6 +170,8 @@ func SendUDPToWorkers(workerNodes []string, filename string, src_directory strin
 		_, err = conn.Read(buf[0:])
 		checkError(err)
 	}
+	fmt.Println("SendUDPToWorkers Done")
+
 }
 
 func Wait(NodePtr *nd.Node, NumMaples int) {
