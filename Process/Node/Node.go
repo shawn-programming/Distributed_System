@@ -60,7 +60,6 @@ type Node struct {
 	MyPortNumMJ   int // heartbeat port
 	DestPortNumMJ int // heartbeat port
 
-
 	ServerID        string // node's id in string
 	K               int    // gossip's k value
 	LocalPath       string // directory that stores local files
@@ -127,7 +126,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	portList, _ := config.Port()       // Port number's list
 	portHBList, _ := config.PortHB()   // Port number's list
 	portETCList, _ := config.PortETC() // Port number's list
-	portMJList,_:=config.PortMJ()
+	portMJList, _ := config.PortMJ()
 
 	timeOut, _ := config.TimeOut() // Time Out info
 	isIntroducer := vmNum == 1     // True if the proceesor is an introducer, else False
@@ -136,6 +135,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	// for VM test
 	myPortNum := portList[0]   // Processor's port number
 	destPortNum := portList[0] // Receiver's port number
+
 	myPortNumHB := portHBList[0]
 	destPortNumHB := portHBList[0]
 
@@ -174,7 +174,6 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.IntroducerIP = IntroducerIP
 	tempNode.IsIntroducer = isIntroducer
 	tempNode.SelfIP = selfIP
-
 
 	tempNode.MyPortNum = myPortNum
 	tempNode.MyPortNumHB = myPortNumHB
