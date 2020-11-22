@@ -133,7 +133,7 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 	fmt.Println("Data split done")
 
 	workerNodes := getNameNodes(processNodePtr, num_maples) // services of worker nodes
-	SendUDPToWorkers(workerNodes, sdfs_intermediate_filename_prefix, sdfs_src_directory)
+	SendUDPToWorkers(workerNodes, sdfs_intermediate_filename_prefix, sdfs_intermediate_filename_prefix)
 }
 
 func SendUDPToLeader(nodePtr *nd.Node, data []byte) {
@@ -156,7 +156,7 @@ func SendUDPToLeader(nodePtr *nd.Node, data []byte) {
 }
 
 //send udp request to initiate maple sequence
-func SendUDPToWorkers(workerNodes []string, filename string, src_directory string) {
+func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_filename_prefix string) {
 	fmt.Println("SendUDPToWorkers start")
 
 	for i, worker := range workerNodes {
@@ -167,7 +167,7 @@ func SendUDPToWorkers(workerNodes []string, filename string, src_directory strin
 		conn, err := net.DialUDP("udp", nil, udpAddr)
 		checkError(err)
 
-		_, err = conn.Write(pk.EncodePacket("Maple", pk.EncodeMapWorkerPacket(pk.MapWorker{currFile, src_directory})))
+		_, err = conn.Write(pk.EncodePacket("Maple", pk.EncodeMapWorkerPacket(pk.MapWorker{currFile, sdfs_intermediate_filename_prefix})))
 
 		var buf [512]byte
 		_, err = conn.Read(buf[0:])
@@ -200,12 +200,12 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 		for _, datum := range temp {
 
 			key := datum[0]
-			fmt.Println(key)
+			//fmt.Println(key)
 			if _, exists := hashTable[key]; !exists {
-				fmt.Println("Key does not exist")
+				//fmt.Println("Key does not exist")
 				mapled_data = append(mapled_data, [][]string{})
 				hashTable[key] = len(mapled_data) - 1
-				fmt.Println("allocating it at the idx " + strconv.Itoa(hashTable[key]))
+				//fmt.Println("allocating it at the idx " + strconv.Itoa(hashTable[key]))
 			}
 
 			//fmt.Println("hash done")
