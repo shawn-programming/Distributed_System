@@ -1,3 +1,5 @@
+git pull
+go build main.go
 cd local_files
 rm -rf *
 cd ..
