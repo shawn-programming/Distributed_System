@@ -180,6 +180,7 @@ func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_f
 
 func Wait(NodePtr *nd.Node, NumMaples int) {
 	for {
+		fmt.Println(*(NodePtr.MapleJuiceCounterPtr))
 		if *(NodePtr.MapleJuiceCounterPtr) == NumMaples-1 {
 			return
 		}

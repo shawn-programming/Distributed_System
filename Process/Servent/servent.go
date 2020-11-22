@@ -228,7 +228,9 @@ func ListenETC(conn *net.UDPConn, nodePtr *nd.Node) {
 			fmt.Println("Not a leader Node. Throwing IncreaseMapleJuiceCounter.")
 			return
 		}
+
 		(*nodePtr.MapleJuiceCounterPtr)++
+		fmt.Println("Counter: " + strconv.Itoa(*nodePtr.MapleJuiceCounterPtr))
 		encodedMsg := pk.EncodePacket("IncreaseMapleJuiceCounter Received", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 	}
@@ -690,8 +692,9 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 			fmt.Println("msg decoded")
 			mj.Maple(nodePtr, msg.MapleExe, msg.NumMaples, msg.IntermediateFilename, msg.SrcDirectory)
 
+			fmt.Println("Start Waiting")
 			mj.Wait(nodePtr, msg.NumMaples)
-
+			fmt.Println("Done Waiting")
 			mj.MapleSort(nodePtr, msg.IntermediateFilename, msg.SrcDirectory)
 		}
 
