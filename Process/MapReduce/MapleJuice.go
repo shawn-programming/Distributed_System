@@ -208,7 +208,6 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 				fmt.Println("allocating it at the idx " + strconv.Itoa(hashTable[key]))
 			}
 
-			fmt.Println("key exist")
 			//fmt.Println("hash done")
 			location := hashTable[key]
 			mapled_data[location] = append(mapled_data[location], datum)
