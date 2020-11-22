@@ -134,6 +134,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	myPortNumHB := portHBList[0]
 	destPortNumHB := portHBList[0]
 
+	myPortNumETC := portETCList[0]
 	destPortNumETC := portETCList[0]
 
 	// for local test
@@ -165,12 +166,14 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.IntroducerIP = IntroducerIP
 	tempNode.IsIntroducer = isIntroducer
 	tempNode.SelfIP = selfIP
+
 	tempNode.MyPortNum = myPortNum
 	tempNode.MyPortNumHB = myPortNumHB
+	tempNode.MyPortNumETC = myPortNumETC
+
 	tempNode.DestPortNum = destPortNum
 	tempNode.DestPortNumHB = destPortNumHB
-
-	tempNode.DestPortNumHB = destPortNumETC
+	tempNode.DestPortNumETC = destPortNumETC
 
 	tempNode.ServerID = serverID
 	tempNode.K = K
