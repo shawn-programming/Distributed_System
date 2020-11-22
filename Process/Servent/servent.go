@@ -662,7 +662,6 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 
 		fmt.Println("File to Read: ", msg.Filename)
 		input, _ := ReadFromCsv(nodePtr.LocalPath + msg.Filename)
-		fmt.Print(input)
 		fmt.Println("Reading file completed")
 		mj.MapleReceived(nodePtr, msg.SrcDirectory, mj.CondorcetMapper1, input)
 

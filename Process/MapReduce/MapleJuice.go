@@ -200,7 +200,6 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 		for _, datum := range temp {
 
 			key := datum[0]
-			fmt.Println(key)
 			if _, exists := hashTable[key]; !exists {
 				mapled_data = append(mapled_data, [][]string{})
 				hashTable[key] = len(mapled_data) - 1
