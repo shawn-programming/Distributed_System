@@ -87,7 +87,7 @@ func getNameNodes(processNodePtr *nd.Node, num_maples int) []string {
 		}
 
 		if mem.ID.IPAddress != processNodePtr.SelfIP {
-			workerNodes = append(workerNodes, mem.ID.IPAddress+":"+strconv.Itoa(processNodePtr.DestPortNum))
+			workerNodes = append(workerNodes, mem.ID.IPAddress+":"+strconv.Itoa(processNodePtr.DestPortNumMJ))
 			count++
 		}
 	}
@@ -138,7 +138,8 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 
 func SendUDPToLeader(nodePtr *nd.Node, data []byte) {
 
-	leaderService := *nodePtr.LeaderServicePtr
+	leaderService := (*nodePtr.LeaderServicePtr)[0:len(*nodePtr.LeaderServicePtr)-4] + strconv.Itoa(nodePtr.DestPortNumMJ)
+
 	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
 	checkError(err)
 
