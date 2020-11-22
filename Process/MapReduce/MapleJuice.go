@@ -160,7 +160,7 @@ func SendUDPToWorkers(workerNodes []string, filename string, src_directory strin
 	fmt.Println("SendUDPToWorkers start")
 
 	for i, worker := range workerNodes {
-		currFile := filename + ":" + strconv.Itoa(i)
+		currFile := filename + ":" + strconv.Itoa(i) + ".csv"
 		udpAddr, err := net.ResolveUDPAddr("udp4", worker)
 		checkError(err)
 
