@@ -635,7 +635,7 @@ func Heartbeat(nodePtr *nd.Node) {
 func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 
 	var portLog string
-	var buf [128]byte
+	var buf [5120]byte
 
 	n, addr, err := conn.ReadFromUDP(buf[0:])
 	//fmt.Print("n:", n)
