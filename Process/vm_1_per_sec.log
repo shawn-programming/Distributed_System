@@ -49604,3 +49604,4598 @@ Failed: False
 current status : gossip
 
 Processor_12020/10/24 17:45:31 (Leave)Terminating vm_1
+Processor_12020/11/22 06:15:15 ServerID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Processor_12020/11/22 06:15:15 selfIP: 172.22.156.172:1234
+Processor_12020/11/22 06:15:15 TimeOut: 5
+Processor_12020/11/22 06:15:15  ================== open server and logging system ==================
+Processor_12020/11/22 06:15:15 -------starting listening----------
+Processor_12020/11/22 06:15:15 ----------Start Sending----------
+Processor_12020/11/22 06:15:16 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:17 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:18 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 3
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:19 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 4
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:20 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 5
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:21 
+New Member Added: 
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/11/22 06:15:21 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 7
+localTime: 6
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 0
+localTime: 6
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:22 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 9
+localTime: 7
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 1
+localTime: 7
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:23 
+New Member Added: 
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 0
+localTime: 6
+Failed: False
+
+Processor_12020/11/22 06:15:23 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 12
+localTime: 8
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 2
+localTime: 8
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 0
+localTime: 8
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:24 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 15
+localTime: 9
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 4
+localTime: 9
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 1
+localTime: 9
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:25 
+New Member Added: 
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 2
+localTime: 0
+Failed: False
+
+Processor_12020/11/22 06:15:25 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 18
+localTime: 10
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 7
+localTime: 10
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 0
+localTime: 9
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 2
+localTime: 10
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:26 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 21
+localTime: 11
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 10
+localTime: 11
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 0
+localTime: 9
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 4
+localTime: 11
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:27 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 26
+localTime: 12
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 13
+localTime: 12
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 1
+localTime: 12
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 7
+localTime: 12
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:28 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 30
+localTime: 13
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 16
+localTime: 13
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 3
+localTime: 13
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 10
+localTime: 13
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:29 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 34
+localTime: 14
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 20
+localTime: 14
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 7
+localTime: 14
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 14
+localTime: 14
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:30 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 38
+localTime: 15
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 24
+localTime: 15
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 11
+localTime: 15
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 18
+localTime: 15
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:31 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 42
+localTime: 16
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 28
+localTime: 16
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 15
+localTime: 16
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 22
+localTime: 16
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:32 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 46
+localTime: 17
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 32
+localTime: 17
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 19
+localTime: 17
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 25
+localTime: 17
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:33 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 50
+localTime: 18
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 36
+localTime: 18
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 23
+localTime: 18
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 29
+localTime: 18
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:34 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 54
+localTime: 19
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 40
+localTime: 19
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 27
+localTime: 19
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 33
+localTime: 19
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:35 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 58
+localTime: 20
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 44
+localTime: 20
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 31
+localTime: 20
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 37
+localTime: 20
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:15:36 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:15:15 CST
+Count: 62
+localTime: 21
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:15:19 CST
+Count: 48
+localTime: 21
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:15:25 CST
+Count: 35
+localTime: 21
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:15:21 CST
+Count: 42
+localTime: 21
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:48 ServerID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Processor_12020/11/22 06:17:48 selfIP: 172.22.156.172:1234
+Processor_12020/11/22 06:17:48 TimeOut: 5
+Processor_12020/11/22 06:17:48  ================== open server and logging system ==================
+Processor_12020/11/22 06:17:48 -------starting listening----------
+Processor_12020/11/22 06:17:48 ----------Start Sending----------
+Processor_12020/11/22 06:17:49 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:50 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:51 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 3
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:52 
+New Member Added: 
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/11/22 06:17:52 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 5
+localTime: 4
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 0
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:53 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 7
+localTime: 5
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 1
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:54 
+New Member Added: 
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:17:52 CST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/11/22 06:17:54 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 10
+localTime: 6
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:17:52 CST
+Count: 0
+localTime: 6
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 2
+localTime: 6
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:55 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 13
+localTime: 7
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:17:52 CST
+Count: 1
+localTime: 7
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 4
+localTime: 7
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:56 
+New Member Added: 
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:17:54 CST
+Count: 0
+localTime: 6
+Failed: False
+
+Processor_12020/11/22 06:17:56 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 17
+localTime: 8
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:17:52 CST
+Count: 2
+localTime: 8
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 6
+localTime: 8
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:17:54 CST
+Count: 0
+localTime: 8
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:57 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 21
+localTime: 9
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:17:52 CST
+Count: 4
+localTime: 9
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 9
+localTime: 9
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:17:54 CST
+Count: 1
+localTime: 9
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:58 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 25
+localTime: 10
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:17:52 CST
+Count: 7
+localTime: 10
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 13
+localTime: 10
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:17:54 CST
+Count: 2
+localTime: 10
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:17:59 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 29
+localTime: 11
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:17:52 CST
+Count: 11
+localTime: 11
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 17
+localTime: 11
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:17:54 CST
+Count: 4
+localTime: 11
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:18:00 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 33
+localTime: 12
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:17:52 CST
+Count: 15
+localTime: 12
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 21
+localTime: 12
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:17:54 CST
+Count: 8
+localTime: 12
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:18:01 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 37
+localTime: 13
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:17:52 CST
+Count: 19
+localTime: 13
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 25
+localTime: 13
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:17:54 CST
+Count: 12
+localTime: 13
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:18:02 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:17:48 CST
+Count: 41
+localTime: 14
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:17:52 CST
+Count: 23
+localTime: 14
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:17:50 CST
+Count: 29
+localTime: 14
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:17:54 CST
+Count: 16
+localTime: 14
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:00 ServerID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Processor_12020/11/22 06:19:00 selfIP: 172.22.156.172:1234
+Processor_12020/11/22 06:19:00 TimeOut: 5
+Processor_12020/11/22 06:19:00  ================== open server and logging system ==================
+Processor_12020/11/22 06:19:00 -------starting listening----------
+Processor_12020/11/22 06:19:00 ----------Start Sending----------
+Processor_12020/11/22 06:19:01 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:02 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:03 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 3
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:04 
+New Member Added: 
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/11/22 06:19:04 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 5
+localTime: 4
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 0
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:05 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 7
+localTime: 5
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 1
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:06 
+New Member Added: 
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/11/22 06:19:06 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 10
+localTime: 6
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 0
+localTime: 6
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 2
+localTime: 6
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:07 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 13
+localTime: 7
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 1
+localTime: 7
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 4
+localTime: 7
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:08 
+New Member Added: 
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 0
+localTime: 6
+Failed: False
+
+Processor_12020/11/22 06:19:08 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 17
+localTime: 8
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 2
+localTime: 8
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 6
+localTime: 8
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 0
+localTime: 8
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:09 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 21
+localTime: 9
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 4
+localTime: 9
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 9
+localTime: 9
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 1
+localTime: 9
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:10 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 25
+localTime: 10
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 8
+localTime: 10
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 12
+localTime: 10
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 2
+localTime: 10
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:11 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 29
+localTime: 11
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 12
+localTime: 11
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 16
+localTime: 11
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 4
+localTime: 11
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:12 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 33
+localTime: 12
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 16
+localTime: 12
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 20
+localTime: 12
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 7
+localTime: 12
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:13 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 37
+localTime: 13
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 20
+localTime: 13
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 24
+localTime: 13
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 11
+localTime: 13
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:14 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 41
+localTime: 14
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 24
+localTime: 14
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 28
+localTime: 14
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 15
+localTime: 14
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:15 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 45
+localTime: 15
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 28
+localTime: 15
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 32
+localTime: 15
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 19
+localTime: 15
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:16 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 49
+localTime: 16
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 32
+localTime: 16
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 36
+localTime: 16
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 23
+localTime: 16
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:17 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 53
+localTime: 17
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 36
+localTime: 17
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 40
+localTime: 17
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 27
+localTime: 17
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:18 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 57
+localTime: 18
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 40
+localTime: 18
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 44
+localTime: 18
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 31
+localTime: 18
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:19 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 61
+localTime: 19
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 44
+localTime: 19
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 48
+localTime: 19
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 35
+localTime: 19
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:20 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 65
+localTime: 20
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 48
+localTime: 20
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 52
+localTime: 20
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 39
+localTime: 20
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:21 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 69
+localTime: 21
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 52
+localTime: 21
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 57
+localTime: 21
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 43
+localTime: 21
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:22 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 73
+localTime: 22
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 56
+localTime: 22
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 61
+localTime: 22
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 47
+localTime: 22
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:23 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 77
+localTime: 23
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 60
+localTime: 23
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 65
+localTime: 23
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 51
+localTime: 23
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:24 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 81
+localTime: 24
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 64
+localTime: 24
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 69
+localTime: 24
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 55
+localTime: 24
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:25 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 85
+localTime: 25
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 68
+localTime: 25
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 73
+localTime: 25
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 59
+localTime: 25
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:26 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 89
+localTime: 26
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 72
+localTime: 26
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 77
+localTime: 26
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 63
+localTime: 26
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:27 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 93
+localTime: 27
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 76
+localTime: 27
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 81
+localTime: 27
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 67
+localTime: 27
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:28 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 97
+localTime: 28
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 80
+localTime: 28
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 85
+localTime: 28
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 71
+localTime: 28
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:29 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 101
+localTime: 29
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 84
+localTime: 29
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 89
+localTime: 29
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 75
+localTime: 29
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:30 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 105
+localTime: 30
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 88
+localTime: 30
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 93
+localTime: 30
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 79
+localTime: 30
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:31 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 109
+localTime: 31
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 92
+localTime: 31
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 97
+localTime: 31
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 83
+localTime: 31
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:32 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 113
+localTime: 32
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 96
+localTime: 32
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 101
+localTime: 32
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 87
+localTime: 32
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:33 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 117
+localTime: 33
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 100
+localTime: 33
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 105
+localTime: 33
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 91
+localTime: 33
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:34 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 121
+localTime: 34
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 104
+localTime: 34
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 109
+localTime: 34
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 95
+localTime: 34
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:35 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 125
+localTime: 35
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 108
+localTime: 35
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 113
+localTime: 35
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 99
+localTime: 35
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:36 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 129
+localTime: 36
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 112
+localTime: 36
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 117
+localTime: 36
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 103
+localTime: 36
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:37 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 133
+localTime: 37
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 116
+localTime: 37
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 121
+localTime: 37
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 107
+localTime: 37
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:38 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 137
+localTime: 38
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 120
+localTime: 38
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 125
+localTime: 38
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 111
+localTime: 38
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:39 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 141
+localTime: 39
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 124
+localTime: 39
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 129
+localTime: 39
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 115
+localTime: 39
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:40 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 145
+localTime: 40
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 128
+localTime: 40
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 133
+localTime: 40
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 119
+localTime: 40
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:41 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 149
+localTime: 41
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 132
+localTime: 41
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 137
+localTime: 41
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 123
+localTime: 41
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:42 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 153
+localTime: 42
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 136
+localTime: 42
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 141
+localTime: 42
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 127
+localTime: 42
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:43 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 157
+localTime: 43
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 140
+localTime: 43
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 145
+localTime: 43
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 131
+localTime: 43
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:44 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 161
+localTime: 44
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 144
+localTime: 44
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 149
+localTime: 44
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 135
+localTime: 44
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:45 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 165
+localTime: 45
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 148
+localTime: 45
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 152
+localTime: 45
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 139
+localTime: 45
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:46 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 169
+localTime: 46
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 152
+localTime: 46
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 156
+localTime: 46
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 143
+localTime: 46
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:47 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 173
+localTime: 47
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 156
+localTime: 47
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 160
+localTime: 47
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 147
+localTime: 47
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:48 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 177
+localTime: 48
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 160
+localTime: 48
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 164
+localTime: 48
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 151
+localTime: 48
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:49 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 181
+localTime: 49
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 164
+localTime: 49
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 168
+localTime: 49
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 155
+localTime: 49
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:50 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 185
+localTime: 50
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 168
+localTime: 50
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 172
+localTime: 50
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 159
+localTime: 50
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:51 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 189
+localTime: 51
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 172
+localTime: 51
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 176
+localTime: 51
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 163
+localTime: 51
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:52 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 193
+localTime: 52
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 176
+localTime: 52
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 180
+localTime: 52
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 167
+localTime: 52
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:53 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 197
+localTime: 53
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 180
+localTime: 53
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 184
+localTime: 53
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 171
+localTime: 53
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:54 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 201
+localTime: 54
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 184
+localTime: 54
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 189
+localTime: 54
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 175
+localTime: 54
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:55 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 205
+localTime: 55
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 188
+localTime: 55
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 193
+localTime: 55
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 179
+localTime: 55
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:56 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 209
+localTime: 56
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 192
+localTime: 56
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 197
+localTime: 56
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 183
+localTime: 56
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:57 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 213
+localTime: 57
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 196
+localTime: 57
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 200
+localTime: 57
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 187
+localTime: 57
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:58 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 217
+localTime: 58
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 200
+localTime: 58
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 204
+localTime: 58
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 191
+localTime: 58
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:19:59 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 221
+localTime: 59
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 204
+localTime: 59
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 208
+localTime: 59
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 195
+localTime: 59
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:00 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 225
+localTime: 60
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 208
+localTime: 60
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 212
+localTime: 60
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 199
+localTime: 60
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:01 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 229
+localTime: 61
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 212
+localTime: 61
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 217
+localTime: 61
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 203
+localTime: 61
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:02 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 233
+localTime: 62
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 216
+localTime: 62
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 220
+localTime: 62
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 207
+localTime: 62
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:03 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 237
+localTime: 63
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 220
+localTime: 63
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 224
+localTime: 63
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 211
+localTime: 63
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:05 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 241
+localTime: 64
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 224
+localTime: 64
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 228
+localTime: 64
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 215
+localTime: 64
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:06 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 245
+localTime: 65
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 228
+localTime: 65
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 232
+localTime: 65
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 219
+localTime: 65
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:07 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 249
+localTime: 66
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 232
+localTime: 66
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 236
+localTime: 66
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 223
+localTime: 66
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:08 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 253
+localTime: 67
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 236
+localTime: 67
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 240
+localTime: 67
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 227
+localTime: 67
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:09 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 257
+localTime: 68
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 240
+localTime: 68
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 244
+localTime: 68
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 231
+localTime: 68
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:10 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 261
+localTime: 69
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 244
+localTime: 69
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 248
+localTime: 69
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 235
+localTime: 69
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:11 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 265
+localTime: 70
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 248
+localTime: 70
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 252
+localTime: 70
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 239
+localTime: 70
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:12 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 269
+localTime: 71
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 252
+localTime: 71
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 256
+localTime: 71
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 244
+localTime: 71
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:13 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 273
+localTime: 72
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 256
+localTime: 72
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 260
+localTime: 72
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 248
+localTime: 72
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:14 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 277
+localTime: 73
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 260
+localTime: 73
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 264
+localTime: 73
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 251
+localTime: 73
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:15 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 281
+localTime: 74
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 264
+localTime: 74
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 268
+localTime: 74
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 256
+localTime: 74
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:20:16 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:19:00 CST
+Count: 285
+localTime: 75
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:19:04 CST
+Count: 268
+localTime: 75
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:19:02 CST
+Count: 272
+localTime: 75
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:19:06 CST
+Count: 260
+localTime: 75
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:43 ServerID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Processor_12020/11/22 06:22:43 selfIP: 172.22.156.172:1234
+Processor_12020/11/22 06:22:43 TimeOut: 5
+Processor_12020/11/22 06:22:43  ================== open server and logging system ==================
+Processor_12020/11/22 06:22:43 -------starting listening----------
+Processor_12020/11/22 06:22:43 ----------Start Sending----------
+Processor_12020/11/22 06:22:44 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:45 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:46 
+New Member Added: 
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 0
+localTime: 1
+Failed: False
+
+Processor_12020/11/22 06:22:46 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 4
+localTime: 3
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 0
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:47 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 6
+localTime: 4
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 1
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:48 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 8
+localTime: 5
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 2
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:49 
+New Member Added: 
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/11/22 06:22:49 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 11
+localTime: 6
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 0
+localTime: 6
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 4
+localTime: 6
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:50 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 14
+localTime: 7
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 1
+localTime: 7
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 6
+localTime: 7
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:51 
+New Member Added: 
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 0
+localTime: 6
+Failed: False
+
+Processor_12020/11/22 06:22:51 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 18
+localTime: 8
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 2
+localTime: 8
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 9
+localTime: 8
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 0
+localTime: 8
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:52 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 22
+localTime: 9
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 4
+localTime: 9
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 12
+localTime: 9
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 1
+localTime: 9
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:53 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 26
+localTime: 10
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 8
+localTime: 10
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 16
+localTime: 10
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 2
+localTime: 10
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:54 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 30
+localTime: 11
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 12
+localTime: 11
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 20
+localTime: 11
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 4
+localTime: 11
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:55 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 34
+localTime: 12
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 16
+localTime: 12
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 24
+localTime: 12
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 8
+localTime: 12
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:56 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 38
+localTime: 13
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 20
+localTime: 13
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 28
+localTime: 13
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 12
+localTime: 13
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:57 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 42
+localTime: 14
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 24
+localTime: 14
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 32
+localTime: 14
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 16
+localTime: 14
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:58 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 46
+localTime: 15
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 28
+localTime: 15
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 36
+localTime: 15
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 20
+localTime: 15
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:22:59 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 50
+localTime: 16
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 32
+localTime: 16
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 40
+localTime: 16
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 24
+localTime: 16
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:00 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 54
+localTime: 17
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 36
+localTime: 17
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 44
+localTime: 17
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 28
+localTime: 17
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:01 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 58
+localTime: 18
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 40
+localTime: 18
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 48
+localTime: 18
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 32
+localTime: 18
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:02 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 62
+localTime: 19
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 44
+localTime: 19
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 52
+localTime: 19
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 36
+localTime: 19
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:03 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 66
+localTime: 20
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 48
+localTime: 20
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 56
+localTime: 20
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 40
+localTime: 20
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:04 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 70
+localTime: 21
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 52
+localTime: 21
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 60
+localTime: 21
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 44
+localTime: 21
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:05 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 74
+localTime: 22
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 56
+localTime: 22
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 64
+localTime: 22
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 48
+localTime: 22
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:06 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 78
+localTime: 23
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 60
+localTime: 23
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 68
+localTime: 23
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 52
+localTime: 23
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:07 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 82
+localTime: 24
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 64
+localTime: 24
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 72
+localTime: 24
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 56
+localTime: 24
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:08 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 86
+localTime: 25
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 68
+localTime: 25
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 76
+localTime: 25
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 60
+localTime: 25
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:09 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 90
+localTime: 26
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 72
+localTime: 26
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 80
+localTime: 26
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 64
+localTime: 26
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:10 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 94
+localTime: 27
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 76
+localTime: 27
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 84
+localTime: 27
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 68
+localTime: 27
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:11 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 98
+localTime: 28
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 80
+localTime: 28
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 88
+localTime: 28
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 72
+localTime: 28
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:12 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 102
+localTime: 29
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 84
+localTime: 29
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 92
+localTime: 29
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 76
+localTime: 29
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:13 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 106
+localTime: 30
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 88
+localTime: 30
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 96
+localTime: 30
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 80
+localTime: 30
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:14 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 110
+localTime: 31
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 92
+localTime: 31
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 100
+localTime: 31
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 84
+localTime: 31
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:15 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 114
+localTime: 32
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 96
+localTime: 32
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 104
+localTime: 32
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 88
+localTime: 32
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:16 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 118
+localTime: 33
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 100
+localTime: 33
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 108
+localTime: 33
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 92
+localTime: 33
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:17 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 122
+localTime: 34
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 104
+localTime: 34
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 112
+localTime: 34
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 96
+localTime: 34
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:18 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 126
+localTime: 35
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 108
+localTime: 35
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 116
+localTime: 35
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 100
+localTime: 35
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:19 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 130
+localTime: 36
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 112
+localTime: 36
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 120
+localTime: 36
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 104
+localTime: 36
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:20 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 134
+localTime: 37
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 116
+localTime: 37
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 124
+localTime: 37
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 108
+localTime: 37
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:21 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 138
+localTime: 38
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 120
+localTime: 38
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 128
+localTime: 38
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 112
+localTime: 38
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:22 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 142
+localTime: 39
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 124
+localTime: 39
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 132
+localTime: 39
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 116
+localTime: 39
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:23 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 146
+localTime: 40
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 128
+localTime: 40
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 136
+localTime: 40
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 120
+localTime: 40
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:24 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 150
+localTime: 41
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 132
+localTime: 41
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 140
+localTime: 41
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 124
+localTime: 41
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:25 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 154
+localTime: 42
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 136
+localTime: 42
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 144
+localTime: 42
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 128
+localTime: 42
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:26 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 158
+localTime: 43
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 140
+localTime: 43
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 148
+localTime: 43
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 132
+localTime: 43
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:27 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 162
+localTime: 44
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 144
+localTime: 44
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 152
+localTime: 44
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 136
+localTime: 44
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:28 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 166
+localTime: 45
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 148
+localTime: 45
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 156
+localTime: 45
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 140
+localTime: 45
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:29 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 170
+localTime: 46
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 152
+localTime: 46
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 160
+localTime: 46
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 144
+localTime: 46
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:30 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 174
+localTime: 47
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 156
+localTime: 47
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 164
+localTime: 47
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 148
+localTime: 47
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:31 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 178
+localTime: 48
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 160
+localTime: 48
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 168
+localTime: 48
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 152
+localTime: 48
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:32 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 182
+localTime: 49
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 164
+localTime: 49
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 172
+localTime: 49
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 156
+localTime: 49
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:33 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 186
+localTime: 50
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 168
+localTime: 50
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 176
+localTime: 50
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 160
+localTime: 50
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:34 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 190
+localTime: 51
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 172
+localTime: 51
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 180
+localTime: 51
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 164
+localTime: 51
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:35 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 194
+localTime: 52
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 176
+localTime: 52
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 184
+localTime: 52
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 168
+localTime: 52
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:36 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 198
+localTime: 53
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 180
+localTime: 53
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 188
+localTime: 53
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 172
+localTime: 53
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:37 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 202
+localTime: 54
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 184
+localTime: 54
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 192
+localTime: 54
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 176
+localTime: 54
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:23:38 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:22:43 CST
+Count: 206
+localTime: 55
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:22:47 CST
+Count: 188
+localTime: 55
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:22:44 CST
+Count: 196
+localTime: 55
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:22:49 CST
+Count: 180
+localTime: 55
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:23 ServerID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Processor_12020/11/22 06:33:23 selfIP: 172.22.156.172:1234
+Processor_12020/11/22 06:33:23 TimeOut: 5
+Processor_12020/11/22 06:33:23  ================== open server and logging system ==================
+Processor_12020/11/22 06:33:23 -------starting listening----------
+Processor_12020/11/22 06:33:23 ----------Start Sending----------
+Processor_12020/11/22 06:33:24 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:25 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:26 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 3
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:27 
+New Member Added: 
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/11/22 06:33:27 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 5
+localTime: 4
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 0
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:28 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 7
+localTime: 5
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 1
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:29 
+New Member Added: 
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/11/22 06:33:29 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 10
+localTime: 6
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 0
+localTime: 6
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 2
+localTime: 6
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:30 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 13
+localTime: 7
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 1
+localTime: 7
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 4
+localTime: 7
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:31 
+New Member Added: 
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 0
+localTime: 6
+Failed: False
+
+Processor_12020/11/22 06:33:31 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 17
+localTime: 8
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 2
+localTime: 8
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 6
+localTime: 8
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 0
+localTime: 8
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:32 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 21
+localTime: 9
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 4
+localTime: 9
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 9
+localTime: 9
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 1
+localTime: 9
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:33 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 25
+localTime: 10
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 8
+localTime: 10
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 12
+localTime: 10
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 2
+localTime: 10
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:34 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 29
+localTime: 11
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 12
+localTime: 11
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 16
+localTime: 11
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 4
+localTime: 11
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:35 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 33
+localTime: 12
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 16
+localTime: 12
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 20
+localTime: 12
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 8
+localTime: 12
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:36 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 37
+localTime: 13
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 20
+localTime: 13
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 24
+localTime: 13
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 12
+localTime: 13
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:37 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 41
+localTime: 14
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 24
+localTime: 14
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 28
+localTime: 14
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 15
+localTime: 14
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:38 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 45
+localTime: 15
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 28
+localTime: 15
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 32
+localTime: 15
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 20
+localTime: 15
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:39 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 49
+localTime: 16
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 32
+localTime: 16
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 36
+localTime: 16
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 24
+localTime: 16
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:40 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 53
+localTime: 17
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 36
+localTime: 17
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 40
+localTime: 17
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 28
+localTime: 17
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:41 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 57
+localTime: 18
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 40
+localTime: 18
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 44
+localTime: 18
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 32
+localTime: 18
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:42 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 61
+localTime: 19
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 44
+localTime: 19
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 48
+localTime: 19
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 36
+localTime: 19
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:43 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 65
+localTime: 20
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 48
+localTime: 20
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 52
+localTime: 20
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 40
+localTime: 20
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:44 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 69
+localTime: 21
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 52
+localTime: 21
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 56
+localTime: 21
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 44
+localTime: 21
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:33:45 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:33:23 CST
+Count: 73
+localTime: 22
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:33:27 CST
+Count: 56
+localTime: 22
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:33:25 CST
+Count: 60
+localTime: 22
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:33:29 CST
+Count: 48
+localTime: 22
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:10 ServerID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Processor_12020/11/22 06:35:10 selfIP: 172.22.156.172:1234
+Processor_12020/11/22 06:35:10 TimeOut: 5
+Processor_12020/11/22 06:35:10  ================== open server and logging system ==================
+Processor_12020/11/22 06:35:10 -------starting listening----------
+Processor_12020/11/22 06:35:10 ----------Start Sending----------
+Processor_12020/11/22 06:35:12 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 1
+localTime: 1
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:13 
+-----pingToOtherProcessors-----
+currList length: 1
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 2
+localTime: 2
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:14 
+New Member Added: 
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 0
+localTime: 1
+Failed: False
+
+Processor_12020/11/22 06:35:14 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 4
+localTime: 3
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 0
+localTime: 3
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:15 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 6
+localTime: 4
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 1
+localTime: 4
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:16 
+-----pingToOtherProcessors-----
+currList length: 2
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 8
+localTime: 5
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 2
+localTime: 5
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:17 
+New Member Added: 
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/11/22 06:35:17 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 11
+localTime: 6
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 0
+localTime: 6
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 4
+localTime: 6
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:18 
+-----pingToOtherProcessors-----
+currList length: 3
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 14
+localTime: 7
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 1
+localTime: 7
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 6
+localTime: 7
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:19 
+New Member Added: 
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 0
+localTime: 6
+Failed: False
+
+Processor_12020/11/22 06:35:19 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 18
+localTime: 8
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 2
+localTime: 8
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 9
+localTime: 8
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 0
+localTime: 8
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:20 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 22
+localTime: 9
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 4
+localTime: 9
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 12
+localTime: 9
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 1
+localTime: 9
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:21 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 26
+localTime: 10
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 7
+localTime: 10
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 16
+localTime: 10
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 2
+localTime: 10
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:22 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 30
+localTime: 11
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 11
+localTime: 11
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 20
+localTime: 11
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 4
+localTime: 11
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:23 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 34
+localTime: 12
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 15
+localTime: 12
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 24
+localTime: 12
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 8
+localTime: 12
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:24 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 38
+localTime: 13
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 19
+localTime: 13
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 28
+localTime: 13
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 12
+localTime: 13
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:25 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 42
+localTime: 14
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 23
+localTime: 14
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 32
+localTime: 14
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 16
+localTime: 14
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:26 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 46
+localTime: 15
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 27
+localTime: 15
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 36
+localTime: 15
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 20
+localTime: 15
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:27 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 50
+localTime: 16
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 31
+localTime: 16
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 40
+localTime: 16
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 24
+localTime: 16
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:28 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 54
+localTime: 17
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 35
+localTime: 17
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 44
+localTime: 17
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 28
+localTime: 17
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:29 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 58
+localTime: 18
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 39
+localTime: 18
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 48
+localTime: 18
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 32
+localTime: 18
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:30 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 62
+localTime: 19
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 43
+localTime: 19
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 52
+localTime: 19
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 36
+localTime: 19
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:31 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 66
+localTime: 20
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 47
+localTime: 20
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 56
+localTime: 20
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 40
+localTime: 20
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:32 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 70
+localTime: 21
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 51
+localTime: 21
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 60
+localTime: 21
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 44
+localTime: 21
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:33 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 74
+localTime: 22
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 55
+localTime: 22
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 64
+localTime: 22
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 48
+localTime: 22
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:34 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 78
+localTime: 23
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 59
+localTime: 23
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 68
+localTime: 23
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 52
+localTime: 23
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:35 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 82
+localTime: 24
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 63
+localTime: 24
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 72
+localTime: 24
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 56
+localTime: 24
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:36 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 86
+localTime: 25
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 67
+localTime: 25
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 76
+localTime: 25
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 60
+localTime: 25
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:37 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 90
+localTime: 26
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 71
+localTime: 26
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 80
+localTime: 26
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 64
+localTime: 26
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:38 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 94
+localTime: 27
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 75
+localTime: 27
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 84
+localTime: 27
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 68
+localTime: 27
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:39 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 98
+localTime: 28
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 79
+localTime: 28
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 88
+localTime: 28
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 72
+localTime: 28
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:40 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 102
+localTime: 29
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 83
+localTime: 29
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 92
+localTime: 29
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 76
+localTime: 29
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:41 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 106
+localTime: 30
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 87
+localTime: 30
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 96
+localTime: 30
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 80
+localTime: 30
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:42 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 110
+localTime: 31
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 91
+localTime: 31
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 100
+localTime: 31
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 84
+localTime: 31
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:43 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 114
+localTime: 32
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 95
+localTime: 32
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 104
+localTime: 32
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 88
+localTime: 32
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:44 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 118
+localTime: 33
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 99
+localTime: 33
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 108
+localTime: 33
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 92
+localTime: 33
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:45 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 122
+localTime: 34
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 103
+localTime: 34
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 112
+localTime: 34
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 96
+localTime: 34
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:46 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 126
+localTime: 35
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 107
+localTime: 35
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 116
+localTime: 35
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 100
+localTime: 35
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:47 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 130
+localTime: 36
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 111
+localTime: 36
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 120
+localTime: 36
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 104
+localTime: 36
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:48 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 134
+localTime: 37
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 115
+localTime: 37
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 124
+localTime: 37
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 108
+localTime: 37
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:49 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 138
+localTime: 38
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 119
+localTime: 38
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 128
+localTime: 38
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 112
+localTime: 38
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:50 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 142
+localTime: 39
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 123
+localTime: 39
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 132
+localTime: 39
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 116
+localTime: 39
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:51 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 146
+localTime: 40
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 127
+localTime: 40
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 136
+localTime: 40
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 120
+localTime: 40
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:52 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 150
+localTime: 41
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 131
+localTime: 41
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 140
+localTime: 41
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 124
+localTime: 41
+Failed: False
+current status : ata
+
+Processor_12020/11/22 06:35:53 
+-----pingToOtherProcessors-----
+currList length: 4
+ID: 172.22.156.172_Sun, 22 Nov 2020 06:35:10 CST
+Count: 154
+localTime: 42
+Failed: False
+ID: 172.22.156.173_Sun, 22 Nov 2020 06:35:15 CST
+Count: 135
+localTime: 42
+Failed: False
+ID: 172.22.158.172_Sun, 22 Nov 2020 06:35:12 CST
+Count: 144
+localTime: 42
+Failed: False
+ID: 172.22.94.172_Sun, 22 Nov 2020 06:35:17 CST
+Count: 128
+localTime: 42
+Failed: False
+current status : ata
+
