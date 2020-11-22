@@ -78,6 +78,12 @@ func main() {
 	connETC, err := net.ListenUDP("udp", udpAddr)
 	sv.CheckError(err)
 
+	udpAddr, err = net.ResolveUDPAddr("udp4", processNode.SelfIP+":"+strconv.Itoa(processNode.MyPortNumMJ))
+	sv.CheckError(err)
+
+	connMJ, err := net.ListenUDP("udp", udpAddr)
+	sv.CheckError(err)
+
 	// open the server and collect msgs from other processors
 	processNode.LoggerPerSec.Println("-------starting listening----------")
 	go sv.OpenServer(conn, &processNode)
@@ -85,6 +91,8 @@ func main() {
 	go sv.OpenHeartbeat(connHB, &processNode)
 
 	go sv.OpenETC(connETC, &processNode)
+
+	go sv.OpenMJ(connMJ, &processNode)
 
 	if !processNode.IsIntroducer {
 		sv.NewMemberInitialization(&processNode)

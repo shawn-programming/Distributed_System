@@ -202,6 +202,16 @@ func OpenETC(conn *net.UDPConn, processNodePtr *nd.Node) {
 	}
 }
 
+func OpenMJ(conn *net.UDPConn, processNodePtr *nd.Node) {
+	for {
+		portLog := listenMapleJuice(conn, processNodePtr)
+
+		if len(portLog) > 0 {
+			(*processNodePtr).Logger.Println(portLog)
+		}
+	}
+}
+
 func ListenETC(conn *net.UDPConn, nodePtr *nd.Node) {
 
 	var buf [5120]byte
@@ -495,41 +505,6 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 		fs.Remove(nodePtr, filename)
 		return ms.MsList{}, ""
 
-	} else if messageType == "Maple" {
-		msg := pk.DecodeMapWorkerPacket(message)
-
-		encodedMsg := pk.EncodePacket("Maple Reqeust received", nil)
-		conn.WriteToUDP(encodedMsg, addr)
-
-		fs.Pull(nodePtr, msg.Filename, 1)
-
-		input, _ := ReadFromCsv(nodePtr.DistributedPath + msg.Filename)
-
-		// fp := nil //noo
-
-		mj.MapleReceived(nodePtr, msg.SrcDirectory, mj.CondorcetMapper1, input)
-		return ms.MsList{}, ""
-
-	} else if messageType == "Juice" {
-		//juice
-
-	} else if messageType == "StartMaple" { // leader-only
-		encodedMsg := pk.EncodePacket("StartMaple Received", nil)
-		conn.WriteToUDP(encodedMsg, addr)
-
-		if !(*nodePtr.IsLeaderPtr) {
-			fmt.Println("Not a leader Node. Throwing Maple.")
-		} else {
-			msg := pk.DecodeMapLeaderPacket(message)
-			mj.Maple(nodePtr, msg.MapleExe, msg.NumMaples, msg.IntermediateFilename, msg.SrcDirectory)
-
-			mj.Wait(nodePtr, msg.NumMaples)
-
-			mj.MapleSort(nodePtr, msg.IntermediateFilename, msg.SrcDirectory)
-		}
-
-		return ms.MsList{}, ""
-
 	}
 
 	fmt.Println("not a valid packet, packet name:", messageType)
@@ -653,8 +628,67 @@ func Heartbeat(nodePtr *nd.Node) {
 }
 
 /*
-CheckError(err error)
-	Terminate system with message, if Error occurs
+	listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string)
+
+	listen to incoming MapleJuices
+*/
+func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
+	var portLog string
+	var buf [128]byte
+
+	n, addr, err := conn.ReadFromUDP(buf[0:])
+	//fmt.Print("n:", n)
+	if err != nil {
+		fmt.Println("err != nil")
+		return ""
+	}
+	//fmt.Println("read done")
+
+	message := pk.DecodePacket(buf[:n])
+	messageType := message.Ptype
+
+	if messageType == "Maple" {
+		msg := pk.DecodeMapWorkerPacket(message)
+
+		encodedMsg := pk.EncodePacket("Maple Reqeust received", nil)
+		conn.WriteToUDP(encodedMsg, addr)
+
+		fs.Pull(nodePtr, msg.Filename, 1)
+
+		input, _ := ReadFromCsv(nodePtr.DistributedPath + msg.Filename)
+
+		mj.MapleReceived(nodePtr, msg.SrcDirectory, mj.CondorcetMapper1, input)
+		return ""
+
+	} else if messageType == "Juice" {
+		//juice
+		return ""
+
+	} else if messageType == "StartMaple" { // leader-only
+		encodedMsg := pk.EncodePacket("StartMaple Received", nil)
+		conn.WriteToUDP(encodedMsg, addr)
+
+		if !(*nodePtr.IsLeaderPtr) {
+			fmt.Println("Not a leader Node. Throwing Maple.")
+		} else {
+			msg := pk.DecodeMapLeaderPacket(message)
+			mj.Maple(nodePtr, msg.MapleExe, msg.NumMaples, msg.IntermediateFilename, msg.SrcDirectory)
+
+			mj.Wait(nodePtr, msg.NumMaples)
+
+			mj.MapleSort(nodePtr, msg.IntermediateFilename, msg.SrcDirectory)
+		}
+
+		return ""
+
+	} else {
+		fmt.Println("Invalid HeartBeat:", messageType)
+		return portLog
+	}
+}
+
+/*
+Terminate system with message, if Error occurs
 */
 func CheckError(err error) {
 	if err != nil {

@@ -57,6 +57,10 @@ type Node struct {
 	MyPortNumETC   int // heartbeat port
 	DestPortNumETC int // heartbeat port
 
+	MyPortNumMJ   int // heartbeat port
+	DestPortNumMJ int // heartbeat port
+
+
 	ServerID        string // node's id in string
 	K               int    // gossip's k value
 	LocalPath       string // directory that stores local files
@@ -123,6 +127,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	portList, _ := config.Port()       // Port number's list
 	portHBList, _ := config.PortHB()   // Port number's list
 	portETCList, _ := config.PortETC() // Port number's list
+	portMJList,_:=config.PortMJ()
 
 	timeOut, _ := config.TimeOut() // Time Out info
 	isIntroducer := vmNum == 1     // True if the proceesor is an introducer, else False
@@ -136,6 +141,9 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 
 	myPortNumETC := portETCList[0]
 	destPortNumETC := portETCList[0]
+
+	myPortNumMJ := portMJList[0]
+	destPortNumMJ := portMJList[0]
 
 	// for local test
 	// myPortNum := portList[(vmNum+1)%2]     // Processor's port number
@@ -167,13 +175,16 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.IsIntroducer = isIntroducer
 	tempNode.SelfIP = selfIP
 
+
 	tempNode.MyPortNum = myPortNum
 	tempNode.MyPortNumHB = myPortNumHB
 	tempNode.MyPortNumETC = myPortNumETC
+	tempNode.MyPortNumMJ = myPortNumMJ
 
 	tempNode.DestPortNum = destPortNum
 	tempNode.DestPortNumHB = destPortNumHB
 	tempNode.DestPortNumETC = destPortNumETC
+	tempNode.DestPortNumMJ = destPortNumMJ
 
 	tempNode.ServerID = serverID
 	tempNode.K = K
