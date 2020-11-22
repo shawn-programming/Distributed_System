@@ -643,7 +643,9 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 		fmt.Println("err != nil")
 		return ""
 	}
+
 	//fmt.Println("read done")
+	fmt.Println("message received")
 
 	message := pk.DecodePacket(buf[:n])
 	messageType := message.Ptype
