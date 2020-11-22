@@ -196,7 +196,7 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 		//temp := fp(data)
 		temp := CondorcetMapper1(data)
 
-		fmt.Println("Condocet mapper applied to temp")
+		// fmt.Println("Condocet mapper applied to temp")
 		for _, datum := range temp {
 
 			key := datum[0]
