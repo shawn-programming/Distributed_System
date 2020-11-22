@@ -190,6 +190,7 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 	var hashTable map[string]int
 	var mapled_data [][][]string
 
+	fmt.Println("start mapling")
 	for _, data := range input {
 		//temp := fp(data)
 		temp := CondorcetMapper1(data)
@@ -198,7 +199,7 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 			key := datum[0]
 			if _, exists := hashTable[key]; !exists {
 				mapled_data = append(mapled_data, [][]string{})
-				hashTable[key] = len(mapled_data)
+				hashTable[key] = len(mapled_data) - 1
 			}
 
 			location := hashTable[key]
