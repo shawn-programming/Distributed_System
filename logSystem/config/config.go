@@ -18,7 +18,7 @@ type configParam struct {
 	Port      []int
 	PortHB    []int
 	PortETC   []int
-	PortMJ	  []int
+	PortMJ    []int
 	TimeOut   int
 	K         int
 	FailRate  int

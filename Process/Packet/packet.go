@@ -268,8 +268,8 @@ func DecodeMapLeaderPacket(encodedMessage PacketType) MapLeader {
 }
 
 type MapWorker struct {
-	Filename     string
-	SrcDirectory string
+	Filename             string
+	IntermediateFilename string
 }
 
 func EncodeMapWorkerPacket(message MapWorker) []byte {
