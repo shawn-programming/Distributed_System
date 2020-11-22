@@ -238,6 +238,7 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 	// 	fmt.Println("Removed " + f)
 	// }
 
+	fmt.Println("start maple sort")
 	hashTable := make(map[string]int)
 	var mapled_data [][][]string
 
@@ -252,27 +253,30 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 	// Then save it as a csv file
 	localFiles := fileList("./local_files")
 	for _, local := range localFiles {
+		fmt.Println("start for loop")
+		fmt.Println("curr file:", local, " looking for:", IntermediateFilename)
+
 		var temp [][]string
 		if startsWith(local, IntermediateFilename) {
 			temp = csvReader("./local_files/" + local)
 			fmt.Println(len(temp))
-		} else {
-			continue
-		}
 
-		key := temp[0][0]
+			key := temp[0][0]
 
-		if len(temp) > 0 {
-			if _, exists := hashTable[key]; !exists {
-				mapled_data = append(mapled_data, [][]string{})
-				hashTable[key] = len(mapled_data) - 1
+			if len(temp) > 0 {
+				if _, exists := hashTable[key]; !exists {
+					mapled_data = append(mapled_data, [][]string{})
+					hashTable[key] = len(mapled_data) - 1
+				}
+				location := hashTable[key]
+				mapled_data[location] = append(mapled_data[location], temp...)
 			}
-			location := hashTable[key]
-			mapled_data[location] = append(mapled_data[location], temp...)
+			//fs.Remove(processNodePtr, local)
 		}
 
-		//fs.Remove(processNodePtr, local)
 	}
+
+	fmt.Println("done for loop")
 
 	for key, location := range hashTable {
 		filename := IntermediateFilename + ":" + key
