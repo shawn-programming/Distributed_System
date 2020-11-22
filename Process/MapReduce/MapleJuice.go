@@ -265,7 +265,7 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 		fmt.Println("curr file:", local, " looking for:", IntermediateFilename)
 
 		var temp [][]string
-		if startsWith(local, IntermediateFilename) {
+		if startsWith(local, IntermediateFilename) && strings.Contains(local, "172") {
 			temp = csvReader("./local_files/" + local)
 			fmt.Println(len(temp))
 
