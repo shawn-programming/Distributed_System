@@ -288,11 +288,12 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 
 	for key, location := range hashTable {
 		filename := IntermediateFilename + ":" + key
-
+		fmt.Println("Generating a file:", filename, " key:", key)
 		csvWriter(processNodePtr.LocalPath+filename, mapled_data[location])
 		fs.Put(processNodePtr, filename, 1)
 	}
 
+	fmt.Println("maple sort done!")
 }
 
 func startsWith(s1, s2 string) bool {
