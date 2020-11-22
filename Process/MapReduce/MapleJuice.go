@@ -241,13 +241,20 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 
 	fmt.Println("start maple sort")
 	hashTable := make(map[string]int)
+	fmt.Println("1")
+
 	var mapled_data [][][]string
 
 	// open all sdfs csv files starts with "IntermediateFilename" and store it as one total file.
+	fmt.Println("2")
 
 	for _, sdfsFile := range *(processNodePtr.DistributedFilesPtr) {
+		fmt.Println("filename:", sdfsFile)
+
 		if startsWith(sdfsFile, IntermediateFilename) {
+			fmt.Println("start pulling")
 			fs.Pull(processNodePtr, IntermediateFilename, 1)
+			fmt.Println("Pulled:", sdfsFile)
 		}
 	}
 
