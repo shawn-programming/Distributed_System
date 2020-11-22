@@ -58,6 +58,7 @@ func csvReader(filePath string) [][]string {
 		}
 		data = append(data, record)
 	}
+	csvfile.Close()
 
 	fmt.Println("csv Reader done")
 	return data
@@ -278,6 +279,7 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 		csvWriter(processNodePtr.LocalPath+filename, mapled_data[location])
 		fs.Put(processNodePtr, filename, 1)
 	}
+
 }
 
 func startsWith(s1, s2 string) bool {
