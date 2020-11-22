@@ -26,7 +26,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Usage: %s need a VM number", os.Args[0])
 		os.Exit(1)
 	}
-
+	MapleJuiceCounter := 0
 	IsLeader := os.Args[1] == "1"
 	ATA := true
 	TotalByteSent := 0
@@ -37,7 +37,7 @@ func main() {
 	LeaderService := IDAdresses[1] + ":" + strconv.Itoa(Ports[0])
 	Initiator := ""
 
-	processNode := nd.CreateNode(os.Args[1], &IsLeader, &ATA, &TotalByteSent, &InputList, &LeaderService, &DistributedFiles, &Initiator) // Processor's Node
+	processNode := nd.CreateNode(os.Args[1], &IsLeader, &ATA, &TotalByteSent, &InputList, &LeaderService, &DistributedFiles, &Initiator, &MapleJuiceCounter) // Processor's Node
 
 	tempLeader := nd.Leader{&processNode.MsList, map[string][]ms.Id{}, map[ms.Id][]string{}}
 	processNode.LeaderPtr = &tempLeader
@@ -72,11 +72,19 @@ func main() {
 	connHB, err := net.ListenUDP("udp", udpAddr)
 	sv.CheckError(err)
 
+	udpAddr, err = net.ResolveUDPAddr("udp4", processNode.SelfIP+":"+strconv.Itoa(processNode.MyPortNumETC))
+	sv.CheckError(err)
+
+	connETC, err := net.ListenUDP("udp", udpAddr)
+	sv.CheckError(err)
+
 	// open the server and collect msgs from other processors
 	processNode.LoggerPerSec.Println("-------starting listening----------")
 	go sv.OpenServer(conn, &processNode)
 
 	go sv.OpenHeartbeat(connHB, &processNode)
+
+	go sv.OpenETC(connETC, &processNode)
 
 	if !processNode.IsIntroducer {
 		sv.NewMemberInitialization(&processNode)
@@ -90,6 +98,6 @@ func main() {
 	go sv.Heartbeat(&processNode)
 
 	for {
-		// hand the system
+		// hold the system
 	}
 }

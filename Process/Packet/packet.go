@@ -229,6 +229,62 @@ func DecodeFilesPacket(encodedMessage PacketType) FilesPacket {
 	return decodedMessage
 }
 
+type MapPacket struct {
+	Filename string
+	Fp       func([][]string)
+}
+
+func EncodeMapPacket(message MapPacket) []byte {
+	encodedMessage, err := json.Marshal(message)
+	checkError(err)
+	return encodedMessage
+}
+
+func DecodeMapPacket(encodedMessage PacketType) MapPacket {
+	var decodedMessage MapPacket
+	err := json.Unmarshal(encodedMessage.EncodePacket, &decodedMessage)
+	checkError(err)
+	return decodedMessage
+}
+
+type MapLeader struct {
+	MapleExe             string
+	NumMaples            int
+	IntermediateFilename string
+	SrcDirectory         string
+}
+
+func EncodeMapLeaderPacket(message MapLeader) []byte {
+	encodedMessage, err := json.Marshal(message)
+	checkError(err)
+	return encodedMessage
+}
+
+func DecodeMapLeaderPacket(encodedMessage PacketType) MapLeader {
+	var decodedMessage MapLeader
+	err := json.Unmarshal(encodedMessage.EncodePacket, &decodedMessage)
+	checkError(err)
+	return decodedMessage
+}
+
+type MapWorker struct {
+	Filename     string
+	SrcDirectory string
+}
+
+func EncodeMapWorkerPacket(message MapWorker) []byte {
+	encodedMessage, err := json.Marshal(message)
+	checkError(err)
+	return encodedMessage
+}
+
+func DecodeMapWorkerPacket(encodedMessage PacketType) MapWorker {
+	var decodedMessage MapWorker
+	err := json.Unmarshal(encodedMessage.EncodePacket, &decodedMessage)
+	checkError(err)
+	return decodedMessage
+}
+
 /*
 CheckError(err error)
 	Terminate system with message, if Error occurs

@@ -171,7 +171,6 @@ func GetFileList(processNodePtr *nd.Node) map[string][]ms.Id {
 
 }
 
-
 /*
 	SendFilelist(processNodePtr *nd.Node)
 
@@ -200,7 +199,6 @@ func SendFilelist(processNodePtr *nd.Node) {
 		// fmt.Println("seding done")
 	}
 }
-
 
 /*
 	Put(processNodePtr *nd.Node, filename string, N int)
@@ -259,7 +257,6 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	//fmt.Println("Put Done")
 }
 
-
 /*
 	Send(processNodePtr *nd.Node, filename string, idList []ms.Id, IsPull bool)
 
@@ -275,9 +272,8 @@ func Send(processNodePtr *nd.Node, filename string, idList []ms.Id, IsPull bool)
 	}
 }
 
-
 /*
-	Pull(processNodePtr *nd.Node, filename string, N int) 	
+	Pull(processNodePtr *nd.Node, filename string, N int)
 
 	request the leader to find the node with the file and commands the node
 	to send the requested file to the client.
@@ -346,7 +342,6 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 	// fmt.Println("pull Done")
 }
 
-
 /*
 	ListenTCP(request string, fileName string, processNodePtr *nd.Node, connection *net.UDPConn, addr *net.UDPAddr, IsPull bool) {
 
@@ -396,7 +391,6 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 
 	}
 }
-
 
 /*
 	RequestTCP(command string, ipaddr string, fileName string, processNodePtr *nd.Node, id ms.Id, IsPull bool)
@@ -470,7 +464,6 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 	return
 }
 
-
 /*
 	ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node)
 
@@ -520,9 +513,9 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) {
 }
 
 /*
-	fillString(retunString string, toLength int) 
+	fillString(retunString string, toLength int)
 
-	used to fill string	
+	used to fill string
 	code copied from https://mrwaggel.be/post/golang-transfer-a-file-over-a-tcp-socket/
 */
 func fillString(retunString string, toLength int) string {
@@ -537,12 +530,11 @@ func fillString(retunString string, toLength int) string {
 	return retunString
 }
 
-
 /*
 	UpdateLeader(fileName string, processNodePtr *nd.Node)
 
 	request leader to update its file meta-data
-*/	
+*/
 func UpdateLeader(fileName string, processNodePtr *nd.Node) {
 
 	if *processNodePtr.IsLeaderPtr {
@@ -570,7 +562,6 @@ func UpdateLeader(fileName string, processNodePtr *nd.Node) {
 		checkError(err)
 	}
 }
-
 
 /*
 	OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id, IsPull bool) {
@@ -610,10 +601,10 @@ func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id,
 /*
 	LeaderInit(node *nd.Node, failedLeader string)
 
-	upon new election of a leader, 
+	upon new election of a leader,
 	it gathers necessary file meta-data to perform the role as a new leader, and
-	accounts for possible failure during leader election by 
-	checking number of files presetn in the DFS, and taking appropriate measure. 
+	accounts for possible failure during leader election by
+	checking number of files presetn in the DFS, and taking appropriate measure.
 */
 func LeaderInit(node *nd.Node, failedLeader string) {
 	time.Sleep(time.Second * 5) // 5 == timeOut
@@ -699,6 +690,24 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 	fmt.Println("Leader Init completed")
 }
 
+func IncreaseMapleJuiceCounter(nodePtr *nd.Node) {
+	leaderService := *nodePtr.LeaderServicePtr
+
+	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService[:len(leaderService)-4]+"1236")
+	checkError(err)
+
+	conn, err := net.DialUDP("udp", nil, udpAddr)
+	checkError(err)
+
+	// send the leader about the remove request
+	_, err = conn.Write(pk.EncodePacket("IncreaseMapleJuiceCounter", nil))
+
+	var buf [64]byte
+	_, err = conn.Read(buf[0:])
+	checkError(err)
+
+	fmt.Println(nodePtr.SelfIP + " maple done.")
+}
 
 /*
 	Checks Error

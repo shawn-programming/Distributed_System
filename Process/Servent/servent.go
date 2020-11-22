@@ -2,15 +2,18 @@ package servent
 
 import (
 	"bufio"
+	"encoding/csv"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
 	"net"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	fs "../FileSys"
+	mj "../MapReduce"
 	ms "../Membership"
 	nd "../Node"
 	pk "../Packet"
@@ -191,6 +194,35 @@ func OpenHeartbeat(conn *net.UDPConn, NodePtr *nd.Node) {
 			(*NodePtr).Logger.Println(portLog)
 		}
 	}
+}
+
+func OpenETC(conn *net.UDPConn, processNodePtr *nd.Node) {
+	for {
+		ListenETC(conn, processNodePtr)
+	}
+}
+
+func ListenETC(conn *net.UDPConn, nodePtr *nd.Node) {
+
+	var buf [5120]byte
+	n, addr, err := conn.ReadFromUDP(buf[0:])
+	if err != nil {
+		fmt.Println("err != nil")
+	}
+
+	message := pk.DecodePacket(buf[:n])
+	messageType := message.Ptype
+
+	if messageType == "IncreaseMapleJuiceCounter" {
+		if !(*nodePtr.IsLeaderPtr) {
+			fmt.Println("Not a leader Node. Throwing IncreaseMapleJuiceCounter.")
+			return
+		}
+		(*nodePtr.MapleJuiceCounterPtr)++
+		encodedMsg := pk.EncodePacket("IncreaseMapleJuiceCounter Received", nil)
+		conn.WriteToUDP(encodedMsg, addr)
+	}
+
 }
 
 /*
@@ -462,6 +494,42 @@ func ListenOnPort(conn *net.UDPConn, nodePtr *nd.Node) (ms.MsList, string) {
 
 		fs.Remove(nodePtr, filename)
 		return ms.MsList{}, ""
+
+	} else if messageType == "Maple" {
+		msg := pk.DecodeMapWorkerPacket(message)
+
+		encodedMsg := pk.EncodePacket("Maple Reqeust received", nil)
+		conn.WriteToUDP(encodedMsg, addr)
+
+		fs.Pull(nodePtr, msg.Filename, 1)
+
+		input, _ := ReadFromCsv(nodePtr.DistributedPath + msg.Filename)
+
+		// fp := nil //noo
+
+		mj.MapleReceived(nodePtr, msg.SrcDirectory, mj.CondorcetMapper1, input)
+		return ms.MsList{}, ""
+
+	} else if messageType == "Juice" {
+		//juice
+
+	} else if messageType == "StartMaple" { // leader-only
+		encodedMsg := pk.EncodePacket("StartMaple Received", nil)
+		conn.WriteToUDP(encodedMsg, addr)
+
+		if !(*nodePtr.IsLeaderPtr) {
+			fmt.Println("Not a leader Node. Throwing Maple.")
+		} else {
+			msg := pk.DecodeMapLeaderPacket(message)
+			mj.Maple(nodePtr, msg.MapleExe, msg.NumMaples, msg.IntermediateFilename, msg.SrcDirectory)
+
+			mj.Wait(nodePtr, msg.NumMaples)
+
+			mj.MapleSort(nodePtr, msg.IntermediateFilename, msg.SrcDirectory)
+		}
+
+		return ms.MsList{}, ""
+
 	}
 
 	fmt.Println("not a valid packet, packet name:", messageType)
@@ -629,7 +697,7 @@ func GetCommand(processNodePtr *nd.Node) {
 	for {
 		scanner.Scan()
 		command := scanner.Text()
-
+		interpreted := commandIterpreter(command)
 		if command == "gossip" {
 			fmt.Println("Changing to Gossip")
 			loggerPerSec.Println("Changing to Gossip")
@@ -734,8 +802,39 @@ func GetCommand(processNodePtr *nd.Node) {
 			filename := command[7:]
 			fs.RemoveFile(processNodePtr, filename)
 
+		} else if len(interpreted) == 5 && interpreted[0] == "maple" {
+
+			mapleExe := interpreted[1]
+			numMaples, _ := strconv.Atoi(interpreted[2])
+			intermediateFilename := interpreted[3]
+			srcDirectory := interpreted[4]
+
+			data := pk.MapLeader{mapleExe, numMaples, intermediateFilename, srcDirectory}
+
+			mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data))
 		} else {
 			fmt.Println("Invalid Command")
 		}
 	}
+}
+
+func commandIterpreter(command string) []string {
+	return strings.Fields(command)
+}
+
+// ReadFromCsv will read the csv file at filePath and return its
+// contents as a 2d array of floats
+func ReadFromCsv(filePath string) ([][]string, error) {
+	file, err := os.Open(filePath)
+	if err != nil {
+		return nil, err
+	}
+
+	reader := csv.NewReader(file)
+	stringValues, err := reader.ReadAll()
+	if err != nil {
+		return nil, err
+	}
+
+	return stringValues, nil
 }

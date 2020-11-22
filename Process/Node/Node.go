@@ -54,6 +54,9 @@ type Node struct {
 	MyPortNumHB   int // heartbeat port
 	DestPortNumHB int // heartbeat port
 
+	MyPortNumETC   int // heartbeat port
+	DestPortNumETC int // heartbeat port
+
 	ServerID        string // node's id in string
 	K               int    // gossip's k value
 	LocalPath       string // directory that stores local files
@@ -67,15 +70,16 @@ type Node struct {
 	LocalTime int // local time of the node
 
 	// variable pointers
-	LeaderServicePtr    *string      // Leader's Id
-	IsLeaderPtr         *bool        // true if node is the leader
-	ATAPtr              *bool        // true if heartbeating is all to all else false
-	TotalByteSentPtr    *int         // tracks total byte usages
-	DistributedFilesPtr *[]string    // list of distributed files
-	InputListPtr        *[]ms.MsList // node's InputList (for heartbeating)
-	Logger              *log.Logger  // node's main logger
-	LoggerPerSec        *log.Logger  // node's heartbeat logger
-	LoggerByte          *log.Logger  // node's byte usage tracker
+	MapleJuiceCounterPtr *int         // Counter for MapleJuice
+	LeaderServicePtr     *string      // Leader's Id
+	IsLeaderPtr          *bool        // true if node is the leader
+	ATAPtr               *bool        // true if heartbeating is all to all else false
+	TotalByteSentPtr     *int         // tracks total byte usages
+	DistributedFilesPtr  *[]string    // list of distributed files
+	InputListPtr         *[]ms.MsList // node's InputList (for heartbeating)
+	Logger               *log.Logger  // node's main logger
+	LoggerPerSec         *log.Logger  // node's heartbeat logger
+	LoggerByte           *log.Logger  // node's byte usage tracker
 
 	// leader struct
 	LeaderPtr *Leader
@@ -104,7 +108,8 @@ CreateNode(vmNumStr string)
 Node Constructor
 RETURN: a Node for a processor
 */
-func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *int, InputListPtr *[]ms.MsList, LeaderServicePtr *string, DistributedFilesPtr *[]string, Initiator *string) Node {
+func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *int, InputListPtr *[]ms.MsList,
+	LeaderServicePtr *string, DistributedFilesPtr *[]string, Initiator *string, MapleJuiceCounterPtr *int) Node {
 	tempNode := Node{}
 
 	failRate, _ := config.FailRate()
@@ -115,8 +120,9 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 
 	IntroducerIPList, _ := config.IPAddress() // Introducer's IP
 	IntroducerIP := IntroducerIPList[1]
-	portList, _ := config.Port()     // Port number's list
-	portHBList, _ := config.PortHB() // Port number's list
+	portList, _ := config.Port()       // Port number's list
+	portHBList, _ := config.PortHB()   // Port number's list
+	portETCList, _ := config.PortETC() // Port number's list
 
 	timeOut, _ := config.TimeOut() // Time Out info
 	isIntroducer := vmNum == 1     // True if the proceesor is an introducer, else False
@@ -126,7 +132,10 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	myPortNum := portList[0]   // Processor's port number
 	destPortNum := portList[0] // Receiver's port number
 	myPortNumHB := portHBList[0]
-	desPortNumHB := portHBList[0]
+	destPortNumHB := portHBList[0]
+
+	destPortNumETC := portETCList[0]
+
 	// for local test
 	// myPortNum := portList[(vmNum+1)%2]     // Processor's port number
 	// destPortNum := portList[vmNum%2]       // Receiver's port number
@@ -159,7 +168,10 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.MyPortNum = myPortNum
 	tempNode.MyPortNumHB = myPortNumHB
 	tempNode.DestPortNum = destPortNum
-	tempNode.DestPortNumHB = desPortNumHB
+	tempNode.DestPortNumHB = destPortNumHB
+
+	tempNode.DestPortNumHB = destPortNumETC
+
 	tempNode.ServerID = serverID
 	tempNode.K = K
 	tempNode.LocalPath = "./local_files/"
@@ -170,6 +182,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.LocalTime = 0
 
 	// variable pointers
+	tempNode.MapleJuiceCounterPtr = MapleJuiceCounterPtr
 	tempNode.LeaderServicePtr = LeaderServicePtr
 	tempNode.IsLeaderPtr = IsLeaderPtr
 	tempNode.ATAPtr = ATAPtr
