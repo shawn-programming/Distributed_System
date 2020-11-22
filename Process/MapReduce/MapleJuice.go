@@ -255,6 +255,7 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 		var temp [][]string
 		if startsWith(local, IntermediateFilename) {
 			temp = csvReader("./local_files/" + local)
+			fmt.Println(len(temp))
 		} else {
 			continue
 		}
@@ -270,7 +271,7 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 			mapled_data[location] = append(mapled_data[location], temp...)
 		}
 
-		fs.Remove(processNodePtr, local)
+		//fs.Remove(processNodePtr, local)
 	}
 
 	for key, location := range hashTable {
