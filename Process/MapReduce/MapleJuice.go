@@ -101,7 +101,7 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 
 	for _, file := range files {
 		fmt.Println("File: " + file)
-		input_data = append(input_data, csvReader(file)...)
+		input_data = append(input_data, csvReader(sdfs_src_directory+file)...)
 	}
 
 	input_num := len(input_data)
@@ -117,6 +117,7 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 		data_per_node[i] = input_data[start:end]
 
 		filename := sdfs_intermediate_filename_prefix + ":" + strconv.Itoa(i)
+
 		csvWriter(processNodePtr.LocalPath+filename, data_per_node[i])
 		fs.Put(processNodePtr, filename, 1)
 	}
