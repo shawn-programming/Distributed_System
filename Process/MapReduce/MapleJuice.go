@@ -231,12 +231,12 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 
 func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory string) {
 
-	fmt.Println("Source Directory: " + SrcDirectory)
-	to_remove := fileList(SrcDirectory)
-	for _, f := range to_remove {
-		fs.Remove(processNodePtr, f)
-		fmt.Println("Removed " + f)
-	}
+	// fmt.Println("Source Directory: " + SrcDirectory)
+	// to_remove := fileList(SrcDirectory)
+	// for _, f := range to_remove {
+	// 	fs.Remove(processNodePtr, f)
+	// 	fmt.Println("Removed " + f)
+	// }
 
 	hashTable := make(map[string]int)
 	var mapled_data [][][]string
