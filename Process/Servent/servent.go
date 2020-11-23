@@ -893,18 +893,18 @@ func GetCommand(processNodePtr *nd.Node) {
 			mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartMaple")
 		} else if len(interpreted) == 6 && interpreted[0] == "juice" {
 			mapleExe := interpreted[1]
-			numMaples, _ := strconv.Atoi(interpreted[2])
+			numJuices, _ := strconv.Atoi(interpreted[2])
 			intermediateFilename := interpreted[3]
 			srcDirectory := interpreted[4]
-
+			fmt.Println(interpreted)
 			var deleteOrNot bool
 			if interpreted[5] == "1" {
 				deleteOrNot = true
 			} else {
 				deleteOrNot = false
 			}
-
-			data := pk.MapLeader{mapleExe, numMaples, intermediateFilename, srcDirectory, deleteOrNot}
+			fmt.Println(numJuices)
+			data := pk.MapLeader{mapleExe, numJuices, intermediateFilename, srcDirectory, deleteOrNot}
 
 			mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartJuice")
 
