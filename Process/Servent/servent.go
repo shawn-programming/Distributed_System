@@ -656,9 +656,8 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 
 	if messageType == "Maple" {
 		msg := pk.DecodeMapWorkerPacket(message)
-
 		encodedMsg := pk.EncodePacket("Maple Reqeust received", nil)
-		// conn.WriteToUDP(encodedMsg, addr)
+		conn.WriteToUDP(encodedMsg, addr)
 
 		fs.Pull(nodePtr, msg.Filename, 1)
 
@@ -675,7 +674,7 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 
 		fmt.Println("Reading file completed")
 		mj.MapleReceived(nodePtr, msg.IntermediateFilename, mj.CondorcetMapper1, input)
-		conn.WriteToUDP(encodedMsg, addr)
+
 		return ""
 
 	} else if messageType == "StartMaple" { // leader-only
