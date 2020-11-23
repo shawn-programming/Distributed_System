@@ -327,6 +327,8 @@ func AllocateJuice(nodePtr *nd.Node, num_juice int, mapledList []string) map[str
 
 	num_keys_per_node := (file_num - (file_num % num_juice)) / num_juice
 
+	fmt.Println("File num:", fileList, "num_juice:", num_juice, "num_keys_per_node", num_keys_per_node)
+
 	workerNodes := getNameNodes(nodePtr, num_juice)
 
 	service_juice_pairs := make(map[string][]string)
@@ -349,13 +351,17 @@ func AllocateJuice(nodePtr *nd.Node, num_juice int, mapledList []string) map[str
 }
 
 func Juice(processNodePtr *nd.Node, juice_exe string, num_juice int, sdfs_intermediate_filename_prefix, sdfs_src_directory string, delete_input bool) {
+	fmt.Println("Juice")
 
 	service_juice_pairs := AllocateJuice(processNodePtr, num_juice, processNodePtr.MapledFiles)
 	SendUDPJuiceToWorkers(service_juice_pairs, juice_exe, sdfs_intermediate_filename_prefix, sdfs_src_directory, delete_input)
 
+	fmt.Println("Juice Done")
+
 }
 
 func SendUDPJuiceToWorkers(service_juice_pairs map[string][]string,
+
 	juice_exe string, sdfs_intermediate_filename_prefix string,
 	sdfs_src_directory string,
 	delete_input bool) {
@@ -363,6 +369,7 @@ func SendUDPJuiceToWorkers(service_juice_pairs map[string][]string,
 	fmt.Println("SendJuiceUDPToWorkers start")
 
 	for worker, filenames := range service_juice_pairs {
+		fmt.Println("sending: ", workers)
 
 		udpAddr, err := net.ResolveUDPAddr("udp4", worker)
 		fs.CheckError(err)
