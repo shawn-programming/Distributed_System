@@ -270,7 +270,15 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 		if strings.HasPrefix(sdfsFile, IntermediateFilename) {
 			fmt.Println("start pulling")
 			fs.Pull(processNodePtr, sdfsFile, 1)
+
+			for {
+				input, _ := ReadFromCsv(processNodePtr.LocalPath + sdfsFile)
+				if len(input) > 0 {
+					break
+				}
+			}
 			fmt.Println("Pulled:", sdfsFile)
+
 		}
 	}
 
@@ -400,7 +408,16 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 
 	for _, file := range fileList {
 		fs.Pull(nodePtr, file, 1)
+
+		for {
+			input, _ := ReadFromCsv(nodePtr.LocalPath + file)
+			if len(input) > 0 {
+				break
+			}
+		}
+
 		data := csvReader(nodePtr.LocalPath + file)
+
 		if juice_exe == "condorcet" {
 			reduced_data := CondorcetReducer1(data)
 			juiced_data = append(juiced_data, reduced_data)
@@ -443,6 +460,13 @@ func JuiceSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 		if strings.HasPrefix(sdfsFile, IntermediateFilename) {
 			fmt.Println("start pulling")
 			fs.Pull(processNodePtr, sdfsFile, 1)
+
+			for {
+				input, _ := ReadFromCsv(processNodePtr.LocalPath + sdfsFile)
+				if len(input) > 0 {
+					break
+				}
+			}
 			fmt.Println("Pulled:", sdfsFile)
 		}
 	}
@@ -474,6 +498,23 @@ func JuiceSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 
 	fmt.Println("juice sort done!")
 
+}
+
+// ReadFromCsv will read the csv file at filePath and return its
+// contents as a 2d array of floats
+func ReadFromCsv(filePath string) ([][]string, error) {
+	file, err := os.Open(filePath)
+	if err != nil {
+		return nil, err
+	}
+
+	reader := csv.NewReader(file)
+	stringValues, err := reader.ReadAll()
+	if err != nil {
+		return nil, err
+	}
+
+	return stringValues, nil
 }
 
 func CondorcetMapper1(input []string) [][][]string {
