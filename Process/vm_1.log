@@ -1566,3 +1566,206 @@ Processor_12020/11/22 06:35:28 Sending Replicas
 Processor_12020/11/22 06:35:29 TCP Opened
 Processor_12020/11/22 06:35:30 Sending Replicas
 Processor_12020/11/22 06:35:31 Sending Replicas
+Processor_12020/11/23 02:57:07 ServerID: 172.22.156.172_Mon, 23 Nov 2020 02:57:07 CST
+Processor_12020/11/23 02:57:07 selfIP: 172.22.156.172:1234
+Processor_12020/11/23 02:57:07 TimeOut: 5
+Processor_12020/11/23 02:57:10 
+New Member Added: 
+ID: 172.22.158.172_Mon, 23 Nov 2020 02:57:09 CST
+Count: 0
+localTime: 1
+Failed: False
+
+Processor_12020/11/23 02:57:12 
+New Member Added: 
+ID: 172.22.156.173_Mon, 23 Nov 2020 02:57:11 CST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/11/23 02:57:14 
+New Member Added: 
+ID: 172.22.94.172_Mon, 23 Nov 2020 02:57:13 CST
+Count: 0
+localTime: 5
+Failed: False
+
+Processor_12020/11/23 02:57:21 Sending Replicas
+Processor_12020/11/23 02:57:22 Sending Replicas
+Processor_12020/11/23 02:57:23 Sending Replicas
+Processor_12020/11/23 02:57:23 TCP Opened
+Processor_12020/11/23 02:58:14 ServerID: 172.22.156.172_Mon, 23 Nov 2020 02:58:14 CST
+Processor_12020/11/23 02:58:14 selfIP: 172.22.156.172:1234
+Processor_12020/11/23 02:58:14 TimeOut: 5
+Processor_12020/11/23 02:58:17 
+New Member Added: 
+ID: 172.22.158.172_Mon, 23 Nov 2020 02:58:16 CST
+Count: 0
+localTime: 1
+Failed: False
+
+Processor_12020/11/23 02:58:19 
+New Member Added: 
+ID: 172.22.156.173_Mon, 23 Nov 2020 02:58:17 CST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/11/23 02:58:21 
+New Member Added: 
+ID: 172.22.94.172_Mon, 23 Nov 2020 02:58:19 CST
+Count: 0
+localTime: 5
+Failed: False
+
+Processor_12020/11/23 02:58:28 Sending Replicas
+Processor_12020/11/23 02:58:29 Sending Replicas
+Processor_12020/11/23 02:58:30 Sending Replicas
+Processor_12020/11/23 02:58:30 Sending Replicas
+Processor_12020/11/23 02:58:30 TCP Opened
+Processor_12020/11/23 02:58:30 TCP Opened
+Processor_12020/11/23 02:58:30 Sending Replicas
+Processor_12020/11/23 02:58:30 TCP Opened
+Processor_12020/11/23 02:58:31 Sending Replicas
+Processor_12020/11/23 02:58:31 Sending Replicas
+Processor_12020/11/23 02:58:31 TCP Opened
+Processor_12020/11/23 02:58:31 TCP Opened
+Processor_12020/11/23 02:58:31 Sending Replicas
+Processor_12020/11/23 02:58:31 TCP Opened
+Processor_12020/11/23 02:58:33 Sending Replicas
+Processor_12020/11/23 02:58:33 Sending Replicas
+Processor_12020/11/23 02:58:34 Sending Replicas
+Processor_12020/11/23 03:09:27 ServerID: 172.22.156.172_Mon, 23 Nov 2020 03:09:27 CST
+Processor_12020/11/23 03:09:27 selfIP: 172.22.156.172:1234
+Processor_12020/11/23 03:09:27 TimeOut: 5
+Processor_12020/11/23 03:09:30 
+New Member Added: 
+ID: 172.22.158.172_Mon, 23 Nov 2020 03:09:29 CST
+Count: 0
+localTime: 1
+Failed: False
+
+Processor_12020/11/23 03:09:32 
+New Member Added: 
+ID: 172.22.156.173_Mon, 23 Nov 2020 03:09:31 CST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/11/23 03:09:35 
+New Member Added: 
+ID: 172.22.94.172_Mon, 23 Nov 2020 03:09:33 CST
+Count: 0
+localTime: 5
+Failed: False
+
+Processor_12020/11/23 03:09:39 Sending Replicas
+Processor_12020/11/23 03:09:39 Sending Replicas
+Processor_12020/11/23 03:09:41 Sending Replicas
+Processor_12020/11/23 03:09:41 TCP Opened
+Processor_12020/11/23 03:09:41 Sending Replicas
+Processor_12020/11/23 03:09:41 Sending Replicas
+Processor_12020/11/23 03:09:41 TCP Opened
+Processor_12020/11/23 03:13:45 ServerID: 172.22.156.172_Mon, 23 Nov 2020 03:13:45 CST
+Processor_12020/11/23 03:13:45 selfIP: 172.22.156.172:1234
+Processor_12020/11/23 03:13:45 TimeOut: 5
+Processor_12020/11/23 03:13:48 
+New Member Added: 
+ID: 172.22.158.172_Mon, 23 Nov 2020 03:13:46 CST
+Count: 0
+localTime: 1
+Failed: False
+
+Processor_12020/11/23 03:13:51 
+New Member Added: 
+ID: 172.22.156.173_Mon, 23 Nov 2020 03:13:49 CST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/11/23 03:13:53 
+New Member Added: 
+ID: 172.22.94.172_Mon, 23 Nov 2020 03:13:51 CST
+Count: 0
+localTime: 6
+Failed: False
+
+Processor_12020/11/23 03:13:58 Sending Replicas
+Processor_12020/11/23 03:13:58 Sending Replicas
+Processor_12020/11/23 03:28:18 ServerID: 172.22.156.172_Mon, 23 Nov 2020 03:28:18 CST
+Processor_12020/11/23 03:28:18 selfIP: 172.22.156.172:1234
+Processor_12020/11/23 03:28:18 TimeOut: 5
+Processor_12020/11/23 03:28:22 
+New Member Added: 
+ID: 172.22.158.172_Mon, 23 Nov 2020 03:28:21 CST
+Count: 0
+localTime: 2
+Failed: False
+
+Processor_12020/11/23 03:28:24 
+New Member Added: 
+ID: 172.22.156.173_Mon, 23 Nov 2020 03:28:23 CST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/11/23 03:28:26 
+New Member Added: 
+ID: 172.22.94.172_Mon, 23 Nov 2020 03:28:25 CST
+Count: 0
+localTime: 6
+Failed: False
+
+Processor_12020/11/23 03:28:31 Sending Replicas
+Processor_12020/11/23 03:28:31 Sending Replicas
+Processor_12020/11/23 03:28:32 Sending Replicas
+Processor_12020/11/23 03:28:32 TCP Opened
+Processor_12020/11/23 03:28:32 Sending Replicas
+Processor_12020/11/23 03:28:33 TCP Opened
+Processor_12020/11/23 03:28:33 Sending Replicas
+Processor_12020/11/23 03:28:33 Sending Replicas
+Processor_12020/11/23 03:28:33 TCP Opened
+Processor_12020/11/23 03:28:33 Sending Replicas
+Processor_12020/11/23 03:28:33 Sending Replicas
+Processor_12020/11/23 03:28:33 TCP Opened
+Processor_12020/11/23 03:28:33 TCP Opened
+Processor_12020/11/23 03:28:35 Sending Replicas
+Processor_12020/11/23 03:28:35 Sending Replicas
+Processor_12020/11/23 03:28:36 Sending Replicas
+Processor_12020/11/23 03:31:03 ServerID: 172.22.156.172_Mon, 23 Nov 2020 03:31:03 CST
+Processor_12020/11/23 03:31:03 selfIP: 172.22.156.172:1234
+Processor_12020/11/23 03:31:03 TimeOut: 5
+Processor_12020/11/23 03:31:06 
+New Member Added: 
+ID: 172.22.158.172_Mon, 23 Nov 2020 03:31:04 CST
+Count: 0
+localTime: 1
+Failed: False
+
+Processor_12020/11/23 03:31:08 
+New Member Added: 
+ID: 172.22.156.173_Mon, 23 Nov 2020 03:31:06 CST
+Count: 0
+localTime: 3
+Failed: False
+
+Processor_12020/11/23 03:31:09 
+New Member Added: 
+ID: 172.22.94.172_Mon, 23 Nov 2020 03:31:07 CST
+Count: 0
+localTime: 4
+Failed: False
+
+Processor_12020/11/23 03:31:13 Sending Replicas
+Processor_12020/11/23 03:31:14 Sending Replicas
+Processor_12020/11/23 03:31:15 Sending Replicas
+Processor_12020/11/23 03:31:15 Sending Replicas
+Processor_12020/11/23 03:31:15 TCP Opened
+Processor_12020/11/23 03:31:15 Sending Replicas
+Processor_12020/11/23 03:31:15 TCP Opened
+Processor_12020/11/23 03:31:16 Sending Replicas
+Processor_12020/11/23 03:31:16 Sending Replicas
+Processor_12020/11/23 03:31:16 TCP Opened
+Processor_12020/11/23 03:31:16 Sending Replicas
+Processor_12020/11/23 03:31:17 Sending Replicas
+Processor_12020/11/23 03:31:18 Sending Replicas
