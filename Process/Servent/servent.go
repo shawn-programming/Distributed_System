@@ -697,23 +697,32 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 		return ""
 
 	} else if messageType == "Juice" {
+		msg := pk.DecodeMapJuiceWorkerPacket(message) //[]string list of filenames
+		encodedMsg := pk.EncodePacket("Maple Reqeust received", nil)
+		conn.WriteToUDP(encodedMsg, addr)
+
+		mj.JuiceReceived(nodePtr, msg.AllocatedFilenames, msg.JuiceExe, msg.IntermediateFilename, msg.DeleteOrNot)
 
 		return ""
 
 	} else if messageType == "StartJuice" {
-		// encodedMsg := pk.EncodePacket("StartJuice Received", nil)
-		// conn.WriteToUDP(encodedMsg, addr)
+		encodedMsg := pk.EncodePacket("StartJuice Received", nil)
+		conn.WriteToUDP(encodedMsg, addr)
 
-		// if !(*nodePtr.IsLeaderPtr) {
-		// 	fmt.Println("Not a leader Node. Throwing Juice.")
-		// } else {
-		// 	msg := pk.DecodeMapLeaderPacket(message)
-		// 	fmt.Println("msg decoded")
+		if !(*nodePtr.IsLeaderPtr) {
+			fmt.Println("Not a leader Node. Throwing Juice.")
+		} else {
+			msg := pk.DecodeMapLeaderPacket(message)
+			fmt.Println("msg decoded")
 
-		// 	mj.Juice(nodePtr, msg.MapleExe, msg.NumMaples, msg.IntermediateFilename, msg.SrcDirectory, msg.DeleteOrNot)
-		// 	fmt.Println("Start Waiting")
+			mj.Juice(nodePtr, msg.MapleExe, msg.NumMaples, msg.IntermediateFilename, msg.SrcDirectory, msg.DeleteOrNot)
 
-		// }
+			fmt.Println("Start Waiting")
+			mj.Wait(nodePtr, msg.NumMaples)
+
+			mj.JuiceSort(nodePtr, msg.IntermediateFilename, msg.SrcDirectory)
+
+		}
 		return ""
 
 	} else {
@@ -878,20 +887,26 @@ func GetCommand(processNodePtr *nd.Node) {
 			numMaples, _ := strconv.Atoi(interpreted[2])
 			intermediateFilename := interpreted[3]
 			srcDirectory := interpreted[4]
-
-			data := pk.MapLeader{mapleExe, numMaples, intermediateFilename, srcDirectory}
+			deleteOrNot := false
+			data := pk.MapLeader{mapleExe, numMaples, intermediateFilename, srcDirectory, deleteOrNot}
 
 			mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartMaple")
 		} else if len(interpreted) == 6 && interpreted[0] == "juice" {
-			//mapleExe := interpreted[1]
-			//numMaples, _ := strconv.Atoi(interpreted[2])
-			//intermediateFilename := interpreted[3]
-			//rcDirectory := interpreted[4]
-			//deleteOrNot := interpreted[5]
+			mapleExe := interpreted[1]
+			numMaples, _ := strconv.Atoi(interpreted[2])
+			intermediateFilename := interpreted[3]
+			srcDirectory := interpreted[4]
 
-			//data := pk.MapLeader{mapleExe, numMaples, intermediateFilename, srcDirectory, deleteOrNot}
+			var deleteOrNot bool
+			if interpreted[5] == "1" {
+				deleteOrNot = true
+			} else {
+				deleteOrNot = false
+			}
 
-			//mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartJuice")
+			data := pk.MapLeader{mapleExe, numMaples, intermediateFilename, srcDirectory, deleteOrNot}
+
+			mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartJuice")
 
 		} else {
 			fmt.Println("Invalid Command")

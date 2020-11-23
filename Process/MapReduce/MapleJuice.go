@@ -318,89 +318,154 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 
 }
 
-// func AllocateJuice(nodePtr *nd.Node, num_juice int, mapledList []string) map[string][]string {
+func AllocateJuice(nodePtr *nd.Node, num_juice int, mapledList []string) map[string][]string {
 
-// 	file_num := len(mapledList)
-// 	if file_num < num_juice {
-// 		num_juice = file_num
-// 	}
+	file_num := len(mapledList)
+	if file_num < num_juice {
+		num_juice = file_num
+	}
 
-// 	num_keys_per_node := (file_num - (file_num % num_juice)) / num_juice
+	num_keys_per_node := (file_num - (file_num % num_juice)) / num_juice
 
-// 	workerNodes := getNameNodes(nodePtr, num_juice)
+	workerNodes := getNameNodes(nodePtr, num_juice)
 
-// 	service_juice_pairs := make(map[string][]string)
+	service_juice_pairs := make(map[string][]string)
 
-// 	for i := 0; i < num_juice; i++ {
-// 		start := num_keys_per_node * i
-// 		end := num_keys_per_node * (i + 1)
-// 		if i == num_juice-1 {
-// 			end := len(mapledList)
-// 		}
+	for i := 0; i < num_juice; i++ {
+		start := num_keys_per_node * i
+		end := num_keys_per_node * (i + 1)
+		if i == num_juice-1 {
+			end = len(mapledList)
+		}
 
-// 		allocatedJuice := mapledList[start:end]
+		allocatedJuice := mapledList[start:end]
 
-// 		service_juice_pairs[workerNodes[i]] = allocatedJuice
+		service_juice_pairs[workerNodes[i]] = allocatedJuice
 
-// 		fmt.Println(service_juice_pairs, ":", allocatedJuice)
-// 	}
+		fmt.Println(service_juice_pairs, ":", allocatedJuice)
+	}
 
-// 	return service_juice_pairs
-// }
+	return service_juice_pairs
+}
 
-// func Juice(processNodePtr *nd.Node, maple_exe string, num_juice int, sdfs_intermediate_filename_prefix, sdfs_src_directory string, mapledList []string) {
+func Juice(processNodePtr *nd.Node, juice_exe string, num_juice int, sdfs_intermediate_filename_prefix, sdfs_src_directory string, delete_input bool) {
 
-// 	service_juice_pairs := AllocateJuice(processNodePtr, num_juice, mapledList)
-// 	SendUDPJuiceToWorkers(service_juice_pairs)
+	service_juice_pairs := AllocateJuice(processNodePtr, num_juice, processNodePtr.MapledFiles)
+	SendUDPJuiceToWorkers(service_juice_pairs, juice_exe, sdfs_intermediate_filename_prefix, sdfs_src_directory, delete_input)
 
-// }
+}
 
-// func SendUDPJuiceToWorkers(service_juice_pairs map[string][]string) {
-// 	fmt.Println("SendJuiceUDPToWorkers start")
+func SendUDPJuiceToWorkers(service_juice_pairs map[string][]string,
+	juice_exe string, sdfs_intermediate_filename_prefix string,
+	sdfs_src_directory string,
+	delete_input bool) {
 
-// 	for worker, filenames := range service_juice_pairs {
+	fmt.Println("SendJuiceUDPToWorkers start")
 
-// 		udpAddr, err := net.ResolveUDPAddr("udp4", worker)
-// 		fs.CheckError(err)
+	for worker, filenames := range service_juice_pairs {
 
-// 		conn, err := net.DialUDP("udp", nil, udpAddr)
-// 		fs.CheckError(err)
+		udpAddr, err := net.ResolveUDPAddr("udp4", worker)
+		fs.CheckError(err)
 
-// 		_, err = conn.Write(pk.EncodePacket("Juice", pk.EncodeMapJuiceWorkerPacket(pk.MapJuiceWorker{filenames})))
+		conn, err := net.DialUDP("udp", nil, udpAddr)
+		fs.CheckError(err)
 
-// 		var buf [512]byte
-// 		_, err = conn.Read(buf[0:])
-// 		fs.CheckError(err)
-// 	}
-// 	fmt.Println("SendUDPJuiceToWorkers Done")
-// }
+		var data pk.MapJuiceWorker
+		data.AllocatedFilenames = filenames
+		data.JuiceExe = juice_exe
+		data.IntermediateFilename = sdfs_intermediate_filename_prefix
+		data.SrcDirectory = sdfs_src_directory
+		data.DeleteOrNot = delete_input
 
-// func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermediate_filename_prefix string, delete_input int) {
-// var juiced_data [][]string
+		_, err = conn.Write(pk.EncodePacket("Juice", pk.EncodeMapJuiceWorkerPacket(data)))
 
-// for _, file := range fileList {
-// 	fs.Pull(nodePtr, file, 1)
-// 	data := csvReader(nodePtr.LocalPath + file)
-// 	if juice_exe == "condorcet" {
-// 		reduced_data := CondorcetReducer1(data)
-// 		juiced_data = append(juiced_data, reduced_data...)
-// 	}
-// }
+		var buf [512]byte
+		_, err = conn.Read(buf[0:])
+		fs.CheckError(err)
+	}
+	fmt.Println("SendUDPJuiceToWorkers Done")
+}
 
-// filename := sdfs_intermediate_filename_prefix + ":" + nodePtr.SelfIP + ".csv"
+func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermediate_filename_prefix string, delete_input bool) {
+	var juiced_data [][]string
 
-// csvWriter(filename, juiced_data)
+	for _, file := range fileList {
+		fs.Pull(nodePtr, file, 1)
+		data := csvReader(nodePtr.LocalPath + file)
+		if juice_exe == "condorcet" {
+			reduced_data := CondorcetReducer1(data)
+			juiced_data = append(juiced_data, reduced_data)
+		}
+	}
 
-// fmt.Println("Generated:", filename)
+	filename := sdfs_intermediate_filename_prefix + ":" + nodePtr.SelfIP + ".csv"
 
-// fs.Put(nodePtr, filename, 1)
+	csvWriter(filename, juiced_data)
 
-// fmt.Println("Pushed:", filename)
+	fmt.Println("Generated:", filename)
 
-// fs.IncreaseMapleJuiceCounter(nodePtr)
+	fs.Put(nodePtr, filename, 1)
 
-// fmt.Println("Increased Juice Counter")
-// }
+	fmt.Println("Pushed:", filename)
+
+	fs.IncreaseMapleJuiceCounter(nodePtr)
+
+	fmt.Println("Increased Juice Counter")
+}
+
+func JuiceSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory string) {
+
+	// fmt.Println("Source Directory: " + SrcDirectory)
+	// to_remove := fileList(SrcDirectory)
+	// for _, f := range to_remove {
+	// 	fs.Remove(processNodePtr, f)
+	// 	fmt.Println("Removed " + f)
+	// }
+
+	fmt.Println("start juice sort")
+
+	var juiced_data [][]string
+
+	// open all sdfs csv files starts with "IntermediateFilename" and store it as one total file.
+
+	for _, sdfsFile := range *(processNodePtr.DistributedFilesPtr) {
+		fmt.Println("filename:", sdfsFile)
+
+		if strings.HasPrefix(sdfsFile, IntermediateFilename) {
+			fmt.Println("start pulling")
+			fs.Pull(processNodePtr, sdfsFile, 1)
+			fmt.Println("Pulled:", sdfsFile)
+		}
+	}
+
+	// Then save it as a csv file
+	localFiles := fileList("./local_files")
+	for _, local := range localFiles {
+		fmt.Println("start for loop")
+		fmt.Println("curr file:", local, " looking for:", IntermediateFilename)
+
+		if strings.HasPrefix(local, IntermediateFilename) && strings.Contains(local, "172") {
+			temp := csvReader("./local_files/" + local)
+			fmt.Println(len(temp))
+
+			if len(temp) > 0 {
+				juiced_data = append(juiced_data, temp...)
+			}
+			//fs.Remove(processNodePtr, local)
+		}
+
+	}
+
+	fmt.Println("done for loop")
+
+	filename := IntermediateFilename + "_juiced.csv"
+	fmt.Println("Generating a file:", filename)
+	csvWriter(processNodePtr.LocalPath+filename, juiced_data)
+	fs.Put(processNodePtr, filename, 1)
+
+	fmt.Println("juice sort done!")
+
+}
 
 func CondorcetMapper1(input []string) [][][]string {
 	mapledData := [][][]string{}
@@ -420,24 +485,28 @@ func CondorcetMapper1(input []string) [][][]string {
 	return mapledData
 }
 
-// func CondorcetReducer1(input [][]string) [][]string {
-// 	Acount := 0
-// 	Bcount := 0
-// 	CandidateA := input[0][0]
-// 	CandidateB := input[0][1]
-// 	for _, line := range input {
+func CondorcetReducer1(input [][]string) []string {
+	Acount := 0
+	Bcount := 0
 
-// 		entry := input[2]
-// 		if entry == 1 { // A won
-// 			Acount++
-// 		} else { // B won
-// 			Bcount++
-// 		}
-// 	}
+	var keyA string
+	var keyB string
+	for _, line := range input {
+		keys := strings.Split(line[0], ":")
+		entry := line[1]
 
-// 	if Acount > Bcount {
-// 		return []string{CandidateA, CandidateB}
-// 	}
-// 	return []string{CandidateB, CandidateA}
-// }
-// }
+		keyA = keys[0]
+		keyB = keys[1]
+
+		if entry == "1" { // A won
+			Acount++
+		} else { // B won
+			Bcount++
+		}
+	}
+
+	if Acount > Bcount {
+		return []string{keyA, keyB}
+	}
+	return []string{keyB, keyA}
+}
