@@ -70,7 +70,8 @@ type Node struct {
 	ElectionInitiatorPtr *string
 
 	// variable attributes
-	LocalTime int // local time of the node
+	LocalTime   int      // local time of the node
+	MapledFiles []string // list of mapled files
 
 	// variable pointers
 	MapleJuiceCounterPtr *int         // Counter for MapleJuice

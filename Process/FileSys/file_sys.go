@@ -30,7 +30,7 @@ const BUFFERSIZE = 65400
 */
 func Remove(nodePtr *nd.Node, filename string) {
 	error := os.Remove(nodePtr.DistributedPath + filename)
-	checkError(error)
+	CheckError(error)
 	for i, file := range *nodePtr.DistributedFilesPtr {
 		if filename == file {
 			*nodePtr.DistributedFilesPtr = append((*nodePtr.DistributedFilesPtr)[:i], (*nodePtr.DistributedFilesPtr)[i+1:]...)
@@ -53,17 +53,17 @@ func RemoveFile(nodePtr *nd.Node, filename string) {
 	// if the processor is not the leader, request the leader to distribute the messages
 	if leaderService != nodePtr.MyService {
 		udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
-		checkError(err)
+		CheckError(err)
 
 		conn, err := net.DialUDP("udp", nil, udpAddr)
-		checkError(err)
+		CheckError(err)
 
 		// send the leader about the remove request
 		_, err = conn.Write(pk.EncodePacket("Remove", []byte(filename)))
 
 		var buf [4096]byte
 		n, err := conn.Read(buf[0:])
-		checkError(err)
+		CheckError(err)
 		receivedPacket := pk.DecodePacket(buf[0:n])
 		fmt.Println(receivedPacket.Ptype)
 	} else { // if the processor is the leader, DIY
@@ -93,15 +93,15 @@ func RemoveFile(nodePtr *nd.Node, filename string) {
 				Remove(nodePtr, filename)
 			} else {
 				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
-				checkError(err)
+				CheckError(err)
 				conn, err := net.DialUDP("udp", nil, udpAddr)
-				checkError(err)
+				CheckError(err)
 
 				_, err = conn.Write(pk.EncodePacket("RemoveFile", []byte(filename)))
-				checkError(err)
+				CheckError(err)
 				var buf [512]byte
 				_, err = conn.Read(buf[0:])
-				checkError(err)
+				CheckError(err)
 			}
 		}
 	}
@@ -152,16 +152,16 @@ func GetFileList(processNodePtr *nd.Node) map[string][]ms.Id {
 	}
 	leaderService := *processNodePtr.LeaderServicePtr
 	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
-	checkError(err)
+	CheckError(err)
 
 	conn, err := net.DialUDP("udp", nil, udpAddr)
-	checkError(err)
+	CheckError(err)
 
 	_, err = conn.Write(pk.EncodePacket("get filelist", nil))
 
 	var buf [4096 * 5]byte
 	n, err := conn.Read(buf[0:])
-	checkError(err)
+	CheckError(err)
 	receivedPacket := pk.DecodePacket(buf[0:n])
 
 	// target processes to store replicas
@@ -179,10 +179,10 @@ func GetFileList(processNodePtr *nd.Node) map[string][]ms.Id {
 func SendFilelist(processNodePtr *nd.Node) {
 	leaderService := *processNodePtr.LeaderServicePtr
 	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
-	checkError(err)
+	CheckError(err)
 
 	conn, err := net.DialUDP("udp", nil, udpAddr)
-	checkError(err)
+	CheckError(err)
 
 	var buf [512]byte
 
@@ -192,10 +192,10 @@ func SendFilelist(processNodePtr *nd.Node) {
 		// fmt.Println("sending:", filename)
 		putPacket := pk.EncodePut(pk.Putpacket{processNodePtr.Id, filename})
 		_, err := conn.Write(pk.EncodePacket("updateFileList", putPacket))
-		checkError(err)
+		CheckError(err)
 
 		_, err = conn.Read(buf[0:])
-		checkError(err)
+		CheckError(err)
 		// fmt.Println("seding done")
 	}
 }
@@ -217,25 +217,25 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	from := processNodePtr.LocalPath + filename
 	to := processNodePtr.DistributedPath + filename
 	_, err := copy(from, to)
-	checkError(err)
+	CheckError(err)
 
 	*processNodePtr.DistributedFilesPtr = append(*processNodePtr.DistributedFilesPtr, filename)
 
 	leaderService := *processNodePtr.LeaderServicePtr
 	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
-	checkError(err)
+	CheckError(err)
 
 	conn, err := net.DialUDP("udp", nil, udpAddr)
-	checkError(err)
+	CheckError(err)
 
 	// request leader about the destinations to send the replica
 	packet := pk.EncodeIdList(pk.IdListpacket{N, myID, []ms.Id{}, filename})
 	_, err = conn.Write(pk.EncodePacket("ReplicaList", packet))
-	checkError(err)
+	CheckError(err)
 
 	var buf [512]byte
 	n, err := conn.Read(buf[0:])
-	checkError(err)
+	CheckError(err)
 	receivedPacket := pk.DecodePacket(buf[0:n])
 
 	// target processes to store replicas
@@ -247,10 +247,10 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 
 	putPacket := pk.EncodePut(pk.Putpacket{myID, filename})
 	_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
-	checkError(err)
+	CheckError(err)
 
 	_, err = conn.Read(buf[0:])
-	checkError(err)
+	CheckError(err)
 
 	// }()
 
@@ -282,7 +282,7 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 	// fmt.Println("PULL---------------")
 
 	files, err := ioutil.ReadDir(processNodePtr.DistributedPath)
-	checkError(err)
+	CheckError(err)
 
 	// if the file is inside the distributed folder of the process, just move it
 	for _, file := range files {
@@ -302,18 +302,18 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 	// process is not the leader, send a request to the leader
 	if *processNodePtr.IsLeaderPtr == false {
 		udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
-		checkError(err)
+		CheckError(err)
 
 		conn, err := net.DialUDP("udp", nil, udpAddr)
-		checkError(err)
+		CheckError(err)
 
 		packet := pk.EncodeTCPsend(pk.TCPsend{[]ms.Id{myID}, filename, true})
 		_, _ = conn.Write(pk.EncodePacket("request", packet))
-		checkError(err)
+		CheckError(err)
 
 		var buf [512]byte
 		n, err := conn.Read(buf[0:])
-		checkError(err)
+		CheckError(err)
 		receivedPacket := pk.DecodePacket(buf[0:n])
 		fmt.Println(receivedPacket.Ptype)
 	} else { // process is the leader, DIY
@@ -327,15 +327,15 @@ func Pull(processNodePtr *nd.Node, filename string, N int) {
 		} else {
 			// fmt.Println("telling DFs to send a file to you...", nil)
 			udpAddr, err := net.ResolveUDPAddr("udp4", Service)
-			checkError(err)
+			CheckError(err)
 			conn, err := net.DialUDP("udp", nil, udpAddr)
-			checkError(err)
+			CheckError(err)
 			packet := pk.EncodeTCPsend(pk.TCPsend{destinations, filename, true})
 			_, err = conn.Write(pk.EncodePacket("send", packet))
-			checkError(err)
+			CheckError(err)
 			var buf [512]byte
 			_, err = conn.Read(buf[0:])
-			checkError(err)
+			CheckError(err)
 		}
 	}
 
@@ -364,7 +364,7 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 	//VM
 
 	server, err = net.Listen("tcp", service)
-	checkError(err)
+	CheckError(err)
 
 	encodedMsg := pk.EncodePacket("Server opened", nil)
 	connection.WriteToUDP(encodedMsg, addr)
@@ -548,18 +548,18 @@ func UpdateLeader(fileName string, processNodePtr *nd.Node) {
 
 		leaderService := *processNodePtr.LeaderServicePtr
 		udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
-		checkError(err)
+		CheckError(err)
 
 		conn, err := net.DialUDP("udp", nil, udpAddr)
-		checkError(err)
+		CheckError(err)
 
 		putPacket := pk.EncodePut(pk.Putpacket{myID, fileName})
 		_, err = conn.Write(pk.EncodePacket("updateFileList", putPacket))
-		checkError(err)
+		CheckError(err)
 
 		var response [128]byte
 		_, err = conn.Read(response[0:])
-		checkError(err)
+		CheckError(err)
 	}
 }
 
@@ -583,19 +583,19 @@ func OpenTCP(processNodePtr *nd.Node, command string, filename string, id ms.Id,
 	service += ":1234"
 
 	udpAddr, err := net.ResolveUDPAddr("udp4", service)
-	checkError(err)
+	CheckError(err)
 
 	conn, err := net.DialUDP("udp", nil, udpAddr)
-	checkError(err)
+	CheckError(err)
 
 	packet := pk.EncodeTCPcmd(pk.TCPcmd{command, filename, IsPull})
 	_, err = conn.Write(pk.EncodePacket("openTCP", packet))
-	checkError(err)
+	CheckError(err)
 
 	var response [128]byte
 	_, err = conn.Read(response[0:])
 
-	checkError(err)
+	CheckError(err)
 }
 
 /*
@@ -617,18 +617,18 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 			continue
 		}
 		udpAddr, err := net.ResolveUDPAddr("udp4", Service)
-		checkError(err)
+		CheckError(err)
 		conn, err := net.DialUDP("udp", nil, udpAddr)
-		checkError(err)
+		CheckError(err)
 
 		_, err = conn.Write(pk.EncodePacket("send a filelist", nil))
-		checkError(err)
+		CheckError(err)
 
 		var buf [512]byte
 		n, err := conn.Read(buf[0:])
 		packet := pk.DecodePacket(buf[:n])
 		decodedPacket := pk.DecodeFilesPacket(packet)
-		checkError(err)
+		CheckError(err)
 
 		idInfo := decodedPacket.Id
 		filenames := decodedPacket.FileName
@@ -639,12 +639,6 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 			node.LeaderPtr.IdList[idInfo] = append(node.LeaderPtr.IdList[idInfo], filename)
 		}
 	}
-	// for file, list := range node.LeaderPtr.FileList {
-	// 	fmt.Println("File ", file, "is stored in the following Addresses:")
-	// 	for i, ID := range list {
-	// 		fmt.Println("	", i, ":", ID.IPAddress)
-	// 	}
-	// }
 
 	// store the info about its distributed files
 	for _, file := range *node.DistributedFilesPtr {
@@ -671,15 +665,15 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 
 			} else {
 				udpAddr, err := net.ResolveUDPAddr("udp4", Service)
-				checkError(err)
+				CheckError(err)
 				conn, err := net.DialUDP("udp", nil, udpAddr)
-				checkError(err)
+				CheckError(err)
 				packet := pk.EncodeTCPsend(pk.TCPsend{destinations, file, false})
 				_, err = conn.Write(pk.EncodePacket("send", packet))
-				checkError(err)
+				CheckError(err)
 				var buf [512]byte
 				_, err = conn.Read(buf[0:])
-				checkError(err)
+				CheckError(err)
 			}
 			//fmt.Println("number of", file, "replica is balanced now")
 		}
@@ -694,17 +688,17 @@ func IncreaseMapleJuiceCounter(nodePtr *nd.Node) {
 	leaderService := *nodePtr.LeaderServicePtr
 
 	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService[:len(leaderService)-4]+"1236")
-	checkError(err)
+	CheckError(err)
 
 	conn, err := net.DialUDP("udp", nil, udpAddr)
-	checkError(err)
+	CheckError(err)
 
 	// send the leader about the remove request
-	_, err = conn.Write(pk.EncodePacket("IncreaseMapleJuiceCounter", nil))
+	_, err = conn.Write(pk.EncodePacket("f", nil))
 
 	var buf [64]byte
 	_, err = conn.Read(buf[0:])
-	checkError(err)
+	CheckError(err)
 
 	fmt.Println(nodePtr.SelfIP + " maple done.")
 }
@@ -712,7 +706,7 @@ func IncreaseMapleJuiceCounter(nodePtr *nd.Node) {
 /*
 	Checks Error
 */
-func checkError(err error) {
+func CheckError(err error) {
 	if err != nil {
 		fmt.Println("Fatal error ", err.Error())
 		os.Exit(1)

@@ -252,6 +252,7 @@ type MapLeader struct {
 	NumMaples            int
 	IntermediateFilename string
 	SrcDirectory         string
+	//deleteOrNot			 bool
 }
 
 func EncodeMapLeaderPacket(message MapLeader) []byte {
@@ -284,6 +285,36 @@ func DecodeMapWorkerPacket(encodedMessage PacketType) MapWorker {
 	checkError(err)
 	return decodedMessage
 }
+
+
+
+
+type MapJuiceWorker struct {
+	AllocatedFilenames 	 []string
+}
+
+func EncodeMapJuiceWorkerPacket(message MapJuiceWorker) []byte {
+	encodedMessage, err := json.Marshal(message)
+	checkError(err)
+	return encodedMessage
+}
+
+func DecodeMapJuiceWorkerPacket(encodedMessage PacketType) MapJuiceWorker {
+	var decodedMessage MapJuiceWorker
+	err := json.Unmarshal(encodedMessage.EncodePacket, &decodedMessage)
+	checkError(err)
+	return decodedMessage
+}
+
+
+
+
+
+
+
+
+
+
 
 /*
 CheckError(err error)
