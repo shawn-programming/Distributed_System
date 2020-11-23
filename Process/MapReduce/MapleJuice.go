@@ -324,10 +324,11 @@ func AllocateJuice(nodePtr *nd.Node, num_juice int, mapledList []string) map[str
 	if file_num < num_juice {
 		num_juice = file_num
 	}
+	fmt.Println("File num:", fileList, "num_juice:", num_juice)
 
 	num_keys_per_node := (file_num - (file_num % num_juice)) / num_juice
 
-	fmt.Println("File num:", fileList, "num_juice:", num_juice, "num_keys_per_node", num_keys_per_node)
+	fmt.Println("num_keys_per_node", num_keys_per_node)
 
 	workerNodes := getNameNodes(nodePtr, num_juice)
 
@@ -369,7 +370,7 @@ func SendUDPJuiceToWorkers(service_juice_pairs map[string][]string,
 	fmt.Println("SendJuiceUDPToWorkers start")
 
 	for worker, filenames := range service_juice_pairs {
-		fmt.Println("sending: ", workers)
+		fmt.Println("sending: ", worker)
 
 		udpAddr, err := net.ResolveUDPAddr("udp4", worker)
 		fs.CheckError(err)
