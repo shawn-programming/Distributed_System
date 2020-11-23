@@ -162,6 +162,8 @@ func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_f
 	fmt.Println("SendUDPToWorkers start")
 
 	for i, worker := range workerNodes {
+		fmt.Println("sending udp to", worker)
+
 		currFile := filename + ":" + strconv.Itoa(i) + ".csv"
 		udpAddr, err := net.ResolveUDPAddr("udp4", worker)
 		fs.CheckError(err)
@@ -174,6 +176,7 @@ func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_f
 		var buf [512]byte
 		_, err = conn.Read(buf[0:])
 		fs.CheckError(err)
+		fmt.Println("sent udp to", worker)
 	}
 	fmt.Println("SendUDPToWorkers Done")
 }
