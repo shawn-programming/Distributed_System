@@ -685,6 +685,7 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 }
 
 func IncreaseMapleJuiceCounter(nodePtr *nd.Node) {
+	fmt.Println("IncreaseMapleJuiceCunter")
 	leaderService := *nodePtr.LeaderServicePtr
 
 	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService[:len(leaderService)-4]+"1236")

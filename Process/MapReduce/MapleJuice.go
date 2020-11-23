@@ -12,6 +12,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	fs "../FileSys"
 	nd "../Node"
@@ -183,6 +184,7 @@ func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_f
 
 func Wait(NodePtr *nd.Node, NumMaples int) {
 	for {
+		time.Sleep(time.Second)
 		if *(NodePtr.MapleJuiceCounterPtr) == NumMaples {
 			*(NodePtr.MapleJuiceCounterPtr) = 0
 			return
