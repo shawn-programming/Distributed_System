@@ -695,7 +695,7 @@ func IncreaseMapleJuiceCounter(nodePtr *nd.Node) {
 	CheckError(err)
 
 	// send the leader about the remove request
-	_, err = conn.Write(pk.EncodePacket("f", nil))
+	_, err = conn.Write(pk.EncodePacket("IncreaseMapleJuiceCounter", nil))
 
 	var buf [64]byte
 	_, err = conn.Read(buf[0:])
