@@ -32,12 +32,12 @@ func main() {
 	TotalByteSent := 0
 	var InputList []ms.MsList
 	var DistributedFiles []string
+	var MapledFiles []string
 	IDAdresses, _ := config.IPAddress()
 	Ports, _ := config.Port()
 	LeaderService := IDAdresses[1] + ":" + strconv.Itoa(Ports[0])
 	Initiator := ""
-
-	processNode := nd.CreateNode(os.Args[1], &IsLeader, &ATA, &TotalByteSent, &InputList, &LeaderService, &DistributedFiles, &Initiator, &MapleJuiceCounter) // Processor's Node
+	processNode := nd.CreateNode(os.Args[1], &IsLeader, &ATA, &TotalByteSent, &InputList, &LeaderService, &DistributedFiles, &Initiator, &MapleJuiceCounter, &MapledFiles) // Processor's Node
 
 	tempLeader := nd.Leader{&processNode.MsList, map[string][]ms.Id{}, map[ms.Id][]string{}}
 	processNode.LeaderPtr = &tempLeader

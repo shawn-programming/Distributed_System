@@ -321,6 +321,7 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 func AllocateJuice(nodePtr *nd.Node, num_juice int, mapledList []string) map[string][]string {
 
 	file_num := len(mapledList)
+	println(mapledList)
 	if file_num < num_juice {
 		num_juice = file_num
 	}
@@ -354,7 +355,7 @@ func AllocateJuice(nodePtr *nd.Node, num_juice int, mapledList []string) map[str
 func Juice(processNodePtr *nd.Node, juice_exe string, num_juice int, sdfs_intermediate_filename_prefix, sdfs_src_directory string, delete_input bool) {
 	fmt.Println("Juice")
 
-	service_juice_pairs := AllocateJuice(processNodePtr, num_juice, processNodePtr.MapledFiles)
+	service_juice_pairs := AllocateJuice(processNodePtr, num_juice, (*processNodePtr.MapledFilesPtr))
 	SendUDPJuiceToWorkers(service_juice_pairs, juice_exe, sdfs_intermediate_filename_prefix, sdfs_src_directory, delete_input)
 
 	fmt.Println("Juice Done")

@@ -70,8 +70,7 @@ type Node struct {
 	ElectionInitiatorPtr *string
 
 	// variable attributes
-	LocalTime   int      // local time of the node
-	MapledFiles []string // list of mapled files
+	LocalTime int // local time of the node
 
 	// variable pointers
 	MapleJuiceCounterPtr *int         // Counter for MapleJuice
@@ -80,6 +79,7 @@ type Node struct {
 	ATAPtr               *bool        // true if heartbeating is all to all else false
 	TotalByteSentPtr     *int         // tracks total byte usages
 	DistributedFilesPtr  *[]string    // list of distributed files
+	MapledFilesPtr       *[]string    // list of mapled files
 	InputListPtr         *[]ms.MsList // node's InputList (for heartbeating)
 	Logger               *log.Logger  // node's main logger
 	LoggerPerSec         *log.Logger  // node's heartbeat logger
@@ -113,7 +113,7 @@ Node Constructor
 RETURN: a Node for a processor
 */
 func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *int, InputListPtr *[]ms.MsList,
-	LeaderServicePtr *string, DistributedFilesPtr *[]string, Initiator *string, MapleJuiceCounterPtr *int) Node {
+	LeaderServicePtr *string, DistributedFilesPtr *[]string, Initiator *string, MapleJuiceCounterPtr *int, MapledFilesPtr *[]string) Node {
 	tempNode := Node{}
 
 	failRate, _ := config.FailRate()
@@ -203,6 +203,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.TotalByteSentPtr = TotalByteSentPtr
 	tempNode.InputListPtr = InputListPtr
 	tempNode.ElectionInitiatorPtr = Initiator
+	tempNode.MapledFilesPtr = MapledFilesPtr
 
 	// distributred files list
 	tempNode.DistributedFilesPtr = DistributedFilesPtr
