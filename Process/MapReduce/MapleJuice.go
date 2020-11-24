@@ -285,7 +285,7 @@ func MapleSort(processNodePtr *nd.Node, maple_exe, IntermediateFilename, SrcDire
 	for _, sdfsFile := range *(processNodePtr.DistributedFilesPtr) {
 		fmt.Println("filename:", sdfsFile)
 
-		if strings.HasPrefix(sdfsFile, IntermediateFilename) {
+		if strings.HasPrefix(sdfsFile, "maple_"+IntermediateFilename) {
 			fmt.Println("start pulling")
 			fs.Pull(processNodePtr, sdfsFile, 1)
 			fmt.Println("Pulled:", sdfsFile)
@@ -299,7 +299,7 @@ func MapleSort(processNodePtr *nd.Node, maple_exe, IntermediateFilename, SrcDire
 		fmt.Println("curr file:", local, " looking for:", IntermediateFilename)
 
 		var temp [][]string
-		if strings.HasPrefix(local, IntermediateFilename) && strings.Contains(local, "172") {
+		if strings.HasPrefix(local, "maple_"+IntermediateFilename) && strings.Contains(local, "172") {
 			temp = csvReader("./local_files/" + local)
 			fmt.Println(len(temp))
 
@@ -429,7 +429,7 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 		//fmt.Println("here is data")
 		//fmt.Println(data)
 
-		if juice_exe == "a" {
+		if juice_exe == "condorcet" {
 			reduced_data := CondorcetReducer1(data)
 
 			fmt.Println(reduced_data)
