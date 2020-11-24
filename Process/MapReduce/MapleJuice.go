@@ -19,6 +19,24 @@ import (
 	pk "../Packet"
 )
 
+/*
+
+Maple(intermediate_filename, exe):
+	when a working node processes a file:
+		outputs -> maple_intermediate_selfIP:key.csv
+
+	when a leader node sum up all of the data:
+		outputs -> maple_exe:key.csv
+
+Juice(intermediate_filename, exe):
+	when a working node processes a file:
+		outputs -> juice_intermediate_IP.csv
+
+	when a leader node sum up all of the data:
+		outputs -> juice_exe.csv
+
+*/
+
 func csvWriter(filePath string, data [][]string) {
 	file, err := os.Create(filePath)
 	if err != nil {
@@ -235,7 +253,7 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 
 	fmt.Println("Data divisino Done")
 	for key, location := range hashTable {
-		filename := sdfs_intermediate_filename_prefix + ":" + key + ":" + processNodePtr.SelfIP + ".csv"
+		filename := "maple_" + sdfs_intermediate_filename_prefix + "_" + processNodePtr.SelfIP + ":" + key + ".csv"
 
 		csvWriter(processNodePtr.LocalPath+filename, mapled_data[location])
 		fs.Put(processNodePtr, filename, 1)
@@ -246,7 +264,7 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 	fmt.Println("Increased MJ counter")
 }
 
-func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory string) []string {
+func MapleSort(processNodePtr *nd.Node, maple_exe, IntermediateFilename, SrcDirectory string) []string {
 
 	// fmt.Println("Source Directory: " + SrcDirectory)
 	// to_remove := fileList(SrcDirectory)
@@ -305,7 +323,7 @@ func MapleSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 	fmt.Println("done for loop")
 
 	for key, location := range hashTable {
-		filename := IntermediateFilename + ":" + key + "_mapled.csv"
+		filename := "mapled_" + maple_exe + ":" + key + ".csv"
 		fmt.Println("Generating a file:", filename, " key:", key)
 		csvWriter(processNodePtr.LocalPath+filename, mapled_data[location])
 		fs.Put(processNodePtr, filename, 1)
@@ -420,7 +438,7 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 		}
 	}
 
-	filename := sdfs_intermediate_filename_prefix + ":" + nodePtr.SelfIP + ".csv"
+	filename := "juice_" + sdfs_intermediate_filename_prefix + "_" + nodePtr.SelfIP + ".csv"
 
 	csvWriter(nodePtr.LocalPath+filename, juiced_data)
 
@@ -435,7 +453,7 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 	fmt.Println("Increased Juice Counter")
 }
 
-func JuiceSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory string) {
+func JuiceSort(processNodePtr *nd.Node, juice_exe, IntermediateFilename, SrcDirectory string) {
 
 	// fmt.Println("Source Directory: " + SrcDirectory)
 	// to_remove := fileList(SrcDirectory)
@@ -466,7 +484,7 @@ func JuiceSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 		fmt.Println("start for loop")
 		fmt.Println("curr file:", local, " looking for:", IntermediateFilename)
 
-		if strings.HasPrefix(local, IntermediateFilename) && strings.Contains(local, "172") {
+		if strings.HasPrefix(local, "juice_"+IntermediateFilename) && strings.Contains(local, "172") {
 			temp := csvReader("./local_files/" + local)
 			fmt.Println(len(temp))
 
@@ -480,7 +498,7 @@ func JuiceSort(processNodePtr *nd.Node, IntermediateFilename, SrcDirectory strin
 
 	fmt.Println("done for loop")
 
-	filename := IntermediateFilename + "_juiced.csv"
+	filename := "juice_" + juice_exe + ".csv"
 	fmt.Println("Generating a file:", filename)
 	csvWriter(processNodePtr.LocalPath+filename, juiced_data)
 	fs.Put(processNodePtr, filename, 1)

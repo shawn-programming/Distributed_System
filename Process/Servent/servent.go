@@ -691,7 +691,7 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 			fmt.Println("Start Waiting")
 			mj.Wait(nodePtr, msg.NumMaples)
 			fmt.Println("Done Waiting")
-			*nodePtr.MapledFilesPtr = mj.MapleSort(nodePtr, msg.IntermediateFilename, msg.SrcDirectory)
+			*nodePtr.MapledFilesPtr = mj.MapleSort(nodePtr, msg.MapleExe, msg.IntermediateFilename, msg.SrcDirectory)
 		}
 
 		return ""
@@ -720,7 +720,7 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 			fmt.Println("Start Waiting")
 			mj.Wait(nodePtr, msg.NumMaples)
 
-			mj.JuiceSort(nodePtr, msg.IntermediateFilename, msg.SrcDirectory)
+			mj.JuiceSort(nodePtr, msg.MapleExe, msg.IntermediateFilename, msg.SrcDirectory)
 
 		}
 		return ""
