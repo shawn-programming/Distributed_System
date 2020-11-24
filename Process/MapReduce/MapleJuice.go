@@ -21,12 +21,12 @@ import (
 
 /*
 
-Maple(intermediate_filename, exe):
+Maple(<maple_exe> <num_maples> <sdfs_intermediate_filename_prefix> <sdfs_src_directory>):
 	when a working node processes a file:
-		outputs -> maple_intermediate_selfIP:key.csv
+		outputs -> maple_i<sdfs_intermediate_filename_prefix>_selfIP:key.csv
 
 	when a leader node sum up all of the data:
-		outputs -> maple_exe:key.csv
+		outputs -> maple_<maple_exe>:key.csv
 
 Juice( <exe> <num_juices> <sdfs_intermediate_filename_prefix> <sdfs_dest_filename>
 delete_input={0,1}):
@@ -427,8 +427,13 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 
 		fs.Pull(nodePtr, file, 1)
 		data := csvReader(nodePtr.LocalPath + file)
-		//fmt.Println("here is data")
-		//fmt.Println(data)
+
+		for {
+			input := csvReader(nodePtr.LocalPath + file)
+			if len(input) > 0 {
+				break
+			}
+		}
 
 		if juice_exe == "condorcet" {
 			reduced_data := CondorcetReducer1(data)
