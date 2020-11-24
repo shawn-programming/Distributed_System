@@ -73,17 +73,18 @@ type Node struct {
 	LocalTime int // local time of the node
 
 	// variable pointers
-	MapleJuiceCounterPtr *int         // Counter for MapleJuice
-	LeaderServicePtr     *string      // Leader's Id
-	IsLeaderPtr          *bool        // true if node is the leader
-	ATAPtr               *bool        // true if heartbeating is all to all else false
-	TotalByteSentPtr     *int         // tracks total byte usages
-	DistributedFilesPtr  *[]string    // list of distributed files
-	MapledFilesPtr       *[]string    // list of mapled files
-	InputListPtr         *[]ms.MsList // node's InputList (for heartbeating)
-	Logger               *log.Logger  // node's main logger
-	LoggerPerSec         *log.Logger  // node's heartbeat logger
-	LoggerByte           *log.Logger  // node's byte usage tracker
+	MapleJuiceFileListPtr *[]string    // list of maple juice file list
+	MapleJuiceCounterPtr  *int         // Counter for MapleJuice
+	LeaderServicePtr      *string      // Leader's Id
+	IsLeaderPtr           *bool        // true if node is the leader
+	ATAPtr                *bool        // true if heartbeating is all to all else false
+	TotalByteSentPtr      *int         // tracks total byte usages
+	DistributedFilesPtr   *[]string    // list of distributed files
+	MapledFilesPtr        *[]string    // list of mapled files
+	InputListPtr          *[]ms.MsList // node's InputList (for heartbeating)
+	Logger                *log.Logger  // node's main logger
+	LoggerPerSec          *log.Logger  // node's heartbeat logger
+	LoggerByte            *log.Logger  // node's byte usage tracker
 
 	// leader struct
 	LeaderPtr *Leader
@@ -113,7 +114,8 @@ Node Constructor
 RETURN: a Node for a processor
 */
 func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *int, InputListPtr *[]ms.MsList,
-	LeaderServicePtr *string, DistributedFilesPtr *[]string, Initiator *string, MapleJuiceCounterPtr *int, MapledFilesPtr *[]string) Node {
+	LeaderServicePtr *string, DistributedFilesPtr *[]string, Initiator *string, MapleJuiceCounterPtr *int,
+	MapledFilesPtr *[]string, MapleJuiceFileListPtr *[]string) Node {
 	tempNode := Node{}
 
 	failRate, _ := config.FailRate()
@@ -196,6 +198,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.LocalTime = 0
 
 	// variable pointers
+	tempNode.MapleJuiceFileListPtr = MapleJuiceFileListPtr
 	tempNode.MapleJuiceCounterPtr = MapleJuiceCounterPtr
 	tempNode.LeaderServicePtr = LeaderServicePtr
 	tempNode.IsLeaderPtr = IsLeaderPtr

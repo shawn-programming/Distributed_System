@@ -267,16 +267,17 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 		}
 	}
 
+	fileMadeList := []string{}
 	fmt.Println("Data divisino Done")
 	for key, location := range hashTable {
 		filename := "maple_" + sdfs_intermediate_filename_prefix + "_" + processNodePtr.SelfIP + ":" + key + ".csv"
-
+		fileMadeList = append(fileMadeList, filename)
 		csvWriter(processNodePtr.LocalPath+filename, mapled_data[location])
 		fs.Put(processNodePtr, filename, 1)
 	}
 
 	fmt.Println("mapped file put done")
-	fs.IncreaseMapleJuiceCounter(processNodePtr)
+	fs.IncreaseMapleJuiceCounter(processNodePtr, fileMadeList)
 	fmt.Println("Increased MJ counter")
 }
 
@@ -298,16 +299,24 @@ func MapleSort(processNodePtr *nd.Node, maple_exe, IntermediateFilename, SrcDire
 	// open all sdfs csv files starts with "IntermediateFilename" and store it as one total file.
 	fmt.Println("2")
 
-	distributedFiles := fs.GetFileList(processNodePtr)
+	// distributedFiles := fs.GetFileList(processNodePtr)
 
-	for sdfsFile, _ := range distributedFiles {
-		fmt.Println("filename:", sdfsFile)
+	// for sdfsFile, _ := range distributedFiles {
+	// 	fmt.Println("filename:", sdfsFile)
 
-		if strings.HasPrefix(sdfsFile, "maple_"+IntermediateFilename) {
-			fmt.Println("start pulling")
-			fs.Pull(processNodePtr, sdfsFile, 1)
-			fmt.Println("Pulled:", sdfsFile)
+	// 	if strings.HasPrefix(sdfsFile, "maple_"+IntermediateFilename) {
+	for _, file := range *(processNodePtr.MapleJuiceFileListPtr) {
+		fmt.Println("start pulling", file)
+		fs.Pull(processNodePtr, file, 1)
+
+		for {
+			data, _ := ReadFromCsv(processNodePtr.LocalPath + file)
+			if len(data) > 0 {
+				break
+			}
+			//fmt.Println("juice:")
 		}
+		fmt.Println("Pulled:", file)
 	}
 
 	// Then save it as a csv file
@@ -473,7 +482,7 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 
 	fmt.Println("Pushed:", filename)
 
-	fs.IncreaseMapleJuiceCounter(nodePtr)
+	fs.IncreaseMapleJuiceCounter(nodePtr, []string{filename})
 
 	fmt.Println("Increased Juice Counter")
 }
@@ -493,17 +502,21 @@ func JuiceSort(processNodePtr *nd.Node, juice_exe, IntermediateFilename, sdfs_de
 
 	// open all sdfs csv files starts with "IntermediateFilename" and store it as one total file.
 
-	distributedFiles := fs.GetFileList(processNodePtr)
+	// distributedFiles := fs.GetFileList(processNodePtr)
+	for _, file := range *(processNodePtr.MapleJuiceFileListPtr) {
+		fmt.Println("start pulling", file)
+		fs.Pull(processNodePtr, file, 1)
 
-	for sdfsFile, _ := range distributedFiles {
-		fmt.Println("filename:", sdfsFile)
-
-		if strings.HasPrefix(sdfsFile, "juice_"+IntermediateFilename) {
-			fmt.Println("start pulling")
-			fs.Pull(processNodePtr, sdfsFile, 1)
-			fmt.Println("Pulled:", sdfsFile)
+		for {
+			data, _ := ReadFromCsv(processNodePtr.LocalPath + file)
+			if len(data) > 0 {
+				break
+			}
+			//fmt.Println("juice:")
 		}
+		fmt.Println("Pulled:", file)
 	}
+
 
 	// Then save it as a csv file
 	localFiles := fileList("./local_files")

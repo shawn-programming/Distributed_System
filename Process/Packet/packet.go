@@ -308,6 +308,24 @@ func DecodeMapJuiceWorkerPacket(encodedMessage PacketType) MapJuiceWorker {
 	return decodedMessage
 }
 
+type MapDone struct {
+	FileList 	[]string
+}
+
+func EncodeMapDonePacket(message MapDone) []byte {
+	encodedMessage, err := json.Marshal(message)
+	checkError(err)
+	return encodedMessage
+}
+
+func DecodeMapDonePacket(encodedMessage PacketType) MapDone {
+	var decodedMessage MapDone
+	err := json.Unmarshal(encodedMessage.EncodePacket, &decodedMessage)
+	checkError(err)
+	return decodedMessage
+}
+
+
 /*
 CheckError(err error)
 	Terminate system with message, if Error occurs

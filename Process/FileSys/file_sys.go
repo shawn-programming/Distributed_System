@@ -684,7 +684,7 @@ func LeaderInit(node *nd.Node, failedLeader string) {
 	fmt.Println("Leader Init completed")
 }
 
-func IncreaseMapleJuiceCounter(nodePtr *nd.Node) {
+func IncreaseMapleJuiceCounter(nodePtr *nd.Node, fileList []string) {
 	fmt.Println("IncreaseMapleJuiceCunter")
 	leaderService := *nodePtr.LeaderServicePtr
 
@@ -695,7 +695,7 @@ func IncreaseMapleJuiceCounter(nodePtr *nd.Node) {
 	CheckError(err)
 
 	// send the leader about the remove request
-	_, err = conn.Write(pk.EncodePacket("IncreaseMapleJuiceCounter", nil))
+	_, err = conn.Write(pk.EncodePacket("IncreaseMapleJuiceCounter", pk.EncodeMapDonePacket(pk.MapDone{fileList})))
 
 	var buf [64]byte
 	_, err = conn.Read(buf[0:])

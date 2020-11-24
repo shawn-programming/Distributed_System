@@ -229,6 +229,9 @@ func ListenETC(conn *net.UDPConn, nodePtr *nd.Node) {
 			return
 		}
 
+		msg := pk.DecodeMapDonePacket(message)
+		(*nodePtr.MapleJuiceFileListPtr) = append((*nodePtr.MapleJuiceFileListPtr), msg.FileList...)
+
 		(*nodePtr.MapleJuiceCounterPtr)++
 		fmt.Println("Counter: " + strconv.Itoa(*nodePtr.MapleJuiceCounterPtr))
 		encodedMsg := pk.EncodePacket("IncreaseMapleJuiceCounter Received", nil)
@@ -693,6 +696,9 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 			mj.Wait(nodePtr, msg.NumMaples)
 			fmt.Println("Done Waiting")
 			*nodePtr.MapledFilesPtr = mj.MapleSort(nodePtr, msg.MapleExe, msg.IntermediateFilename, msg.SrcDirectory)
+
+			*(nodePtr.MapleJuiceFileListPtr) = []string{}
+
 		}
 
 		return ""
@@ -722,6 +728,8 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 			mj.Wait(nodePtr, msg.NumMaples)
 
 			mj.JuiceSort(nodePtr, msg.MapleExe, msg.IntermediateFilename, msg.SrcDirectory)
+
+			*(nodePtr.MapleJuiceFileListPtr) = []string{}
 
 		}
 		return ""

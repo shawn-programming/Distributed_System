@@ -37,7 +37,8 @@ func main() {
 	Ports, _ := config.Port()
 	LeaderService := IDAdresses[1] + ":" + strconv.Itoa(Ports[0])
 	Initiator := ""
-	processNode := nd.CreateNode(os.Args[1], &IsLeader, &ATA, &TotalByteSent, &InputList, &LeaderService, &DistributedFiles, &Initiator, &MapleJuiceCounter, &MapledFiles) // Processor's Node
+	MapleJuiceFileList := []string{}
+	processNode := nd.CreateNode(os.Args[1], &IsLeader, &ATA, &TotalByteSent, &InputList, &LeaderService, &DistributedFiles, &Initiator, &MapleJuiceCounter, &MapledFiles, &MapleJuiceFileList) // Processor's Node
 
 	tempLeader := nd.Leader{&processNode.MsList, map[string][]ms.Id{}, map[ms.Id][]string{}}
 	processNode.LeaderPtr = &tempLeader
