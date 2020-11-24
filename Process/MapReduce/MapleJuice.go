@@ -219,7 +219,7 @@ func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_f
 func Wait(NodePtr *nd.Node, NumMaples int) {
 	for {
 		time.Sleep(time.Second)
-		fmt.Println(*(NodePtr.MapleJuiceCounterPtr))
+		// fmt.Println(*(NodePtr.MapleJuiceCounterPtr))
 		if *(NodePtr.MapleJuiceCounterPtr) == NumMaples {
 			*(NodePtr.MapleJuiceCounterPtr) = 0
 			return
@@ -448,7 +448,7 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 			if len(data) > 0 {
 				break
 			}
-			fmt.Println("juice:")
+			//fmt.Println("juice:")
 		}
 
 		if juice_exe == "condorcet" {
