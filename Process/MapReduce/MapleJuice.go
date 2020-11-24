@@ -535,6 +535,9 @@ func CondorcetMapper1(input []string) [][][]string {
 	m := len(input)
 	for i := 0; i < m-1; i++ {
 		for j := i + 1; j < m; j++ {
+			if input[i] == "" || input[j] == "" {
+				continue
+			}
 			if input[i] < input[j] {
 				temp := [][]string{[]string{input[i], input[j]}, []string{"1"}}
 				mapledData = append(mapledData, temp)
