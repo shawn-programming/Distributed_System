@@ -460,7 +460,7 @@ func SendFile(connection net.Conn, requestedFileName string, path string) {
 		}
 		connection.Write(sendBuffer)
 	}
-	fmt.Println("File has been sent")
+	fmt.Println("File has been sent:", requestedFileName)
 	return
 }
 

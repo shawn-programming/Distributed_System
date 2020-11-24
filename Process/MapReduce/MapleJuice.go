@@ -441,11 +441,11 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 		fmt.Println("reading file...:", file)
 
 		fs.Pull(nodePtr, file, 1)
-		data := csvReader(nodePtr.LocalPath + file)
+		var data [][]string
 
 		for {
-			input, _ := ReadFromCsv(nodePtr.LocalPath + file)
-			if len(input) > 0 {
+			data, _ = ReadFromCsv(nodePtr.LocalPath + file)
+			if len(data) > 0 {
 				break
 			}
 		}
