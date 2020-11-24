@@ -349,6 +349,11 @@ func AllocateJuice(nodePtr *nd.Node, num_juice int, mapledList []string) map[str
 		fmt.Println(service_juice_pairs, ":", allocatedJuice)
 	}
 
+	for key, file := range service_juice_pairs {
+		fmt.Println("vm:", key)
+		fmt.Println("Assigned file:", file)
+	}
+
 	return service_juice_pairs
 }
 
@@ -399,6 +404,8 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 	var juiced_data [][]string
 
 	for _, file := range fileList {
+		fmt.Println("reading file...:", file)
+
 		fs.Pull(nodePtr, file, 1)
 		data := csvReader(nodePtr.LocalPath + file)
 		//fmt.Println("here is data")
