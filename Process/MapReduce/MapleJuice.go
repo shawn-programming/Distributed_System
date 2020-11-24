@@ -409,7 +409,7 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 
 	filename := sdfs_intermediate_filename_prefix + ":" + nodePtr.SelfIP + ".csv"
 
-	csvWriter(filename, juiced_data)
+	csvWriter(nodePtr.LocalPath+filename, juiced_data)
 
 	fmt.Println("Generated:", filename)
 
