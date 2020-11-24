@@ -448,6 +448,7 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 			if len(data) > 0 {
 				break
 			}
+			fmt.Println("juice:",data[0])
 		}
 
 		if juice_exe == "condorcet" {

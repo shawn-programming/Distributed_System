@@ -670,6 +670,7 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 			if len(input) > 0 {
 				break
 			}
+			print("maple:", input[0])
 		}
 
 		fmt.Println("Reading file completed")
@@ -923,6 +924,7 @@ func commandIterpreter(command string) []string {
 func ReadFromCsv(filePath string) ([][]string, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
+		fmt.Println("could not read")
 		return nil, err
 	}
 
