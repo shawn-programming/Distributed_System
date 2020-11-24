@@ -298,7 +298,9 @@ func MapleSort(processNodePtr *nd.Node, maple_exe, IntermediateFilename, SrcDire
 	// open all sdfs csv files starts with "IntermediateFilename" and store it as one total file.
 	fmt.Println("2")
 
-	for _, sdfsFile := range *(processNodePtr.DistributedFilesPtr) {
+	distributedFiles := fs.GetFileList(processNodePtr)
+
+	for sdfsFile, _ := range distributedFiles {
 		fmt.Println("filename:", sdfsFile)
 
 		if strings.HasPrefix(sdfsFile, "maple_"+IntermediateFilename) {
@@ -354,12 +356,13 @@ func MapleSort(processNodePtr *nd.Node, maple_exe, IntermediateFilename, SrcDire
 
 func AllocateJuice(nodePtr *nd.Node, num_juice int, mapledList []string) map[string][]string {
 
+	print("mapledlist:", mapledList)
 	file_num := len(mapledList)
 	println(mapledList)
 	if file_num < num_juice {
 		num_juice = file_num
 	}
-	fmt.Println("File num:", fileList, "num_juice:", num_juice)
+	fmt.Println("File num:", file_num, "num_juice:", num_juice)
 
 	num_keys_per_node := (file_num - (file_num % num_juice)) / num_juice
 
@@ -490,7 +493,9 @@ func JuiceSort(processNodePtr *nd.Node, juice_exe, IntermediateFilename, sdfs_de
 
 	// open all sdfs csv files starts with "IntermediateFilename" and store it as one total file.
 
-	for _, sdfsFile := range *(processNodePtr.DistributedFilesPtr) {
+	distributedFiles := fs.GetFileList(processNodePtr)
+
+	for sdfsFile, _ := range distributedFiles {
 		fmt.Println("filename:", sdfsFile)
 
 		if strings.HasPrefix(sdfsFile, "juice_"+IntermediateFilename) {
