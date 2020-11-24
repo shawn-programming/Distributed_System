@@ -670,7 +670,7 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 			if len(input) > 0 {
 				break
 			}
-			print("maple:", input[0])
+			print("maple:")
 		}
 
 		fmt.Println("Reading file completed")
