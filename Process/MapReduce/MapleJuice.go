@@ -401,8 +401,14 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 	for _, file := range fileList {
 		fs.Pull(nodePtr, file, 1)
 		data := csvReader(nodePtr.LocalPath + file)
+		fmt.Println("here is data")
+		fmt.Println(data)
+
 		if juice_exe == "condorcet" {
 			reduced_data := CondorcetReducer1(data)
+
+			fmt.Println(reduced_data)
+
 			juiced_data = append(juiced_data, reduced_data)
 		}
 	}
