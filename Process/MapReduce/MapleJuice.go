@@ -28,12 +28,13 @@ Maple(intermediate_filename, exe):
 	when a leader node sum up all of the data:
 		outputs -> maple_exe:key.csv
 
-Juice(intermediate_filename, exe):
+Juice( <exe> <num_juices> <sdfs_intermediate_filename_prefix> <sdfs_dest_filename>
+delete_input={0,1}):
 	when a working node processes a file:
-		outputs -> juice_intermediate_IP.csv
+		outputs -> juice_<sdfs_intermediate_filename_prefix>_IP.csv
 
 	when a leader node sum up all of the data:
-		outputs -> juice_exe.csv
+		outputs -> <sdfs_dest_filename>.csv
 
 */
 
@@ -453,7 +454,7 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 	fmt.Println("Increased Juice Counter")
 }
 
-func JuiceSort(processNodePtr *nd.Node, juice_exe, IntermediateFilename, SrcDirectory string) {
+func JuiceSort(processNodePtr *nd.Node, juice_exe, IntermediateFilename, sdfs_dest_filename string) {
 
 	// fmt.Println("Source Directory: " + SrcDirectory)
 	// to_remove := fileList(SrcDirectory)
@@ -471,7 +472,7 @@ func JuiceSort(processNodePtr *nd.Node, juice_exe, IntermediateFilename, SrcDire
 	for _, sdfsFile := range *(processNodePtr.DistributedFilesPtr) {
 		fmt.Println("filename:", sdfsFile)
 
-		if strings.HasPrefix(sdfsFile, IntermediateFilename) {
+		if strings.HasPrefix(sdfsFile, "juice_"+IntermediateFilename) {
 			fmt.Println("start pulling")
 			fs.Pull(processNodePtr, sdfsFile, 1)
 			fmt.Println("Pulled:", sdfsFile)
@@ -498,7 +499,7 @@ func JuiceSort(processNodePtr *nd.Node, juice_exe, IntermediateFilename, SrcDire
 
 	fmt.Println("done for loop")
 
-	filename := "juice_" + juice_exe + ".csv"
+	filename := sdfs_dest_filename + ".csv"
 	fmt.Println("Generating a file:", filename)
 	csvWriter(processNodePtr.LocalPath+filename, juiced_data)
 	fs.Put(processNodePtr, filename, 1)
