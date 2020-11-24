@@ -53,6 +53,21 @@ func csvWriter(filePath string, data [][]string) {
 	wr.Flush()
 }
 
+func ReadFromCsv(filePath string) ([][]string, error) {
+	file, err := os.Open(filePath)
+	if err != nil {
+		return nil, err
+	}
+
+	reader := csv.NewReader(file)
+	stringValues, err := reader.ReadAll()
+	if err != nil {
+		return nil, err
+	}
+
+	return stringValues, nil
+}
+
 // code copied from https://medium.com/@ankurraina/reading-a-simple-csv-in-go-36d7a269cecd
 func csvReader(filePath string) [][]string {
 	// Open the file
@@ -429,7 +444,7 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 		data := csvReader(nodePtr.LocalPath + file)
 
 		for {
-			input := csvReader(nodePtr.LocalPath + file)
+			input, _ := ReadFromCsv(nodePtr.LocalPath + file)
 			if len(input) > 0 {
 				break
 			}
