@@ -23,7 +23,7 @@ import (
 
 Maple(<maple_exe> <num_maples> <sdfs_intermediate_filename_prefix> <sdfs_src_directory>):
 	when a working node processes a file:
-		outputs -> maple_i<sdfs_intermediate_filename_prefix>_selfIP:key.csv
+		outputs -> maple_<sdfs_intermediate_filename_prefix>_selfIP:key.csv
 
 	when a leader node sum up all of the data:
 		outputs -> maple_<maple_exe>:key.csv

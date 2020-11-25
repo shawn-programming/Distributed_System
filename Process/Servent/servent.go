@@ -932,6 +932,14 @@ func GetCommand(processNodePtr *nd.Node) {
 
 				*(processNodePtr.MapleJuiceFileListPtr) = []string{}
 
+				localFiles := fs.GetFileList(processNodePtr)
+
+				for file, _ := range localFiles {
+					if strings.HasPrefix(file, "maple") && !strings.HasPrefix(file, "mapled_"+mapleExe+":") {
+						fs.Remove(processNodePtr, file)
+					}
+				}
+
 			} else { //not a leader
 				data := pk.MapLeader{mapleExe, numMaples, intermediateFilename, srcDirectory, deleteOrNot}
 				mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartMaple")
@@ -963,6 +971,16 @@ func GetCommand(processNodePtr *nd.Node) {
 				mj.JuiceSort(processNodePtr, mapleExe, intermediateFilename, srcDirectory)
 
 				*(processNodePtr.MapleJuiceFileListPtr) = []string{}
+
+				localFiles := fs.GetFileList(processNodePtr)
+				for file, _ := range localFiles {
+					if strings.HasPrefix(file, "reduced") {
+						fs.Remove(processNodePtr, file)
+					} else if strings.HasPrefix(file, "mapled_") && deleteOrNot == true {
+						fs.Remove(processNodePtr, file)
+					}
+				}
+
 			} else {
 				data := pk.MapLeader{mapleExe, numJuices, intermediateFilename, srcDirectory, deleteOrNot}
 				mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartJuice")
