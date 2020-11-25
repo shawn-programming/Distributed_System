@@ -711,11 +711,12 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 
 			*(nodePtr.MapleJuiceFileListPtr) = []string{}
 
-			localFiles := fs.GetFileList(nodePtr)
+			localFiles, _ := ioutil.ReadDir(nodePtr.LocalPath)
 
-			for file, _ := range localFiles {
+			for _, f := range localFiles {
+				file := f.Name()
 				if strings.HasPrefix(file, "map") && !strings.HasPrefix(file, "mapled_"+msg.MapleExe+":") {
-					fs.RemoveFile(nodePtr, file)
+					// fs.RemoveFile(nodePtr, file)
 					os.Remove(nodePtr.LocalPath + file)
 				}
 			}
@@ -762,13 +763,16 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 
 			*(nodePtr.MapleJuiceFileListPtr) = []string{}
 
-			localFiles := fs.GetFileList(nodePtr)
-			for file, _ := range localFiles {
+			// localFiles := fs.GetFileList(nodePtr)
+			localFiles, _ := ioutil.ReadDir(nodePtr.LocalPath)
+
+			for _, f := range localFiles {
+				file := f.Name()
 				if strings.HasPrefix(file, "reduce") || strings.HasPrefix(file, "juice") {
-					fs.RemoveFile(nodePtr, file)
+					// fs.RemoveFile(nodePtr, file)
 					os.Remove(nodePtr.LocalPath + file)
 				} else if strings.HasPrefix(file, "mapled_") && msg.DeleteOrNot == true {
-					fs.RemoveFile(nodePtr, file)
+					// fs.RemoveFile(nodePtr, file)
 					os.Remove(nodePtr.LocalPath + file)
 				}
 			}
@@ -954,7 +958,7 @@ func GetCommand(processNodePtr *nd.Node) {
 				localFiles := fs.GetFileList(processNodePtr)
 
 				for file, _ := range localFiles {
-					if strings.HasPrefix(file, "maple") && !strings.HasPrefix(file, "mapled_"+mapleExe+":") {
+					if strings.HasPrefix(file, "map") && !strings.HasPrefix(file, "mapled_"+mapleExe+":") {
 						fs.RemoveFile(processNodePtr, file)
 						os.Remove(processNodePtr.LocalPath + file)
 					}
