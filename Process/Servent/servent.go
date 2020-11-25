@@ -772,7 +772,6 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 				if strings.HasPrefix(file, "reduce") || strings.HasPrefix(file, "juice") {
 					// fs.RemoveFile(nodePtr, file)
 					os.Remove(nodePtr.LocalPath + file)
-					fmt.Println("removed")
 				} else if strings.HasPrefix(file, "mapled_") && msg.DeleteOrNot == true {
 					// fs.RemoveFile(nodePtr, file)
 					os.Remove(nodePtr.LocalPath + file)
@@ -1000,7 +999,7 @@ func GetCommand(processNodePtr *nd.Node) {
 
 				localFiles := fs.GetFileList(processNodePtr)
 				for file, _ := range localFiles {
-					if strings.HasPrefix(file, "reduced") {
+					if strings.HasPrefix(file, "reduced") || strings.HasPrefix(file, "juice") {
 						fs.RemoveFile(processNodePtr, file)
 						os.Remove(processNodePtr.LocalPath + file)
 					} else if strings.HasPrefix(file, "mapled_") && deleteOrNot == true {
