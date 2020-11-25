@@ -537,6 +537,7 @@ func JuiceSort(processNodePtr *nd.Node, juice_exe, IntermediateFilename, sdfs_de
 	fmt.Println("Generating a file:", filename)
 
 	csvWriter(sdfs_dest_filename+"/"+filename, juiced_data)
+	csvWriter(processNodePtr.LocalPath+filename, juiced_data)
 	fs.Put(processNodePtr, filename, 1)
 
 	fmt.Println("juice sort done!")
