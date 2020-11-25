@@ -271,6 +271,7 @@ func DecodeMapLeaderPacket(encodedMessage PacketType) MapLeader {
 type MapWorker struct {
 	Filename             string
 	IntermediateFilename string
+	MapleExe             string
 }
 
 func EncodeMapWorkerPacket(message MapWorker) []byte {
@@ -309,7 +310,7 @@ func DecodeMapJuiceWorkerPacket(encodedMessage PacketType) MapJuiceWorker {
 }
 
 type MapDone struct {
-	FileList 	[]string
+	FileList []string
 }
 
 func EncodeMapDonePacket(message MapDone) []byte {
@@ -324,7 +325,6 @@ func DecodeMapDonePacket(encodedMessage PacketType) MapDone {
 	checkError(err)
 	return decodedMessage
 }
-
 
 /*
 CheckError(err error)

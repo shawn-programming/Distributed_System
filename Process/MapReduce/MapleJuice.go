@@ -170,7 +170,7 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 	fmt.Println("Data split done")
 
 	workerNodes := getNameNodes(processNodePtr, num_maples) // services of worker nodes
-	SendUDPToWorkers(workerNodes, sdfs_intermediate_filename_prefix, sdfs_intermediate_filename_prefix)
+	SendUDPToWorkers(workerNodes, sdfs_intermediate_filename_prefix, sdfs_intermediate_filename_prefix, maple_exe)
 }
 
 func SendUDPToLeader(nodePtr *nd.Node, data []byte, cmd string) {
@@ -193,7 +193,7 @@ func SendUDPToLeader(nodePtr *nd.Node, data []byte, cmd string) {
 }
 
 //send udp request to initiate maple sequence
-func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_filename_prefix string) {
+func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_filename_prefix string, mapleExe string) {
 	fmt.Println("SendUDPToWorkers start")
 
 	for i, worker := range workerNodes {
@@ -206,7 +206,7 @@ func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_f
 		conn, err := net.DialUDP("udp", nil, udpAddr)
 		fs.CheckError(err)
 
-		_, err = conn.Write(pk.EncodePacket("Maple", pk.EncodeMapWorkerPacket(pk.MapWorker{currFile, sdfs_intermediate_filename_prefix})))
+		_, err = conn.Write(pk.EncodePacket("Maple", pk.EncodeMapWorkerPacket(pk.MapWorker{currFile, sdfs_intermediate_filename_prefix, mapleExe})))
 
 		var buf [512]byte
 		_, err = conn.Read(buf[0:])
@@ -245,7 +245,7 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 	fmt.Println("Input size: " + strconv.Itoa(len(input)))
 	for _, data := range input {
 		//temp := fp(data)
-		temp := CondorcetMapper1(data) //outputs [][][]string
+		temp := fp(data) //outputs [][][]string
 
 		// fmt.Println("Condocet mapper applied  temp {to temp")
 		for _, datum := range temp {
@@ -360,7 +360,6 @@ func MapleSort(processNodePtr *nd.Node, maple_exe, IntermediateFilename, SrcDire
 	fmt.Println("maple sort done!")
 
 	return fileList
-
 }
 
 func AllocateJuice(nodePtr *nd.Node, num_juice int, mapledList []string) map[string][]string {
@@ -446,7 +445,7 @@ func SendUDPJuiceToWorkers(service_juice_pairs map[string][]string,
 	fmt.Println("SendUDPJuiceToWorkers Done")
 }
 
-func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermediate_filename_prefix string, delete_input bool) {
+func JuiceReceived(nodePtr *nd.Node, fileList []string, fp func([][]string) []string, sdfs_intermediate_filename_prefix string, delete_input bool) {
 	var juiced_data [][]string
 
 	for _, file := range fileList {
@@ -462,14 +461,9 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, juice_exe, sdfs_intermed
 			}
 			//fmt.Println("juice:")
 		}
+		reduced_data := fp(data)
 
-		if juice_exe == "condorcet" {
-			reduced_data := CondorcetReducer1(data)
-
-			fmt.Println(reduced_data)
-
-			juiced_data = append(juiced_data, reduced_data)
-		}
+		juiced_data = append(juiced_data, reduced_data)
 	}
 
 	filename := "juice_" + sdfs_intermediate_filename_prefix + "_" + nodePtr.SelfIP + ".csv"
@@ -517,7 +511,6 @@ func JuiceSort(processNodePtr *nd.Node, juice_exe, IntermediateFilename, sdfs_de
 		fmt.Println("Pulled:", file)
 	}
 
-
 	// Then save it as a csv file
 	localFiles := fileList("./local_files")
 	for _, local := range localFiles {
@@ -538,58 +531,14 @@ func JuiceSort(processNodePtr *nd.Node, juice_exe, IntermediateFilename, sdfs_de
 
 	fmt.Println("done for loop")
 
+	_ = os.MkdirAll(sdfs_dest_filename, 0755)
+
 	filename := sdfs_dest_filename + ".csv"
 	fmt.Println("Generating a file:", filename)
-	csvWriter(processNodePtr.LocalPath+filename, juiced_data)
+
+	csvWriter(sdfs_dest_filename+"/"+filename, juiced_data)
 	fs.Put(processNodePtr, filename, 1)
 
 	fmt.Println("juice sort done!")
 
-}
-
-func CondorcetMapper1(input []string) [][][]string {
-	mapledData := [][][]string{}
-
-	m := len(input)
-	for i := 0; i < m-1; i++ {
-		for j := i + 1; j < m; j++ {
-			if input[i] == "" || input[j] == "" {
-				continue
-			}
-			if input[i] < input[j] {
-				temp := [][]string{[]string{input[i], input[j]}, []string{"1"}}
-				mapledData = append(mapledData, temp)
-			} else {
-				temp := [][]string{[]string{input[j], input[i]}, []string{"0"}}
-				mapledData = append(mapledData, temp)
-			}
-		}
-	}
-	return mapledData
-}
-
-func CondorcetReducer1(input [][]string) []string {
-	Acount := 0
-	Bcount := 0
-
-	var keyA string
-	var keyB string
-	for _, line := range input {
-		keys := strings.Split(line[0], ":")
-		entry := line[1]
-
-		keyA = keys[0]
-		keyB = keys[1]
-
-		if entry == "1" { // A won
-			Acount++
-		} else { // B won
-			Bcount++
-		}
-	}
-
-	if Acount > Bcount {
-		return []string{keyA, keyB}
-	}
-	return []string{keyB, keyA}
 }

@@ -14,6 +14,7 @@ import (
 
 	fs "../FileSys"
 	mj "../MapReduce"
+	mjf "../MapleJuiceFunctions"
 	ms "../Membership"
 	nd "../Node"
 	pk "../Packet"
@@ -676,8 +677,19 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 			//print("maple:")
 		}
 
+		fp := func(input []string) [][][]string { return [][][]string{} }
+
+		if msg.MapleExe == "condorcet1" {
+			fp = mjf.CondorcetMapper1
+		} else if msg.MapleExe == "condorcet2" {
+			fp = mjf.CondorcetMapper2
+		} else {
+			fmt.Println("Maple function <", msg.MapleExe, "> does not exist")
+		}
+
 		fmt.Println("Reading file completed")
-		mj.MapleReceived(nodePtr, msg.IntermediateFilename, mj.CondorcetMapper1, input)
+
+		mj.MapleReceived(nodePtr, msg.IntermediateFilename, fp, input)
 
 		return ""
 
@@ -708,7 +720,17 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 		encodedMsg := pk.EncodePacket("Maple Reqeust received", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 
-		mj.JuiceReceived(nodePtr, msg.AllocatedFilenames, msg.JuiceExe, msg.IntermediateFilename, msg.DeleteOrNot)
+		fp := func(input [][]string) []string { return []string{} }
+
+		if msg.JuiceExe == "condorcet1" {
+			fp = mjf.CondorcetReducer1
+		} else if msg.JuiceExe == "condorcet2" {
+			fp = mjf.CondorcetReducer2
+		} else {
+			fmt.Println("Juice function <", msg.JuiceExe, "> does not exist")
+		}
+
+		mj.JuiceReceived(nodePtr, msg.AllocatedFilenames, fp, msg.IntermediateFilename, msg.DeleteOrNot)
 
 		return ""
 
@@ -897,9 +919,25 @@ func GetCommand(processNodePtr *nd.Node) {
 			intermediateFilename := interpreted[3]
 			srcDirectory := interpreted[4]
 			deleteOrNot := false
-			data := pk.MapLeader{mapleExe, numMaples, intermediateFilename, srcDirectory, deleteOrNot}
 
-			mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartMaple")
+			if processNodePtr.VmNum == 1 { //i am the leadah
+				fmt.Println("i am the leader")
+
+				mj.Maple(processNodePtr, mapleExe, numMaples, intermediateFilename, srcDirectory)
+
+				fmt.Println("Start Waiting")
+				mj.Wait(processNodePtr, numMaples)
+				fmt.Println("Done Waiting")
+				*processNodePtr.MapledFilesPtr = mj.MapleSort(processNodePtr, mapleExe, intermediateFilename, srcDirectory)
+
+				*(processNodePtr.MapleJuiceFileListPtr) = []string{}
+
+			} else { //not a leader
+				data := pk.MapLeader{mapleExe, numMaples, intermediateFilename, srcDirectory, deleteOrNot}
+				mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartMaple")
+
+			}
+
 		} else if len(interpreted) == 6 && interpreted[0] == "juice" {
 			mapleExe := interpreted[1]
 			numJuices, _ := strconv.Atoi(interpreted[2])
@@ -913,9 +951,22 @@ func GetCommand(processNodePtr *nd.Node) {
 				deleteOrNot = false
 			}
 			fmt.Println(numJuices)
-			data := pk.MapLeader{mapleExe, numJuices, intermediateFilename, srcDirectory, deleteOrNot}
 
-			mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartJuice")
+			if processNodePtr.VmNum == 1 {
+
+				fmt.Println("i am the leader")
+				mj.Juice(processNodePtr, mapleExe, numJuices, intermediateFilename, srcDirectory, deleteOrNot)
+
+				fmt.Println("Start Waiting")
+				mj.Wait(processNodePtr, numJuices)
+
+				mj.JuiceSort(processNodePtr, mapleExe, intermediateFilename, srcDirectory)
+
+				*(processNodePtr.MapleJuiceFileListPtr) = []string{}
+			} else {
+				data := pk.MapLeader{mapleExe, numJuices, intermediateFilename, srcDirectory, deleteOrNot}
+				mj.SendUDPToLeader(processNodePtr, pk.EncodeMapLeaderPacket(data), "StartJuice")
+			}
 
 		} else {
 			fmt.Println("Invalid Command")
