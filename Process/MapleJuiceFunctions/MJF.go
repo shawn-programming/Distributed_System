@@ -56,12 +56,13 @@ func CondorcetReducer1(input [][]string) []string {
 func CondorcetMapper2(input []string) [][][]string {
 	mapledData := [][][]string{}
 
-	var A []string
-	var B []string
+	var key []string
+	var value []string
 
-	A = append(A, input[0])
-	B = append(B, input[1])
-	candidates := [][]string{A, B}
+	key = append(key,"1")
+	value = append(value, input[0])
+	value = append(value,input[1])
+	candidates := [][]string{key, value}
 
 	mapledData = append(mapledData, candidates)
 	return mapledData
