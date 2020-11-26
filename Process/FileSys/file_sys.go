@@ -417,10 +417,12 @@ func RequestTCP(command string, ipaddr string, fileName string, processNodePtr *
 	OpenTCP(processNodePtr, command, fileName, id, IsPull)
 	//fmt.Println("OpenTCP Done")
 
-	connection, _ := net.Dial("tcp", service)
-	//if err != nil {
-	//	panic(err)
-	//}
+	connection, err := net.Dial("tcp", service)
+	if err != nil {
+		fmt.Println("Connection Failed, Terminating...")
+		return
+		// panic(err)
+	}
 	defer connection.Close()
 	//fmt.Println("Connected, start processing request")
 
@@ -487,11 +489,12 @@ func ReceiveFile(connection net.Conn, path string, processNodePtr *nd.Node) {
 	fileName := strings.Trim(string(bufferFileName), ":")
 
 	fmt.Println("create new file, path:", path+fileName)
-	newFile, _ := os.Create(path + fileName)
+	newFile, err := os.Create(path + fileName)
 
-	//if err != nil {
-	// panic(err)
-	//}
+	if err != nil {
+		return
+		// panic(err)
+	}
 	defer newFile.Close()
 	var receivedBytes int64
 
