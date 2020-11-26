@@ -298,6 +298,11 @@ func checkProcesses(nodePtr *nd.Node) {
 			free := getFreeProcess(nodePtr)
 			freeService := free + ":" + strconv.Itoa(nodePtr.DestPortNumMJ)
 			query := info.Query
+
+			message := pk.DecodePacket(query)
+			messageType := message.Ptype
+			fmt.Println("Message Type :", messageType)
+			fmt.Println()
 			fmt.Println("Reassigning the task to", freeService)
 
 			udpAddr, err := net.ResolveUDPAddr("udp4", freeService)
