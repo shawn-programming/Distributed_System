@@ -209,7 +209,7 @@ func SendFilelist(processNodePtr *nd.Node) {
 
 func Put(processNodePtr *nd.Node, filename string, N int) {
 	var idList []ms.Id
-
+	fmt.Println("start Put")
 	//fmt.Println("PUT--------------------------")
 	myID := (*processNodePtr).Id
 
@@ -220,7 +220,7 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 	CheckError(err)
 
 	*processNodePtr.DistributedFilesPtr = append(*processNodePtr.DistributedFilesPtr, filename)
-
+	fmt.Println("before ResolveUDPAddr")
 	leaderService := *processNodePtr.LeaderServicePtr
 	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
 	fmt.Println("ResolveUDPAddr")
