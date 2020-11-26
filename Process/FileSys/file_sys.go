@@ -223,14 +223,17 @@ func Put(processNodePtr *nd.Node, filename string, N int) {
 
 	leaderService := *processNodePtr.LeaderServicePtr
 	udpAddr, err := net.ResolveUDPAddr("udp4", leaderService)
+	fmt.Println("ResolveUDPAddr")
 	CheckError(err)
 
 	conn, err := net.DialUDP("udp", nil, udpAddr)
+	fmt.Println("DialUDP")
 	CheckError(err)
 
 	// request leader about the destinations to send the replica
 	packet := pk.EncodeIdList(pk.IdListpacket{N, myID, []ms.Id{}, filename})
 	_, err = conn.Write(pk.EncodePacket("ReplicaList", packet))
+	fmt.Println("Write")
 	CheckError(err)
 
 	var buf [512]byte
@@ -710,6 +713,7 @@ func IncreaseMapleJuiceCounter(nodePtr *nd.Node, fileList []string) {
 func CheckError(err error) {
 	if err != nil {
 		fmt.Println("Fatal error ", err.Error())
+		fmt.Println("checkerror done")
 		// os.Exit(1)
 	}
 }
