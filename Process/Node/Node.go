@@ -246,6 +246,7 @@ func (node Node) AddMember(member ms.Membership) Node {
 	var initialInput MJProcessInfo
 	initialInput.Status = "free"
 	(*node.MapleJuiceProcessPtr)[member.ID.IPAddress] = initialInput
+
 	return node
 }
 
@@ -290,15 +291,11 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 
 			fmt.Println("failed service: ", failed.IPAddress)
 
-			for key, _ := range *(node.MapleJuiceProcessPtr) {
-				if failed.IPAddress == key {
-					fmt.Println("failedIPAddress: ", key)
+			newinput := (*node.MapleJuiceProcessPtr)[failed.IPAddress]
+			newinput.Status = "failed"
+			(*node.MapleJuiceProcessPtr)[failed.IPAddress] = newinput
 
-					newinput := (*node.MapleJuiceProcessPtr)[key]
-					newinput.Status = "failed"
-					(*node.MapleJuiceProcessPtr)[key] = newinput
-				}
-			}
+			fmt.Println("MapleJuiceProcessPtr updated")
 		}
 
 		// replicate distributed files of members inside the failList

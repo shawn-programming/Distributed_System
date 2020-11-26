@@ -38,7 +38,7 @@ func main() {
 	LeaderService := IDAdresses[1] + ":" + strconv.Itoa(Ports[0])
 	Initiator := ""
 	MapleJuiceFileList := []string{}
-	MJProcessInfo := map[string]nd.MJProcessInfo{}
+	MJProcessInfo := make(map[string]nd.MJProcessInfo)
 	processNode := nd.CreateNode(os.Args[1], &IsLeader, &ATA, &TotalByteSent, &InputList, &LeaderService,
 		&DistributedFiles, &Initiator, &MapleJuiceCounter, &MapledFiles, &MapleJuiceFileList, &MJProcessInfo) // Processor's Node
 
