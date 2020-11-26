@@ -220,7 +220,7 @@ func SendUDPToWorkers(nodePtr *nd.Node, workerNodes []string, filename string, s
 		newinput.Status = "busy"
 		newinput.Query = packet
 		fmt.Println("Query Size2:", len(newinput.Query))
-		(*nodePtr.MapleJuiceProcessPtr)[worker] = newinput
+		(*nodePtr.MapleJuiceProcessPtr)[IPAddress] = newinput
 
 		newinput = (*nodePtr.MapleJuiceProcessPtr)[IPAddress]
 		fmt.Println("After putting newinput size: ", len(newinput.Query))
