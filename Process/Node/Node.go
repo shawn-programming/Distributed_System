@@ -278,6 +278,7 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 			_, exists := (*node.MapleJuiceProcessPtr)[inputMember.ID.IPAddress]
 			if !exists {
 				if !inputMember.Failed {
+
 					var initialInput MJProcessInfo
 					initialInput.Status = "free"
 					(*node.MapleJuiceProcessPtr)[inputMember.ID.IPAddress] = initialInput

@@ -214,7 +214,7 @@ func SendUDPToWorkers(nodePtr *nd.Node, workerNodes []string, filename string, s
 		_, err = conn.Read(buf[0:])
 
 		IPAddress := worker[:len(worker)-5]
-
+		fmt.Println("IP", IPAddress, "is now busy")
 		newinput := (*nodePtr.MapleJuiceProcessPtr)[IPAddress]
 		newinput.Status = "busy"
 		newinput.Query = packet
