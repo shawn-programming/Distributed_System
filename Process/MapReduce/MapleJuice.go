@@ -215,10 +215,15 @@ func SendUDPToWorkers(nodePtr *nd.Node, workerNodes []string, filename string, s
 
 		IPAddress := worker[:len(worker)-5]
 		fmt.Println("IP", IPAddress, "is now busy")
+		fmt.Println("Query Size:", len(packet))
 		newinput := (*nodePtr.MapleJuiceProcessPtr)[IPAddress]
 		newinput.Status = "busy"
 		newinput.Query = packet
+		fmt.Println("Query Size2:", len(newinput.Query))
 		(*nodePtr.MapleJuiceProcessPtr)[worker] = newinput
+
+		newinput = (*nodePtr.MapleJuiceProcessPtr)[IPAddress]
+		fmt.Println("After putting newinput size: ", len(newinput.Query))
 
 		fs.CheckError(err)
 		fmt.Println("sent udp to", worker)
