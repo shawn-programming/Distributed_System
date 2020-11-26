@@ -293,7 +293,6 @@ func freeAll(nodePtr *nd.Node) {
 }
 
 func checkProcesses(nodePtr *nd.Node) {
-	fmt.Println("start CheckProcesses")
 	for ip, info := range *nodePtr.MapleJuiceProcessPtr {
 		if info.Status == "failed" {
 			fmt.Println(ip, ":", info.Status)
@@ -302,6 +301,7 @@ func checkProcesses(nodePtr *nd.Node) {
 			query := info.Query
 
 			fmt.Println("Start Decoding query")
+			fmt.Println(len(query))
 			message := pk.DecodePacket(query)
 			messageType := message.Ptype
 			fmt.Println("Message Type :", messageType)
