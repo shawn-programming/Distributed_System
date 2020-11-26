@@ -374,7 +374,10 @@ func MapleReceived(processNodePtr *nd.Node, sdfs_intermediate_filename_prefix st
 		filename := "maple_" + sdfs_intermediate_filename_prefix + "_" + processNodePtr.SelfIP + ":" + key + ".csv"
 		fileMadeList = append(fileMadeList, filename)
 		csvWriter(processNodePtr.LocalPath+filename, mapled_data[location])
+		fmt.Println("Before PUT")
 		fs.Put(processNodePtr, filename, 1)
+		fmt.Println("After PUT")
+
 	}
 
 	fmt.Println("mapped file put done")
