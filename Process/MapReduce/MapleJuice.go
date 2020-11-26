@@ -329,7 +329,7 @@ func checkProcesses(nodePtr *nd.Node) {
 			var buf [512]byte
 			_, err = conn.Read(buf[0:])
 
-			newinput := (*nodePtr.MapleJuiceProcessPtr)[free]
+			newinput = (*nodePtr.MapleJuiceProcessPtr)[free]
 			newinput.Status = "busy"
 			newinput.Query = query
 			(*nodePtr.MapleJuiceProcessPtr)[free] = newinput
