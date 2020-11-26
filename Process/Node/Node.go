@@ -304,6 +304,9 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 			fmt.Println("failed service: ", failed.IPAddress)
 
 			newinput := (*node.MapleJuiceProcessPtr)[failed.IPAddress]
+			if newinput.Status == "deactivated" {
+				continue
+			}
 			newinput.Status = "failed"
 			(*node.MapleJuiceProcessPtr)[failed.IPAddress] = newinput
 

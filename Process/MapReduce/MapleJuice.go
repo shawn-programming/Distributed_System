@@ -300,6 +300,11 @@ func freeAll(nodePtr *nd.Node) {
 func checkProcesses(nodePtr *nd.Node) {
 	for ip, info := range *nodePtr.MapleJuiceProcessPtr {
 		if info.Status == "failed" {
+
+			newinput := (*nodePtr.MapleJuiceProcessPtr)[ip]
+			newinput.Status = "deactivated"
+			(*nodePtr.MapleJuiceProcessPtr)[ip] = newinput
+
 			fmt.Println(ip, ":", info.Status)
 			free := getFreeProcess(nodePtr)
 			freeService := free + ":" + strconv.Itoa(nodePtr.DestPortNumMJ)
