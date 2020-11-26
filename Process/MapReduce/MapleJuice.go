@@ -295,8 +295,8 @@ func freeAll(nodePtr *nd.Node) {
 func checkProcesses(nodePtr *nd.Node) {
 	fmt.Println("start CheckProcesses")
 	for ip, info := range *nodePtr.MapleJuiceProcessPtr {
-		fmt.Println(ip, ":", info.Status)
 		if info.Status == "failed" {
+			fmt.Println(ip, ":", info.Status)
 			free := getFreeProcess(nodePtr)
 			freeService := free + ":" + strconv.Itoa(nodePtr.DestPortNumMJ)
 			query := info.Query
