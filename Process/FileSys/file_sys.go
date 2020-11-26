@@ -371,7 +371,7 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 
 	if err != nil {
 		fmt.Println("Error listetning: ", err)
-		os.Exit(1)
+		// os.Exit(1)
 	}
 
 	defer server.Close()
@@ -379,7 +379,7 @@ func ListenTCP(request string, fileName string, processNodePtr *nd.Node, connect
 		connection, err := server.Accept()
 		if err != nil {
 			fmt.Println("Error: ", err)
-			os.Exit(1)
+			// os.Exit(1)
 		}
 		if IsPull {
 			ReceiveFile(connection, processNodePtr.LocalPath, processNodePtr)
@@ -710,6 +710,6 @@ func IncreaseMapleJuiceCounter(nodePtr *nd.Node, fileList []string) {
 func CheckError(err error) {
 	if err != nil {
 		fmt.Println("Fatal error ", err.Error())
-		os.Exit(1)
+		// os.Exit(1)
 	}
 }
