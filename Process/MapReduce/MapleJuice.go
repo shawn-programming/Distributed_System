@@ -12,7 +12,6 @@ import (
 	"os"
 	"strconv"
 	"strings"
-	"time"
 
 	fs "../FileSys"
 	nd "../Node"
@@ -170,7 +169,7 @@ func Maple(processNodePtr *nd.Node, maple_exe string, num_maples int, sdfs_inter
 	fmt.Println("Data split done")
 
 	workerNodes := getNameNodes(processNodePtr, num_maples) // services of worker nodes
-	SendUDPToWorkers(workerNodes, sdfs_intermediate_filename_prefix, sdfs_intermediate_filename_prefix, maple_exe)
+	SendUDPToWorkers(processNodePtr, workerNodes, sdfs_intermediate_filename_prefix, sdfs_intermediate_filename_prefix, maple_exe)
 }
 
 func SendUDPToLeader(nodePtr *nd.Node, data []byte, cmd string) {
@@ -193,7 +192,7 @@ func SendUDPToLeader(nodePtr *nd.Node, data []byte, cmd string) {
 }
 
 //send udp request to initiate maple sequence
-func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_filename_prefix string, mapleExe string) {
+func SendUDPToWorkers(nodePtr *nd.Node, workerNodes []string, filename string, sdfs_intermediate_filename_prefix string, mapleExe string) {
 	fmt.Println("SendUDPToWorkers start")
 
 	for i, worker := range workerNodes {
@@ -206,22 +205,124 @@ func SendUDPToWorkers(workerNodes []string, filename string, sdfs_intermediate_f
 		conn, err := net.DialUDP("udp", nil, udpAddr)
 		fs.CheckError(err)
 
-		_, err = conn.Write(pk.EncodePacket("Maple", pk.EncodeMapWorkerPacket(pk.MapWorker{currFile, sdfs_intermediate_filename_prefix, mapleExe})))
+		packet := pk.EncodePacket("Maple", pk.EncodeMapWorkerPacket(pk.MapWorker{currFile, sdfs_intermediate_filename_prefix, mapleExe}))
+		_, err = conn.Write(packet)
 
 		var buf [512]byte
 		_, err = conn.Read(buf[0:])
+
+		IPAddress := worker[:len(worker)-5]
+
+		newinput := (*nodePtr.MapleJuiceProcessPtr)[IPAddress]
+		newinput.Status = "busy"
+		newinput.Query = packet
+		(*nodePtr.MapleJuiceProcessPtr)[worker] = newinput
+
 		fs.CheckError(err)
 		fmt.Println("sent udp to", worker)
 	}
 	fmt.Println("SendUDPToWorkers Done")
 }
 
-func Wait(NodePtr *nd.Node, NumMaples int) {
+func SendUDPJuiceToWorkers(nodePtr *nd.Node, service_juice_pairs map[string][]string,
+
+	juice_exe string, sdfs_intermediate_filename_prefix string,
+	sdfs_src_directory string,
+	delete_input bool) {
+
+	fmt.Println("SendJuiceUDPToWorkers start")
+
+	for worker, filenames := range service_juice_pairs {
+		fmt.Println("sending: ", worker)
+
+		udpAddr, err := net.ResolveUDPAddr("udp4", worker)
+		fs.CheckError(err)
+
+		conn, err := net.DialUDP("udp", nil, udpAddr)
+		fs.CheckError(err)
+
+		var data pk.MapJuiceWorker
+		data.AllocatedFilenames = filenames
+		data.JuiceExe = juice_exe
+		data.IntermediateFilename = sdfs_intermediate_filename_prefix
+		data.SrcDirectory = sdfs_src_directory
+		data.DeleteOrNot = delete_input
+
+		packet := pk.EncodePacket("Juice", pk.EncodeMapJuiceWorkerPacket(data))
+		_, err = conn.Write(packet)
+
+		var buf [512]byte
+		_, err = conn.Read(buf[0:])
+
+		IPAddress := worker[:len(worker)-5]
+
+		newinput := (*nodePtr.MapleJuiceProcessPtr)[IPAddress]
+		newinput.Status = "busy"
+		newinput.Query = packet
+		(*nodePtr.MapleJuiceProcessPtr)[IPAddress] = newinput
+
+		fs.CheckError(err)
+		fmt.Println("sent udp to", worker)
+
+		fs.CheckError(err)
+	}
+	fmt.Println("SendUDPJuiceToWorkers Done")
+}
+
+func getFreeProcess(nodePtr *nd.Node) string {
+	for IP, info := range *(nodePtr.MapleJuiceProcessPtr) {
+		if info.Status == "free" {
+			return IP
+		}
+	}
+	fmt.Println("No process available. Fata Error")
+	return ""
+}
+
+func freeAll(nodePtr *nd.Node) {
+	for IP, info := range *nodePtr.MapleJuiceProcessPtr {
+		if info.Status == "busy" {
+
+			newinput := (*nodePtr.MapleJuiceProcessPtr)[IP]
+			newinput.Status = "free"
+			(*nodePtr.MapleJuiceProcessPtr)[IP] = newinput
+		}
+	}
+}
+
+func checkProcesses(nodePtr *nd.Node) {
+	for _, info := range *nodePtr.MapleJuiceProcessPtr {
+		if info.Status == "failed" {
+			free := getFreeProcess(nodePtr)
+			freeService := free + ":" + strconv.Itoa(nodePtr.DestPortNumMJ)
+			query := info.Query
+			fmt.Println("Reassigning the task to", freeService)
+
+			udpAddr, err := net.ResolveUDPAddr("udp4", freeService)
+			fs.CheckError(err)
+
+			conn, err := net.DialUDP("udp", nil, udpAddr)
+			fs.CheckError(err)
+
+			_, err = conn.Write(query)
+
+			var buf [512]byte
+			_, err = conn.Read(buf[0:])
+
+			newinput := (*nodePtr.MapleJuiceProcessPtr)[free]
+			newinput.Status = "busy"
+			newinput.Query = query
+			(*nodePtr.MapleJuiceProcessPtr)[free] = newinput
+		}
+	}
+}
+
+func Wait(nodePtr *nd.Node, NumMaples int) {
 	for {
-		time.Sleep(time.Second)
-		// fmt.Println(*(NodePtr.MapleJuiceCounterPtr))
-		if *(NodePtr.MapleJuiceCounterPtr) == NumMaples {
-			*(NodePtr.MapleJuiceCounterPtr) = 0
+		checkProcesses(nodePtr)
+		if *(nodePtr.MapleJuiceCounterPtr) == NumMaples {
+			*(nodePtr.MapleJuiceCounterPtr) = 0
+			freeAll(nodePtr)
 			return
 		}
 	}
@@ -406,46 +507,13 @@ func Juice(processNodePtr *nd.Node, juice_exe string, num_juice int, sdfs_interm
 	fmt.Println("Juice")
 
 	service_juice_pairs := AllocateJuice(processNodePtr, num_juice, (*processNodePtr.MapledFilesPtr))
-	SendUDPJuiceToWorkers(service_juice_pairs, juice_exe, sdfs_intermediate_filename_prefix, sdfs_src_directory, delete_input)
+	SendUDPJuiceToWorkers(processNodePtr, service_juice_pairs, juice_exe, sdfs_intermediate_filename_prefix, sdfs_src_directory, delete_input)
 
 	fmt.Println("Juice Done")
 
 }
 
-func SendUDPJuiceToWorkers(service_juice_pairs map[string][]string,
-
-	juice_exe string, sdfs_intermediate_filename_prefix string,
-	sdfs_src_directory string,
-	delete_input bool) {
-
-	fmt.Println("SendJuiceUDPToWorkers start")
-
-	for worker, filenames := range service_juice_pairs {
-		fmt.Println("sending: ", worker)
-
-		udpAddr, err := net.ResolveUDPAddr("udp4", worker)
-		fs.CheckError(err)
-
-		conn, err := net.DialUDP("udp", nil, udpAddr)
-		fs.CheckError(err)
-
-		var data pk.MapJuiceWorker
-		data.AllocatedFilenames = filenames
-		data.JuiceExe = juice_exe
-		data.IntermediateFilename = sdfs_intermediate_filename_prefix
-		data.SrcDirectory = sdfs_src_directory
-		data.DeleteOrNot = delete_input
-
-		_, err = conn.Write(pk.EncodePacket("Juice", pk.EncodeMapJuiceWorkerPacket(data)))
-
-		var buf [512]byte
-		_, err = conn.Read(buf[0:])
-		fs.CheckError(err)
-	}
-	fmt.Println("SendUDPJuiceToWorkers Done")
-}
-
-func JuiceReceived(nodePtr *nd.Node, fileList []string, fp func([][]string) []string, sdfs_intermediate_filename_prefix string, delete_input bool) {
+func JuiceReceived(nodePtr *nd.Node, fileList []string, fp func([][]string) [][]string, sdfs_intermediate_filename_prefix string, delete_input bool) {
 	var juiced_data [][]string
 
 	for _, file := range fileList {
@@ -463,7 +531,7 @@ func JuiceReceived(nodePtr *nd.Node, fileList []string, fp func([][]string) []st
 		}
 		reduced_data := fp(data)
 
-		juiced_data = append(juiced_data, reduced_data)
+		juiced_data = append(juiced_data, reduced_data...)
 	}
 
 	filename := "juice_" + sdfs_intermediate_filename_prefix + "_" + nodePtr.SelfIP + ".csv"

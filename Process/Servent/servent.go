@@ -730,7 +730,7 @@ func listenMapleJuice(conn *net.UDPConn, nodePtr *nd.Node) string {
 		encodedMsg := pk.EncodePacket("Maple Reqeust received", nil)
 		conn.WriteToUDP(encodedMsg, addr)
 
-		fp := func(input [][]string) []string { return []string{} }
+		fp := func(input [][]string) [][]string { return [][]string{} }
 
 		if msg.JuiceExe == "condorcet1" {
 			fp = mjf.CondorcetReducer1

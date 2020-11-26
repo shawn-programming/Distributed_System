@@ -21,7 +21,11 @@ type Leader struct {
 	IdList    map[ms.Id][]string
 }
 
-// func LeaderInitialization(MsListPtr *ms.MsList) {
+type MJProcessInfo struct {
+	Query  []byte
+	Status string // busy, free, failed
+}
+
 // 	leader := Leader{MsListPtr, make(map[string][]string{})}
 
 // 	for _, member := range MsListPtr.List {
@@ -73,6 +77,7 @@ type Node struct {
 	LocalTime int // local time of the node
 
 	// variable pointers
+	MapleJuiceProcessPtr  *map[string]MJProcessInfo
 	MapleJuiceFileListPtr *[]string    // list of maple juice file list
 	MapleJuiceCounterPtr  *int         // Counter for MapleJuice
 	LeaderServicePtr      *string      // Leader's Id
@@ -88,6 +93,9 @@ type Node struct {
 
 	// leader struct
 	LeaderPtr *Leader
+
+	// failed
+
 }
 
 /*
@@ -115,7 +123,7 @@ RETURN: a Node for a processor
 */
 func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *int, InputListPtr *[]ms.MsList,
 	LeaderServicePtr *string, DistributedFilesPtr *[]string, Initiator *string, MapleJuiceCounterPtr *int,
-	MapledFilesPtr *[]string, MapleJuiceFileListPtr *[]string) Node {
+	MapledFilesPtr *[]string, MapleJuiceFileListPtr *[]string, MapleJuiceProcessPtr *map[string]MJProcessInfo) Node {
 	tempNode := Node{}
 
 	failRate, _ := config.FailRate()
@@ -198,6 +206,7 @@ func CreateNode(vmNumStr string, IsLeaderPtr, ATAPtr *bool, TotalByteSentPtr *in
 	tempNode.LocalTime = 0
 
 	// variable pointers
+	tempNode.MapleJuiceProcessPtr = MapleJuiceProcessPtr
 	tempNode.MapleJuiceFileListPtr = MapleJuiceFileListPtr
 	tempNode.MapleJuiceCounterPtr = MapleJuiceCounterPtr
 	tempNode.LeaderServicePtr = LeaderServicePtr
@@ -231,6 +240,11 @@ RETURN:  node with the new member
 */
 func (node Node) AddMember(member ms.Membership) Node {
 	node.MsList = node.MsList.Add(member, node.LocalTime)
+
+	// add member to maple juice process ptr
+	var initialInput MJProcessInfo
+	initialInput.Status = "free"
+	(*node.MapleJuiceProcessPtr)[member.ID.IPAddress] = initialInput
 	return node
 }
 
@@ -269,6 +283,23 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 	node.MsList, failList, removeList, failLog = node.MsList.CheckFails(node.LocalTime, node.TimeOut)
 
 	if *node.IsLeaderPtr {
+
+		// if failed, change maple juice status to failed
+		for _, failed := range failList {
+
+			fmt.Println("failed service: ", failed.IPAddress)
+
+			for key, _ := range *(node.MapleJuiceProcessPtr) {
+				if failed.IPAddress == key {
+					fmt.Println("failedIPAddress: ", key)
+
+					newinput := (*node.MapleJuiceProcessPtr)[key]
+					newinput.Status = "failed"
+					(*node.MapleJuiceProcessPtr)[key] = newinput
+				}
+			}
+		}
+
 		// replicate distributed files of members inside the failList
 
 		for _, failed := range failList {

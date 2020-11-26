@@ -64,9 +64,10 @@ def contact_tracing_db(name_num, location_change_freq):
     day_in_seconds = 60 * 60 * 24
 
     personal_info_db = {"Unique_Person_Name": None, "location": None, "start_time": None, "end_time": None}
+
     infection_db = {"Unique_Person_Name": None, "Is_Infected": None}
 
-    Unique_Person_Name, location, start_time, end_time, Is_Infected = list(), list(), list(), list(), list()
+    Unique_Person_Name, location, start_time, end_time, UPN_infected, Is_Infected = list(), list(), list(), list(), list(), list()
 
 
     for name in names:
@@ -85,14 +86,15 @@ def contact_tracing_db(name_num, location_change_freq):
             location.append(temp_location)
             start_time.append(temp_start_time)
             end_time.append(temp_end_time)
-            Is_Infected.append(temp_Is_Infected)
+        UPN_infected.append(name)
+        Is_Infected.append(temp_Is_Infected)
 
     personal_info_db["Unique_Person_Name"] = Unique_Person_Name
     personal_info_db["location"] = location
     personal_info_db["start_time"] = start_time
     personal_info_db["end_time"] = end_time
 
-    infection_db["Unique_Person_Name"] = Unique_Person_Name
+    infection_db["Unique_Person_Name"] = UPN_infected
     infection_db["Is_Infected"] = Is_Infected
 
     personal_info_df = pd.DataFrame(personal_info_db)
@@ -107,12 +109,14 @@ def contact_tracing_db(name_num, location_change_freq):
 
 
 
+
+
 def main():
-    print("Creatinig Condorcet DataFrame...")
+    # print("Creatinig Condorcet DataFrame...")
 
-    condorcet_data(35, 400)
+    # condorcet_data(35, 400)
 
-    print("Condorcet DataFrame created.\n")
+    # print("Condorcet DataFrame created.\n")
 
     print("Creatinig Contact Tracing DataFrame...")
 

@@ -26,7 +26,7 @@ func CondorcetMapper1(input []string) [][][]string {
 	return mapledData
 }
 
-func CondorcetReducer1(input [][]string) []string {
+func CondorcetReducer1(input [][]string) [][]string {
 	Acount := 0
 	Bcount := 0
 
@@ -47,9 +47,9 @@ func CondorcetReducer1(input [][]string) []string {
 	}
 
 	if Acount > Bcount {
-		return []string{keyA, keyB}
+		return [][]string{[]string{keyA, keyB}}
 	}
-	return []string{keyB, keyA}
+	return [][]string{[]string{keyB, keyA}}
 }
 
 //identity
@@ -59,16 +59,16 @@ func CondorcetMapper2(input []string) [][][]string {
 	var key []string
 	var value []string
 
-	key = append(key,"1")
+	key = append(key, "1")
 	value = append(value, input[0])
-	value = append(value,input[1])
+	value = append(value, input[1])
 	candidates := [][]string{key, value}
 
 	mapledData = append(mapledData, candidates)
 	return mapledData
 }
 
-func CondorcetReducer2(input [][]string) []string {
+func CondorcetReducer2(input [][]string) [][]string {
 
 	Carray := []int{0, 0, 0}
 
@@ -92,16 +92,98 @@ func CondorcetReducer2(input [][]string) []string {
 	}
 
 	if len(winners) == 1 {
-		return []string{winners[0], "Condorcet Winner!"}
+		return [][]string{[]string{winners[0], "Condorcet Winner!"}}
 	} else {
 		set := ""
 
 		for _, winner := range winners {
 			set = set + winner + " "
 		}
-		return []string{set, "No Condorcet winner, Highest Condorcet counts"}
+		return [][]string{[]string{set, "No Condorcet winner, Highest Condorcet counts"}}
 	}
 }
+
+/*
+// M1 reads from D1 and outputs (key=name, value=(location, start, end))
+func PersonalMapper(input []string) [][][]string {
+	mapledData := [][][]string{}
+
+	for _, line := range input {
+		name := line[0]
+		data := line[1:]
+		mapledData = mapledData.append([][]string{[]string{name}, data})
+	}
+
+	return mapledData
+}
+
+func PersonalReducer(input [][]string) [][]string {
+	return input
+}
+
+
+
+func InfectionMapper(input []string) [][][]string {
+	mapledData := [][][]string{}
+
+	var key []string
+	var value []string
+
+	key = append(key,input[0])
+	value = append(value, input[1])
+
+	infectionData := [][]string{key, value}
+
+	mapledData = append(mapledData, infectionData)
+	return mapledData
+}
+
+
+leader table
+
+
+
+
+
+func InfectionReducer(input [][]string) [][]string {
+	return input
+}
+
+
+
+
+func PIMapper(input []string) [][][]string {
+	mapledData := [][][]string{}
+
+	for _, line := range input{
+		key := line[0]
+		value := line[1:]
+		mappedData := [][]string{}
+		info := []string{}
+		if len(value) == 1{
+			info = []string{value, "start", "end"}
+			mappedData = [][]string{[]string{key}, info}
+		}else{
+			info = []string{value, }
+		}
+	}
+}
+
+
+func PIReducer(input [][]string) [][]string {
+/*key = location 	value=(positive,(start, end))
+					value=(testcase,(start, end, name))
+*/
+/*
+	for _, line := range input{
+
+	}
+
+
+
+
+
+}*/
 
 func MinMax(array []int) (int, int) {
 	var max int = array[0]
