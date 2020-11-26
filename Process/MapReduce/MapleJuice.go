@@ -10,6 +10,8 @@ import (
 	"log"
 	"net"
 	"os"
+
+	//"os"
 	"strconv"
 	"strings"
 
@@ -271,7 +273,7 @@ func SendUDPJuiceToWorkers(nodePtr *nd.Node, service_juice_pairs map[string][]st
 
 func getFreeProcess(nodePtr *nd.Node) string {
 	for IP, info := range *(nodePtr.MapleJuiceProcessPtr) {
-		if info.Status == "free" {
+		if info.Status == "free" && IP != nodePtr.SelfIP {
 			return IP
 		}
 	}

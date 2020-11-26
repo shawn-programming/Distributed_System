@@ -274,6 +274,17 @@ func (node Node) IncrementLocalTime(inputList []ms.MsList) (Node, string) {
 
 	for _, input := range inputList {
 		// update newly join members and members' info
+		for _, inputMember := range input.List {
+			_, exists := (*node.MapleJuiceProcessPtr)[inputMember.ID.IPAddress]
+			if !exists {
+				if !inputMember.Failed {
+					var initialInput MJProcessInfo
+					initialInput.Status = "free"
+					(*node.MapleJuiceProcessPtr)[inputMember.ID.IPAddress] = initialInput
+				}
+			}
+		}
+
 		node.MsList, joinLog = node.MsList.CheckMembers(input, node.LocalTime, node.TimeOut)
 		joinLogTotal += joinLog
 		node.MsList = node.MsList.UpdateMsList(input, node.LocalTime, node.Id)
